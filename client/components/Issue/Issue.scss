@@ -1,0 +1,27 @@
+@import '@';
+
+/* see Home for Issue style */
+
+.issueInner {
+  @extend %pageInner;
+}
+
+.overlay {
+  @extend %overlay;
+}
+
+.thumbs {
+  @include o-list-unstyled;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    flex-basis: 25%;
+    min-width: 256px;
+    margin: $bump;
+  }
+}
+
+.title {
+  text-align: center;
+}

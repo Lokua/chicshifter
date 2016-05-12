@@ -1,0 +1,86 @@
+@import '@';
+
+$navButtonBasis: 2%;
+
+.ImageSlider {
+  overflow: hidden;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+  @include o-square(100%);
+  flex-basis: 100 - ($navButtonBasis * 2);
+  padding: $bump;
+  overflow: hidden;
+  min-height: 360px;
+  max-height: 1024px;
+}
+
+.navButton {
+  flex-basis: $navButtonBasis;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.arrow {
+  transition: opacity 250ms;
+  &.disabled {
+    opacity: 0;
+  }
+}
+
+.arrowLeft {
+  @include arrow(left, $unit, $arrow-color);
+}
+.arrowRight {
+  @include arrow(right, $unit, $arrow-color);
+}
+
+.image {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  max-width: 98%;
+  max-height: 98%;
+  margin: auto;
+  box-shadow: $box-shadow;
+  &.active {
+    display: block;
+  }
+}
+
+.meta {
+  text-align: center;
+}
+
+.thumbs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: $bump;
+}
+
+.thumb {
+  @include o-size(64px);
+  margin: $bump/2;
+  background-size: 128px;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: $box-shadow;
+  cursor: pointer;
+  &.active {
+    box-shadow: none;
+    border: 1px solid o-md-color('pink', 400);
+  }
+}

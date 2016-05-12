@@ -1,0 +1,31 @@
+@import '@';
+
+.App {
+  height: 100%;
+}
+
+.site,
+.backgroundImage {
+  @include o-size(100%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.backgroundImage {
+  opacity: 0.5;
+  background-image: url('../../../assets/images/FlamingoPattern-01.png');
+  background-repeat: repeat;
+  background-size: 128px;
+  background-position: 428px -512px;
+  background-position: fixed;
+}
+
+// contains Header, .main, and Footer
+.site {
+  overflow: auto;
+}
+
+.main {
+  padding: $bump;
+}

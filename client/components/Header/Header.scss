@@ -1,0 +1,40 @@
+@import '@';
+
+.Header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: $unit;
+  border-bottom: $dashed-border;
+}
+
+.bannerContainer {
+  flex: 3;
+  text-align: center;
+}
+
+.banner {
+  font-size: 4em;
+  margin: 0;
+}
+
+.banner:hover,
+.navLink a:hover {
+  transition: letter-spacing 0.33s ease-in-out;
+  &:hover {
+    letter-spacing: 4px;
+  }
+}
+
+.captionText {
+  font-size: $h3-font-size;
+  margin: 0;
+}
+
+.navLink {
+  flex: 1;
+}
+
+.dummy {
+  opacity: 0;
+}

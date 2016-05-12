@@ -1,0 +1,9 @@
+{
+  "ext": ".js",
+  "watch": [
+    "config/*",
+    "server/*",
+    "webpack/*",
+    "nodemon.json"
+  ]
+}

@@ -1,0 +1,33 @@
+@import '@';
+
+.Fpfy {
+  figcaption {
+    text-align: center;
+    padding: $unit;
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.imageContainer {
+  position: relative;
+  top: 0;
+  left: 0;
+  img {
+    @include o-center;
+    display: block;
+    width: 100%;
+    max-width: 256px;
+    height: auto;
+    box-shadow: $box-shadow;
+    transition: opacity 0.5s;
+  }
+}
+
+.loadingContainer {
+  position: absolute;
+  z-index: 22;
+}

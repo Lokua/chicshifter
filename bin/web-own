@@ -1,0 +1,3 @@
+#!/bin/bash
+
+chown web:www-data /var/www/chic-shifter.com -R

@@ -1,0 +1,22 @@
+@import '@';
+
+.Section {
+  padding: $unit;
+}
+
+.thumbs {
+  @include o-list-unstyled;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  li {
+    background: $foreground-color;
+    margin: $unit;
+    flex-basis: 20%;
+    border: 1px dashed rgba(0,0,0,0.125);
+    &.limiting {
+      flex-basis: 40%;
+    }
+  }
+}

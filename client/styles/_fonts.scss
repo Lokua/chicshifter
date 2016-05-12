@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
+
+// must be relative to client/styles/index.scss
+//$fonts-path: './assets/fonts';
+//$font-path: $assets + '/fonts';
+$lasta-prefix: $fonts-path + '/lasta-regular-italic/lastaregularitalic-webfont';
+
+@font-face {
+  font-family: 'lastaregular_italic';
+  src: url($lasta-prefix + '.eot');
+  src: url($lasta-prefix + '.eot?#iefix') format('embedded-opentype'),
+       url($lasta-prefix + '.woff2') format('woff2'),
+       url($lasta-prefix + '.woff') format('woff'),
+       url($lasta-prefix + '.ttf') format('truetype'),
+       url($lasta-prefix + '.svg#lastaregular_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,47 @@
+@import '@';
+
+.Fpfys {
+  height: 100%;
+}
+
+.overlay {
+  @extend %overlay;
+}
+
+.fpfysInner {
+  @extend %pageInner;
+}
+
+.title {
+  text-align: center;
+}
+
+.paws {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 $unit * 4;
+  margin: $unit 0;
+  img {
+    @include o-size(92px);
+    box-shadow: $box-shadow;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  button {
+    border: 1px solid o-md-color('pink', 100);
+    background: o-md-color('pink', 50);
+    color: o-md-color('pink', 900);
+    margin: 0 $bump;
+    padding: $bump;
+  }
+}
+
+.arrowLeft {
+  @include arrow(left, $unit/2, $arrow-color);
+}
+.arrowRight {
+  @include arrow(right, $unit/2, $arrow-color);
+}

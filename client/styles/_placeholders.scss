@@ -1,0 +1,30 @@
+%pageContainer {
+  @include o-span(8, none);
+  @include o-center;
+  background: $foreground-color;
+  padding: $unit;
+  box-shadow: $box-shadow;
+  margin: $unit;
+  @include o-trickle {
+    @include o-span(12, none);
+  }
+}
+
+%pageInner {
+  position: relative;
+  margin: $bump;
+  padding: $bump/2 0;
+}
+
+%overlay {
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  background: $foreground-color;
+  box-shadow: $box-shadow;
+}

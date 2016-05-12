@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "All Black",
+    "text": "Is all black all wack?",
+    "image": {
+      "url": "ALLBLACK_JacquelineAlcantara.jpg",
+      "author": "Jacqueline Alcantara"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Hat",
+    "text": "Are stickers on hat cool?",
+    "image": {
+      "url": "HAT_JacquelineAlcantara.jpg",
+      "author": "Jacqueline Alcantara"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Skirt Boots",
+    "text": "The new trend",
+    "image": {
+      "url": "SkirtBoots_JacquelineAlcantara.jpg",
+      "author": "Jacqueline Alcantara"
+    }
+  },
+  {
+    "id": "4",
+    "name": "White in Winter",
+    "text": "foo bar baz",
+    "image": {
+      "url": "WHITEinWINTER_JacquelineAlcantara.jpg",
+      "author": "Jacqueline Alcantara"
+    }
+  },
+  {
+    "id": "5",
+    "name": "X-Tack",
+    "text": "foo bar baz",
+    "image": {
+      "url": "X-TACK_JACQUELINE_ALCANTARA.jpg",
+      "author": "Jacqueline Alcantara"
+    }
+  }
+]

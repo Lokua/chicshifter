@@ -1,0 +1,13 @@
+@import '@';
+
+.Shopping {
+  color: $text-color;
+  address {
+    text-align: center;
+    margin-bottom: $unit * 2;
+  }
+}
+
+.title, .author {
+  text-align: center;
+}

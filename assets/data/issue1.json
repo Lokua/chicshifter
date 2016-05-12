@@ -1,0 +1,902 @@
+{
+  "id": "1",
+  "season": "Spring/Summer",
+  "year": "2016",
+  "sections": {
+    "consideringChic": {
+      "objectName": "considering-chic",
+      "name": "Considering Chic",
+      "image": {
+        "title": "Considering Chic",
+        "url": "images/ConsideringChic_JacquelineAlcantara.jpg"
+      },
+      "caption": "(caption text)",
+      "content": [
+        {
+          "objectName": "bar-the-system",
+          "title": "Finding Order Within Fashion’s Disorder",
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Sekler"
+          },
+          "textUrl": "bar-the-system.md",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "(?)",
+              "lastName": "(?)"
+            },
+            "url": "BigDots_Jacqueline_Alcantara__1024.jpg"
+          }
+        },
+        {
+          "objectName": "case-for-slow-fashion",
+          "title": "Case for Slow Fashion: Considering fibers",
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Sekler"
+          },
+          "textUrl": "case-for-slow-fashion.md",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "(?)",
+              "lastName": "(?)"
+            },
+            "url": "BigDressNatural_Jacqueline_Alcantara__1024.jpg"
+          }
+        },
+        {
+          "objectName": "collectors",
+          "title": "Les collectionneurs / The collectors",
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Sekler"
+          },
+          "textUrl": "collectors.md",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "(?)",
+              "lastName": "(?)"
+            },
+            "url": "BigHairNatural_Jacqueline_Alcantara__1024.jpg"
+          }
+        },
+        {
+          "objectName": "simmel-fashion",
+          "title": "Georg Simmel and the Passion for Fashion",
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Sekler"
+          },
+          "textUrl": "simmel-fashion.md",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "(?)",
+              "lastName": "(?)"
+            },
+            "url": "BigHatsNatural_Jacqueline_Alcantara__1024.jpg"
+          }
+        }
+      ]
+    },
+    "limitingChic": {
+      "objectName": "limiting-chic",
+      "name": "Limiting Chic",
+      "image": {
+        "title": "foo",
+        "url": "images/LimitingChic_JacquelineAlcantara.jpg",
+        "author": {
+          "firstName": "Jacqueline",
+          "lastName": "Alcantara"
+        }
+      },
+      "caption": "Some awesome caption goes here",
+      "content": [
+        {
+          "objectName": "1",
+          "title": "Week 1",
+          "image": {
+            "title": "week1.jpg",
+            "url": "week1.jpg",
+            "author": {
+              "firstName": "Ana",
+              "lastName": "Sekler"
+            }
+          },
+          "content": {
+            "ana": {
+              "objectName": "silhouettes",
+              "textUrl": "silhouettes.md",
+              "images": [
+                {
+                  "title": "day1.jpg",
+                  "url": "day1__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day2.jpg",
+                  "url": "day2__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day3.jpg",
+                  "url": "day3__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day4.jpg",
+                  "url": "day4__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day5.jpg",
+                  "url": "day5__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "objectName": "2",
+          "title": "Week 2",
+          "image": {
+            "title": "week2.jpg",
+            "url": "week2.jpg",
+            "author": {
+              "firstName": "Ana",
+              "lastName": "Sekler"
+            }
+          },
+          "content": {
+            "ana": {
+              "objectName": "silhouettes",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "day1.jpg",
+                  "url": "day1__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day2.jpg",
+                  "url": "day2__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day3.jpg",
+                  "url": "day3__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day4.jpg",
+                  "url": "day4__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day5.jpg",
+                  "url": "day5__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "objectName": "3",
+          "title": "Week 3",
+          "image": {
+            "title": "week3.jpg",
+            "url": "week3.jpg",
+            "author": {
+              "firstName": "Ana",
+              "lastName": "Sekler"
+            }
+          },
+          "content": {
+            "ana": {
+              "objectName": "silhouettes",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "day1.jpg",
+                  "url": "day1__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day2.jpg",
+                  "url": "day2__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day3.jpg",
+                  "url": "day3__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day4.jpg",
+                  "url": "day4__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day5.jpg",
+                  "url": "day5__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "objectName": "4",
+          "title": "Week 4",
+          "image": {
+            "title": "week4.jpg",
+            "url": "week4.jpg",
+            "author": {
+              "firstName": "Ana",
+              "lastName": "Sekler"
+            }
+          },
+          "content": {
+            "ana": {
+              "objectName": "silhouettes",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "day1.jpg",
+                  "url": "day1__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day2.jpg",
+                  "url": "day2__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day3.jpg",
+                  "url": "day3__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day4.jpg",
+                  "url": "day4__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                },
+                {
+                  "title": "day5.jpg",
+                  "url": "day5__1024.jpg",
+                  "author": {
+                    "firstName": "Ana",
+                    "lastName": "Sekler"
+                  }
+                }
+              ]
+            },
+            "jess": {
+              "objectName": "silhouettes",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "jessday1.jpg",
+                  "url": "jessday1__1024.jpg",
+                  "author": {
+                    "firstName": "Jess",
+                    "lastName": "(?)"
+                  }
+                },
+                {
+                  "title": "jessday2.jpg",
+                  "url": "jessday2__1024.jpg",
+                  "author": {
+                    "firstName": "Jess",
+                    "lastName": "(?)"
+                  }
+                },
+                {
+                  "title": "jessday3.jpg",
+                  "url": "jessday3__1024.jpg",
+                  "author": {
+                    "firstName": "Jess",
+                    "lastName": "(?)"
+                  }
+                },
+                {
+                  "title": "jessday4.jpg",
+                  "url": "jessday4__1024.jpg",
+                  "author": {
+                    "firstName": "Jess",
+                    "lastName": "(?)"
+                  }
+                },
+                {
+                  "title": "jessday5.jpg",
+                  "url": "jessday5__1024.jpg",
+                  "author": {
+                    "firstName": "Jess",
+                    "lastName": ""
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "seeingChic": {
+      "objectName": "seeing-chic",
+      "name": "Seeing Chic",
+      "image": {
+        "title": "Seeing Chic",
+        "url": "images/SeeingChic_JacquelineAlcantara.jpg",
+        "author": {
+          "firstName": "Jacqueline",
+          "lastName": "Alcantara"
+        }
+      },
+      "caption": "Some awesome caption goes here",
+      "content": [
+        {
+          "objectName": "andrea-reynders",
+          "title": "Andrea Reynders",
+          "image": {
+            "title": "foobar",
+            "url": "reyndersfull__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "credits": {
+            "images": {
+              "firstName": "Anya",
+              "lastName": "Flip"
+            },
+            "credits": {
+              "firstName": "John",
+              "lastName": "Crawford"
+            },
+            "text": {
+              "firstName": "Ana",
+              "lastName": "Sekler"
+            }
+          },
+          "content": {
+            "images": [
+              "anyaflip__1024.jpg",
+              "anyaflip2__1024.jpg",
+              "anyaflip3__1024.jpg",
+              "anyaflip4__1024.jpg",
+              "anyaflip5__1024.jpg",
+              "reyndersfabrichand__1024.jpg",
+              "reyndersfull__1024.jpg",
+              "reyndersrepurposedtrunkshow__1024.jpg",
+              "reynderssketch__1024.jpg",
+              "reynderstudio__1024.jpg"
+            ],
+            "textUrl": "andrea-reynders.md"
+          }
+        },
+        {
+          "objectName": "cfi",
+          "title": "Chicago Fashion Incubator",
+          "image": {
+            "title": "foobar",
+            "url": "cfistudio__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "credits": {
+            "text": {
+              "author": {
+                "firstName": "Ana",
+                "lastName": "Sekler"
+              }
+            }
+          },
+          "content": {
+            "images": [
+              "cfiposter__1024.jpg",
+              "cfisampleroom__1024.jpg",
+              "cfistudio__1024.jpg",
+              "chicagofashioninitiativeseal__1024.jpg",
+              "shrutikritimoodboard__1024.jpg"
+            ],
+            "textUrl": "cfi.md"
+          }
+        },
+        {
+          "objectName": "katrin-schnabl",
+          "title": "Katrin Schnabl",
+          "image": {
+            "title": "foobar",
+            "url": "MU7A0496__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "credits": {
+            "performance": {
+              "firstName": "Grace",
+              "lastName": "Duval"
+            },
+            "collection": {
+              "firstName": "Matthew",
+              "lastName": "Reeves"
+            },
+            "text": {
+              "firstName": "Ana",
+              "lastName": "Sekler"
+            }
+          },
+          "content": {
+            "images": [
+              "dahliadress__1024.jpg",
+              "katrin_schnabl_collection_performance_0044__1024.jpg",
+              "katrin_schnabl_collection_performance_0314__1024.jpg",
+              "MU7A0264__1024.jpg",
+              "MU7A0408__1024.jpg",
+              "MU7A0496__1024.jpg",
+              "MU7A2933__1024.jpg",
+              "MU7A3346__1024.jpg",
+              "MU7A3541__1024.jpg",
+              "MU7A3683__1024.jpg",
+              "schnablartLimb__1024.jpg",
+              "schnablstudio1__1024.jpg"
+            ],
+            "textUrl": "katrin-schnabl.md"
+          }
+        },
+        {
+          "objectName": "leigh-deleonardo",
+          "title": "Leigh DeLeonardo",
+          "image": {
+            "title": null,
+            "url": null,
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "credits": {
+            "text": {
+              "firstName": "Ana",
+              "lastName": "Sekler"
+            }
+          },
+          "content": {
+            "images": null,
+            "textUrl": "leigh-deleonardo.md"
+          }
+        }
+      ]
+    },
+    "shoppingChic": {
+      "objectName": "shopping-chic",
+      "name": "Shopping Chic",
+      "image": {
+        "title": "Shopping Chic",
+        "url": "images/ShoppingChic_JacquelineAlcantara.jpg",
+        "author": {
+          "firstName": "Jacqueline",
+          "lastName": "Alcantara"
+        }
+      },
+      "caption": "Some awesome caption goes here",
+      "content": [
+        {
+          "objectName": "milk-handmade",
+          "title": "Milk Handmade",
+          "image": {
+            "title": "foobar",
+            "url": "milkshop__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Sekler"
+          },
+          "address": {
+            "street": "5137 N Clark",
+            "neighborhood": "Andersonville",
+            "city": "Chicago",
+            "state": "IL",
+            "country": "USA"
+          },
+          "content": {
+            "images": [
+              "milkgloves__1024.jpg",
+              "milkmidwestbesttees__1024.jpg",
+              "milkshilliconfetti__1024.jpg",
+              "milkshilliconfettionbody__1024.jpg",
+              "milkshop__1024.jpg",
+              "milkwindow__1024.jpg"
+            ],
+            "textUrl": "milk-handmade.md"
+          }
+        },
+        {
+          "objectName": "robin-richman",
+          "title": "Robin Richman",
+          "image": {
+            "title": "foobar",
+            "url": "richmanshop__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Nezna"
+          },
+          "address": {
+            "street": "2108 N Damen",
+            "neighborhood": "Bucktown",
+            "city": "Chicago",
+            "state": "IL",
+            "country": "USA"
+          },
+          "content": {
+            "images": [
+              "bierendonckmens__1024.jpg",
+              "capeatrichman__1024.jpg",
+              "richmaneckhauslatta__1024.jpg",
+              "richmanguidiboots__1024.jpg",
+              "richmanjewels__1024.jpg",
+              "richmanoutside__1024.jpg",
+              "richmanshop__1024.jpg"
+            ],
+            "textUrl": "robin-richman.md"
+          }
+        },
+        {
+          "objectName": "union-handmade",
+          "title": "Union Handmade",
+          "image": {
+            "title": "foobar",
+            "url": "unionhandmadedecember__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Sekler"
+          },
+          "address": {
+            "street": "3860 N Lincoln",
+            "neighborhood": "North Center",
+            "city": "Chicago",
+            "state": "IL",
+            "country": "USA"
+          },
+          "content": {
+            "images": [
+              "unionhandmadechicagodressmaker__1024.jpg",
+              "unionhandmadedecember__1024.jpg"
+            ],
+            "textUrl": "union-handmade.md"
+          }
+        },
+        {
+          "objectName": "uniqlo",
+          "title": "Uniqlo",
+          "image": {
+            "title": "foobar",
+            "url": "menslinen__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "author": {
+            "firstName": "Ana",
+            "lastName": "Sekler"
+          },
+          "address": {
+            "street": "830 N Michigan",
+            "neighborhood": "Streeterville",
+            "city": "Chicago",
+            "state": "IL",
+            "country": "USA"
+          },
+          "content": {
+            "images": [
+              "menslinen__1024.jpg",
+              "uniqloskirtturtleneck__1024.jpg"
+            ],
+            "textUrl": "uniqlo.md",
+            "title": "Looking Into the Uniqloset"
+          }
+        }
+      ]
+    },
+    "streetChic": {
+      "objectName": "street-chic",
+      "name": "Street Chic",
+      "image": {
+        "title": "Street Chic",
+        "url": "images/StreetChic_JacquelineAlcantara.jpg",
+        "author": {
+          "firstName": "Jacqueline",
+          "lastName": "Alcantara"
+        }
+      },
+      "caption": "Some awesome caption goes here",
+      "content": [
+        {
+          "objectName": "andersonville",
+          "title": "Andersonville",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "",
+              "lastName": ""
+            },
+            "url": "valentine__1024.jpg"
+          },
+          "content": [
+            {
+              "person": "Ashley",
+              "image": "ashley__1024.jpg" ,
+              "question": "What inspires your style today?",
+              "answer": "This is everything I had..."
+            },
+            {
+              "person": "Desimir",
+              "image": "desimir__1024.jpg" ,
+              "question": "What inspires your style today?",
+              "answer": "Comfort."
+            },
+            {
+              "person": "Valentine",
+              "image": "valentine__1024.jpg" ,
+              "question": "What inspires your style today?",
+              "answer": "The sense of fab inspires me."
+            },
+            {
+              "person": "Vani",
+              "image": "vani__1024.jpg" ,
+              "question": "What inspires your style today?",
+              "answer": "My skirt is from India, the navy sweater is J.Crew, I’m a graphic designer who is inspired by Audrey Hepburn’s style."
+            }
+          ]
+        },
+        {
+          "objectName": "ravenswood",
+          "title": "Ravenswood",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "",
+              "lastName": ""
+            },
+            "url": "shari__1024.jpg"
+          },
+          "content": [
+            {
+              "person": "Felix",
+              "image": "felix__1024.jpg" ,
+              "question": "?",
+              "answer": "..."
+            },
+            {
+              "person": "Milena",
+              "image": "milena__1024.jpg" ,
+              "question": "?",
+              "answer": "..."
+            },
+            {
+              "person": "Shari",
+              "image": "shari__1024.jpg" ,
+              "question": "?",
+              "answer": "..."
+            }
+          ]
+        }
+      ]
+    },
+    "touringChic": {
+      "objectName": "touring-chic",
+      "name": "Touring Chic",
+      "image": {
+        "title": "Touring Chic",
+        "url": "images/TouringChic_JacquelineAlcantara.jpg",
+        "author": {
+          "firstName": "Jacqueline",
+          "lastName": "Alcantara"
+        }
+      },
+      "caption": "Some awesome caption goes here",
+      "content": [
+        {
+          "objectName": "detroit",
+          "title": "Detroit",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "",
+              "lastName": ""
+            },
+            "url": "exhibitspan__1024.jpg"
+          },
+          "content": {
+            "images": [
+              "annasui__1024.jpg",
+              "annasui2__1024.jpg",
+              "annasuimyfave__1024.jpg",
+              "annyee__1024.jpg",
+              "bridgetsullivan__1024.jpg",
+              "exhibitspan__1024.jpg",
+              "johnvarvatos__1024.jpg"
+            ],
+            "textUrl": "detroit.md"
+          }
+        },
+        {
+          "objectName": "indianapolis",
+          "title": "Indianapolis Museum of Art, Gerald and Dorit Paul Galleries",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "",
+              "lastName": ""
+            },
+            "url": "westwoodboobtube__1024.jpg"
+          },
+          "content": {
+            "images": [
+              "blassreddress__1024.jpg",
+              "clairemccardelldetail__1024.jpg",
+              "commedesgarcons__1024.jpg",
+              "deCastelbajac__1024.jpg",
+              "decastelbajacorange__1024.jpg",
+              "gernreichtotallook__1024.jpg",
+              "japaneseplatforms__1024.jpg",
+              "kawakubobump__1024.jpg",
+              "kawakubohands__1024.jpg",
+              "mccardelldior__1024.jpg",
+              "westwoodboobtube__1024.jpg"
+            ],
+            "textUrl": "indianapolis.md"
+          }
+        },
+        {
+          "objectName": "kent",
+          "title": "Kent State University Museum",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "",
+              "lastName": ""
+            },
+            "url": "fashiontimeline3__1024.jpg"
+          },
+          "content": {
+            "images": [
+              "fashiontimeline__1024.jpg",
+              "fashiontimeline2__1024.jpg",
+              "fashiontimeline3__1024.jpg",
+              "flapper10__1024.jpg",
+              "flapper2__1024.jpg",
+              "flapper3__1024.jpg",
+              "flapper4__1024.jpg",
+              "flapper5__1024.jpg",
+              "flapper6__1024.jpg",
+              "flapper7__1024.jpg",
+              "flapper8__1024.jpg",
+              "flapper9__1024.jpg",
+              "flapperstyle__1024.jpg",
+              "insideoutchaneldetail__1024.jpg",
+              "insideoutchaneljacketinside__1024.jpg",
+              "insideoutchanelskirt__1024.jpg",
+              "insideoutchanelsuitdisplay__1024.jpg",
+              "insideoutchanelwhole__1024.jpg",
+              "insideoutmens__1024.jpg",
+              "insideoutmensbreeches__1024.jpg",
+              "insideoutmensbreechesback__1024.jpg",
+              "insideoutmensbreechesfront__1024.jpg"
+            ],
+            "textUrl": "kent.md"
+          }
+        },
+        {
+          "objectName": "toledo",
+          "title": "Toledo",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "",
+              "lastName": ""
+            },
+            "url": "nikejordan__1024.jpg"
+          },
+          "content": {
+            "images": [
+              "adidasallround__1024.jpg",
+              "adidasceyadams__1024.jpg",
+              "adidassamba__1024.jpg",
+              "anatouringsneaker__1024.jpg",
+              "earlysneakers__1024.jpg",
+              "jordansection__1024.jpg",
+              "nikeclassic__1024.jpg",
+              "nikejordan__1024.jpg",
+              "puma&chalayan__1024.jpg",
+              "pumakehindewiley__1024.jpg",
+              "reebokfreestyle__1024.jpg"
+            ],
+            "textUrl": "toledo.md"
+          }
+        }
+      ]
+    }
+  }
+}

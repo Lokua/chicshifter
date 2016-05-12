@@ -1,0 +1,31 @@
+@import '@';
+
+.Home {
+  @extend %o-grid;
+  padding: $unit;
+}
+
+:global(.Issue),
+:global(.SideBar) {
+  position: relative;
+  @include o-media(small) {
+    @include o-span(12);
+  }
+}
+
+:global {
+  .Issue {
+    @include o-span(9);
+    @include o-media(small) {
+      margin-bottom: $unit;
+    }
+  }
+  .SideBar {
+    @include o-span(3);
+  }
+}
+
+.title {
+  color: o-md-color('amber', 900);
+  font-size: 4em;
+}

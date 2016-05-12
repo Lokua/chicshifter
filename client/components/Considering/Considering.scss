@@ -1,0 +1,36 @@
+@import '@';
+
+.wrapper {
+  @include o-size(100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.25;
+  @include o-trickle {
+    left: 50%;
+    margin-left: -512px;
+  }
+}
+
+.article {
+  position: relative;
+  padding: $unit;
+  border: $dashed-border;
+  border-spacing: 4em;
+  main {
+    padding: $unit;
+  }
+}
+
+.title, .author {
+  text-align: center;
+}

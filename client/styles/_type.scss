@@ -1,0 +1,44 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+  font-weight: normal;
+}
+
+@for $n from 1 through 6 {
+  $size: map-get($h-map, $n);
+  h#{$n} {
+    font-size: $size;
+    margin-bottom: ($line-height * $size) * 0.1;
+  }
+}
+
+:global(.h1) { font-size: $h1-font-size; }
+:global(.h2) { font-size: $h2-font-size; }
+:global(.h3) { font-size: $h3-font-size; }
+:global(.h4) { font-size: $h4-font-size; }
+:global(.h5) { font-size: $h5-font-size; }
+:global(.h6) { font-size: $h6-font-size; }
+
+p {
+  font-size: $font-size;
+  line-height: $line-height;
+  margin-bottom: $unit;
+  margin-top: $unit;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  &:hover, &:link, &:active, &:visited {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+:global(.link) {
+  color: $link-color;
+  text-decoration: none;
+  &:hover, &:link, &:active, &:visited {
+    color: $link-color;
+    text-decoration: underline;
+  }
+}

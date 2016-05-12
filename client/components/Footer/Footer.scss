@@ -1,0 +1,19 @@
+@import '@';
+
+.Footer {
+  //flex: 0 0 auto;
+  border-top: $border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $unit;
+}
+
+.copyright {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: normal;
+  font-family: $mono;
+}

@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+// when in doubt, run this
+
+const os = require('os')
+const fs = require('fs')
+const path = require('path')
+const homeOrTmp = require('home-or-tmp')
+
+// this is the same way path is determined by babel-register
+// github.com/babel/babel/blob/master/packages/babel-register/src/cache.js
+const babelCachePath = process.env.BABEL_CACHE_PATH ||
+  path.join(homeOrTmp, '.babel.json')
+
+const platform = os.platform()
+
+if (platform === 'linux') {
+
+  fs.stat(babelCachePath, (err, stats) => {
+    if (err) return console.error(err)
+
+    fs.unlink(babelCachePath, err => {
+      if (err) return console.error(err)
+
+      console.info(`${babelCachePath} has been deleted`)
+    })
+  })
+
+} else {
+  console.warn('No routine for non-linux systems has been implemented')
+}
