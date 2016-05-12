@@ -2,7 +2,7 @@
   "presets": ["es2015", "stage-1", "react"],
   "plugins": [
     ["webpack-alias", {
-      "config": "./webpack/webpack.config.dev.js"
+      "config": "./webpack/webpack.config.resolve.js"
     }],
     "transform-class-properties",
     "transform-object-rest-spread",

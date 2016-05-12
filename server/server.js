@@ -4,6 +4,7 @@ import serve from 'koa-static'
 import convert from 'koa-convert'
 import cors from 'koa-cors'
 import bodyParser from 'koa-bodyparser'
+import _Logger from 'lokua.net.node-logger'
 
 import config from '../config'
 import Logger from './Logger'
@@ -12,7 +13,7 @@ import api from './api'
 import errorHandler from './middleware/errorHandler'
 
 const app = new Koa()
-// const logger = new Logger('server')
+const logger = new Logger('server')
 
 const { projectRoot } = config
 const { host, port } = config.server
@@ -22,13 +23,12 @@ const { host, port } = config.server
 const use = app.use;
 app.use = x => use.call(app, convert(x))
 
-app.use(Logger.koaLogger('request', {
-  level: 0,
-  // level: process.env.TEST
-  //   ? -1
-  //   : process.env.NODE_ENV === 'development'
-  //     ? Logger.DEBUG
-  //     : Logger.INFO,
+app.use(_Logger.koaLogger('request', {
+  level: process.env.TEST
+    ? -1
+    : process.env.NODE_ENV === 'development'
+      ? Logger.DEBUG
+      : Logger.INFO,
   format: ['name']
 }))
 
@@ -42,7 +42,7 @@ app.use(router.routes())
 app.use(api.routes())
 
 if (!+process.env.TEST) {
-  app.listen(port, host, () => console.info(`Listening at ${host}:${port}`))
+  app.listen(port, host, () => logger.info(`Listening at ${host}:${port}`))
 }
 
 export default app

@@ -15,14 +15,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: `http://localhost:${config.devServer.port}/dist/`
   },
-  resolve: {
-    alias: {
-      '@components': path.join(config.clientRoot, '/components/'),
-      '@common': path.join(config.clientRoot, '/common/'),
-      '@styles': path.join(config.clientRoot, 'styles')
-    },
-    extensions: ['', '.js', '.jsx']
-  },
+  resolve: require('./webpack.config.resolve'),
   plugins: [
     new webpack.ProvidePlugin({
       fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
@@ -43,7 +36,6 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        // exclude: /index/,
         loaders: [
           'style',
           'css?modules&importLoaders=1' +

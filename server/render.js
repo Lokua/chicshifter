@@ -57,7 +57,7 @@ export default async function render(ctx) {
 }
 
 function renderPage(html, initialState, meta) {
-  const style = process.env.NODE_ENV === 'production' ? 'style.css' : ''
+  const style = process.env.NODE_ENV === 'production' ? '/style.css' : ''
 
   return '' +
 `<!-- ${meta.url} -->
