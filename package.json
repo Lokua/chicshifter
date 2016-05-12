@@ -37,8 +37,9 @@
   },
   "homepage": "https://github.com/lokua/chicshifter",
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
     "autoprefixer": "^6.3.6",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
     "chai": "^3.5.0",
     "concurrently": "^2.0.0",
     "css-loader": "^0.23.1",
@@ -67,8 +68,8 @@
     "style-loader": "^0.13.1",
     "supertest": "^1.2.0",
     "url-loader": "^0.5.7",
-    "webpack-dev-server": "^1.12.1",
-    "webpack": "^1.12.2"
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
     "babel-core": "^6.8.0",

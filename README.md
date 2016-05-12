@@ -61,6 +61,7 @@ TODO: Dockerize this whole process
 From https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04
 
 As root:
+
 ```sh
 # create new user, create password
 adduser web
@@ -142,7 +143,7 @@ sudo apt-get install -y build-essential
 npm i -g pm2
 
 # generate startup config
-pm2 startup ubuntu
+pm2 startup ubuntu # do what the prompt says...
 ```
 
 Set up project (as web user)
@@ -150,6 +151,23 @@ Set up project (as web user)
 cd /home/web
 git clone https://github.com/lokua/chicshifter.git chic
 
-# run webown so nginx/node can serve statics
-./bin/webown
+cd chic
+# aside: export NODE_ENV=production, TEST=0 to .bashrc
+NODE_ENV=production npm i
+
+# run web-own so nginx/node can serve statics
+./bin/web-own
+
+# enable nginx conf
+sudo ln -s /home/web/chic/config/chic.conf /etc/nginx/sites-enabled/chic.conf
+
+# test if conf is ok
+sudo nginx -t
+
+sudo nginx -s reload
+
+# run the app
+pm2 start app.json
+
+# navigate to http://DROPLET_IP to verify
 ```
