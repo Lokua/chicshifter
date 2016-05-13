@@ -5,23 +5,29 @@
   padding: $unit;
 }
 
-:global(.Issue),
-:global(.SideBar) {
-  position: relative;
-  @include o-media(small) {
-    @include o-span(12);
-  }
-}
-
 :global {
   .Issue {
     @include o-span(9);
+    @include o-media(m) {
+      @include o-span(7);
+    }
     @include o-media(small) {
       margin-bottom: $unit;
     }
   }
   .SideBar {
     @include o-span(3);
+    @include o-media(m) {
+      @include o-span(5);
+    }
+  }
+}
+
+:global(.Issue),
+:global(.SideBar) {
+  position: relative;
+  @include o-media(s) {
+    @include o-span(12);
   }
 }
 

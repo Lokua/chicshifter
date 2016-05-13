@@ -1,5 +1,7 @@
 @import '@';
 
+// Considering is using css from Article.scss
+
 .wrapper {
   @include o-size(100%);
   position: relative;

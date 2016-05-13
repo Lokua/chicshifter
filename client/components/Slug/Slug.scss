@@ -12,5 +12,8 @@
 }
 
 .separator {
-  color: $text-color-light;
+  display: inline-block;
+  color: lighten($text-color-light, 10%);
+  padding: 0 $bump;
+  font-size: $h4-font-size;
 }

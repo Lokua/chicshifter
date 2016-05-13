@@ -8,13 +8,19 @@
   @include o-list-unstyled;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   li {
+    flex-basis: 20%;
     background: $foreground-color;
     margin: $unit;
-    flex-basis: 20%;
     border: 1px dashed rgba(0,0,0,0.125);
+    @include o-media(m) {
+      flex-basis: 45%;
+    }
+    @include o-media(s) {
+      flex-basis: 100%;
+    }
     &.limiting {
       flex-basis: 40%;
     }

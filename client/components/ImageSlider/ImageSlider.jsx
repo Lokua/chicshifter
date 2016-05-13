@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { autobind } from 'core-decorators'
 import classNames from 'classnames'
 import { uiActions, shallowUpdate, injectLogger } from '@common'
+import { IconButton } from '@components/IconButton'
 import css from './ImageSlider.scss'
 
 const mapStateToProps = (state, props) => ({
@@ -51,15 +52,15 @@ class ImageSlider extends Component {
       <div className={css.ImageSlider}>
 
         <section className={css.main}>
-          <button className={css.navButton} onClick={() => decImageIndex()}>
-            <div
-              className={
-                classNames(css.arrow, css.arrowLeft, {
-                  [css.disabled]: index === 0
-                })
-              }
+          <div className={css.navButtonContainer}>
+            <IconButton
+              i="angle-left"
+              className={classNames(css.navButton, {
+                [css.disabled]: index === 0
+              })}
+              onClick={() => decImageIndex()}
             />
-          </button>
+          </div>
 
           <div className={css.imageContainer} ref="imageContainer">
             {images.map((image, i) => {
@@ -77,18 +78,15 @@ class ImageSlider extends Component {
             })}
           </div>
 
-          <button
-            className={css.navButton}
-            onClick={() => incImageIndex(tailIndex)}
-          >
-            <div
-              className={
-                classNames(css.arrow, css.arrowRight, {
-                  [css.disabled]: index === tailIndex
-                })
-              }
+          <div className={css.navButtonContainer}>
+            <IconButton
+              i="angle-right"
+              className={classNames(css.navButton, {
+                [css.disabled]: index === tailIndex
+              })}
+              onClick={() => incImageIndex(tailIndex)}
             />
-          </button>
+          </div>
         </section>
 
         <section className={css.meta}>

@@ -13,12 +13,15 @@
 }
 
 .backgroundImage {
-  opacity: 0.5;
+  opacity: 0.4;
   background-image: url('../../../assets/images/FlamingoPattern-01.png');
   background-repeat: repeat;
-  background-size: 128px;
+  background-size: 512px;
   background-position: 428px -512px;
-  background-position: fixed;
+  transform: rotate(45deg);
+  //background-clip: content-box;
+  //transform: skewX(30deg);
+  //border-left: 256px dashed rgba(white, 0.5);
 }
 
 // contains Header, .main, and Footer

@@ -4,12 +4,11 @@ $navButtonBasis: 2%;
 
 .ImageSlider {
   overflow: hidden;
+  margin-bottom: $font-size;
 }
 
 .main {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .imageContainer {
@@ -22,25 +21,23 @@ $navButtonBasis: 2%;
   max-height: 1024px;
 }
 
-.navButton {
+.navButtonContainer {
   flex-basis: $navButtonBasis;
-  border: none;
-  background: none;
   cursor: pointer;
-}
-
-.arrow {
-  transition: opacity 250ms;
-  &.disabled {
-    opacity: 0;
+  margin: auto 0;
+  font-size: map-get($h-map, 1);
+  .navButton {
+    color: $text-color-light;
   }
-}
-
-.arrowLeft {
-  @include arrow(left, $unit, $arrow-color);
-}
-.arrowRight {
-  @include arrow(right, $unit, $arrow-color);
+  &:hover {
+    .navButton {
+      color: $text-color;
+    }
+  }
+  .disabled {
+    cursor: default !important;
+    color: $inactive-color;
+  }
 }
 
 .image {
@@ -81,6 +78,6 @@ $navButtonBasis: 2%;
   cursor: pointer;
   &.active {
     box-shadow: none;
-    border: 1px solid o-md-color('pink', 400);
+    border: 1px solid $primary-color;
   }
 }

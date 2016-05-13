@@ -23,7 +23,10 @@ export default class Slug extends Component {
           <span key={i}>
             <Link to={p.href}>{p.text}</Link>
             {i !== path.length-1 &&
-              <span className={css.separator}> &gt; </span>
+              <span className={css.separator}>
+                <span className="icon i-angle-right" />
+              </span>
+              // <span className={css.separator}> &gt; </span>
             }
           </span>
         ))}
