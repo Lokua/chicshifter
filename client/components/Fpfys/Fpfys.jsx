@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react'
+import classNames from 'classnames'
 import { connect } from 'react-redux'
 
-// eslint-disable-next-line no-unused-vars
 import { shallowUpdate, randomBoolean, uiActions } from '@common'
+import { IconButton } from '@components/IconButton'
+
 import actions from './actions'
 import Fpfy from './Fpfy.jsx'
 import css from './Fpfys.scss'
@@ -38,6 +40,9 @@ class Fpfys extends Component {
     const { fpfys, prev, next, currentFpfy, fpfyImageLoading,
       toggleFpfyImageLoading, postFpfyVote } = this.props
 
+    const prevDisabled = currentFpfy === 0
+    const nextDisabled = currentFpfy === fpfys.length-1
+
     return (
       <div className={css.Fpfys}>
         <div className={css.overlay} />
@@ -51,18 +56,22 @@ class Fpfys extends Component {
 
           <main>
             <section className={css.paws}>
-              <img
-                onClick={() => postFpfyVote(fpfys[currentFpfy].id, false)}
-                src={`/images/FauxPas_JacquelineAlcantara.jpg`}
-                title="Vote Pas"
-                alt="Faux Pas Paw Image"
-              />
-              <img
-                onClick={() => postFpfyVote(fpfys[currentFpfy].id, true)}
-                src={`/images/FauxYea_JacquelineAlcantara.jpg`}
-                title="Vote yea"
-                alt="Faux Yeah Paw Image"
-              />
+              <div className={css.paw}>
+                <img
+                  onClick={() => postFpfyVote(fpfys[currentFpfy].id, false)}
+                  src={`/images/FauxPas_JacquelineAlcantara.jpg`}
+                  title="Vote Pas"
+                  alt="Faux Pas Paw Image"
+                />
+              </div>
+              <div className={css.paw}>
+                <img
+                  onClick={() => postFpfyVote(fpfys[currentFpfy].id, true)}
+                  src={`/images/FauxYea_JacquelineAlcantara.jpg`}
+                  title="Vote yea"
+                  alt="Faux Yeah Paw Image"
+                />
+              </div>
             </section>
 
             <section className={css.fpfys}>
@@ -77,26 +86,32 @@ class Fpfys extends Component {
           </main>
 
           <footer className={css.pagination}>
-            {currentFpfy !== 0 &&
-              <button
-                onClick={() => {
-                  toggleFpfyImageLoading(true)
-                  prev()
-                }}
-              >
-                <div className={css.arrowLeft} />
-              </button>
-            }
-            {currentFpfy !== fpfys.length-1 &&
-              <button
-                onClick={() => {
-                  toggleFpfyImageLoading(true)
-                  next(fpfys.length)
-                }}
-              >
-                <div className={css.arrowRight} />
-              </button>
-            }
+            <IconButton
+              i="angle-left"
+              className={classNames(css.iconButton, {
+                [css.disabled]: prevDisabled
+              })}
+              textAlign="right"
+              tooltip="previous"
+              onClick={() => {
+                if (prevDisabled) return
+                toggleFpfyImageLoading(true)
+                prev()
+              }}
+            />
+            <IconButton
+              i="angle-right"
+              className={classNames(css.iconButton, {
+                [css.disabled]: nextDisabled
+              })}
+              textAlign="left"
+              tooltip="next"
+              onClick={() => {
+                if (nextDisabled) return
+                toggleFpfyImageLoading(true)
+                next(fpfys.length)
+              }}
+            />
           </footer>
         </div>
       </div>

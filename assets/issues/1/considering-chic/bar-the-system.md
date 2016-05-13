@@ -1,7 +1,7 @@
 # Finding Order Within Fashion’s Disorder
 ## by Ana Sekler
 
-When I picked up Roland Barthes’ book The Fashion System, I had no idea what type of system to expect. Fashion after all thrives on its unpredictability, its swiftly changing trends, and its lack of definition. How would a literary theorist, philosopher, and linguist like Barthes approach fashion?
+When I picked up Roland Barthes’ book *The Fashion System*, I had no idea what type of system to expect. Fashion after all thrives on its unpredictability, its swiftly changing trends, and its lack of definition. How would a literary theorist, philosopher, and linguist like Barthes approach fashion?
 
 Like any good writer, Barthes begins from what he knows of course, in this case a semiotic analysis of clothing as written language as he found consulting issues of Elle and Le Jardin des Modes from June 1958–59. Barthes summarized his endeavor best in an interview with France-Forum from the same year the book was published, 1967:
 

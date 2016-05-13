@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'chicshifter-icons';
+    src:    url('fonts/chicshifter-icons.eot?w7t60n');
+    src:    url('fonts/chicshifter-icons.eot?w7t60n#iefix') format('embedded-opentype'),
+        url('fonts/chicshifter-icons.ttf?w7t60n') format('truetype'),
+        url('fonts/chicshifter-icons.woff?w7t60n') format('woff'),
+        url('fonts/chicshifter-icons.svg?w7t60n#chicshifter-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'chicshifter-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.i-close:before {
+    content: "\f00d";
+}
+.i-remove:before {
+    content: "\f00d";
+}
+.i-times:before {
+    content: "\f00d";
+}
+.i-chevron-left:before {
+    content: "\f053";
+}
+.i-chevron-right:before {
+    content: "\f054";
+}
+.i-bars:before {
+    content: "\f0c9";
+}
+.i-navicon:before {
+    content: "\f0c9";
+}
+.i-reorder:before {
+    content: "\f0c9";
+}
+.i-caret-left:before {
+    content: "\f0d9";
+}
+.i-caret-right:before {
+    content: "\f0da";
+}
+.i-angle-left:before {
+    content: "\f104";
+}
+.i-angle-right:before {
+    content: "\f105";
+}

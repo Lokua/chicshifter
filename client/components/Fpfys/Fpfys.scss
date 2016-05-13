@@ -17,25 +17,37 @@
 }
 
 .paws {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 $unit * 4;
-  margin: $unit 0;
-  img {
-    @include o-size(92px);
-    box-shadow: $box-shadow;
+  @extend %o-grid;
+  padding: $unit;
+  margin: 0;
+
+  .paw {
+    @include o-span(6);
+    padding: $bump;
+    overflow: hidden;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: auto;
+      box-shadow: $box-shadow;
+    }
   }
 }
 
 .pagination {
-  display: flex;
-  justify-content: center;
-  button {
-    border: 1px solid o-md-color('pink', 100);
-    background: o-md-color('pink', 50);
-    color: o-md-color('pink', 900);
-    margin: 0 $bump;
-    padding: $bump;
+  @extend %o-grid;
+  .iconButton {
+    @include o-span(6);
+    padding: 0 $unit;
+    font-size: $unit * 1.5;
+    color: $primary-color;
+    &:hover {
+      color: darken($primary-color, 15%);
+    }
+    &.disabled {
+      color: $inactive-color;
+      cursor: default !important;
+    }
   }
 }
 
