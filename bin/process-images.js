@@ -15,10 +15,18 @@ const [ inputDir, outputDir ] = args.map(dir =>
 
 ;(async () => {
 
+  console.log('running...')
+
   const fileNames = await fs.readdir(inputDir)
 
-  fileNames.map(async fileName => {
+  await fileNames.map(async fileName => {
+    if (/^\._/i.test(fileName)) {
+      console.log('skipping dotfile')
+      return
+    }
+
     if (!/jpg|jpeg|png|webp|gif|svg|tiff/i.test(fileName)) {
+      console.log('skipping non image')
       return
     }
 
@@ -31,7 +39,10 @@ const [ inputDir, outputDir ] = args.map(dir =>
     sharp(filePath)
       .resize(size)
       .toFile(outPath, (err, info) => {
-        if (err) throw err
+        if (err) {
+          console.info(`about to throw from processing ${fileName}`)
+          throw err
+        }
         console.info('info:', info)
       })
   })

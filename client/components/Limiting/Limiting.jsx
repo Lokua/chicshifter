@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { shallowUpdate, injectLogger, selectors } from '@common'
+import { capitalize, shallowUpdate, injectLogger, selectors } from '@common'
 import { Prose } from '@components/Prose'
 import { ImageSlider } from '@components/ImageSlider'
 import actions from './actions'
@@ -12,14 +12,14 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  fetchLimitingArticles(fileNames) {
+  fetchLimitingArticles(persons) {
     const { params } = props
     return dispatch(actions.fetchLimitingArticles(
       params.issue,
 
       // params.article is actually week #
       params.article,
-      fileNames.join(',')
+      persons.join(',')
     ))
   },
   clearLimitingArticles() {
@@ -41,17 +41,15 @@ class Limiting extends Component {
 
   componentDidMount() {
     this.debug('this.props:', this.props)
-    const fileNames = []
+    const persons = []
 
     Object.keys(this.props.articleMeta.content).forEach(author => {
       const entry = this.props.articleMeta.content[author]
-      if (entry.textUrl) {
-        fileNames.push(entry.textUrl)
-      }
+      if (entry.textUrl) persons.push(author)
     })
 
-    if (fileNames.length) {
-      this.props.fetchLimitingArticles(fileNames)
+    if (persons.length) {
+      this.props.fetchLimitingArticles(persons)
 
     } else {
       this.props.clearLimitingArticles()
@@ -67,15 +65,20 @@ class Limiting extends Component {
     return (
       <div className={css.Limiting}>
         <header>
-          <h1 className={`h4 ${css.title}`}>{articleMeta.title}</h1>
+          <h1 className={css.title}>
+            Week {params.article}: {articleMeta.title}
+          </h1>
         </header>
+        <hr />
         <main>
           {Object.keys(articleMeta.content).map((contributor, i) => {
             const contrib = articleMeta.content[contributor]
             return (
               <div key={contributor}>
                 {i > 0 && <hr />}
-                <Prose text={articles[i]} />
+                <h2 style={{ textAlign: 'center' }}>
+                  {capitalize(contributor)}
+                </h2>
                 <ImageSlider
                   id={`${prefix}/${contributor}`}
                   images={contrib.images.map((image, i) => ({
@@ -83,6 +86,9 @@ class Limiting extends Component {
                     src: `/${imagePrefix}/${image.url}`
                   }))}
                 />
+                <div className={css.prose}>
+                  <Prose text={articles[i]} />
+                </div>
               </div>
             )
           })}

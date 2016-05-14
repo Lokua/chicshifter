@@ -98,7 +98,7 @@
       "content": [
         {
           "objectName": "1",
-          "title": "Week 1",
+          "title": "Silhouette Shifter",
           "image": {
             "title": "week1.jpg",
             "url": "week1.jpg",
@@ -109,48 +109,101 @@
           },
           "content": {
             "ana": {
-              "objectName": "silhouettes",
-              "textUrl": "silhouettes.md",
+              "objectName": "ana",
+              "textUrl": "ana/text.md",
               "images": [
                 {
                   "title": "day1.jpg",
-                  "url": "day1__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "url": "ana/day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "url": "day2__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "url": "ana/day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "url": "day3__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "url": "ana/day3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "url": "day4__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "url": "ana/day4__1024.jpg"
                 },
                 {
                   "title": "day5.jpg",
-                  "url": "day5__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "url": "ana/day5__1024.jpg"
+                }
+              ]
+            },
+            "autumn": {
+              "objectName": "autumn",
+              "textUrl": "autumn/text.md",
+              "images": [
+                {
+                  "url": "autumn/weekoneshift__1024.jpg",
+                  "rotate": "90"
+                },
+                {
+                  "url": "autumn/weekoneshift2__1024.jpg",
+                  "rotate": "90"
+                },
+                {
+                  "url": "autumn/weekoneshift3__1024.jpg",
+                  "rotate": "90"
+                }
+              ]
+            },
+            "constance": {
+              "objectName": "constance",
+              "textUrl": "constance/text.md",
+              "images": [
+                {
+                  "title": "day1.jpg",
+                  "url": "constance/day1__1024.jpg"
+                },
+                {
+                  "title": "day2.jpg",
+                  "url": "constance/day2__1024.jpg"
+                },
+                {
+                  "title": "day3.jpg",
+                  "url": "constance/day3__1024.jpg",
+                  "rotate": "90"
+                },
+                {
+                  "title": "day4.jpg",
+                  "url": "constance/day4__1024.jpg",
+                  "rotate": "90"
+                },
+                {
+                  "title": "day5.jpg",
+                  "url": "constance/day5__1024.jpg",
+                  "rotate": "90"
+                },
+                {
+                  "title": "day5.jpg",
+                  "url": "constance/silhouettes__1024.jpg"
+                }
+              ]
+            },
+            "shari": {
+              "objectName": "shari",
+              "textUrl": "shari/text.md",
+              "images": [
+                {
+                  "title": "day1.jpg",
+                  "url": "shari/shariday1__1024.jpg"
+                },
+                {
+                  "title": "day2.jpg",
+                  "url": "shari/shariday2__1024.jpg"
+                },
+                {
+                  "title": "day3.jpg",
+                  "url": "shari/shariday3__1024.jpg"
+                },
+                {
+                  "title": "day4.jpg",
+                  "url": "shari/shariday4__1024.jpg"
                 }
               ]
             }
@@ -158,7 +211,7 @@
         },
         {
           "objectName": "2",
-          "title": "Week 2",
+          "title": "Neutrals",
           "image": {
             "title": "week2.jpg",
             "url": "week2.jpg",
@@ -218,7 +271,7 @@
         },
         {
           "objectName": "3",
-          "title": "Week 3",
+          "title": "Colors",
           "image": {
             "title": "week3.jpg",
             "url": "week3.jpg",
@@ -278,7 +331,7 @@
         },
         {
           "objectName": "4",
-          "title": "Week 4",
+          "title": "Fabrics",
           "image": {
             "title": "week4.jpg",
             "url": "week4.jpg",

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SRC=/home/puz/lnet/chic-shifter/ana/update_05-13-16/limitingchic/week1silhouettes
+DST=/home/puz/lnet/chicshifter/assets/issues/1/limiting-chic/1
+
+./bin/run process-images $SRC/autumnphotos\&text $DST/autumn
+./bin/run process-images $SRC/constancephotos\&text $DST/constance
+./bin/run process-images $SRC/shariphotos\&text $DST/shari

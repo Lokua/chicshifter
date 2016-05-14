@@ -48,15 +48,15 @@ class ImageSlider extends Component {
   }
 
   @autobind
-  hasCaptionOrTitle() {
+  hasCaption() {
     const image = this.getCurrentImage()
-    return image.hasOwnProperty('content') || image.hasOwnProperty('title')
+    return image.hasOwnProperty('caption')
   }
 
   @autobind
   getCaption() {
     const image = this.getCurrentImage()
-    return image.caption || image.title
+    return image.caption
   }
 
   @autobind
@@ -94,6 +94,11 @@ class ImageSlider extends Component {
           <div className={css.imageContainer} ref="imageContainer">
             {images.map((image, i) => {
               const isActive = i === index
+              const style = {}
+
+              if (image.rotate) {
+                style.transform = `rotate(${image.rotate}deg)`
+              }
 
               return (
                 <img
@@ -101,6 +106,7 @@ class ImageSlider extends Component {
                   className={classNames(css.image, {
                     [css.active]: isActive
                   })}
+                  style={style}
                   {...image}
                 />
               )
@@ -120,7 +126,7 @@ class ImageSlider extends Component {
 
         <section className={css.meta}>
           <div>{index + 1} / {tailIndex + 1}</div>
-          {this.hasCaptionOrTitle() &&
+          {this.hasCaption() &&
             <div className={css.caption}>{this.getCaption()}</div>
           }
           {this.hasAuthor() &&
@@ -129,16 +135,27 @@ class ImageSlider extends Component {
         </section>
 
         <section className={css.thumbs}>
-          {images.map((image, i) => (
-            <div
-              key={i}
-              className={classNames(css.thumb, {
-                [css.active]: i === index
-              })}
-              style={{ backgroundImage: `url(${image.src})` }}
-              onClick={() => setImageIndex(i)}
-            />
-          ))}
+          {images.map((image, i) => {
+
+            const style = {
+              backgroundImage: `url(${image.src})`
+            }
+
+            if (image.rotate) {
+              style.transform = `rotate(${image.rotate}deg)`
+            }
+
+            return (
+              <div
+                key={i}
+                className={classNames(css.thumb, {
+                  [css.active]: i === index
+                })}
+                style={style}
+                onClick={() => setImageIndex(i)}
+              />
+            )
+          })}
         </section>
 
       </div>

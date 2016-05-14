@@ -38,10 +38,10 @@ api.get('/article/:issue/:section/:article', async ctx => {
   ctx.body = await getArticle(issue, section, article)
 })
 
-api.get('/limiting-articles/:issue/:week/:fileNames', async ctx => {
-  const { issue, week, fileNames } = ctx.params
-  const articles = await fileNames.split(',')
-    .map(async fileName => await getLimitingArticle(issue, week, fileName))
+api.get('/limiting-articles/:issue/:week/:persons', async ctx => {
+  const { issue, week, persons } = ctx.params
+  const articles = await persons.split(',')
+    .map(async person => await getLimitingArticle(issue, week, person))
   ctx.body = await Promise.all(articles)
 })
 
@@ -56,9 +56,10 @@ async function getLetter(issue) {
   return marked(body)
 }
 
-async function getLimitingArticle(issue, week, fileName) {
+async function getLimitingArticle(issue, week, person) {
   const filePath = path.join(
-    config.assetsRoot, 'issues', issue, 'limiting-chic', week, fileName)
+    config.assetsRoot, 'issues', issue, 'limiting-chic', week,
+    person, 'text.md')
   const body = await fs.readFile(filePath, 'utf8')
   return marked(body)
 }
