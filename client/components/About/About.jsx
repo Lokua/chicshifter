@@ -28,6 +28,7 @@ const About = () => (
           Faux Pas/Faux Yeah sketches, Flamingo background pattern
         </aside>
       </div>
+      <hr />
       <div className={css.contrib}>
         <h2 className={css.contribHeading}>Street Chic:</h2>
         <ul className={css.streetChic}>
@@ -48,6 +49,7 @@ const About = () => (
           </li>
         </ul>
       </div>
+      <hr />
       <div className={css.contrib}>
         <h2 className={css.contribHeading}>Joshua Kleckner</h2>
         <aside>Web design, development, and deployment</aside>
@@ -65,7 +67,7 @@ const About = () => (
 
     <section className={`${css.section} ${css.contact}`}>
       <h1 className={css.sectionHeading}>Contact</h1>
-      <h3>email: chicshifter1@gmail.com</h3>
+      <p>chicshifter16@gmail.com</p>
     </section>
   </div>
 )

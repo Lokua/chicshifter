@@ -14,7 +14,8 @@
     flex-basis: 20%;
     background: $foreground-color;
     margin: $unit;
-    border: 1px dashed rgba(0,0,0,0.125);
+    //border: 1px dashed rgba(0,0,0,0.125);
+    box-shadow: $box-shadow;
     @include o-media(m) {
       flex-basis: 45%;
     }

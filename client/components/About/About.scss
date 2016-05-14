@@ -11,13 +11,14 @@
 
 .section {
   padding: $unit * 1.5;
+  //max-width: 960px;
   margin: ($unit * 2) 0;
   box-shadow: $box-shadow;
   background: $foreground-color;
 }
 
 .missionStatement {
-  font-style: italic !important;
+  font-style: normal;
 }
 
 .sectionHeading {

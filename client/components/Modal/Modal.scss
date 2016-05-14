@@ -1,0 +1,35 @@
+@import '@';
+
+.Modal {
+  @include o-size(100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: $unit;
+  &.active {
+    display: block;
+  }
+}
+
+.close {
+  float: right;
+  color: $text-color-light;
+}
+
+.header {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.main {
+  flex: 2;
+  color: $text-color;
+}
+
+.footer {
+  dummy: 0;
+}

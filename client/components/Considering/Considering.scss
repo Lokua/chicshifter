@@ -26,7 +26,8 @@
 .article {
   position: relative;
   padding: $unit;
-  border: $dashed-border;
+  //border: $dashed-border;
+  box-shadow: $box-shadow;
   border-spacing: 4em;
   main {
     padding: $unit;

@@ -7,5 +7,6 @@ export default new Actions({
   INIT_IMAGE_SLIDER: ['id', 'initialIndex'],
   INC_IMAGE_INDEX: ['id', 'tailIndex'],
   DEC_IMAGE_INDEX: 'id',
-  SET_IMAGE_INDEX: ['id', 'index']
+  SET_IMAGE_INDEX: ['id', 'index'],
+  OPEN_FPFY_MODAL: 'open'
 })

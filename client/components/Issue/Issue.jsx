@@ -26,7 +26,7 @@ class Issue extends Component {
       <div className="Issue">
         {/*<div className={css.overlay} />*/}
         <div className={css.issueInner}>
-          <h2 className={css.title}>{issue.season} {issue.year}</h2>
+          {/*<h2 className={css.title}>{issue.season} {issue.year}</h2>*/}
           <ul className={css.thumbs}>
             {Object.keys(issue.sections).map(key => (
               <li key={key}>

@@ -16,7 +16,7 @@ const Header = props => (
       </h1>
       <aside className={css.caption}>
         <h2 className={css.captionText}>
-          a digital fashion journal with an altered hem
+          a digital fashion journal {/*with an altered hem*/}
         </h2>
       </aside>
     </section>

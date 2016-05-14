@@ -4,7 +4,8 @@ import actions from './actions'
 const initialState = {
   currentFpfy: 0,
   fpfyImageLoading: true,
-  imageSliders: {}
+  imageSliders: {},
+  fpfyModalActive: false
 }
 
 export default createReducer(initialState, {
@@ -71,5 +72,9 @@ export default createReducer(initialState, {
     }
 
     return { ...state, imageSliders }
+  },
+
+  [actions.OPEN_FPFY_MODAL] (state, { open }) {
+    return { ...state, fpfyModalActive: open }
   }
 })

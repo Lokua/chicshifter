@@ -43,6 +43,35 @@ class ImageSlider extends Component {
     this.props.initImageSlider(this.props.id, this.props.index)
   }
 
+  getCurrentImage() {
+    return this.props.images[this.props.index]
+  }
+
+  @autobind
+  hasCaptionOrTitle() {
+    const image = this.getCurrentImage()
+    return image.hasOwnProperty('content') || image.hasOwnProperty('title')
+  }
+
+  @autobind
+  getCaption() {
+    const image = this.getCurrentImage()
+    return image.caption || image.title
+  }
+
+  @autobind
+  hasAuthor() {
+    const image = this.getCurrentImage()
+    return image.hasOwnProperty('author') &&
+      (image.author.firstName || image.author.lastName)
+  }
+
+  @autobind
+  getAuthor() {
+    const author = this.getCurrentImage().author
+    return `${author.firstName} ${author.lastName}`
+  }
+
   render() {
     const { images, index,
       incImageIndex, decImageIndex, setImageIndex } = this.props
@@ -90,7 +119,13 @@ class ImageSlider extends Component {
         </section>
 
         <section className={css.meta}>
-          {index + 1} / {tailIndex + 1}
+          <div>{index + 1} / {tailIndex + 1}</div>
+          {this.hasCaptionOrTitle() &&
+            <div className={css.caption}>{this.getCaption()}</div>
+          }
+          {this.hasAuthor() &&
+            <div className={css.author}>by {this.getAuthor()}</div>
+          }
         </section>
 
         <section className={css.thumbs}>

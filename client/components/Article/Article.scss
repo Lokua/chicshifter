@@ -2,6 +2,10 @@
 
 .Article {
   color: $text-color;
+  h1, h2, h3, h4 {
+    font-family: $text-font;
+    font-weight: normal;
+  }
 }
 
 .slugContainer {
@@ -39,6 +43,7 @@
   padding: $unit;
   border: 1px dashed rgba(0,0,0,0.125);
   border-spacing: 4em;
+  //box-shadow: $box-shadow;
   main {
     //padding: $unit;
   }

@@ -59,6 +59,9 @@ $navButtonBasis: 2%;
 
 .meta {
   text-align: center;
+  .author, .caption {
+    font-size: $font-size-small;
+  }
 }
 
 .thumbs {

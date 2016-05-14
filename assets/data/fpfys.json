@@ -1,11 +1,15 @@
 [
   {
     "id": "1",
-    "name": "All Black",
+    "name": "All black",
     "text": "Is all black all wack?",
     "image": {
       "url": "ALLBLACK_JacquelineAlcantara.jpg",
       "author": "Jacqueline Alcantara"
+    },
+    "response": {
+      "type": "Faux Yeah",
+      "text": "Monochromatic palettes are fun."
     }
   },
   {
@@ -15,6 +19,10 @@
     "image": {
       "url": "HAT_JacquelineAlcantara.jpg",
       "author": "Jacqueline Alcantara"
+    },
+    "response": {
+      "type": "Faux Pas",
+      "text": "Newness doesn't equal style"
     }
   },
   {
@@ -24,6 +32,11 @@
     "image": {
       "url": "SkirtBoots_JacquelineAlcantara.jpg",
       "author": "Jacqueline Alcantara"
+    },
+    "disabled": true,
+    "response": {
+      "type": "Faux Pas",
+      "text": "..."
     }
   },
   {
@@ -33,6 +46,10 @@
     "image": {
       "url": "WHITEinWINTER_JacquelineAlcantara.jpg",
       "author": "Jacqueline Alcantara"
+    },
+    "response": {
+      "type": "Faux Yeah",
+      "text": "White is a color for all seasons"
     }
   },
   {
@@ -42,6 +59,10 @@
     "image": {
       "url": "X-TACK_JACQUELINE_ALCANTARA.jpg",
       "author": "Jacqueline Alcantara"
+    },
+    "response": {
+      "type": "Faux Yeah",
+      "text": "An x-tack stitch on a blazer, or jacket vent is meant to temporarily hold the fabric in shape, when worn it must be removed to allow for ease of movement."
     }
   }
 ]

@@ -1,6 +1,10 @@
 h1, h2, h3, h4, h5, h6 {
-  font-family: $heading-font;
+  font-family: $text-font;
   font-weight: normal;
+}
+
+:global(.brand) {
+  font-family: $brand-font;
 }
 
 @for $n from 1 through 6 {

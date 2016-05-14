@@ -48,14 +48,16 @@ class Street extends Component {
         <article>
           <header>
             <h1 className={css.title}>{info.title}</h1>
+            <h5>What the dilly we ask?</h5>
           </header>
           <ImageSlider
             id={id}
             images={images}
           />
           <main className={css.main}>
-            <h3>CS: {content.question}</h3>
-            <h2>{content.person}: "{content.answer}"</h2>
+            {/*<h3>CS: {content.question}</h3>*/}
+            <h4>{content.person}, <small style={{ fontSize: '0.7em' }}>30s</small></h4>
+            <h5>"{content.answer}"</h5>
           </main>
         </article>
       </div>

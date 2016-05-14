@@ -2,6 +2,11 @@
 
 .Street {
   color: $text-color;
+  text-align: center;
+  h5 {
+    font-family: $text-font;
+    font-size: 0.9em;
+  }
 }
 
 .title, .main {
