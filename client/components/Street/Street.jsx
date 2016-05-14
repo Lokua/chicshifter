@@ -48,7 +48,7 @@ class Street extends Component {
         <article>
           <header>
             <h1 className={css.title}>{info.title}</h1>
-            <h5>What the dilly we ask?</h5>
+            <h5>{info.question}</h5>
           </header>
           <ImageSlider
             id={id}

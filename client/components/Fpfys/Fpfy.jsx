@@ -29,7 +29,10 @@ export default class Fpfy extends Component {
     return (
       <figure className={css.Fpfy}>
         <h3 className={css.title}>{this.props.name}</h3>
-        <div className={css.imageContainer}>
+        <div
+          className={css.imageContainer}
+          style={{ paddingBottom: '8px' }}
+        >
           <img
             style={{ opacity: +!this.props.fpfyImageLoading }}
             onLoad={() => {
@@ -40,7 +43,7 @@ export default class Fpfy extends Component {
             alt={this.props.image.name || 'Faux Pas or Paux Yeah?'}
           />
         </div>
-        <figcaption>{this.props.text}</figcaption>
+        {/*<figcaption>{this.props.text}</figcaption>*/}
       </figure>
     )
   }

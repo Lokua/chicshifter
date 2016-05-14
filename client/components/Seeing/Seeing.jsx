@@ -51,9 +51,9 @@ class Seeing extends Component {
         <article>
           <header>
             <h1 className={css.title}>{info.title}</h1>
-            <h2 className={css.author}>by {`${firstName} ${lastName}`}</h2>
           </header>
           <ImageSlider id={`${issue}/${section}/${article}`} images={images} />
+          <h2 className={css.author}>by {`${firstName} ${lastName}`}</h2>
           <Prose text={text} />
         </article>
       </div>

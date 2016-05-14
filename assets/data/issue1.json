@@ -568,8 +568,8 @@
           "objectName": "leigh-deleonardo",
           "title": "Leigh DeLeonardo",
           "image": {
-            "title": null,
-            "url": null,
+            "title": "IMG_4750__1024",
+            "url": "IMG_4750__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
@@ -582,7 +582,20 @@
             }
           },
           "content": {
-            "images": [],
+            "images": [
+              "IMG_4750__1024.jpg",
+              "IMG_4756__1024.jpg",
+              "IMG_4761__1024.jpg",
+              "IMG_4765__1024.jpg",
+              "IMG_4767__1024.jpg",
+              "IMG_4779__1024.jpg",
+              "IMG_4784__1024.jpg",
+              "IMG_4785__1024.jpg",
+              "IMG_4802__1024.jpg",
+              "IMG_4809__1024.jpg",
+              "IMG_4811__1024.jpg",
+              "IMG_4815__1024.jpg"
+            ],
             "textUrl": "leigh-deleonardo.md"
           }
         }
@@ -749,6 +762,7 @@
         {
           "objectName": "andersonville",
           "title": "Andersonville",
+          "question": "What informs your style?",
           "image": {
             "title": "",
             "author": {
@@ -761,32 +775,54 @@
             {
               "person": "Ashley",
               "image": "ashley__1024.jpg" ,
-              "question": "What inspires your style today?",
-              "answer": "This is everything I had..."
+              "answer": "This is everything I had...",
+              "age" : "20s"
             },
             {
               "person": "Desimir",
               "image": "desimir__1024.jpg" ,
-              "question": "What inspires your style today?",
-              "answer": "Comfort."
+              "answer": "Comfort.",
+              "age" : "30s"
             },
             {
               "person": "Valentine",
               "image": "valentine__1024.jpg" ,
-              "question": "What inspires your style today?",
-              "answer": "The sense of fab inspires me."
+              "answer": "The sense of fab inspires me.",
+              "age" : "30s"
             },
             {
               "person": "Vani",
               "image": "vani__1024.jpg" ,
-              "question": "What inspires your style today?",
-              "answer": "My skirt is from India, the navy sweater is J.Crew, I’m a graphic designer who is inspired by Audrey Hepburn’s style."
+              "answer": "My skirt is from India, the navy sweater is J.Crew, I’m a graphic designer who is inspired by Audrey Hepburn’s style.",
+              "age" : "30s"
+            }
+          ]
+        },
+        {
+          "objectName": "pilsen",
+          "title": "Pilsen",
+          "question": "What informs your style?",
+          "image": {
+            "title": "",
+            "author": {
+              "firstName": "",
+              "lastName": ""
+            },
+            "url": "tara__1024.jpg"
+          },
+          "content": [
+            {
+              "person": "Tara",
+              "image": "tara__1024.jpg",
+              "answer": "I was thinking when I chose my outfit for the day I wanted something that would transition from work to social and also something that was comfortable for the entire day. I gave my black dress a little pop with the scarf.",
+              "age": "30s"
             }
           ]
         },
         {
           "objectName": "ravenswood",
           "title": "Ravenswood",
+          "question": "What informs your style?",
           "image": {
             "title": "",
             "author": {
@@ -799,20 +835,26 @@
             {
               "person": "Felix",
               "image": "felix__1024.jpg" ,
-              "question": "?",
-              "answer": "..."
+              "answer": "These are my favorite shoes.",
+              "age": "3"
             },
             {
               "person": "Milena",
               "image": "milena__1024.jpg" ,
-              "question": "?",
-              "answer": "..."
+              "answer": "Here comes the sun.",
+              "age": "30s"
             },
             {
               "person": "Shari",
               "image": "shari__1024.jpg" ,
-              "question": "?",
-              "answer": "..."
+              "answer": "Utility, simplicity, androgyny. I am not utilitarian out of laziness—rather, I think the utilitarian aesthetic reflects my personality as a no-bullshit, face-value kind of person. These are also my favorite shoes.",
+              "age": "30s"
+            },
+            {
+              "person": "Stojana",
+              "image": "stojana__1024.jpg" ,
+              "answer": "Simplicity and elegance.",
+              "age": "60s"
             }
           ]
         }
