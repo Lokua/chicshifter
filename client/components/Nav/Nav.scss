@@ -1,0 +1,13 @@
+@import '@';
+
+.Nav {
+  ul {
+    @include o-list-unstyled;
+  }
+  a {
+    transition: color 250ms;
+  }
+  a:hover {
+    color: $link-color;
+  }
+}

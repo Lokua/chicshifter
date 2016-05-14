@@ -4,8 +4,6 @@ $images-path: $assets-path + '/images';
 
 $brand-font: 'lastaregular_italic';
 $heading-font: 'lastaregular_italic';
-//$text-font: 'Droid Serif', serif;
-//$text-font: 'Libre Baskerville', serif;
 $text-font: Georgia, 'Libre Baskerville', serif;
 
 $sans: 'Droid Sans';
@@ -19,23 +17,21 @@ $unit: $font-size;
 $bump: o-golden-ratio($unit, -2);
 $leading: $font-size * $line-height;
 
-$h-map: (
-  1: 2.3em,
-  2: 1.8em,
-  3: 1.5em,
-  4: 1.2em,
-  5: 1em,
-  6: 0.7em
-);
-
-$h1-font-size: 2.3em;
-$h2-font-size: 1.8em;
-$h3-font-size: 1.5em;
-$h4-font-size: 1.2em;
+$h1-font-size: 1.4em;
+$h2-font-size: 1.3em;
+$h3-font-size: 1.2em;
+$h4-font-size: 1.1em;
 $h5-font-size: 1em;
 $h6-font-size: 0.7em;
+$h-map: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size
+);
 
-//$background-color: mix(white, o-md-color('pink', 50), 60%);
 $background-color: #fff;
 $foreground-color: o-md-color('grey', 50);
 $text-color: o-md-color('grey', 900);
@@ -45,7 +41,6 @@ $link-color: $primary-color;
 $arrow-color: o-md-color('grey', 500);
 $inactive-color: o-md-color('grey', 400);
 
-//$box-shadow: 0px 1px 2px 1px rgba(o-md-color('pink', 900), 0.125);
 $box-shadow: 0px 1px 2px 1px rgba(#000, 0.3);
 $border: 1px solid o-md-color('pink', 100);
 $dashed-border: 1px dashed rgba(0,0,0,0.44);

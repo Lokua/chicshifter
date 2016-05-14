@@ -16,7 +16,8 @@ import css from './Article.scss'
 const components = { Limiting, Considering, Seeing, Shopping, Street, Touring }
 
 const mapStateToProps = (state, props) => ({
-  slug: selectors.articleSlug(state, props)
+  // slug: selectors.articleSlug(state, props)
+  slug: selectors.sectionSlug(state, props)
 })
 
 class Article extends Component {
@@ -32,9 +33,7 @@ class Article extends Component {
 
     return (
       <div className={css.Article}>
-        <header className={css.slugContainer}>
-          <Slug path={this.props.slug} />
-        </header>
+        <Slug path={this.props.slug} />
         <main className={css.articleInner}>
           <ArticleComponent {...this.props} />
         </main>

@@ -70,10 +70,10 @@ update all texts
 
 # Presentation
 
-+ priorties, faux pas modal
-+ disable skirt boots
-+ update text: touring: toledo
-+ update text: seeing: katrin-schnabl
-+ update text: shopping: robin-richman
-+ kill mission statement header
-+ S/S 2016 (links to letter from the editor)
++ ~~priorties, faux pas modal~~
++ ~~disable skirt boots~~
++ ~~update text: touring: toledo~~
++ ~~update text: seeing: katrin-schnabl~~
++ ~~update text: shopping: robin-richman~~
++ ~~kill mission statement header~~
++ ~~S/S 2016 (links to letter from the editor)~~

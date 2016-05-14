@@ -1,0 +1,6 @@
+@import '@';
+
+.Letter {
+  @extend %pageContainer;
+  @include o-center;
+}

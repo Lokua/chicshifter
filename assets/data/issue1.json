@@ -2,6 +2,7 @@
   "id": "1",
   "season": "Spring/Summer",
   "year": "2016",
+  "letterFromTheEditorUrl": "letter-from-the-editor.md",
   "sections": {
     "consideringChic": {
       "objectName": "considering-chic",
@@ -779,7 +780,7 @@
       "content": [
         {
           "objectName": "detroit",
-          "title": "Detroit",
+          "title": "Detroit, Michigan",
           "image": {
             "title": "",
             "author": {
@@ -870,7 +871,7 @@
         },
         {
           "objectName": "toledo",
-          "title": "Toledo",
+          "title": "Toledo Museum of Art",
           "image": {
             "title": "",
             "author": {

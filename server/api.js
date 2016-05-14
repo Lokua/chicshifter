@@ -45,6 +45,17 @@ api.get('/limiting-articles/:issue/:week/:fileNames', async ctx => {
   ctx.body = await Promise.all(articles)
 })
 
+api.get('/letter/:issue', async ctx => {
+  ctx.body = await getLetter(ctx.params.issue)
+})
+
+async function getLetter(issue) {
+  const filePath = path.join(config.assetsRoot,
+    'issues', issue, 'letter-from-the-editor.md')
+  const body = await fs.readFile(filePath, 'utf8')
+  return marked(body)
+}
+
 async function getLimitingArticle(issue, week, fileName) {
   const filePath = path.join(
     config.assetsRoot, 'issues', issue, 'limiting-chic', week, fileName)

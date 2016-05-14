@@ -5,16 +5,16 @@ const About = () => (
   <div className={css.About}>
 
     <section className={`${css.section} ${css.missionStatement}`}>
-      <h1 className={css.sectionHeading}>Mission Statement</h1>
+      {/*<h1 className={css.sectionHeading}>Mission Statement</h1>*/}
       <p>
-        Chic Shifter, a digital fashion journal with an altered hem,
+        <em>Chic Shifter</em>, a digital fashion journal with an altered hem,
         is a biannual publication that examines the fashion cultures of Chicago
         and builds a fashion-focused community within the city and larger
-        Midwest.  Chic Shifter deviates from mainstream fashion publications
+        Midwest.  <em>Chic Shifter deviate</em>s from mainstream fashion publications
         by giving priority to text over image. Addressing a lack of criticality
-        in fashion publications, Chic Shifter creates and initiates dialogue
+        in fashion publications, <em>Chic Shifter create</em>s and initiates dialogue
         around important issues in fashion; in other words, criticality over
-        frivolity. Thus a Chic Shifter is an individual who shifts and
+        frivolity. Thus a <em>Chic Shifter i</em>s an individual who shifts and
         transforms definitions of chic.
       </p>
     </section>
