@@ -25,3 +25,25 @@
 .title {
   text-align: center;
 }
+
+.sectionLabelContainer {
+  text-align: center;
+  position: relative;
+  width: auto;
+  height: $h1-font-size;
+  //padding: 1rem;
+  margin: 1rem;
+  top: 74%;
+}
+.sectionLabelOverlay, .sectionLabel {
+  @include o-size(100%);
+  position: absolute;
+  top: 0;
+}
+.sectionLabelOverlay {
+  background: $background-color;
+  opacity: 0.5;
+}
+.sectionLabel {
+  color: $text-color;
+}

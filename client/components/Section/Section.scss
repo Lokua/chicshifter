@@ -4,6 +4,14 @@
   padding: $unit;
 }
 
+.description {
+  max-width: $prose-max-width;
+  margin: 0 auto;
+  background: $foreground-color;
+  padding: 1rem;
+  box-shadow: $box-shadow;
+}
+
 .thumbs {
   @include o-list-unstyled;
   display: flex;

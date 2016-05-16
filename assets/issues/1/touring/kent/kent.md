@@ -1,8 +1,8 @@
-## *Flapper Style: 1920s Fashion:* <h4>September 25, 2015&ndash;September 4, 2016</h4>
-## *Inside Out: Revealing Clothing’s Hidden Secrets:* <h4>March 12, 2015&ndash;July 31, 2016</h4>
-## *Fashion Timeline:* <h4>June 29, 2012&ndash;June 24, 2018</h4>
+## *Flapper Style: 1920s Fashion:* <h5>September 25, 2015&ndash;September 4, 2016</h5>
+## *Inside Out: Revealing Clothing’s Hidden Secrets:* <h5>March 12, 2015&ndash;July 31, 2016</h5>
+## *Fashion Timeline:* <h5>June 29, 2012&ndash;June 24, 2018</h5>
 
-### by Ana Sekler
+### By Ana Sekler
 
 Museums devoted to fashion are few and far between in the U.S.,
 especially in the Midwest. The Costume Institute at the Metropolitan

@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+
 import { selectors, shallowUpdate, injectLogger } from '@common'
 import { Prose } from '@components/Prose'
 import { actions as articleActions } from '@components/Article'
 import { ImageSlider } from '@components/ImageSlider'
+
 import css from './Seeing.scss'
 
 const mapStateToProps = (state, props) => ({
@@ -35,14 +37,15 @@ class Seeing extends Component {
   }
 
   render() {
-    this.debug('this.props:', this.props)
     const { info, text, params } = this.props
     const { issue, section, article } = params
-    const { firstName, lastName } = info.credits.text
+    const { firstName, lastName } = info.credits.text.author
 
+    // fully qualify image src attr
     const images = info.content.images.map(image => {
       return {
-        src: `/issues/${issue}/${section}/${article}/${image}`
+        ...image,
+        src: `/issues/${issue}/${section}/${article}/${image.src}`
       }
     })
 

@@ -5,11 +5,11 @@
   "letterFromTheEditorUrl": "letter-from-the-editor.md",
   "sections": {
     "consideringChic": {
-      "objectName": "considering-chic",
+      "objectName": "considering",
       "name": "Considering Chic",
       "image": {
         "title": "Considering Chic",
-        "url": "images/ConsideringChic_JacquelineAlcantara.jpg"
+        "src": "images/ConsideringChic_JacquelineAlcantara.jpg"
       },
       "caption": "(caption text)",
       "content": [
@@ -27,7 +27,7 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "url": "BigDots_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigDots_Jacqueline_Alcantara__1024.jpg"
           }
         },
         {
@@ -44,7 +44,7 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "url": "BigDressNatural_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigDressNatural_Jacqueline_Alcantara__1024.jpg"
           }
         },
         {
@@ -61,7 +61,7 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "url": "BigHairNatural_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigHairNatural_Jacqueline_Alcantara__1024.jpg"
           }
         },
         {
@@ -78,17 +78,17 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "url": "BigHatsNatural_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigHatsNatural_Jacqueline_Alcantara__1024.jpg"
           }
         }
       ]
     },
     "limitingChic": {
-      "objectName": "limiting-chic",
+      "objectName": "limiting",
       "name": "Limiting Chic",
       "image": {
         "title": "foo",
-        "url": "images/LimitingChic_JacquelineAlcantara.jpg",
+        "src": "images/LimitingChic_JacquelineAlcantara.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -101,7 +101,7 @@
           "title": "Silhouette Shifter",
           "image": {
             "title": "week1.jpg",
-            "url": "week1.jpg",
+            "src": "week1.jpg",
             "author": {
               "firstName": "Ana",
               "lastName": "Sekler"
@@ -114,23 +114,23 @@
               "images": [
                 {
                   "title": "day1.jpg",
-                  "url": "ana/day1__1024.jpg"
+                  "src": "ana/day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "url": "ana/day2__1024.jpg"
+                  "src": "ana/day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "url": "ana/day3__1024.jpg"
+                  "src": "ana/day3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "url": "ana/day4__1024.jpg"
+                  "src": "ana/day4__1024.jpg"
                 },
                 {
                   "title": "day5.jpg",
-                  "url": "ana/day5__1024.jpg"
+                  "src": "ana/day5__1024.jpg"
                 }
               ]
             },
@@ -139,15 +139,15 @@
               "textUrl": "autumn/text.md",
               "images": [
                 {
-                  "url": "autumn/weekoneshift__1024.jpg",
+                  "src": "autumn/weekoneshift__1024.jpg",
                   "rotate": "90"
                 },
                 {
-                  "url": "autumn/weekoneshift2__1024.jpg",
+                  "src": "autumn/weekoneshift2__1024.jpg",
                   "rotate": "90"
                 },
                 {
-                  "url": "autumn/weekoneshift3__1024.jpg",
+                  "src": "autumn/weekoneshift3__1024.jpg",
                   "rotate": "90"
                 }
               ]
@@ -158,30 +158,30 @@
               "images": [
                 {
                   "title": "day1.jpg",
-                  "url": "constance/day1__1024.jpg"
+                  "src": "constance/day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "url": "constance/day2__1024.jpg"
+                  "src": "constance/day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "url": "constance/day3__1024.jpg",
+                  "src": "constance/day3__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day4.jpg",
-                  "url": "constance/day4__1024.jpg",
+                  "src": "constance/day4__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day5.jpg",
-                  "url": "constance/day5__1024.jpg",
+                  "src": "constance/day5__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day5.jpg",
-                  "url": "constance/silhouettes__1024.jpg"
+                  "src": "constance/silhouettes__1024.jpg"
                 }
               ]
             },
@@ -191,19 +191,19 @@
               "images": [
                 {
                   "title": "day1.jpg",
-                  "url": "shari/shariday1__1024.jpg"
+                  "src": "shari/shariday1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "url": "shari/shariday2__1024.jpg"
+                  "src": "shari/shariday2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "url": "shari/shariday3__1024.jpg"
+                  "src": "shari/shariday3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "url": "shari/shariday4__1024.jpg"
+                  "src": "shari/shariday4__1024.jpg"
                 }
               ]
             }
@@ -214,7 +214,7 @@
           "title": "Neutrals",
           "image": {
             "title": "week2.jpg",
-            "url": "week2.jpg",
+            "src": "week2.jpg",
             "author": {
               "firstName": "Ana",
               "lastName": "Sekler"
@@ -227,7 +227,7 @@
               "images": [
                 {
                   "title": "day1.jpg",
-                  "url": "day1__1024.jpg",
+                  "src": "day1__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -235,7 +235,7 @@
                 },
                 {
                   "title": "day2.jpg",
-                  "url": "day2__1024.jpg",
+                  "src": "day2__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -243,7 +243,7 @@
                 },
                 {
                   "title": "day3.jpg",
-                  "url": "day3__1024.jpg",
+                  "src": "day3__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -251,7 +251,7 @@
                 },
                 {
                   "title": "day4.jpg",
-                  "url": "day4__1024.jpg",
+                  "src": "day4__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -259,7 +259,7 @@
                 },
                 {
                   "title": "day5.jpg",
-                  "url": "day5__1024.jpg",
+                  "src": "day5__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -274,7 +274,7 @@
           "title": "Colors",
           "image": {
             "title": "week3.jpg",
-            "url": "week3.jpg",
+            "src": "week3.jpg",
             "author": {
               "firstName": "Ana",
               "lastName": "Sekler"
@@ -287,7 +287,7 @@
               "images": [
                 {
                   "title": "day1.jpg",
-                  "url": "day1__1024.jpg",
+                  "src": "day1__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -295,7 +295,7 @@
                 },
                 {
                   "title": "day2.jpg",
-                  "url": "day2__1024.jpg",
+                  "src": "day2__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -303,7 +303,7 @@
                 },
                 {
                   "title": "day3.jpg",
-                  "url": "day3__1024.jpg",
+                  "src": "day3__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -311,7 +311,7 @@
                 },
                 {
                   "title": "day4.jpg",
-                  "url": "day4__1024.jpg",
+                  "src": "day4__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -319,7 +319,7 @@
                 },
                 {
                   "title": "day5.jpg",
-                  "url": "day5__1024.jpg",
+                  "src": "day5__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -331,10 +331,10 @@
         },
         {
           "objectName": "4",
-          "title": "Fabrics",
+          "title": "Naturals",
           "image": {
             "title": "week4.jpg",
-            "url": "week4.jpg",
+            "src": "week4.jpg",
             "author": {
               "firstName": "Ana",
               "lastName": "Sekler"
@@ -347,7 +347,7 @@
               "images": [
                 {
                   "title": "day1.jpg",
-                  "url": "day1__1024.jpg",
+                  "src": "day1__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -355,7 +355,7 @@
                 },
                 {
                   "title": "day2.jpg",
-                  "url": "day2__1024.jpg",
+                  "src": "day2__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -363,7 +363,7 @@
                 },
                 {
                   "title": "day3.jpg",
-                  "url": "day3__1024.jpg",
+                  "src": "day3__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -371,7 +371,7 @@
                 },
                 {
                   "title": "day4.jpg",
-                  "url": "day4__1024.jpg",
+                  "src": "day4__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -379,7 +379,7 @@
                 },
                 {
                   "title": "day5.jpg",
-                  "url": "day5__1024.jpg",
+                  "src": "day5__1024.jpg",
                   "author": {
                     "firstName": "Ana",
                     "lastName": "Sekler"
@@ -393,7 +393,7 @@
               "images": [
                 {
                   "title": "jessday1.jpg",
-                  "url": "jessday1__1024.jpg",
+                  "src": "jessday1__1024.jpg",
                   "author": {
                     "firstName": "Jess",
                     "lastName": "(?)"
@@ -401,7 +401,7 @@
                 },
                 {
                   "title": "jessday2.jpg",
-                  "url": "jessday2__1024.jpg",
+                  "src": "jessday2__1024.jpg",
                   "author": {
                     "firstName": "Jess",
                     "lastName": "(?)"
@@ -409,7 +409,7 @@
                 },
                 {
                   "title": "jessday3.jpg",
-                  "url": "jessday3__1024.jpg",
+                  "src": "jessday3__1024.jpg",
                   "author": {
                     "firstName": "Jess",
                     "lastName": "(?)"
@@ -417,7 +417,7 @@
                 },
                 {
                   "title": "jessday4.jpg",
-                  "url": "jessday4__1024.jpg",
+                  "src": "jessday4__1024.jpg",
                   "author": {
                     "firstName": "Jess",
                     "lastName": "(?)"
@@ -425,7 +425,7 @@
                 },
                 {
                   "title": "jessday5.jpg",
-                  "url": "jessday5__1024.jpg",
+                  "src": "jessday5__1024.jpg",
                   "author": {
                     "firstName": "Jess",
                     "lastName": ""
@@ -438,11 +438,11 @@
       ]
     },
     "seeingChic": {
-      "objectName": "seeing-chic",
+      "objectName": "seeing",
       "name": "Seeing Chic",
       "image": {
         "title": "Seeing Chic",
-        "url": "images/SeeingChic_JacquelineAlcantara.jpg",
+        "src": "images/SeeingChic_JacquelineAlcantara.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -455,48 +455,7 @@
           "title": "Andrea Reynders",
           "image": {
             "title": "foobar",
-            "url": "reyndersfull__1024.jpg",
-            "author": {
-              "firstName": "foo",
-              "lastName": "bar"
-            }
-          },
-          "credits": {
-            "images": {
-              "firstName": "Anya",
-              "lastName": "Flip"
-            },
-            "credits": {
-              "firstName": "John",
-              "lastName": "Crawford"
-            },
-            "text": {
-              "firstName": "Ana",
-              "lastName": "Sekler"
-            }
-          },
-          "content": {
-            "images": [
-              "anyaflip__1024.jpg",
-              "anyaflip2__1024.jpg",
-              "anyaflip3__1024.jpg",
-              "anyaflip4__1024.jpg",
-              "anyaflip5__1024.jpg",
-              "reyndersfabrichand__1024.jpg",
-              "reyndersfull__1024.jpg",
-              "reyndersrepurposedtrunkshow__1024.jpg",
-              "reynderssketch__1024.jpg",
-              "reynderstudio__1024.jpg"
-            ],
-            "textUrl": "andrea-reynders.md"
-          }
-        },
-        {
-          "objectName": "cfi",
-          "title": "Chicago Fashion Incubator",
-          "image": {
-            "title": "foobar",
-            "url": "cfistudio__1024.jpg",
+            "src": "reyndersfull__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
@@ -512,11 +471,223 @@
           },
           "content": {
             "images": [
-              "cfiposter__1024.jpg",
-              "cfisampleroom__1024.jpg",
-              "cfistudio__1024.jpg",
-              "chicagofashioninitiativeseal__1024.jpg",
-              "shrutikritimoodboard__1024.jpg"
+              {
+                "src": "anyaflip__1024.jpg",
+                "title": "anyaflip",
+                "credits": [{
+                  "type": "photo",
+                  "author": {
+                    "name": "Jonathan Crawford"
+                  }
+                }]
+              },
+              {
+                "src": "anyaflip2__1024.jpg",
+                "title": "anyaflip2",
+                "credits": [{
+                  "type": "photo",
+                  "author": {
+                    "name": "Jonathan Crawford"
+                  }
+                }]
+              },
+              {
+                "src": "anyaflip3__1024.jpg",
+                "title": "anyaflip3",
+                "credits": [{
+                  "type": "photo",
+                  "author": {
+                    "name": "Jonathan Crawford"
+                  }
+                }]
+              },
+              {
+                "src": "anyaflip4__1024.jpg",
+                "title": "anyaflip4",
+                "credits": [{
+                  "type": "photo",
+                  "author": {
+                    "name": "Jonathan Crawford"
+                  }
+                }]
+              },
+              {
+                "src": "anyaflip5__1024.jpg",
+                "title": "anyaflip5",
+                "credits": [{
+                  "type": "photo",
+                  "author": {
+                    "name": "Jonathan Crawford"
+                  }
+                }]
+              },
+              {
+                "src": "reyndersfabrichand__1024.jpg",
+                "title": "reyndersfabrichand"
+              },
+              {
+                "src": "reyndersfull__1024.jpg",
+                "title": "reyndersfull"
+              },
+              {
+                "src": "reyndersrepurposedtrunkshow__1024.jpg",
+                "title": "reyndersrepurposedtrunkshow"
+              },
+              {
+                "src": "reynderssketch__1024.jpg",
+                "title": "reynderssketch"
+              },
+              {
+                "src": "reynderstudio__1024.jpg",
+                "title": "reynderstudio"
+              }
+            ],
+            "textUrl": "andrea-reynders.md"
+          }
+        },
+        {
+          "objectName": "cfi",
+          "title": "Chicago Fashion Incubator",
+          "image": {
+            "title": "foobar",
+            "src": "cfistudio__1024.jpg",
+            "author": {
+              "firstName": "foo",
+              "lastName": "bar"
+            }
+          },
+          "credits": {
+            "text": {
+              "author": {
+                "firstName": "Ana",
+                "lastName": "Sekler"
+              }
+            }
+          },
+          "content": {
+            "images": [
+              {
+                "src": "ABrown_fw16-18281-2_REF__1024.jpg",
+                "title": "ABrown_fw16-18281-2_REF",
+                "credits": [
+                  {
+                    "type": "Photographer",
+                    "author": {
+                      "name": "Todd Crawford"
+                    }
+                  },
+                  {
+                    "type": "HMU",
+                    "author": {
+                      "name": "Colleen O'Sullivan"
+                    }
+                  },
+                  {
+                    "type": "Model",
+                    "author": {
+                      "name": "Rebecca Uy, Factor Chicago"
+                    }
+                  }
+                ]
+              },
+              {
+                "src": "ABrown_fw16-18348-2_REF__1024.jpg",
+                "title": "ABrown_fw16-18348-2_REF",
+                "credits": [
+                  {
+                    "type": "Photographer",
+                    "author": {
+                      "name": "Todd Crawford"
+                    }
+                  },
+                  {
+                    "type": "HMU",
+                    "author": {
+                      "name": "Colleen O'Sullivan"
+                    }
+                  },
+                  {
+                    "type": "Model",
+                    "author": {
+                      "name": "Rebecca Uy, Factor Chicago"
+                    }
+                  }
+                ]
+              },
+              {
+                "src": "cfiposter__1024.jpg",
+                "title": "cfiposter"
+              },
+              {
+                "src": "cfisampleroom__1024.jpg",
+                "title": "cfisampleroom"
+              },
+              {
+                "src": "cfistudio__1024.jpg",
+                "title": "cfistudio"
+              },
+              {
+                "src": "chicagofashioninitiativeseal__1024.jpg",
+                "title": "chicagofashioninitiativeseal"
+              },
+              {
+                "src": "Maroon Collar top w_ pants__1024.png",
+                "title": "Maroon Collar top w_ pants",
+                "credits": [
+                  {
+                    "type": "Model",
+                    "author": {
+                      "name": "Cairo Lawrence"
+                    }
+                  },
+                  {
+                    "type": "Photographer",
+                    "author": {
+                      "name": "Inell Lawrence"
+                    }
+                  }
+                ]
+              },
+              {
+                "src": "Mustard Collar top with Pencil skirti__1024.png",
+                "title": "Mustard Collar top with Pencil skirti",
+                "credits": [
+                  {
+                    "type": "Model",
+                    "author": {
+                      "name": "Cairo Lawrence"
+                    }
+                  },
+                  {
+                    "type": "Photographer",
+                    "author": {
+                      "name": "Inell Lawrence"
+                    }
+                  }
+                ]
+              },
+              {
+                "src": "shrutikritimoodboard__1024.jpg",
+                "title": "shrutikritimoodboard"
+              },
+              {
+                "src": "Two Level Sleeve Top with pants__1024.png",
+                "title": "Two Level Sleeve Top with pants",
+                "credits": [
+                  {
+                    "type": "Model",
+                    "author": {
+                      "name": "Cairo Lawrence"
+                    }
+                  },
+                  {
+                    "type": "Photographer",
+                    "author": {
+                      "name": "Inell Lawrence"
+                    }
+                  }
+                ]
+              }
             ],
             "textUrl": "cfi.md"
           }
@@ -526,40 +697,135 @@
           "title": "Katrin Schnabl",
           "image": {
             "title": "foobar",
-            "url": "MU7A0496__1024.jpg",
+            "src": "MU7A0496__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
             }
           },
           "credits": {
-            "performance": {
-              "firstName": "Grace",
-              "lastName": "Duval"
-            },
-            "collection": {
-              "firstName": "Matthew",
-              "lastName": "Reeves"
-            },
             "text": {
-              "firstName": "Ana",
-              "lastName": "Sekler"
+              "author": {
+                "firstName": "Ana",
+                "lastName": "Sekler"
+              }
             }
           },
           "content": {
             "images": [
-              "dahliadress__1024.jpg",
-              "katrin_schnabl_collection_performance_0044__1024.jpg",
-              "katrin_schnabl_collection_performance_0314__1024.jpg",
-              "MU7A0264__1024.jpg",
-              "MU7A0408__1024.jpg",
-              "MU7A0496__1024.jpg",
-              "MU7A2933__1024.jpg",
-              "MU7A3346__1024.jpg",
-              "MU7A3541__1024.jpg",
-              "MU7A3683__1024.jpg",
-              "schnablartLimb__1024.jpg",
-              "schnablstudio1__1024.jpg"
+              {
+                "src": "dahliadress__1024.jpg",
+                "title": "dahliadress"
+              },
+              {
+                "src": "katrin_schnabl_collection_performance_0044__1024.jpg",
+                "title": "katrin_schnabl_collection_performance_0044",
+                "credits": [
+                  {
+                    "type": "Performance",
+                    "author": {
+                      "firstName": "Grace",
+                      "lastName": "Duval"
+                    }
+                  }
+                ]
+              },
+              {
+                "src": "katrin_schnabl_collection_performance_0314__1024.jpg",
+                "title": "katrin_schnabl_collection_performance_0314",
+                "credits": [{
+                  "type": "Performance",
+                  "author": {
+                    "firstName": "Grace",
+                    "lastName": "Duval"
+                  }
+                }]
+              },
+              {
+                "src": "MU7A0264__1024.jpg",
+                "title": "MU7A0264",
+                "credits": [{
+                  "type": "Collection",
+                  "author": {
+                    "firstName": "Matthew",
+                    "lastName": "Reeves"
+                  }
+                }]
+              },
+              {
+                "src": "MU7A0408__1024.jpg",
+                "title": "MU7A0408",
+                "credits": [{
+                  "type": "Collection",
+                  "author": {
+                    "firstName": "Matthew",
+                    "lastName": "Reeves"
+                  }
+                }]
+              },
+              {
+                "src": "MU7A0496__1024.jpg",
+                "title": "MU7A0496",
+                "credits": [{
+                  "type": "Collection",
+                  "author": {
+                    "firstName": "Matthew",
+                    "lastName": "Reeves"
+                  }
+                }]
+              },
+              {
+                "src": "MU7A2933__1024.jpg",
+                "title": "MU7A2933",
+                "credits": [{
+                  "type": "Collection",
+                  "author": {
+                    "firstName": "Matthew",
+                    "lastName": "Reeves"
+                  }
+                }]
+              },
+              {
+                "src": "MU7A3346__1024.jpg",
+                "title": "MU7A3346",
+                "credits": [{
+                  "type": "Collection",
+                  "author": {
+                    "firstName": "Matthew",
+                    "lastName": "Reeves"
+                  }
+                }]
+              },
+              {
+                "src": "MU7A3541__1024.jpg",
+                "title": "MU7A3541",
+                "credits": [{
+                  "type": "Collection",
+                  "author": {
+                    "firstName": "Matthew",
+                    "lastName": "Reeves"
+                  }
+                }]
+              },
+              {
+                "src": "MU7A3683__1024.jpg",
+                "title": "MU7A3683",
+                "credits": [{
+                  "type": "Collection",
+                  "author": {
+                    "firstName": "Matthew",
+                    "lastName": "Reeves"
+                  }
+                }]
+              },
+              {
+                "src": "schnablartLimb__1024.jpg",
+                "title": "schnablartLimb"
+              },
+              {
+                "src": "schnablstudio1__1024.jpg",
+                "title": "schnablstudio1"
+              }
             ],
             "textUrl": "katrin-schnabl.md"
           }
@@ -569,7 +835,7 @@
           "title": "Leigh DeLeonardo",
           "image": {
             "title": "IMG_4750__1024",
-            "url": "IMG_4750__1024.jpg",
+            "src": "IMG_4750__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
@@ -577,24 +843,26 @@
           },
           "credits": {
             "text": {
-              "firstName": "Ana",
-              "lastName": "Sekler"
+              "author": {
+                "firstName": "Ana",
+                "lastName": "Sekler"
+              }
             }
           },
           "content": {
             "images": [
-              "IMG_4750__1024.jpg",
-              "IMG_4756__1024.jpg",
-              "IMG_4761__1024.jpg",
-              "IMG_4765__1024.jpg",
-              "IMG_4767__1024.jpg",
-              "IMG_4779__1024.jpg",
-              "IMG_4784__1024.jpg",
-              "IMG_4785__1024.jpg",
-              "IMG_4802__1024.jpg",
-              "IMG_4809__1024.jpg",
-              "IMG_4811__1024.jpg",
-              "IMG_4815__1024.jpg"
+              { "src": "IMG_4750__1024.jpg" },
+              { "src": "IMG_4756__1024.jpg" },
+              { "src": "IMG_4761__1024.jpg" },
+              { "src": "IMG_4765__1024.jpg" },
+              { "src": "IMG_4767__1024.jpg" },
+              { "src": "IMG_4779__1024.jpg" },
+              { "src": "IMG_4784__1024.jpg" },
+              { "src": "IMG_4785__1024.jpg" },
+              { "src": "IMG_4802__1024.jpg" },
+              { "src": "IMG_4809__1024.jpg" },
+              { "src": "IMG_4811__1024.jpg" },
+              { "src": "IMG_4815__1024.jpg" }
             ],
             "textUrl": "leigh-deleonardo.md"
           }
@@ -602,11 +870,11 @@
       ]
     },
     "shoppingChic": {
-      "objectName": "shopping-chic",
+      "objectName": "shopping",
       "name": "Shopping Chic",
       "image": {
         "title": "Shopping Chic",
-        "url": "images/ShoppingChic_JacquelineAlcantara.jpg",
+        "src": "images/ShoppingChic_JacquelineAlcantara.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -619,7 +887,7 @@
           "title": "Milk Handmade",
           "image": {
             "title": "foobar",
-            "url": "milkshop__1024.jpg",
+            "src": "milkshop__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
@@ -653,7 +921,7 @@
           "title": "Robin Richman",
           "image": {
             "title": "foobar",
-            "url": "richmanshop__1024.jpg",
+            "src": "richmanshop__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
@@ -688,7 +956,7 @@
           "title": "Union Handmade",
           "image": {
             "title": "foobar",
-            "url": "unionhandmadedecember__1024.jpg",
+            "src": "unionhandmadedecember__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
@@ -718,7 +986,7 @@
           "title": "Uniqlo",
           "image": {
             "title": "foobar",
-            "url": "menslinen__1024.jpg",
+            "src": "menslinen__1024.jpg",
             "author": {
               "firstName": "foo",
               "lastName": "bar"
@@ -747,11 +1015,11 @@
       ]
     },
     "streetChic": {
-      "objectName": "street-chic",
+      "objectName": "street",
       "name": "Street Chic",
       "image": {
         "title": "Street Chic",
-        "url": "images/StreetChic_JacquelineAlcantara.jpg",
+        "src": "images/StreetChic_JacquelineAlcantara.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -769,7 +1037,7 @@
               "firstName": "",
               "lastName": ""
             },
-            "url": "valentine__1024.jpg"
+            "src": "valentine__1024.jpg"
           },
           "content": [
             {
@@ -808,7 +1076,7 @@
               "firstName": "",
               "lastName": ""
             },
-            "url": "tara__1024.jpg"
+            "src": "tara__1024.jpg"
           },
           "content": [
             {
@@ -829,7 +1097,7 @@
               "firstName": "",
               "lastName": ""
             },
-            "url": "shari__1024.jpg"
+            "src": "shari__1024.jpg"
           },
           "content": [
             {
@@ -861,16 +1129,17 @@
       ]
     },
     "touringChic": {
-      "objectName": "touring-chic",
+      "objectName": "touring",
       "name": "Touring Chic",
       "image": {
         "title": "Touring Chic",
-        "url": "images/TouringChic_JacquelineAlcantara.jpg",
+        "src": "images/TouringChic_JacquelineAlcantara.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
         }
       },
+      "description": "Touring Chic seeks out fashion exhibitions in the Midwest. This first tour led me to exhibits in Detroit, Toledo, Kent, and Indianapolis in December 2015. Some of the exhibits like <em>Detroit D.Fined</em> and the Kent State University Fashion Museum run through 2016. Others have passed, but Touring Chic reminds that chic is everywhere, it just needs to be discerned by a chic shifter.",
       "caption": "Some awesome caption goes here",
       "content": [
         {
@@ -882,7 +1151,7 @@
               "firstName": "",
               "lastName": ""
             },
-            "url": "exhibitspan__1024.jpg"
+            "src": "exhibitspan__1024.jpg"
           },
           "content": {
             "images": [
@@ -906,7 +1175,7 @@
               "firstName": "",
               "lastName": ""
             },
-            "url": "westwoodboobtube__1024.jpg"
+            "src": "westwoodboobtube__1024.jpg"
           },
           "content": {
             "images": [
@@ -934,7 +1203,7 @@
               "firstName": "",
               "lastName": ""
             },
-            "url": "fashiontimeline3__1024.jpg"
+            "src": "fashiontimeline3__1024.jpg"
           },
           "content": {
             "images": [
@@ -973,7 +1242,7 @@
               "firstName": "",
               "lastName": ""
             },
-            "url": "nikejordan__1024.jpg"
+            "src": "nikejordan__1024.jpg"
           },
           "content": {
             "images": [

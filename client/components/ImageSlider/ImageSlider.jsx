@@ -1,14 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { autobind } from 'core-decorators'
-import classNames from 'classnames'
+import cx from 'classnames'
+
 import { uiActions, shallowUpdate, injectLogger } from '@common'
 import { IconButton } from '@components/IconButton'
+import { ImageModal } from '@components/ImageModal'
+
 import css from './ImageSlider.scss'
 
 const mapStateToProps = (state, props) => ({
   index: state.ui.imageSliders[props.id] &&
-    state.ui.imageSliders[props.id].index || props.index
+    state.ui.imageSliders[props.id].index || props.index,
+  imageModalActive: state.ui.imageModalActive,
+  imageClass: state.ui.imageClass
 })
 
 const mapDispatchToProps = (dispatch, props) => {
@@ -17,7 +22,9 @@ const mapDispatchToProps = (dispatch, props) => {
     initImageSlider: () => dispatch(uiActions.initImageSlider(id)),
     incImageIndex: tail => dispatch(uiActions.incImageIndex(id, tail)),
     decImageIndex: () => dispatch(uiActions.decImageIndex(id)),
-    setImageIndex: index => dispatch(uiActions.setImageIndex(id, index))
+    setImageIndex: index => dispatch(uiActions.setImageIndex(id, index)),
+    openImageModal: open => dispatch(uiActions.openImageModal(open)),
+    setImageClass: imageClass => dispatch(uiActions.setImageClass(imageClass))
   }
 }
 
@@ -36,7 +43,11 @@ class ImageSlider extends Component {
     initImageSlider: PropTypes.func.isRequired,
     incImageIndex: PropTypes.func.isRequired,
     decImageIndex: PropTypes.func.isRequired,
-    setImageIndex: PropTypes.func.isRequired
+    setImageIndex: PropTypes.func.isRequired,
+    imageModalActive: PropTypes.bool.isRequired,
+    openImageModal: PropTypes.func.isRequired,
+    imageClass: PropTypes.string.isRequired,
+    setImageClass: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -60,16 +71,19 @@ class ImageSlider extends Component {
   }
 
   @autobind
-  hasAuthor() {
+  renderCredits() {
     const image = this.getCurrentImage()
-    return image.hasOwnProperty('author') &&
-      (image.author.firstName || image.author.lastName)
-  }
-
-  @autobind
-  getAuthor() {
-    const author = this.getCurrentImage().author
-    return `${author.firstName} ${author.lastName}`
+    if (image.credits && image.credits.length) {
+      return (
+        <ul className={css.credits}>
+          {image.credits.map((credit, i) => {
+            const name = credit.author.name ||
+              `${credit.author.firstName} ${credit.author.lastName}`
+            return (<li key={i}>{credit.type}: {name}</li>)
+          })}
+        </ul>
+      )
+    }
   }
 
   render() {
@@ -80,11 +94,18 @@ class ImageSlider extends Component {
     return (
       <div className={css.ImageSlider}>
 
+        {this.activeImageNode && this.props.imageModalActive &&
+          <ImageModal
+            image={this.getCurrentImage()}
+            imageRef={this.activeImageNode}
+          />
+        }
+
         <section className={css.main}>
           <div className={css.navButtonContainer}>
             <IconButton
               i="angle-left"
-              className={classNames(css.navButton, {
+              className={cx(css.navButton, {
                 [css.disabled]: index === 0
               })}
               onClick={() => decImageIndex()}
@@ -92,6 +113,9 @@ class ImageSlider extends Component {
           </div>
 
           <div className={css.imageContainer} ref="imageContainer">
+
+            <div className={css.overlay}>Click to enlarge</div>
+
             {images.map((image, i) => {
               const isActive = i === index
               const style = {}
@@ -103,10 +127,14 @@ class ImageSlider extends Component {
               return (
                 <img
                   key={i}
-                  className={classNames(css.image, {
+                  ref={node => {
+                    if (isActive) this.activeImageNode = node
+                  }}
+                  className={cx(css.image, {
                     [css.active]: isActive
                   })}
                   style={style}
+                  onClick={() => this.props.openImageModal(true)}
                   {...image}
                 />
               )
@@ -116,7 +144,7 @@ class ImageSlider extends Component {
           <div className={css.navButtonContainer}>
             <IconButton
               i="angle-right"
-              className={classNames(css.navButton, {
+              className={cx(css.navButton, {
                 [css.disabled]: index === tailIndex
               })}
               onClick={() => incImageIndex(tailIndex)}
@@ -129,16 +157,14 @@ class ImageSlider extends Component {
           {this.hasCaption() &&
             <div className={css.caption}>{this.getCaption()}</div>
           }
-          {this.hasAuthor() &&
-            <div className={css.author}>by {this.getAuthor()}</div>
-          }
+          {this.renderCredits()}
         </section>
 
         <section className={css.thumbs}>
           {images.map((image, i) => {
 
             const style = {
-              backgroundImage: `url(${image.src})`
+              backgroundImage: `url('${image.src}')`
             }
 
             if (image.rotate) {
@@ -148,7 +174,7 @@ class ImageSlider extends Component {
             return (
               <div
                 key={i}
-                className={classNames(css.thumb, {
+                className={cx(css.thumb, {
                   [css.active]: i === index
                 })}
                 style={style}

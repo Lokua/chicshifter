@@ -2,25 +2,47 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import css from './Thumb.scss'
 
-function Thumb({ link, image, caption }) {
-  const src = image.url.charAt(0) === '/' ? image.url : `/${image.url}`
+function Thumb({ link, image, caption, imageType }) {
+  const src = image.src.charAt(0) === '/' ? image.src : `/${image.src}`
+  let imageEl
+
+  if (imageType === 'image') {
+    imageEl = (
+      <img
+        title={image.title}
+        alt={image.alt || image.title}
+        src={src}
+      />
+    )
+
+  } else {
+    imageEl = (
+      <div
+        title={image.title}
+        alt={image.alt || image.title}
+        style={{
+          backgroundImage: `url('${src}')`
+        }}
+      />
+    )
+  }
 
   return (
     <figure className={css.Thumb}>
       <Link to={link}>
-        <img
-          title={image.title}
-          alt={image.alt || image.title}
-          src={src}
-        />
         {caption &&
           <figcaption>
             <h4>{caption}</h4>
           </figcaption>
         }
+        {imageEl}
       </Link>
     </figure>
   )
+}
+
+Thumb.defaultProps = {
+  imageType: 'image'
 }
 
 Thumb.propTypes = {
@@ -28,9 +50,10 @@ Thumb.propTypes = {
   image: PropTypes.shape({
     title: PropTypes.string.isRequired,
     alt: PropTypes.string,
-    url: PropTypes.string.isRequired
+    src: PropTypes.string.isRequired
   }).isRequired,
-  caption: PropTypes.string
+  caption: PropTypes.string,
+  imageType: PropTypes.oneOf(['image', 'background'])
 }
 
 export default Thumb

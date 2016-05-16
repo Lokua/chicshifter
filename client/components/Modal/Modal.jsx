@@ -43,9 +43,6 @@ export default class Modal extends Component {
           <main className={css.main}>
             {this.props.children}
           </main>
-
-          <footer className={css.footer}>
-          </footer>
         </div>
 
       </ReactModal>

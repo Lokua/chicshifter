@@ -1,8 +1,9 @@
 import React, { PropTypes, Component } from 'react'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import { shallowUpdate } from '@common'
-import { Thumb } from '@components/Thumb'
+import { FlippyThumb } from '@components/FlippyThumb'
 
 import actions from './actions'
 import { getLatestIssue } from './selectors'
@@ -24,19 +25,33 @@ class Issue extends Component {
 
     return (
       <div className="Issue">
-        {/*<div className={css.overlay} />*/}
         <div className={css.issueInner}>
-          {/*<h2 className={css.title}>{issue.season} {issue.year}</h2>*/}
           <ul className={css.thumbs}>
-            {Object.keys(issue.sections).map(key => (
-              <li key={key}>
-                <Thumb
-                  link={`issue/${issue.id}/${issue.sections[key].objectName}`}
-                  image={issue.sections[key].image}
-                  caption={issue.sections[key].name}
-                />
-              </li>
-            ))}
+            {Object.keys(issue.sections).map(key => {
+
+              const front = (
+                <div className={css.sectionLabelContainer}>
+                  <div className={css.sectionLabelOverlay} />
+                  <div className={css.sectionLabel}>
+                    {issue.sections[key].name}
+                  </div>
+                </div>
+              )
+
+              const link = `issue/${issue.id}/${issue.sections[key].objectName}`
+
+              return (
+                <li key={key}>
+                  <Link to={link}>
+                    <FlippyThumb
+                      front={front}
+                      back={issue.sections[key].caption}
+                      backgroundImage={issue.sections[key].image.src}
+                    />
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>

@@ -1,7 +1,7 @@
 # *Fashion D. Fined: The Past, Present, and Future of Detroit Fashion*
-## September 11, 2015&ndash;December 31, 2016
+##### September 11, 2015&ndash;December 31, 2016
 ## Detroit Historical Society
-### by Ana Nezna
+### By Ana Nezna
 
 Slowly rising from the ashes of its bankruptcy, Detroit is a city on the
 move that knows how to honor the richness of its history and to promote

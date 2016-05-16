@@ -31,43 +31,6 @@
       text
       gallery
 
-# Street
-
-+ Question per neighborhood is constant, and on top
-ie.
-
-```
-Andersonville
----
-What informs your style?
-[gallery]
-```
-
-+ update quotes
-
-+ Andersonville
-  + update ashly photo
-
-+ Ravenswood:
-  + add stojana photo
-  + update all captions
-
-+ Pilsen - all that stuff
-
-# Touring
-
-update all texts
-
-# Shopping
-
-+ Ana don't like Review
-+ Link to shop if possible
-
-# Seeing
-
-+ fix undefined undefined
-
-
 # Presentation
 
 + ~~priorties, faux pas modal~~
@@ -77,3 +40,9 @@ update all texts
 + ~~update text: shopping: robin-richman~~
 + ~~kill mission statement header~~
 + ~~S/S 2016 (links to letter from the editor)~~
++ ~~touring: update all texts~~
++ ~~seeing: fix undefined undefined article credits~~
++ shopping: link to shop
++ ~~update considering articles~~
++ ~~update limiting week captions (naturals)~~
++ ~~update seeing articles~~

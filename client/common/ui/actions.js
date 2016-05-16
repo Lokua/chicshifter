@@ -8,5 +8,7 @@ export default new Actions({
   INC_IMAGE_INDEX: ['id', 'tailIndex'],
   DEC_IMAGE_INDEX: 'id',
   SET_IMAGE_INDEX: ['id', 'index'],
-  OPEN_FPFY_MODAL: 'open'
+  OPEN_FPFY_MODAL: 'open',
+  OPEN_IMAGE_MODAL: 'open',
+  SET_IMAGE_CLASS: 'imageClass'
 })

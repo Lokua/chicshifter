@@ -24,3 +24,13 @@ export function assign(...args) {
 export function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+// export getImageDimensions(src) {
+//   return new Promise((resolve, reject) => {
+//     const image = new Image(src)
+//     image.onload = function() {
+//       resolve(this.width, this.height)
+//     }
+//     image.src = src
+//   })
+// }

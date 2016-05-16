@@ -1,6 +1,6 @@
 # *Cutting-Edge Fashion: Recent Acquisitions*
 #### Through January 3, 2016
-### by Ana Sekler
+### By Ana Sekler
 
 Pioneering fashion is generally not associated with Indianapolis.
 Football games and automobile races seem to be more in line with

@@ -11,16 +11,6 @@ $navButtonBasis: 2%;
   display: flex;
 }
 
-.imageContainer {
-  position: relative;
-  @include o-square(100%);
-  flex-basis: 100 - ($navButtonBasis * 2);
-  padding: $bump;
-  overflow: hidden;
-  min-height: 360px;
-  max-height: 1024px;
-}
-
 .navButtonContainer {
   flex-basis: $navButtonBasis;
   cursor: pointer;
@@ -40,7 +30,35 @@ $navButtonBasis: 2%;
   }
 }
 
+.imageContainer {
+  position: relative;
+  @include o-square(100%);
+  flex-basis: 100 - ($navButtonBasis * 2);
+  padding: $bump;
+  overflow: hidden;
+  min-height: 360px;
+  max-height: 1024px;
+  &:hover {
+    .overlay {
+      opacity: 1;
+    }
+    .image {
+      opacity: 0.2;
+    }
+  }
+}
+
+.overlay {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 22%;
+  transition: opacity 250ms;
+  opacity: 0;
+}
+
 .image {
+  transition: opacity 250ms;
+  opacity: 1;
   display: none;
   position: absolute;
   top: 0;
@@ -52,14 +70,18 @@ $navButtonBasis: 2%;
   max-height: 98%;
   margin: auto;
   box-shadow: $box-shadow;
+  cursor: pointer;
   &.active {
     display: block;
+    &:hover:after {
+      content: 'Click to enlarge';
+    }
   }
 }
 
 .meta {
   text-align: center;
-  .author, .caption {
+  .author, .caption, .credits {
     font-size: $font-size-small;
   }
 }
@@ -81,6 +103,6 @@ $navButtonBasis: 2%;
   cursor: pointer;
   &.active {
     box-shadow: none;
-    border: 1px solid $primary-color;
+    border: 2px solid $primary-color;
   }
 }

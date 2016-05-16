@@ -1,6 +1,6 @@
 # Sneaker Culture
 #### December 3, 2015–February 28, 2016
-### by Ana Nezna
+### By Ana Nezna
 
 For as long as I’ve know myself, I’ve know my sneakers. The choices I
 made or that were made for me throughout the span of childhood,

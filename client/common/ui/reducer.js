@@ -5,7 +5,9 @@ const initialState = {
   currentFpfy: 0,
   fpfyImageLoading: true,
   imageSliders: {},
-  fpfyModalActive: false
+  fpfyModalActive: false,
+  imageModalActive: false,
+  imageClass: 'wide' // or `tall`
 }
 
 export default createReducer(initialState, {
@@ -76,5 +78,13 @@ export default createReducer(initialState, {
 
   [actions.OPEN_FPFY_MODAL] (state, { open }) {
     return { ...state, fpfyModalActive: open }
+  },
+
+  [actions.OPEN_IMAGE_MODAL] (state, { open }) {
+    return { ...state, imageModalActive: open }
+  },
+
+  [actions.SET_IMAGE_CLASS] (state, { imageClass }) {
+    return { ...state, imageClass }
   }
 })
