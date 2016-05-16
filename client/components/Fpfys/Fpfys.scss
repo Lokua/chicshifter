@@ -28,6 +28,9 @@
     cursor: pointer;
     img {
       width: 100%;
+      max-width: 64px;
+      margin: 0 auto;
+      display: block;
       height: auto;
       box-shadow: $box-shadow;
     }

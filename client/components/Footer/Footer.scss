@@ -1,19 +1,26 @@
 @import '@';
 
 .Footer {
-  //flex: 0 0 auto;
   border-top: $dashed-border;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: $unit;
+  position: relative;
 }
 
 .copyright {
-  margin: 0;
-  padding: 0;
+  margin-top: 0;
+  padding: ($unit * 2) 0;
+  align-self: center;
   font-size: 0.9em;
   font-weight: normal;
   font-family: $mono;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  height: 100%
 }

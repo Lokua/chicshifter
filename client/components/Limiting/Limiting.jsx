@@ -83,7 +83,7 @@ class Limiting extends Component {
                   id={`${prefix}/${contributor}`}
                   images={contrib.images.map((image, i) => ({
                     ...image,
-                    src: `/${imagePrefix}/${image.url}`
+                    src: `/${imagePrefix}/${image.src}`
                   }))}
                 />
                 <div className={css.prose}>

@@ -6,12 +6,12 @@
   "sections": {
     "consideringChic": {
       "objectName": "considering",
-      "name": "Considering Chic",
+      "name": "Considering",
       "image": {
         "title": "Considering Chic",
         "src": "images/ConsideringChic_JacquelineAlcantara.jpg"
       },
-      "caption": "(caption text)",
+      "caption": "examines fashion through theory",
       "content": [
         {
           "objectName": "bar-the-system",
@@ -85,7 +85,7 @@
     },
     "limitingChic": {
       "objectName": "limiting",
-      "name": "Limiting Chic",
+      "name": "Limiting",
       "image": {
         "title": "foo",
         "src": "images/LimitingChic_JacquelineAlcantara.jpg",
@@ -94,7 +94,7 @@
           "lastName": "Alcantara"
         }
       },
-      "caption": "Some awesome caption goes here",
+      "caption": "proposes weekly sartorial limits on participants",
       "content": [
         {
           "objectName": "1",
@@ -439,7 +439,7 @@
     },
     "seeingChic": {
       "objectName": "seeing",
-      "name": "Seeing Chic",
+      "name": "Seeing",
       "image": {
         "title": "Seeing Chic",
         "src": "images/SeeingChic_JacquelineAlcantara.jpg",
@@ -448,7 +448,7 @@
           "lastName": "Alcantara"
         }
       },
-      "caption": "Some awesome caption goes here",
+      "caption": "introduces local designers",
       "content": [
         {
           "objectName": "andrea-reynders",
@@ -871,7 +871,7 @@
     },
     "shoppingChic": {
       "objectName": "shopping",
-      "name": "Shopping Chic",
+      "name": "Shopping",
       "image": {
         "title": "Shopping Chic",
         "src": "images/ShoppingChic_JacquelineAlcantara.jpg",
@@ -880,7 +880,7 @@
           "lastName": "Alcantara"
         }
       },
-      "caption": "Some awesome caption goes here",
+      "caption": "reviews local shops",
       "content": [
         {
           "objectName": "milk-handmade",
@@ -1016,7 +1016,7 @@
     },
     "streetChic": {
       "objectName": "street",
-      "name": "Street Chic",
+      "name": "Street",
       "image": {
         "title": "Street Chic",
         "src": "images/StreetChic_JacquelineAlcantara.jpg",
@@ -1025,7 +1025,7 @@
           "lastName": "Alcantara"
         }
       },
-      "caption": "Some awesome caption goes here",
+      "caption": "documents street fashion through Chicago’s neighborhoods",
       "content": [
         {
           "objectName": "andersonville",
@@ -1130,7 +1130,7 @@
     },
     "touringChic": {
       "objectName": "touring",
-      "name": "Touring Chic",
+      "name": "Touring",
       "image": {
         "title": "Touring Chic",
         "src": "images/TouringChic_JacquelineAlcantara.jpg",
@@ -1140,7 +1140,7 @@
         }
       },
       "description": "Touring Chic seeks out fashion exhibitions in the Midwest. This first tour led me to exhibits in Detroit, Toledo, Kent, and Indianapolis in December 2015. Some of the exhibits like <em>Detroit D.Fined</em> and the Kent State University Fashion Museum run through 2016. Others have passed, but Touring Chic reminds that chic is everywhere, it just needs to be discerned by a chic shifter.",
-      "caption": "Some awesome caption goes here",
+      "caption": "explores fashion in museum exhibits",
       "content": [
         {
           "objectName": "detroit",

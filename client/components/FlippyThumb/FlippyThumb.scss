@@ -11,6 +11,8 @@ $image-size: 256px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  box-shadow: $box-shadow;
   &:hover {
     .front {
       transform: rotateY(180deg);

@@ -18,7 +18,53 @@
   li {
     flex-basis: 25%;
     min-width: 256px;
-    margin: $bump;
+    max-width: 256px;
+    margin: 2.5rem;
+    @include o-media(m) {
+      margin: 1rem;
+    }
+    @include o-media(s) {
+      margin: 0.5rem;
+    }
+    &:nth-of-type(1) {
+      .sectionLabelContainer {
+        top: 5%;
+        left: -25%;
+        transform: rotate(-35deg);
+      }
+    }
+    &:nth-of-type(2) {
+      .sectionLabelContainer {
+        top: 10%;
+        transform: rotate(5deg);
+      }
+    }
+    &:nth-of-type(3) {
+      .sectionLabelContainer {
+        top: 10%;
+        left: 30%;
+        transform: rotate(45deg);
+      }
+    }
+    &:nth-of-type(4) {
+      .sectionLabelContainer {
+        top: 70%;
+        left: -30%;
+        transform: rotate(33deg);
+      }
+    }
+    &:nth-of-type(5) {
+      .sectionLabelContainer {
+        transform: rotate(-5deg);
+      }
+    }
+    &:nth-of-type(6) {
+      .sectionLabelContainer {
+        top: 70%;
+        left: 25%;
+        transform: rotate(-33deg);
+      }
+    }
   }
 }
 
@@ -28,12 +74,16 @@
 
 .sectionLabelContainer {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   width: auto;
-  height: $h1-font-size;
-  //padding: 1rem;
-  margin: 1rem;
+  height: 2em; // eyeballed
   top: 74%;
+  border: $dashed-border;
+  border-color: rgba($text-color-light, 0.2);
+  margin: 1rem;
 }
 .sectionLabelOverlay, .sectionLabel {
   @include o-size(100%);
@@ -42,7 +92,7 @@
 }
 .sectionLabelOverlay {
   background: $background-color;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .sectionLabel {
   color: $text-color;

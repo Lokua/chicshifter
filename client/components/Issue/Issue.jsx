@@ -33,10 +33,12 @@ class Issue extends Component {
                 <div className={css.sectionLabelContainer}>
                   <div className={css.sectionLabelOverlay} />
                   <div className={css.sectionLabel}>
-                    {issue.sections[key].name}
+                    <h2>{issue.sections[key].name}</h2>
                   </div>
                 </div>
               )
+
+              const back = <h3>{issue.sections[key].caption}</h3>
 
               const link = `issue/${issue.id}/${issue.sections[key].objectName}`
 
@@ -45,7 +47,7 @@ class Issue extends Component {
                   <Link to={link}>
                     <FlippyThumb
                       front={front}
-                      back={issue.sections[key].caption}
+                      back={back}
                       backgroundImage={issue.sections[key].image.src}
                     />
                   </Link>

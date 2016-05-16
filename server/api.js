@@ -58,7 +58,7 @@ async function getLetter(issue) {
 
 async function getLimitingArticle(issue, week, person) {
   const filePath = path.join(
-    config.assetsRoot, 'issues', issue, 'limiting-chic', week,
+    config.assetsRoot, 'issues', issue, 'limiting', week,
     person, 'text.md')
   const body = await fs.readFile(filePath, 'utf8')
   return marked(body)

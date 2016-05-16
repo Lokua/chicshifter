@@ -31,7 +31,10 @@
       flex-basis: 100%;
     }
     &.limiting {
-      flex-basis: 40%;
+      flex-basis: 44%;
+      @include o-media(s) {
+        flex-basis: 100%;
+      }
     }
   }
 }
