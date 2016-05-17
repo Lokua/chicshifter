@@ -9,7 +9,7 @@
       "name": "Considering",
       "image": {
         "title": "Considering Chic",
-        "src": "images/ConsideringChic_JacquelineAlcantara__512.jpg"
+        "src": "images/ConsideringChic_JacquelineAlcantara__256.jpg"
       },
       "caption": "examines fashion through theory",
       "content": [
@@ -27,7 +27,7 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "src": "BigDots_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigDots_Jacqueline_Alcantara__512.jpg"
           }
         },
         {
@@ -44,7 +44,7 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "src": "BigDressNatural_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigDressNatural_Jacqueline_Alcantara__512.jpg"
           }
         },
         {
@@ -61,7 +61,7 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "src": "BigHairNatural_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigHairNatural_Jacqueline_Alcantara__512.jpg"
           }
         },
         {
@@ -78,7 +78,7 @@
               "firstName": "(?)",
               "lastName": "(?)"
             },
-            "src": "BigHatsNatural_Jacqueline_Alcantara__1024.jpg"
+            "src": "BigHatsNatural_Jacqueline_Alcantara__512.jpg"
           }
         }
       ]
@@ -88,7 +88,7 @@
       "name": "Limiting",
       "image": {
         "title": "foo",
-        "src": "images/LimitingChic_JacquelineAlcantara__512.jpg",
+        "src": "images/LimitingChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -442,7 +442,7 @@
       "name": "Seeing",
       "image": {
         "title": "Seeing Chic",
-        "src": "images/SeeingChic_JacquelineAlcantara__512.jpg",
+        "src": "images/SeeingChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -874,7 +874,7 @@
       "name": "Shopping",
       "image": {
         "title": "Shopping Chic",
-        "src": "images/ShoppingChic_JacquelineAlcantara__512.jpg",
+        "src": "images/ShoppingChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -1019,7 +1019,7 @@
       "name": "Street",
       "image": {
         "title": "Street Chic",
-        "src": "images/StreetChic_JacquelineAlcantara__512.jpg",
+        "src": "images/StreetChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -1133,7 +1133,7 @@
       "name": "Touring",
       "image": {
         "title": "Touring Chic",
-        "src": "images/TouringChic_JacquelineAlcantara__512.jpg",
+        "src": "images/TouringChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"

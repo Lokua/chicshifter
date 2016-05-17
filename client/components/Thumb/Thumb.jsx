@@ -45,13 +45,16 @@ Thumb.defaultProps = {
   imageType: 'image'
 }
 
+const imageShape = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+  src: PropTypes.string.isRequired
+}).isRequired
+
 Thumb.propTypes = {
   link: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    alt: PropTypes.string,
-    src: PropTypes.string.isRequired
-  }).isRequired,
+  image: PropTypes.oneOfType([imageShape, PropTypes.arrayOf(imageShape)])
+    .isRequired,
   caption: PropTypes.string,
   imageType: PropTypes.oneOf(['image', 'background'])
 }
