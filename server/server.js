@@ -43,7 +43,6 @@ app.use(errorHandler)
 
 if (process.env.NODE_ENV === 'development') {
   const mount = require('koa-mount')
-  app.use(mount('/static', serve(path.join(projectRoot, 'dist'))))
   app.use(mount('/static', serve(path.join(projectRoot, 'assets'))))
 } // otherwise statics are served via nginx
 

@@ -13,7 +13,7 @@
     "test-client:watch": "TEST=1 ./node_modules/.bin/mocha --watch './client/**/*.spec.{js,jsx}' ",
     "test-server": "TEST=1 ./node_modules/.bin/mocha './server/**/*.spec.{js,jsx}' ",
     "test-server:watch": "TEST=1 ./node_modules/.bin/mocha --watch './server/**/*.spec.{js,jsx}' ",
-    "build": "rm -rf dist/* && NODE_ENV=production webpack --config webpack/webpack.config.prod.js"
+    "build": "rm -rf assets/bundle* assets/style* && NODE_ENV=production webpack --config webpack/webpack.config.prod.js"
   },
   "repository": {
     "type": "git",

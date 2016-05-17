@@ -10,9 +10,9 @@ module.exports = {
     path.join(config.projectRoot, 'client/index.js')
   ],
   output: {
-    path: path.join(config.projectRoot, 'dist'),
+    path: config.assetsRoot,
     filename: 'bundle.js',
-    publicPath: path.join(config.projectRoot, 'dist')
+    publicPath: config.assetsRoot
   },
   resolve: require('./webpack.config.resolve'),
   plugins: [
