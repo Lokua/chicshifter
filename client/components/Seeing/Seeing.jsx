@@ -39,7 +39,7 @@ class Seeing extends Component {
   render() {
     const { info, text, params } = this.props
     const { issue, section, article } = params
-    const { firstName, lastName } = info.credits.text.author
+    // const { firstName, lastName } = info.credits.text.author
 
     // fully qualify image src attr
     const images = info.content.images.map(image => {
@@ -56,7 +56,7 @@ class Seeing extends Component {
             <h1 className={css.title}>{info.title}</h1>
           </header>
           <ImageSlider id={`${issue}/${section}/${article}`} images={images} />
-          <h2 className={css.author}>by {`${firstName} ${lastName}`}</h2>
+          {/*<h2 className={css.author}>by {`${firstName} ${lastName}`}</h2>*/}
           <Prose text={text} />
         </article>
       </div>
