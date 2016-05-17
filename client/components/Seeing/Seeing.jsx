@@ -45,7 +45,7 @@ class Seeing extends Component {
     const images = info.content.images.map(image => {
       return {
         ...image,
-        src: `/issues/${issue}/${section}/${article}/${image.src}`
+        src: `/static/issues/${issue}/${section}/${article}/${image.src}`
       }
     })
 

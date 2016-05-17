@@ -44,7 +44,7 @@ class Touring extends Component {
     const { id, info, text } = this.props
 
     const images = info.content.images.map(image => ({
-      src: `/issues/${id}/${image}`
+      src: `/static/issues/${id}/${image}`
     }))
 
     return (

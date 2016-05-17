@@ -40,7 +40,7 @@ class Shopping extends Component {
     const { firstName, lastName } = info.author
 
     const images = info.content.images.map(image => ({
-      src: `/issues/${issue}/${section}/${article}/${image}`
+      src: `/static/issues/${issue}/${section}/${article}/${image}`
     }))
 
     let reviewHeader

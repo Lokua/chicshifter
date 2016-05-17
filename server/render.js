@@ -57,7 +57,7 @@ export default async function render(ctx) {
 }
 
 function renderPage(html, initialState, meta) {
-  const style = process.env.NODE_ENV === 'production' ? '/style.css' : ''
+  const style = process.env.NODE_ENV === 'production' ? '/static/style.css' : ''
 
   return '' +
 `<!-- ${meta.url} -->
@@ -72,7 +72,7 @@ function renderPage(html, initialState, meta) {
   <meta charset="utf-8">
   <meta name=viewport content="width=device-width, initial-scale=1">
   <title>${meta.name}</title>
-  <link rel="stylesheet" href="/fonts/chicshifter-icons/style.css">
+  <link rel="stylesheet" href="/static/fonts/chicshifter-icons/style.css">
   <link rel="stylesheet" href="${style}">
   <style>
     body {

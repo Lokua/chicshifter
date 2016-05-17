@@ -23,6 +23,11 @@ const { host, port } = config.server
 const use = app.use;
 app.use = x => use.call(app, convert(x))
 
+app.use(async (ctx, next) => {
+  logger.debug('>> ctx.url:', ctx.url)
+  await next()
+})
+
 app.use(_Logger.koaLogger('request', {
   level: process.env.TEST
     ? -1
@@ -35,8 +40,12 @@ app.use(_Logger.koaLogger('request', {
 app.use(cors())
 app.use(bodyParser())
 app.use(errorHandler)
-app.use(serve(path.join(projectRoot, 'dist')))
-app.use(serve(path.join(projectRoot, 'assets')))
+
+if (process.env.NODE_ENV === 'development') {
+  const mount = require('koa-mount')
+  app.use(mount('/static', serve(path.join(projectRoot, 'dist'))))
+  app.use(mount('/static', serve(path.join(projectRoot, 'assets'))))
+} // otherwise statics are served via nginx
 
 app.use(router.routes())
 app.use(api.routes())

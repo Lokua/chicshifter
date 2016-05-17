@@ -37,7 +37,7 @@ class Street extends Component {
     const { id, index, info } = this.props
 
     const images = info.content.map(entry => ({
-      src: `/issues/${id}/${entry.image}`
+      src: `/static/issues/${id}/${entry.image}`
     }))
 
     const content = info.content[index]
@@ -55,8 +55,10 @@ class Street extends Component {
             images={images}
           />
           <main className={css.main}>
-            {/*<h3>CS: {content.question}</h3>*/}
-            <h4>{content.person}, <small style={{ fontSize: '0.7em' }}>30s</small></h4>
+            <h4>
+              {content.person},&nbsp;
+              <small style={{ fontSize: '0.7em' }}>30s</small>
+            </h4>
             <h5>"{content.answer}"</h5>
           </main>
         </article>

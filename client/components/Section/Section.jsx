@@ -32,7 +32,8 @@ class Section extends Component {
         <ul className={css.thumbs}>
           {section.content.map((c, i) => {
             const id = params.issue
-            const src = `/issues/${id}/${section.objectName}/${c.image.src}`
+            const src =
+              `static/issues/${id}/${section.objectName}/${c.image.src}`
             const image = { ...c.image, src }
             const className = section.objectName.split('-')[0]
             return (

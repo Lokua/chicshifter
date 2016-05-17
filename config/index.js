@@ -15,7 +15,7 @@ module.exports = {
     port: 3000,
     bundle: process.env.NODE_ENV === 'development'
       ? `http://localhost:${3001}/dist/bundle.js`
-      : '/bundle.js'
+      : '/static/bundle.js'
   },
   devServer: {
     host: '0.0.0.0',

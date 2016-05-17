@@ -71,8 +71,8 @@ class Fpfys extends Component {
               <img
                 src={
                   fpfys[currentFpfy].response.type === 'Faux Yeah'
-                    ? `/images/FauxYea_JacquelineAlcantara.jpg`
-                    : `/images/FauxPas_JacquelineAlcantara.jpg`
+                    ? `/static/images/FauxYea_JacquelineAlcantara.jpg`
+                    : `/static/images/FauxPas_JacquelineAlcantara.jpg`
                 }
               />
             </div>
@@ -93,7 +93,7 @@ class Fpfys extends Component {
                     // postFpfyVote(fpfys[currentFpfy].id, false)
                     openFpfyModal(true)
                   }}
-                  src={`/images/FauxPas_JacquelineAlcantara.jpg`}
+                  src={`/static/images/FauxPas_JacquelineAlcantara.jpg`}
                   title="Vote Pas"
                   alt="Faux Pas Paw Image"
                 />
@@ -104,7 +104,7 @@ class Fpfys extends Component {
                     // postFpfyVote(fpfys[currentFpfy].id, true)
                     openFpfyModal(true)
                   }}
-                  src={`/images/FauxYea_JacquelineAlcantara.jpg`}
+                  src={`/static/images/FauxYea_JacquelineAlcantara.jpg`}
                   title="Vote yea"
                   alt="Faux Yeah Paw Image"
                 />

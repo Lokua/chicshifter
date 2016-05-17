@@ -60,7 +60,7 @@ class Limiting extends Component {
     const { articleMeta, params, articles } = this.props
 
     const prefix = `${params.issue}/${params.section}/${params.article}`
-    const imagePrefix = `issues/${prefix}`
+    const imagePrefix = `static/issues/${prefix}`
 
     return (
       <div className={css.Limiting}>
