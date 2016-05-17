@@ -4,7 +4,8 @@ const path = require('path')
 const sharp = require('sharp')
 const fs = require('mz/fs')
 
-const size = 1024
+// const size = 768
+const size = 256
 
 // running this from `run` script; hence 3
 const args = process.argv.slice(3)
@@ -20,6 +21,12 @@ const [ inputDir, outputDir ] = args.map(dir =>
   const fileNames = await fs.readdir(inputDir)
 
   await fileNames.map(async fileName => {
+
+    if (/.+__[0-9]{3,4}\.[a-z]{3,4}/i.test(fileName)) {
+      console.log('skipping previously processed image')
+      return
+    }
+
     if (/^\._/i.test(fileName)) {
       console.log('skipping dotfile')
       return

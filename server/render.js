@@ -70,16 +70,11 @@ function renderPage(html, initialState, meta) {
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=no">
   <title>${meta.name}</title>
   <link rel="stylesheet" href="/static/fonts/chicshifter-icons/style.css">
   <link rel="stylesheet" href="${style}">
-  <style>
-    body {
-      /* prevent FOUC, see @components/App */
-      display: none;
-    }
-  </style>
+  <style>body { display: none; }</style>
 </head>
 <body>
   <div id="root">${html}</div>

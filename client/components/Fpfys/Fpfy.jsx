@@ -22,10 +22,6 @@ export default class Fpfy extends Component {
   }
 
   render() {
-
-    const [name, ext] = this.props.image.url.split('.')
-    const url = `${name}__1024.${ext}`
-
     return (
       <figure className={css.Fpfy}>
         <h3 className={css.title}>{this.props.name}</h3>
@@ -38,7 +34,7 @@ export default class Fpfy extends Component {
             onLoad={() => {
               setTimeout(() => this.props.toggleFpfyImageLoading(false))
             }}
-            src={`/static/images/processed/fpfys/${url}`}
+            src={`/static/images/fpfys/${this.props.image.url}`}
             title={this.props.image.name || 'Faux Pas or Paux Yeah?'}
             alt={this.props.image.name || 'Faux Pas or Paux Yeah?'}
           />
