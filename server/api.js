@@ -52,6 +52,7 @@ api.get('/letter/:issue', async ctx => {
 async function getLetter(issue) {
   const filePath = path.join(config.assetsRoot,
     'issues', issue, 'letter-from-the-editor.md')
+  if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
   return marked(body)
 }
@@ -60,22 +61,25 @@ async function getLimitingArticle(issue, week, person) {
   const filePath = path.join(
     config.assetsRoot, 'issues', issue, 'limiting', week,
     person, 'text.md')
+  if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
-  return marked(body)
+  return cache.set(filePath, marked(body))
 }
 
 async function getWeekArticle(issue, section, week, article) {
   const filePath = path.join(
     config.assetsRoot, 'issues', issue, section, week, article)
+  if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
-  return marked(body)
+  return cache.set(filePath, marked(body))
 }
 
 async function getArticle(issue, section, article) {
   const filePath = path.join(
     config.assetsRoot, 'issues', issue, section, `${article}.md`)
+  if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
-  return marked(body)
+  return cache.set(filePath, marked(body))
 }
 
 async function getIssues() {
