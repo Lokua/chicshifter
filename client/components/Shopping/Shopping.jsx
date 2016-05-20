@@ -55,7 +55,7 @@ class Shopping extends Component {
       reviewHeader = (
         <header>
           <h2 className={css.author}>
-            by {`${firstName} ${lastName}`}
+            By {`${firstName} ${lastName}`}
           </h2>
         </header>
       )
