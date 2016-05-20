@@ -11,10 +11,11 @@ const loggerMethods = ['log', 'trace', 'debug', 'info', 'warn', 'error']
 export default function injectLogger(level = 0, color) {
 
   const addLogger = t => {
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'production') {
       loggerMethods.forEach(m => t.prototype[m] = () => {})
       return
     }
+
     const options = { level }
     if (color) options.nameStyle = `color:${color}`
     const logger = new Logger(t.name, options)
