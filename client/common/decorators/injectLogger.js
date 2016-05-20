@@ -1,17 +1,22 @@
-import Logger from 'lokua.net.logger'
-
-Logger.setDefaults({
-  format: ['name', 'level'/*, 'source'*/],
-  useAbsoluteSource: true,
-  // newLine: true
-})
-
+let Logger
 const loggerMethods = ['log', 'trace', 'debug', 'info', 'warn', 'error']
+
+const isDev = process.env.NODE_ENV === 'development'
+
+if (isDev) {
+  Logger = require('lokua.net.logger')
+  Logger.setDefaults({
+    format: ['name', 'level'/*, 'source'*/],
+    useAbsoluteSource: true
+  })
+}
 
 export default function injectLogger(level = 0, color) {
 
   const addLogger = t => {
-    if (process.env.NODE_ENV === 'production') {
+
+    // noopify all logger method calls
+    if (!isDev) {
       loggerMethods.forEach(m => t.prototype[m] = () => {})
       return
     }
