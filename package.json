@@ -1,6 +1,6 @@
 {
   "name": "chicshifter",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "Source code for chicshifter.com",
   "scripts": {
     "dev": "./node_modules/.bin/concurrently --raw 'npm run nodemon' 'npm run dev-server' ",
