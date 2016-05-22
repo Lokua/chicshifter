@@ -4,19 +4,18 @@ import { connect } from 'react-redux'
 import { selectors, capitalize } from '@common'
 import { Slug } from '@components/Slug'
 
+// seeing, shopping, touring
+import { StandardArticle } from '@components/StandardArticle'
+
 import { Limiting } from '@components/Limiting'
 import { Considering } from '@components/Considering'
-import { Seeing } from '@components/Seeing'
-import { Shopping } from '@components/Shopping'
 import { Street } from '@components/Street'
-import { Touring } from '@components/Touring'
 
 import css from './Article.scss'
 
-const components = { Limiting, Considering, Seeing, Shopping, Street, Touring }
+const components = { Limiting, Considering, Street }
 
 const mapStateToProps = (state, props) => ({
-  // slug: selectors.articleSlug(state, props)
   slug: selectors.sectionSlug(state, props)
 })
 
@@ -30,7 +29,7 @@ class Article extends Component {
   render() {
     const section = capitalize(this.props.params.section.split('-')[0])
     const ArticleComponent = /(see|shopp|tour)ing/i.test(section)
-      ? components.Touring
+      ? StandardArticle
       : components[`${section}`]
 
     return (

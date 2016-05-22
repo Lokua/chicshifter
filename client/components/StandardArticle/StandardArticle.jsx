@@ -4,7 +4,7 @@ import { selectors, shallowUpdate, injectLogger } from '@common'
 import { actions as articleActions } from '@components/Article'
 import { Prose } from '@components/Prose'
 import { ImageSlider } from '@components/ImageSlider'
-import css from './Touring.scss'
+import css from './StandardArticle.scss'
 
 const mapStateToProps = (state, props) => {
   const { params } = props
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 @injectLogger
 @shallowUpdate
-class Touring extends Component {
+class StandardArticle extends Component {
 
   static propTypes = {
     id: PropTypes.string.isRequired,
@@ -48,7 +48,7 @@ class Touring extends Component {
     }))
 
     return (
-      <div className={css.Touring}>
+      <div className={css.StandardArticle}>
         <header>
           <h1 className={css.title}>{info.title}</h1>
         </header>
@@ -59,4 +59,4 @@ class Touring extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Touring)
+export default connect(mapStateToProps, mapDispatchToProps)(StandardArticle)
