@@ -5,6 +5,7 @@ import { Letter } from '@components/Letter'
 import { Section } from '@components/Section'
 import { Article } from '@components/Article'
 import { StyleGuide } from '@components/StyleGuide'
+import { Admin, EditIssue, EditSection, EditEntry } from '@components/Admin'
 
 const routes = {
   path: '/',
@@ -20,7 +21,15 @@ const routes = {
     { path: '/issue/:issue', component: Home },
     { path: '/issue/:issue/letter-from-the-editor', component: Letter },
     { path: '/issue/:issue/:section', component: Section },
-    { path: '/issue/:issue/:section/:article', component: Article }
+    { path: '/issue/:issue/:section/:article', component: Article },
+
+    { path: '/admin', component: Admin },
+    { path: '/admin/issue/:issue', component: EditIssue },
+    { path: '/admin/issue/:issue/section/:section', component: EditSection },
+    {
+      path: '/admin/issue/:issue/section/:section/entry/:entry',
+      component: EditEntry
+    }
   ]
 }
 

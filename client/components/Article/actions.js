@@ -11,5 +11,8 @@ export default new Actions({
       const text = await res.text()
       dispatch(this.fetchArticleSuccess(text))
     })()
+  },
+  INVALIDATE_ARTICLE () {
+    return dispatch => dispatch(this.fetchArticleSuccess(''))
   }
 })

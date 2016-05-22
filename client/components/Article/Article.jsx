@@ -29,7 +29,9 @@ class Article extends Component {
 
   render() {
     const section = capitalize(this.props.params.section.split('-')[0])
-    const ArticleComponent = components[`${section}`]
+    const ArticleComponent = /(see|shopp|tour)ing/i.test(section)
+      ? components.Touring
+      : components[`${section}`]
 
     return (
       <div className={css.Article}>

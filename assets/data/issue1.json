@@ -9,7 +9,7 @@
       "name": "Considering",
       "image": {
         "title": "Considering Chic",
-        "src": "images/ConsideringChic_JacquelineAlcantara__256.jpg"
+        "src": "ConsideringChic_JacquelineAlcantara__256.jpg"
       },
       "caption": "examines fashion through theory",
       "content": [
@@ -88,7 +88,7 @@
       "name": "Limiting",
       "image": {
         "title": "foo",
-        "src": "images/LimitingChic_JacquelineAlcantara__256.jpg",
+        "src": "LimitingChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -442,7 +442,7 @@
       "name": "Seeing",
       "image": {
         "title": "Seeing Chic",
-        "src": "images/SeeingChic_JacquelineAlcantara__256.jpg",
+        "src": "SeeingChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -542,7 +542,7 @@
                 "title": "reynderstudio"
               }
             ],
-            "textUrl": "andrea-reynders.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -689,7 +689,7 @@
                 ]
               }
             ],
-            "textUrl": "cfi.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -827,7 +827,7 @@
                 "title": "schnablstudio1"
               }
             ],
-            "textUrl": "katrin-schnabl.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -864,7 +864,7 @@
               { "src": "IMG_4811__1024.jpg" },
               { "src": "IMG_4815__1024.jpg" }
             ],
-            "textUrl": "leigh-deleonardo.md"
+            "textUrl": "text.html"
           }
         }
       ]
@@ -874,7 +874,7 @@
       "name": "Shopping",
       "image": {
         "title": "Shopping Chic",
-        "src": "images/ShoppingChic_JacquelineAlcantara__256.jpg",
+        "src": "ShoppingChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -906,14 +906,32 @@
           },
           "content": {
             "images": [
-              "milkgloves__1024.jpg",
-              "milkmidwestbesttees__1024.jpg",
-              "milkshilliconfetti__1024.jpg",
-              "milkshilliconfettionbody__1024.jpg",
-              "milkshop__1024.jpg",
-              "milkwindow__1024.jpg"
+              {
+                "title": "milkgloves__1024.jpg",
+                "src": "milkgloves__1024.jpg"
+              },
+              {
+                "title": "milkmidwestbesttees__1024.jpg" ,
+                "src": "milkmidwestbesttees__1024.jpg"
+              },
+              {
+                "title": "milkshilliconfetti__1024.jpg" ,
+                "src": "milkshilliconfetti__1024.jpg"
+              },
+              {
+                "title": "milkshilliconfettionbody__1024.jpg",
+                "src": "milkshilliconfettionbody__1024.jpg"
+              },
+              {
+                "title": "milkshop__1024.jpg",
+                "src": "milkshop__1024.jpg"
+              },
+              {
+                "title": "milkwindow__1024.jpg",
+                "src": "milkwindow__1024.jpg"
+              }
             ],
-            "textUrl": "milk-handmade.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -940,15 +958,36 @@
           },
           "content": {
             "images": [
-              "bierendonckmens__1024.jpg",
-              "capeatrichman__1024.jpg",
-              "richmaneckhauslatta__1024.jpg",
-              "richmanguidiboots__1024.jpg",
-              "richmanjewels__1024.jpg",
-              "richmanoutside__1024.jpg",
-              "richmanshop__1024.jpg"
+              {
+                "title": "bierendonckmens",
+                "src": "bierendonckmens__1024.jpg"
+              },
+              {
+                "title": "capeatrichman",
+                "src": "capeatrichman__1024.jpg"
+              },
+              {
+                "title": "richmaneckhauslatta",
+                "src": "richmaneckhauslatta__1024.jpg"
+              },
+              {
+                "title": "richmanguidiboots",
+                "src": "richmanguidiboots__1024.jpg"
+              },
+              {
+                "title": "richmanjewels",
+                "src": "richmanjewels__1024.jpg"
+              },
+              {
+                "title": "richmanoutside",
+                "src": "richmanoutside__1024.jpg"
+              },
+              {
+                "title": "richmanshop",
+                "src": "richmanshop__1024.jpg"
+              }
             ],
-            "textUrl": "robin-richman.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -975,10 +1014,16 @@
           },
           "content": {
             "images": [
-              "unionhandmadechicagodressmaker__1024.jpg",
-              "unionhandmadedecember__1024.jpg"
+              {
+                "title": "unionhandmadechicagodressmaker",
+                "src": "unionhandmadechicagodressmaker__1024.jpg"
+              },
+              {
+                "title": "unionhandmadedecember",
+                "src": "unionhandmadedecember__1024.jpg"
+              }
             ],
-            "textUrl": "union-handmade.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -1005,10 +1050,16 @@
           },
           "content": {
             "images": [
-              "menslinen__1024.jpg",
-              "uniqloskirtturtleneck__1024.jpg"
+              {
+                "title": "",
+                "src" : "menslinen__1024.jpg"
+              },
+              {
+                "title": "",
+                "src" : "uniqloskirtturtleneck__1024.jpg"
+              }
             ],
-            "textUrl": "uniqlo.md",
+            "textUrl": "text.html",
             "title": "Looking Into the Uniqloset"
           }
         }
@@ -1019,7 +1070,7 @@
       "name": "Street",
       "image": {
         "title": "Street Chic",
-        "src": "images/StreetChic_JacquelineAlcantara__256.jpg",
+        "src": "StreetChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -1133,7 +1184,7 @@
       "name": "Touring",
       "image": {
         "title": "Touring Chic",
-        "src": "images/TouringChic_JacquelineAlcantara__256.jpg",
+        "src": "TouringChic_JacquelineAlcantara__256.jpg",
         "author": {
           "firstName": "Jacqueline",
           "lastName": "Alcantara"
@@ -1155,15 +1206,15 @@
           },
           "content": {
             "images": [
-              "annasui__1024.jpg",
-              "annasui2__1024.jpg",
-              "annasuimyfave__1024.jpg",
-              "annyee__1024.jpg",
-              "bridgetsullivan__1024.jpg",
-              "exhibitspan__1024.jpg",
-              "johnvarvatos__1024.jpg"
+              { "src": "annasui__1024.jpg" },
+              { "src": "annasui2__1024.jpg" },
+              { "src": "annasuimyfave__1024.jpg" },
+              { "src": "annyee__1024.jpg" },
+              { "src": "bridgetsullivan__1024.jpg" },
+              { "src": "exhibitspan__1024.jpg" },
+              { "src": "johnvarvatos__1024.jpg" }
             ],
-            "textUrl": "detroit.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -1179,19 +1230,19 @@
           },
           "content": {
             "images": [
-              "blassreddress__1024.jpg",
-              "clairemccardelldetail__1024.jpg",
-              "commedesgarcons__1024.jpg",
-              "deCastelbajac__1024.jpg",
-              "decastelbajacorange__1024.jpg",
-              "gernreichtotallook__1024.jpg",
-              "japaneseplatforms__1024.jpg",
-              "kawakubobump__1024.jpg",
-              "kawakubohands__1024.jpg",
-              "mccardelldior__1024.jpg",
-              "westwoodboobtube__1024.jpg"
+              { "src": "blassreddress__1024.jpg" },
+              { "src": "clairemccardelldetail__1024.jpg" },
+              { "src": "commedesgarcons__1024.jpg" },
+              { "src": "deCastelbajac__1024.jpg" },
+              { "src": "decastelbajacorange__1024.jpg" },
+              { "src": "gernreichtotallook__1024.jpg" },
+              { "src": "japaneseplatforms__1024.jpg" },
+              { "src": "kawakubobump__1024.jpg" },
+              { "src": "kawakubohands__1024.jpg" },
+              { "src": "mccardelldior__1024.jpg" },
+              { "src": "westwoodboobtube__1024.jpg" }
             ],
-            "textUrl": "indianapolis.md"
+            "textUrl": "text.html"
           }
         },
         {
@@ -1207,28 +1258,28 @@
           },
           "content": {
             "images": [
-              "fashiontimeline__1024.jpg",
-              "fashiontimeline2__1024.jpg",
-              "fashiontimeline3__1024.jpg",
-              "flapper10__1024.jpg",
-              "flapper2__1024.jpg",
-              "flapper3__1024.jpg",
-              "flapper4__1024.jpg",
-              "flapper5__1024.jpg",
-              "flapper6__1024.jpg",
-              "flapper7__1024.jpg",
-              "flapper8__1024.jpg",
-              "flapper9__1024.jpg",
-              "flapperstyle__1024.jpg",
-              "insideoutchaneldetail__1024.jpg",
-              "insideoutchaneljacketinside__1024.jpg",
-              "insideoutchanelskirt__1024.jpg",
-              "insideoutchanelsuitdisplay__1024.jpg",
-              "insideoutchanelwhole__1024.jpg",
-              "insideoutmens__1024.jpg",
-              "insideoutmensbreeches__1024.jpg",
-              "insideoutmensbreechesback__1024.jpg",
-              "insideoutmensbreechesfront__1024.jpg"
+              { "src": "fashiontimeline__1024.jpg" },
+              { "src": "fashiontimeline2__1024.jpg" },
+              { "src": "fashiontimeline3__1024.jpg" },
+              { "src": "flapper10__1024.jpg" },
+              { "src": "flapper2__1024.jpg" },
+              { "src": "flapper3__1024.jpg" },
+              { "src": "flapper4__1024.jpg" },
+              { "src": "flapper5__1024.jpg" },
+              { "src": "flapper6__1024.jpg" },
+              { "src": "flapper7__1024.jpg" },
+              { "src": "flapper8__1024.jpg" },
+              { "src": "flapper9__1024.jpg" },
+              { "src": "flapperstyle__1024.jpg" },
+              { "src": "insideoutchaneldetail__1024.jpg" },
+              { "src": "insideoutchaneljacketinside__1024.jpg" },
+              { "src": "insideoutchanelskirt__1024.jpg" },
+              { "src": "insideoutchanelsuitdisplay__1024.jpg" },
+              { "src": "insideoutchanelwhole__1024.jpg" },
+              { "src": "insideoutmens__1024.jpg" },
+              { "src": "insideoutmensbreeches__1024.jpg" },
+              { "src": "insideoutmensbreechesback__1024.jpg" },
+              { "src": "insideoutmensbreechesfront__1024.jpg" }
             ],
             "textUrl": "kent.md"
           }
@@ -1246,19 +1297,19 @@
           },
           "content": {
             "images": [
-              "adidasallround__1024.jpg",
-              "adidasceyadams__1024.jpg",
-              "adidassamba__1024.jpg",
-              "anatouringsneaker__1024.jpg",
-              "earlysneakers__1024.jpg",
-              "jordansection__1024.jpg",
-              "nikeclassic__1024.jpg",
-              "nikejordan__1024.jpg",
-              "puma&chalayan__1024.jpg",
-              "pumakehindewiley__1024.jpg",
-              "reebokfreestyle__1024.jpg"
+              { "src": "adidasallround__1024.jpg" },
+              { "src": "adidasceyadams__1024.jpg" },
+              { "src": "adidassamba__1024.jpg" },
+              { "src": "anatouringsneaker__1024.jpg" },
+              { "src": "earlysneakers__1024.jpg" },
+              { "src": "jordansection__1024.jpg" },
+              { "src": "nikeclassic__1024.jpg" },
+              { "src": "nikejordan__1024.jpg" },
+              { "src": "puma&chalayan__1024.jpg" },
+              { "src": "pumakehindewiley__1024.jpg" },
+              { "src": "reebokfreestyle__1024.jpg" }
             ],
-            "textUrl": "toledo.md"
+            "textUrl": "text.html"
           }
         }
       ]

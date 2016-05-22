@@ -19,8 +19,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => ({
   getArticle() {
     const { issue, section, article } = props.params
-    const fileName = `${article}.md`
-    dispatch(articleActions.fetchArticle(issue, section, article, fileName))
+    dispatch(articleActions.fetchArticle(issue, section, article, 'text.html'))
   }
 })
 
@@ -44,7 +43,8 @@ class Touring extends Component {
     const { id, info, text } = this.props
 
     const images = info.content.images.map(image => ({
-      src: `/static/issues/${id}/${image}`
+      ...image,
+      src: `/static/issues/${id}/${image.src}`
     }))
 
     return (

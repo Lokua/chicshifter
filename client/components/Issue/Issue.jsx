@@ -41,7 +41,8 @@ class Issue extends Component {
               const back = <h3>{issue.sections[key].caption}</h3>
 
               const link = `issue/${issue.id}/${issue.sections[key].objectName}`
-              const backgroundImage = `/static/${issue.sections[key].image.src}`
+              const backgroundImage =
+                `/static/images/${issue.sections[key].image.src}`
 
               return (
                 <li key={key}>

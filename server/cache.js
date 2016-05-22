@@ -12,6 +12,10 @@ class Cache {
     this._store.set(key, value)
     return value
   }
+  delete(key) {
+    this._store.delete(key)
+    return this
+  }
 }
 
 const cache = new Cache()

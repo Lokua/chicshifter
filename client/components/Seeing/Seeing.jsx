@@ -16,7 +16,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   getArticle() {
     const { issue, section, article } = props.params
-    const fileName = `${article}.md`
+    const fileName = `text.html`
     dispatch(articleActions.fetchArticle(issue, section, article, fileName))
   }
 })

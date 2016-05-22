@@ -8,6 +8,63 @@ import cache from './cache'
 
 const api = new Router({ prefix: '/api' })
 
+const renderer = new marked.Renderer()
+renderer.heading = function(text, level) {
+  return `<h${level}>${text}</h${level}>\n`
+}
+marked.setOptions({ renderer })
+
+// ADMIN
+
+api.post('/admin/replace-article', async ctx => {
+  const { issue, section, entry, article } = ctx.request.body
+  console.log(issue, section, entry, article)
+
+  let filePath
+
+  if (section === 'considering') {
+    filePath = [
+      config.assetsRoot,
+      'issues',
+      issue,
+      section,
+      `${entry}.html`
+    ].join('/')
+
+  } else if (/(limit|see|shopp|tour)ing/.test(section)) {
+    filePath = [
+      config.assetsRoot,
+      'issues',
+      issue,
+      section,
+      `${entry}/text.html`
+    ].join('/')
+  }
+
+  try {
+    await fs.writeFile(filePath, article, 'utf8')
+  } catch (err) {
+    const ts = Date.now()
+    err.timestamp = ts
+    console.error(`[${ts}] error caught in /api/admin/replace-article >> err:`,
+      err)
+    ctx.status = 500
+    ctx.body = err
+
+    return
+  }
+
+  if (filePath && cache.has(filePath)) {
+    console.log(`removing ${filePath} from cache...`)
+    cache.delete(filePath)
+  }
+
+  ctx.status = 200
+})
+
+
+// PUBLIC
+
 api.get('/issues', async ctx => {
   ctx.body = await getIssues()
 })
@@ -35,6 +92,7 @@ api.get('/article/:issue/:section/:week/:article', async ctx => {
 
 api.get('/article/:issue/:section/:article', async ctx => {
   const { issue, section, article } = ctx.params
+  console.log('getArticles >> ctx.params:', ctx.params)
   ctx.body = await getArticle(issue, section, article)
 })
 
@@ -60,10 +118,10 @@ async function getLetter(issue) {
 async function getLimitingArticle(issue, week, person) {
   const filePath = path.join(
     config.assetsRoot, 'issues', issue, 'limiting', week,
-    person, 'text.md')
+    person, 'text.html')
   if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
-  return cache.set(filePath, marked(body))
+  return cache.set(filePath, /*marked(body)*/body)
 }
 
 async function getWeekArticle(issue, section, week, article) {
@@ -71,15 +129,15 @@ async function getWeekArticle(issue, section, week, article) {
     config.assetsRoot, 'issues', issue, section, week, article)
   if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
-  return cache.set(filePath, marked(body))
+  return cache.set(filePath, /*marked(body)*/body)
 }
 
 async function getArticle(issue, section, article) {
   const filePath = path.join(
-    config.assetsRoot, 'issues', issue, section, `${article}.md`)
+    config.assetsRoot, 'issues', issue, section, `${article}.html`)
   if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
-  return cache.set(filePath, marked(body))
+  return cache.set(filePath, /*marked(body)*/body)
 }
 
 async function getIssues() {
