@@ -61,19 +61,19 @@ class ImageSlider extends Component {
   @autobind
   hasCaption() {
     const image = this.getCurrentImage()
-    return image.hasOwnProperty('caption')
+    return image && image.hasOwnProperty('caption')
   }
 
   @autobind
   getCaption() {
     const image = this.getCurrentImage()
-    return image.caption
+    return image && image.caption
   }
 
   @autobind
   renderCredits() {
     const image = this.getCurrentImage()
-    if (image.credits && image.credits.length) {
+    if (image && image.credits && image.credits.length) {
       return (
         <ul className={css.credits}>
           {image.credits.map((credit, i) => {

@@ -25,7 +25,7 @@ class EditIssue extends Component {
               <Link
                 to={`/admin/issue/${issue.id}/section/${section.objectName}`}
               >
-                <button className={css.button}>{id}</button>
+                <button className={css.button}>{section.objectName}</button>
               </Link>
             </li>
           ))}

@@ -2,9 +2,14 @@ import fs from 'mz/fs'
 import path from 'path'
 import Router from 'koa-router'
 import marked from 'marked'
+import find from 'lodash.find'
+import rimraf from 'rimraf-promise'
 
 import config from '../config'
 import cache from './cache'
+import Logger from './Logger'
+
+const logger = new Logger('api')
 
 const api = new Router({ prefix: '/api' })
 
@@ -62,6 +67,137 @@ api.post('/admin/replace-article', async ctx => {
   ctx.status = 200
 })
 
+api.post('/admin/new', async ctx => {
+  const { body } = ctx.request
+  const { issue, section, entry, object } = body
+  const objectName = object.title.toLowerCase().replace(/[^a-z0-9_-]/ig, '')
+  const { src, title }  = object.image
+
+  const issues = await getIssues()
+
+  logger.debug('objectName:', objectName)
+  logger.debug(issue, section, entry, object.title, src, title)
+
+  // this is completely new entry
+  if (entry === null) {
+
+    if (section === 'seeing') {
+      const sectionPath = [
+        config.assetsRoot,
+        'issues',
+        issue,
+        section
+      ].join('/')
+
+      const entryPath = `${sectionPath}/${objectName}`
+
+      try {
+        await fs.mkdir(entryPath)
+      } catch (err) {
+        if (err.code !== 'EEXIST') throw err
+      }
+
+      if (object.image.src && object.image.data) {
+
+        // TODO: process image
+        // write section thumb image
+        const imagePath = `${sectionPath}/${object.image.src}`
+        await fs.writeFile(imagePath, object.image.data, 'binary')
+
+        const newEntry = {
+          objectName,
+          title: object.title,
+          image: {
+            title: object.image.title,
+            src: object.image.src
+          },
+          content: {
+            images: [],
+            textUrl: 'text.html'
+          }
+        }
+
+        issues[issue-1].sections[`${section}Chic`].content.push(newEntry)
+
+        cache.delete('issues')
+
+        await fs.writeFile(
+          `${config.dataRoot}/issue${issue}.TEST.json`,
+          JSON.stringify(issues[issue-1], null, 2),
+          'utf8'
+        )
+
+        await fs.writeFile(
+          `${entryPath}/text.html`,
+          '<!-- Hello! -->',
+          'utf8'
+        )
+      }
+    }
+  }
+
+
+  ctx.status = 200
+  ctx.body = issues
+})
+
+api.post('/admin/delete', async ctx => {
+  const { issue, section, entry } = ctx.request.body
+
+  if (section !== 'seeing') {
+    logger.warn('delete is not impl for', section)
+    return ctx.body = await getIssues()
+  }
+
+
+  const issues = await getIssues()
+  const content = issues[issue-1].sections[`${section}Chic`].content
+  const entryObject = find(content, {
+    objectName: entry
+  })
+
+  logger.debug('entryObject:', entryObject)
+
+  const index = content.indexOf(entryObject)
+  content.splice(index, 1)
+  issues[issue-1].sections[`${section}Chic`].content = content
+
+  cache.delete('issues')
+
+  const sectionPath = [
+    config.assetsRoot,
+    'issues',
+    issue,
+    section
+  ].join('/')
+
+  try {
+    // remove entry folder
+    await rimraf(`${sectionPath}/${entryObject.objectName}`)
+  } catch (err) {
+    if (err) {
+      logger.warn('/api/admin/delete >> rethrowing caught error...')
+      throw err
+    }
+  }
+
+  // remove section toc entry thumb
+  if (entryObject.image && entryObject.image.src) {
+    const imagePath = `${sectionPath}/${entryObject.image.src}`
+
+    if (await fs.exists(imagePath)) {
+      await fs.unlink(imagePath)
+    }
+  }
+
+  await fs.writeFile(
+    `${config.dataRoot}/issue${issue}.TEST.json`,
+    JSON.stringify(issues[issue-1], null, 2),
+    'utf8'
+  )
+
+  ctx.body = await getIssues()
+})
 
 // PUBLIC
 
@@ -140,10 +276,10 @@ async function getArticle(issue, section, article) {
   return cache.set(filePath, /*marked(body)*/body)
 }
 
-async function getIssues() {
+async function getIssues(noCache = false) {
   if (cache.has('issues')) return cache.get('issues')
   const files = await fs.readdir(config.dataRoot)
-  const issueCalls = await files.filter(file => file.includes('issue'))
+  const issueCalls = await files.filter(file => file.includes('TEST'))
     .map(async file => {
       const filePath = path.resolve(config.dataRoot, file)
       const issue = await fs.readFile(filePath, 'utf8')

@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+
 import { selectors, shallowUpdate, injectLogger } from '@common'
 import { actions as articleActions } from '@components/Article'
 import { Prose } from '@components/Prose'
 import { ImageSlider } from '@components/ImageSlider'
+
 import css from './StandardArticle.scss'
 
 const mapStateToProps = (state, props) => {
@@ -52,8 +54,8 @@ class StandardArticle extends Component {
         <header>
           <h1 className={css.title}>{info.title}</h1>
         </header>
-        <ImageSlider id={id} images={images} />
-        <Prose text={text} />
+        {images && !!images.length && <ImageSlider id={id} images={images} />}
+        {text && <Prose text={text} />}
       </div>
     )
   }

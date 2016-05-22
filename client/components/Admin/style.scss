@@ -28,7 +28,15 @@
   margin: $unit auto;
 }
 
-.input, .button {
+
+.formGroup {
+  margin-bottom: $unit;
+  input, button, label {
+    display: block;
+  }
+}
+
+.input, .button, input, button {
   padding: $bump/2 $unit;
   border-radius: 2px;
   margin: 2px;

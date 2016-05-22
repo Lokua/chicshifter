@@ -3,10 +3,26 @@ import actions from './actions'
 
 const initialState = {
   issue: -1,
-  editorState: null
+  editorState: null,
+  modalActive: false,
+  editable: {
+    objectName: '',
+    title: '',
+    image: {}
+  }
 }
 
 export default createReducer(initialState, {
+
+  [actions.ADMIN_SET_EDITABLE_VALUE] (state, { key, value }) {
+    const editable = { ...state.editable, [key]: value }
+
+    return { ...state, editable }
+  },
+
+  [actions.ADMIN_OPEN_MODAL] (state, { modalActive }) {
+    return { ...state, modalActive }
+  },
 
   [actions.ADMIN_SET_EDITOR_STATE] (state, { editorState }) {
     return { ...state, editorState }

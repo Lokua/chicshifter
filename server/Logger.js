@@ -13,9 +13,10 @@ export default function(name, level) {
   if (level === undefined) {
     if (process.env.NODE_ENV === 'development') {
       level = Logger.DEBUG
-    }
 
-    level = Logger.INFO
+    } else {
+      level = Logger.INFO
+    }
   }
 
   return new Logger(name, level)

@@ -152,10 +152,10 @@ class EditEntry extends Component {
   @autobind
   seeing() {
     const { entry, article, params } = this.props
-    const { issue, section, entry: pEntry } = params
+    const { issue, section } = params
 
     if (article) {
-      const prefix = `/static/issues/${issue}/${section}/${pEntry}`
+      const prefix = `/static/issues/${issue}/${section}`
       return (
         <div>
 
@@ -191,7 +191,7 @@ class EditEntry extends Component {
                     <br />
                     <img
                       style={{ width: '128px', height: 'auto' }}
-                      src={`${prefix}/${image.src}`}
+                      src={`${prefix}/${params.entry}/${image.src}`}
                     />
                     <h3>Credits:</h3>
                     <button className={css.button}>New</button>

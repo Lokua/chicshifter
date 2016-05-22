@@ -1,0 +1,13 @@
+@import '@';
+
+.Dialog {
+  background: white;
+  dialog {
+    background: white;
+    padding: $unit;
+  }
+  button {
+    background: black;
+    color: white;
+  }
+}

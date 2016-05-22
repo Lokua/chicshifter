@@ -4,6 +4,51 @@ import map from 'lodash.map'
 
 export default new Actions({
 
+  ADMIN_DELETE_ENTRY ({ issue, section, entry }) {
+    return (dispatch, getState) => (async () => {
+      const res = await fetch('/api/admin/delete', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          issue,
+          section,
+          entry
+        })
+      })
+
+      const issues = await res.json()
+      dispatch(issueActions.getIssuesSuccess(issues))
+    })()
+  },
+
+  ADMIN_SUBMIT_EDITABLE ({ issue, section, entry }) {
+    return (dispatch, getState) => (async () => {
+      const res = await fetch('/api/admin/new', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          issue,
+          section,
+          entry,
+          object: getState().admin.editable
+        })
+      })
+
+      const issues = await res.json()
+      dispatch(issueActions.getIssuesSuccess(issues))
+    })()
+  },
+
+  ADMIN_SET_EDITABLE_VALUE: ['key', 'value'],
+
+  ADMIN_OPEN_MODAL: 'modalActive',
+
   ADMIN_SET_EDITOR_STATE: 'editorState',
 
   ADMIN_SELECT_ISSUE: 'id',

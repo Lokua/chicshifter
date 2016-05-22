@@ -7,7 +7,8 @@ const initialState = {
   imageSliders: {},
   fpfyModalActive: false,
   imageModalActive: false,
-  imageClass: 'wide' // or `tall`
+  imageClass: 'wide', // or `tall`
+  dialogActive: false
 }
 
 export default createReducer(initialState, {
@@ -86,5 +87,9 @@ export default createReducer(initialState, {
 
   [actions.SET_IMAGE_CLASS] (state, { imageClass }) {
     return { ...state, imageClass }
+  },
+
+  [actions.SHOW_DIALOG] (state, { show }) {
+    return { ...state, dialogActive: show }
   }
 })

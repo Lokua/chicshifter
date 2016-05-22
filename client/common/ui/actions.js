@@ -10,5 +10,6 @@ export default new Actions({
   SET_IMAGE_INDEX: ['id', 'index'],
   OPEN_FPFY_MODAL: 'open',
   OPEN_IMAGE_MODAL: 'open',
-  SET_IMAGE_CLASS: 'imageClass'
+  SET_IMAGE_CLASS: 'imageClass',
+  SHOW_DIALOG: 'show'
 })
