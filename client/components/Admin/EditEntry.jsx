@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { autobind } from 'core-decorators'
 import find from 'lodash.find'
 
+import { loadFile } from '@common'
 import { actions as articleActions } from '@components/Article'
 import { actions as limitingActions } from '@components/Limiting'
 import actions from './actions'
@@ -60,6 +61,10 @@ const mapDispatchToProps = (dispatch, props) => ({
         config.text
       ))
     }
+  },
+  replaceImage(config) {
+    console.log(config)
+    return dispatch(actions.adminReplaceImage(config))
   }
 })
 
@@ -73,7 +78,8 @@ class EditEntry extends Component {
     article: PropTypes.string,
     articles: PropTypes.arrayOf(PropTypes.string),
     replaceArticle: PropTypes.func.isRequired,
-    clearArticles: PropTypes.func.isRequired
+    clearArticles: PropTypes.func.isRequired,
+    replaceImage: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -99,17 +105,54 @@ class EditEntry extends Component {
   }
 
   @autobind
+  replaceImage(nativeEvent) {
+    const { issue, section, entry } = this.props.params
+
+    loadFile(nativeEvent, (fileName, data) => {
+      this.props.replaceImage({
+        issue,
+        section,
+        entry,
+        fileName,
+        data
+      })
+    })
+  }
+
+  @autobind
   considering() {
-    const { entry, article } = this.props
+    const { entry, article, params } = this.props
+    const { issue, section } = params
+
     if (article) {
       return (
-        <TextEditor
-          meta={{
-            objectName: entry.objectName,
-            title: entry.title
-          }}
-          onSave={this.props.replaceArticle}
-        />
+        <div>
+          <div className={css.editable}>
+            <h2>Image</h2>
+            <img
+              style={{ width: '256px', height: 'auto' }}
+              src={`/static/issues/${issue}/${section}/${entry.image.src}`}
+            />
+            <br />
+            <label>Replace</label><br />
+            <small>(important! this cannot be undone)</small><br />
+            <input
+              type="file"
+              onChange={e => this.replaceImage(e.nativeEvent)}
+            />
+          </div>
+
+          <div className={css.editable}>
+            <h2>Text Content:</h2>
+            <TextEditor
+              meta={{
+                objectName: entry.objectName,
+                title: entry.title
+              }}
+              onSave={this.props.replaceArticle}
+            />
+          </div>
+        </div>
       )
     }
   }

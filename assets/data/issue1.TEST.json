@@ -80,6 +80,15 @@
             },
             "src": "BigHatsNatural_Jacqueline_Alcantara__512.jpg"
           }
+        },
+        {
+          "objectName": "foobar",
+          "title": "FooBar",
+          "image": {
+            "title": "photo00.jpg",
+            "src": "photo00.jpg"
+          },
+          "textUrl": "foobar.html"
         }
       ]
     },

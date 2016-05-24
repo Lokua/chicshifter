@@ -25,6 +25,23 @@ export function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+/**
+ * @param  {Object} nativeEvent [description]
+ * @param  {Function} onLoad    function called with load event and file object
+ */
+export function loadFile(nativeEvent, onLoad) {
+  const { files } = nativeEvent.target
+
+  if (files && files[0]) {
+    const file = files[0]
+    const reader = new FileReader()
+    reader.onload = e => {
+      onLoad(file.name, reader.result)
+    }
+    reader.readAsBinaryString(file)
+  }
+}
+
 // export getImageDimensions(src) {
 //   return new Promise((resolve, reject) => {
 //     const image = new Image(src)

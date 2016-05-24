@@ -100,5 +100,30 @@ export default new Actions({
       console.log('getIssues:', getIssues)
       dispatch(this.adminReplaceArticleSuccess())
     })()
+  },
+
+  /**
+   * @param {Object} config
+   * @property {String} config.issue
+   * @property {String} config.section
+   * @property {String} [config.entry]
+   * @property {String} config.fileName
+   * @property {String} config.imageData
+   */
+  ADMIN_REPLACE_IMAGE (config) {
+    return dispatch => (async () => {
+      const res = await fetch('/api/admin/replace-image', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(config)
+      })
+
+      if (res.status !== 200) {
+        alert(`${res.status}: ${res.statusText}`)
+      }
+    })()
   }
 })

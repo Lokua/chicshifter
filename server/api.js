@@ -21,6 +21,18 @@ marked.setOptions({ renderer })
 
 // ADMIN
 
+api.post('/admin/replace-image', async ctx => {
+  const { issue, section, entry, fileName, data } = ctx.request.body
+  logger.debug({ issue, section, entry, fileName, dataLength: data.length })
+
+  const issues = await getIssues()
+
+  // TODO: impl...
+
+  ctx.status = 200
+  ctx.body = issues
+})
+
 api.post('/admin/replace-article', async ctx => {
   const { issue, section, entry, article } = ctx.request.body
   console.log(issue, section, entry, article)
