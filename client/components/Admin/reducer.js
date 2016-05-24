@@ -8,7 +8,14 @@ const initialState = {
   editable: {
     objectName: '',
     title: '',
-    image: {}
+    image: {},
+
+    // only used for `limiting`, will be
+    // swapped with objectName server-side
+    week: -1,
+
+    // only use in `street`
+    question: ''
   }
 }
 

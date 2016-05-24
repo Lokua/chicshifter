@@ -27,6 +27,7 @@ api.post('/admin/replace-article', async ctx => {
 
   let filePath
 
+  // note that `street` has no article
   if (section === 'considering') {
     filePath = [
       config.assetsRoot,
@@ -67,72 +68,107 @@ api.post('/admin/replace-article', async ctx => {
   ctx.status = 200
 })
 
+// yes this method is awful, due to bad schema design
 api.post('/admin/new', async ctx => {
   const { body } = ctx.request
   const { issue, section, entry, object } = body
-  const objectName = object.title.toLowerCase().replace(/[^a-z0-9_-]/ig, '')
-  const { src, title }  = object.image
+
+  const objectName = section === 'limiting'
+    ? object.week
+    : object.title.toLowerCase().replace(/[^a-z0-9_-]/ig, '')
+
+  delete object.week
 
   const issues = await getIssues()
 
   logger.debug('objectName:', objectName)
-  logger.debug(issue, section, entry, object.title, src, title)
+  logger.debug('issue: %o, section: %o, entry: %o', issue, section, entry)
 
   // this is completely new entry
   if (entry === null) {
+    const sectionPath = [
+      config.assetsRoot,
+      'issues',
+      issue,
+      section
+    ].join('/')
 
-    if (section === 'seeing') {
-      const sectionPath = [
-        config.assetsRoot,
-        'issues',
-        issue,
-        section
-      ].join('/')
+    const entryPath = `${sectionPath}/${objectName}`
 
-      const entryPath = `${sectionPath}/${objectName}`
-
+    // considering does not have subfolders
+    if (section !== 'considering') {
       try {
         await fs.mkdir(entryPath)
       } catch (err) {
         if (err.code !== 'EEXIST') throw err
       }
+    }
 
-      if (object.image.src && object.image.data) {
+    // TODO: process image
+    // write section thumb image
+    const imagePath = `${sectionPath}/${object.image.src}`
+    await fs.writeFile(imagePath, object.image.data, 'binary')
 
-        // TODO: process image
-        // write section thumb image
-        const imagePath = `${sectionPath}/${object.image.src}`
-        await fs.writeFile(imagePath, object.image.data, 'binary')
+    let content
 
-        const newEntry = {
-          objectName,
-          title: object.title,
-          image: {
-            title: object.image.title,
-            src: object.image.src
-          },
-          content: {
-            images: [],
-            textUrl: 'text.html'
-          }
-        }
-
-        issues[issue-1].sections[`${section}Chic`].content.push(newEntry)
-
-        cache.delete('issues')
-
-        await fs.writeFile(
-          `${config.dataRoot}/issue${issue}.TEST.json`,
-          JSON.stringify(issues[issue-1], null, 2),
-          'utf8'
-        )
-
-        await fs.writeFile(
-          `${entryPath}/text.html`,
-          '<!-- Hello! -->',
-          'utf8'
-        )
+    // limiting entry has a different content schema
+    if (section === 'limiting') {
+      content = {
+        // ana: { objectName: 'ana', images: [], ... }
       }
+
+    } else if (section === 'considering') {
+      // no content section
+
+    } else if (section === 'street') {
+      content = [/* array of { person, image, answer, age } */]
+
+    } else {
+      content = {
+        images: [],
+        textUrl: 'text.html'
+      }
+    }
+
+    const newEntry = {
+      objectName,
+      title: object.title,
+      image: {
+        title: object.image.title,
+        src: object.image.src
+      },
+      content
+    }
+
+    if (section === 'considering') {
+      delete newEntry.content
+      newEntry.textUrl = `${objectName}.html`
+
+    } else if (section === 'street') {
+      newEntry.question = object.question
+    }
+
+    issues[issue-1].sections[`${section}Chic`].content.push(newEntry)
+
+    cache.delete('issues')
+
+    await fs.writeFile(
+      `${config.dataRoot}/issue${issue}.TEST.json`,
+      JSON.stringify(issues[issue-1], null, 2),
+      'utf8'
+    )
+
+    if (!/limiting|street/.test(section)) {
+      let filePath
+
+      if (section === 'considering') {
+        filePath = `${sectionPath}/${newEntry.textUrl}`
+
+      } else {
+        filePath = `${entryPath}/text.html`
+      }
+
+      await fs.writeFile(filePath, '<!-- Hello! -->', 'utf8')
     }
   }
 

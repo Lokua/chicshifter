@@ -186,14 +186,51 @@ class EditSection extends Component {
       >
         {/* objectName is built dynamically */}
 
+        {this.props.params.section === 'limiting' &&
+          <div className={css.formGroup}>
+            <label>week:</label>
+            <input
+              type="number"
+              min="1"
+              max="999"
+              value={editable.week}
+              onChange={e => this.onChange('week', e.target.value)}
+            />
+          </div>
+        }
+
         <div className={css.formGroup}>
           <label>title:</label>
+          <small>(ie. <b>Uniqlo</b>)</small>
           <input
             type="text"
             value={editable.title}
             onChange={e => this.onChange('title', e.target.value)}
           />
         </div>
+
+        {this.props.params.section === 'shopping' &&
+          <div className={css.formGroup}>
+            <label>article title:</label>
+            <small>(ie. <b>Looking Into The Uniqloset</b>)</small>
+            <input
+              type="text"
+              value={editable.title}
+              onChange={e => this.onChange('title', e.target.value)}
+            />
+          </div>
+        }
+
+        {this.props.params.section === 'street' &&
+          <div className={css.formGroup}>
+            <label>question:</label>
+            <input
+              type="text"
+              value={editable.question}
+              onChange={e => this.onChange('question', e.target.value)}
+            />
+          </div>
+        }
 
         <div className={css.formGroup}>
           <label>image:</label>
@@ -202,6 +239,11 @@ class EditSection extends Component {
             onChange={e => this.onChange('image', e.nativeEvent)}
           />
         </div>
+
+        <aside className={css.well}>
+          Article, images, credits, etc. can be added after the entry
+          is created
+        </aside>
 
         <button className={css.button} onClick={this.submitNew}>
           Submit

@@ -23,11 +23,6 @@ const { host, port } = config.server
 const use = app.use;
 app.use = x => use.call(app, convert(x))
 
-app.use(async (ctx, next) => {
-  logger.debug('>> ctx.url:', ctx.url)
-  await next()
-})
-
 app.use(_Logger.koaLogger('request', {
   level: process.env.TEST
     ? -1
@@ -38,7 +33,18 @@ app.use(_Logger.koaLogger('request', {
 }))
 
 app.use(cors())
-app.use(bodyParser())
+
+app.use(bodyParser({
+  onerror(err, ctx) {
+
+    // Payload too large
+    if (err.statusCode === 413) {
+      ctx.status = err.status
+      ctx.body = err.message
+    }
+  }
+}))
+
 app.use(errorHandler)
 
 if (process.env.NODE_ENV === 'development') {

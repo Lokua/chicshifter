@@ -54,13 +54,15 @@ class Street extends Component {
             id={id}
             images={images}
           />
-          <main className={css.main}>
-            <h4>
-              {content.person},&nbsp;
-              <small style={{ fontSize: '0.7em' }}>30s</small>
-            </h4>
-            <h5>"{content.answer}"</h5>
-          </main>
+          {content &&
+            <main className={css.main}>
+              <h4>
+                {content.person},&nbsp;
+                <small style={{ fontSize: '0.7em' }}>{content.age}</small>
+              </h4>
+              <h5>"{content.answer}"</h5>
+            </main>
+          }
         </article>
       </div>
     )
