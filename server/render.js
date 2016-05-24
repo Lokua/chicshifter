@@ -25,7 +25,6 @@ export default async function render(ctx) {
 
     if (err) {
       ctx.status = 500
-      ctx.body = 'damn, son'
 
     } else if (redirectLocation) {
       logger.warn('redirectLocation is not yet implemented')
@@ -37,7 +36,7 @@ export default async function render(ctx) {
         fpfys
       })
 
-      logger.debug('initialState: %j', store.getState())
+      // logger.debug('initialState: %j', store.getState())
 
       const html = renderToString(
         <Provider store={store}>

@@ -68,13 +68,13 @@ class TextEditor extends Component {
   }
 
   render() {
-    const { meta } = this.props
+    // const { meta } = this.props
     return (
       <div className={css.TextEditor}>
-        <header>
+        {/*<header>
           <div>objectName (url endpoint): <b>{meta.objectName}</b></div>
           <div>title: <b>{meta.title}</b></div>
-        </header>
+        </header>*/}
 
         <aside>
           <button

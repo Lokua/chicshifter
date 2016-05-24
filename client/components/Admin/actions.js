@@ -19,8 +19,13 @@ export default new Actions({
         })
       })
 
-      const issues = await res.json()
-      dispatch(issueActions.getIssuesSuccess(issues))
+      if (res.status !== 200) {
+        alert(`${res.status}: ${res.statusText}`)
+      } else {
+        const issues = await res.json()
+        dispatch(issueActions.getIssuesSuccess(issues))
+        dispatch(this.adminOpenModal(false))
+      }
     })()
   },
 
@@ -46,6 +51,7 @@ export default new Actions({
       } else {
         const issues = await res.json()
         dispatch(issueActions.getIssuesSuccess(issues))
+        dispatch(this.adminOpenModal(false))
       }
     })()
   },

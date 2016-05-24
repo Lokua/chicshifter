@@ -168,7 +168,11 @@ api.post('/admin/new', async ctx => {
         filePath = `${entryPath}/text.html`
       }
 
-      await fs.writeFile(filePath, '<!-- Hello! -->', 'utf8')
+      await fs.writeFile(
+        filePath,
+        '<h2><em>Article coming soon...</em></h2>',
+        'utf8'
+      )
     }
   }
 
@@ -180,11 +184,8 @@ api.post('/admin/new', async ctx => {
 api.post('/admin/delete', async ctx => {
   const { issue, section, entry } = ctx.request.body
 
-  if (section !== 'seeing') {
-    logger.warn('delete is not impl for', section)
-    return ctx.body = await getIssues()
-  }
-
+  logger.debug('delete >> issue: %o, section: %o, entry: %o',
+    issue, section, entry)
 
   const issues = await getIssues()
   const content = issues[issue-1].sections[`${section}Chic`].content
@@ -209,7 +210,12 @@ api.post('/admin/delete', async ctx => {
 
   try {
     // remove entry folder
-    await rimraf(`${sectionPath}/${entryObject.objectName}`)
+    // (considering does not have subfolders)
+    if (section !== 'considering') {
+      await rimraf(`${sectionPath}/${entryObject.objectName}`)
+    } else {
+      fs.unlink(`${sectionPath}/${entryObject.objectName}.html`)
+    }
   } catch (err) {
     if (err) {
       logger.warn('/api/admin/delete >> rethrowing caught error...')

@@ -48,7 +48,8 @@ input[type=text], input[type=number] {
   border: 1px solid $text-color;
 }
 
-.button {
+.button, input[type=file] {
+  font-family: $sans;
   background: $primary-color;
   color: o-md-color('grey', 100);
   cursor: pointer;

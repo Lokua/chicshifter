@@ -184,11 +184,14 @@ class EditSection extends Component {
         isOpen={this.props.modalActive}
         onRequestClose={() => this.props.openModal(false)}
       >
-        {/* objectName is built dynamically */}
+        <aside className={css.well}>
+          Article, images, credits, etc. can be added after the entry
+          is created
+        </aside>
 
         {this.props.params.section === 'limiting' &&
           <div className={css.formGroup}>
-            <label>week:</label>
+            <label>Week:</label>
             <input
               type="number"
               min="1"
@@ -200,8 +203,7 @@ class EditSection extends Component {
         }
 
         <div className={css.formGroup}>
-          <label>title:</label>
-          <small>(ie. <b>Uniqlo</b>)</small>
+          <label>Title:</label>
           <input
             type="text"
             value={editable.title}
@@ -209,21 +211,9 @@ class EditSection extends Component {
           />
         </div>
 
-        {this.props.params.section === 'shopping' &&
-          <div className={css.formGroup}>
-            <label>article title:</label>
-            <small>(ie. <b>Looking Into The Uniqloset</b>)</small>
-            <input
-              type="text"
-              value={editable.title}
-              onChange={e => this.onChange('title', e.target.value)}
-            />
-          </div>
-        }
-
         {this.props.params.section === 'street' &&
           <div className={css.formGroup}>
-            <label>question:</label>
+            <label>Question:</label>
             <input
               type="text"
               value={editable.question}
@@ -233,17 +223,12 @@ class EditSection extends Component {
         }
 
         <div className={css.formGroup}>
-          <label>image:</label>
+          <label>Image:</label>
           <input
             type="file"
             onChange={e => this.onChange('image', e.nativeEvent)}
           />
         </div>
-
-        <aside className={css.well}>
-          Article, images, credits, etc. can be added after the entry
-          is created
-        </aside>
 
         <button className={css.button} onClick={this.submitNew}>
           Submit

@@ -182,7 +182,7 @@ class EditEntry extends Component {
             <h2>Gallery Images:</h2>
             <button className={css.button}>New</button>
             <div className={css.gallery}>
-              {entry.content.images && entry.content.images.length &&
+              {entry.content.images && !!entry.content.images.length &&
                 entry.content.images.map((image, i) => (
                   <div key={i} className={`${css.galleryItem} ${css.editable}`}>
                     <h3>Image:</h3>
