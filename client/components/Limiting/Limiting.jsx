@@ -40,13 +40,7 @@ class Limiting extends Component {
   }
 
   componentDidMount() {
-    this.debug('this.props:', this.props)
-    const persons = []
-
-    Object.keys(this.props.articleMeta.content).forEach(author => {
-      const entry = this.props.articleMeta.content[author]
-      if (entry.textUrl) persons.push(author)
-    })
+    const persons = Object.keys(this.props.articleMeta.content)
 
     if (persons.length) {
       this.props.fetchLimitingArticles(persons)
@@ -83,7 +77,7 @@ class Limiting extends Component {
                   id={`${prefix}/${contributor}`}
                   images={contrib.images.map((image, i) => ({
                     ...image,
-                    src: `/${imagePrefix}/${image.src}`
+                    src: `/${imagePrefix}/${contributor}/${image.src}`
                   }))}
                 />
                 <div className={css.prose}>

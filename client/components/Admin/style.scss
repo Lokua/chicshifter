@@ -95,3 +95,27 @@ img {
   padding: $unit * 2;
   margin: $unit 0;
 }
+
+.limitThumbs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.limitThumb {
+  @include o-size(212px, 292px);
+  border: $border;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: $bump;
+  padding: $bump;
+  .image {
+    @include o-size(96px);
+    background-size: cover;
+    margin: 0 auto;
+  }
+  input[type=number] {
+    width: 96px;
+    margin: 0 auto;
+  }
+}

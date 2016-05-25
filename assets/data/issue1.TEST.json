@@ -80,15 +80,6 @@
             },
             "src": "BigHatsNatural_Jacqueline_Alcantara__512.jpg"
           }
-        },
-        {
-          "objectName": "foobar",
-          "title": "FooBar",
-          "image": {
-            "title": "photo00.jpg",
-            "src": "photo00.jpg"
-          },
-          "textUrl": "foobar.html"
         }
       ]
     },
@@ -119,100 +110,100 @@
           "content": {
             "ana": {
               "objectName": "ana",
-              "textUrl": "ana/text.md",
+              "textUrl": "",
               "images": [
                 {
                   "title": "day1.jpg",
-                  "src": "ana/day1__1024.jpg"
+                  "src": "day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "src": "ana/day2__1024.jpg"
+                  "src": "day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "src": "ana/day3__1024.jpg"
+                  "src": "day3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "src": "ana/day4__1024.jpg"
+                  "src": "day4__1024.jpg"
                 },
                 {
                   "title": "day5.jpg",
-                  "src": "ana/day5__1024.jpg"
+                  "src": "day5__1024.jpg"
                 }
               ]
             },
             "autumn": {
               "objectName": "autumn",
-              "textUrl": "autumn/text.md",
+              "textUrl": "",
               "images": [
                 {
-                  "src": "autumn/weekoneshift__1024.jpg",
+                  "src": "weekoneshift__1024.jpg",
                   "rotate": "90"
                 },
                 {
-                  "src": "autumn/weekoneshift2__1024.jpg",
+                  "src": "weekoneshift2__1024.jpg",
                   "rotate": "90"
                 },
                 {
-                  "src": "autumn/weekoneshift3__1024.jpg",
+                  "src": "weekoneshift3__1024.jpg",
                   "rotate": "90"
                 }
               ]
             },
             "constance": {
               "objectName": "constance",
-              "textUrl": "constance/text.md",
+              "textUrl": "",
               "images": [
                 {
                   "title": "day1.jpg",
-                  "src": "constance/day1__1024.jpg"
+                  "src": "day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "src": "constance/day2__1024.jpg"
+                  "src": "day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "src": "constance/day3__1024.jpg",
+                  "src": "day3__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day4.jpg",
-                  "src": "constance/day4__1024.jpg",
+                  "src": "day4__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day5.jpg",
-                  "src": "constance/day5__1024.jpg",
+                  "src": "day5__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day5.jpg",
-                  "src": "constance/silhouettes__1024.jpg"
+                  "src": "silhouettes__1024.jpg"
                 }
               ]
             },
             "shari": {
               "objectName": "shari",
-              "textUrl": "shari/text.md",
+              "textUrl": "",
               "images": [
                 {
                   "title": "day1.jpg",
-                  "src": "shari/shariday1__1024.jpg"
+                  "src": "shariday1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "src": "shari/shariday2__1024.jpg"
+                  "src": "shariday2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "src": "shari/shariday3__1024.jpg"
+                  "src": "shariday3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "src": "shari/shariday4__1024.jpg"
+                  "src": "shariday4__1024.jpg"
                 }
               ]
             }
@@ -923,6 +914,18 @@
                 "src": "IMG_4815__1024.jpg"
               }
             ],
+            "textUrl": "text.html"
+          }
+        },
+        {
+          "objectName": "rainy",
+          "title": "Rainy",
+          "image": {
+            "title": "rainy.jpg",
+            "src": "rainy.jpg"
+          },
+          "content": {
+            "images": [],
             "textUrl": "text.html"
           }
         }

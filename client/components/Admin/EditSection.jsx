@@ -7,6 +7,7 @@ import find from 'lodash.find'
 import { injectLogger, uiActions } from '@common'
 import { Modal } from '@components/Modal'
 import { Dialog } from '@components/Dialog'
+import { Slug } from '@components/Slug'
 
 import actions from './actions'
 import css from './style.scss'
@@ -241,9 +242,17 @@ class EditSection extends Component {
     const { section, params } = this.props
     const { issue, section: sectionId } = params
 
+    const prefix = `/admin/issue/${issue}`
+    const slug = [
+      { href: '/admin', text: 'admin' },
+      { href: prefix, text: `issue ${issue}` },
+      { href: `${prefix}/section/${sectionId}`, text: sectionId }
+    ]
+
     return (
       <div className={css.Admin}>
-        <h1>[Issue: {issue} >> Edit Section] >> {sectionId}</h1>
+
+        <Slug path={slug} />
 
         <section className={css.editable}>
           <h2>Section Thumb</h2>

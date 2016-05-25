@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+
+import { Slug } from '@components/Slug'
+
 import actions from './actions'
 import css from './style.scss'
 
@@ -18,7 +21,8 @@ class Admin extends Component {
     return (
       <div className={css.Admin}>
 
-        <h1>Edit Issue</h1>
+        <Slug path={[{ href: '/admin', text: 'admin' }]} />
+
         <ul>
           {this.props.issues.map(issue => (
             <li key={issue.id}>
@@ -33,9 +37,9 @@ class Admin extends Component {
 
         <hr />
 
-        <pre className={css.jsonBlob}>
+        {/*<pre className={css.jsonBlob}>
           {JSON.stringify(this.props.issues, null, 2)}
-        </pre>
+        </pre>*/}
       </div>
     )
   }

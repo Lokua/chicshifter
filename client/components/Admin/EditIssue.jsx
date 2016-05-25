@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import map from 'lodash.map'
+
+import { Slug } from '@components/Slug'
+
 import css from './style.scss'
 
 const mapStateToProps = (state, props) => ({
@@ -16,9 +19,15 @@ class EditIssue extends Component {
 
   render() {
     const { issue } = this.props
+    const slug = [
+      { href: '/admin', text: 'admin' },
+      { href: `/admin/issue/${issue.id}`, text: `issue ${issue.id}` },
+    ]
+
     return (
       <div className={css.Admin}>
-        <h1>[{issue.id}: {issue.season} {issue.year}] >> Edit Section</h1>
+        <Slug path={slug} />
+
         <ul>
           {map(this.props.issue.sections, (section, id) => (
             <li key={id}>

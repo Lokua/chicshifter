@@ -6,7 +6,7 @@ export default new Actions({
 
   ADMIN_DELETE_ENTRY ({ issue, section, entry }) {
     return (dispatch, getState) => (async () => {
-      const res = await fetch('/api/admin/delete', {
+      const res = await fetch('/api/admin/delete-entry', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -31,7 +31,7 @@ export default new Actions({
 
   ADMIN_SUBMIT_EDITABLE ({ issue, section, entry }) {
     return (dispatch, getState) => (async () => {
-      const res = await fetch('/api/admin/new', {
+      const res = await fetch('/api/admin/create-entry', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -123,7 +123,11 @@ export default new Actions({
 
       if (res.status !== 200) {
         alert(`${res.status}: ${res.statusText}`)
+        return
       }
+
+      const issues = await res.json()
+      dispatch(issueActions.getIssuesSuccess(issues))
     })()
   }
 })

@@ -39,13 +39,16 @@ class TextEditor extends Component {
 
   constructor(props) {
     super(props)
+
+    const text = (
+      props.index > -1
+        ? props.articles[props.index]
+        : props.article
+    ) || ''
+
     this.state = {
       editorState: EditorState.createWithContent(
-        ContentState.createFromText(
-          props.index > -1
-            ? props.articles[props.index]
-            : props.article
-        )
+        ContentState.createFromText(text)
       )
     }
   }

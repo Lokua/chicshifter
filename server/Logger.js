@@ -1,7 +1,8 @@
 import Logger from 'lokua.net.node-logger'
 
 Logger.setDefaults({
-  format: ['name', 'level']
+  format: ['name', 'level'],
+  useAbsoluteSource: false
 })
 
 if (process.env.TEST) {

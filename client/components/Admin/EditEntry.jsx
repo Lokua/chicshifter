@@ -6,6 +6,7 @@ import find from 'lodash.find'
 import { loadFile } from '@common'
 import { actions as articleActions } from '@components/Article'
 import { actions as limitingActions } from '@components/Limiting'
+import { Slug } from '@components/Slug'
 import actions from './actions'
 import TextEditor from './TextEditor.jsx'
 import css from './style.scss'
@@ -91,11 +92,7 @@ class EditEntry extends Component {
       this.props.getArticle()
 
     } else if (this.props.params.section === 'limiting') {
-      const persons = []
-      Object.keys(this.props.entry.content).forEach(author => {
-        const entry = this.props.entry.content[author]
-        if (entry.textUrl) persons.push(author)
-      })
+      const persons = Object.keys(this.props.entry.content)
       if (persons.length) this.props.getArticles(persons.join(','))
     }
   }
@@ -120,38 +117,60 @@ class EditEntry extends Component {
   }
 
   @autobind
-  considering() {
-    const { entry, article, params } = this.props
+  renderImageReplacer() {
+    const { entry, params } = this.props
     const { issue, section } = params
 
-    if (article) {
+    return (
+      <div className={css.editable}>
+        <h2>Image</h2>
+        <img
+          style={{ width: '256px', height: 'auto' }}
+          src={`/static/issues/${issue}/${section}/${entry.image.src}`}
+        />
+        <br />
+        {/*<label>Replace</label><br />*/}
+
+        <div className={css.well}>
+          <b>Important:</b><br />
+          Selecting "Choose File" will replace the current file
+          immediately and without confirmation. This action
+          cannot be undone.
+        </div>
+
+        <input
+          type="file"
+          onChange={e => this.replaceImage(e.nativeEvent)}
+        />
+      </div>
+    )
+  }
+
+  @autobind
+  renderTextEditor() {
+    const { entry } = this.props
+
+    return (
+      <div className={css.editable}>
+        <h2>Text Content:</h2>
+        <TextEditor
+          meta={{
+            objectName: entry.objectName,
+            title: entry.title
+          }}
+          onSave={this.props.replaceArticle}
+        />
+      </div>
+    )
+  }
+
+  @autobind
+  considering() {
+    if (this.props.article) {
       return (
         <div>
-          <div className={css.editable}>
-            <h2>Image</h2>
-            <img
-              style={{ width: '256px', height: 'auto' }}
-              src={`/static/issues/${issue}/${section}/${entry.image.src}`}
-            />
-            <br />
-            <label>Replace</label><br />
-            <small>(important! this cannot be undone)</small><br />
-            <input
-              type="file"
-              onChange={e => this.replaceImage(e.nativeEvent)}
-            />
-          </div>
-
-          <div className={css.editable}>
-            <h2>Text Content:</h2>
-            <TextEditor
-              meta={{
-                objectName: entry.objectName,
-                title: entry.title
-              }}
-              onSave={this.props.replaceArticle}
-            />
-          </div>
+          {this.renderImageReplacer()}
+          {this.renderTextEditor()}
         </div>
       )
     }
@@ -159,37 +178,76 @@ class EditEntry extends Component {
 
   @autobind
   limiting() {
-    const { entry, articles } = this.props
+    const { entry, articles, params } = this.props
+    const { issue, section } = params
 
-    if (articles && articles.length) {
-      const authors = Object.keys(this.props.entry.content)
-      return (
-        <div>
-          {articles.map((text, i) => {
-            const content = entry.content[authors[i]]
-            return (
-              <div key={i} className={css.editable}>
-                <h2>Meta/Text content:</h2>
-                <TextEditor
-                  meta={{
-                    objectName: content.objectName,
-                    title: 'N/A',
-                  }}
-                  onSave={this.props.replaceArticle}
-                  index={i}
-                />
-                <h2>Images:</h2>
-                <div>
-                  {content.images.map(image => (
-                    <div>{image.src}, {image.rotate}</div>
-                  ))}
-                </div>
+    const authors = Object.keys(this.props.entry.content)
+    const srcPrefix = `/static/issues/${issue}/${section}/${params.entry}`
+
+    return (
+      <div>
+        <br />
+        <h1>Week {entry.objectName}</h1>
+        {this.renderImageReplacer()}
+
+        {articles && !!articles.length && articles.map((text, i) => {
+          const author = authors[i]
+          const content = entry.content[author]
+
+          return (
+            <div key={i} className={css.editable}>
+              <h1>{content.objectName}</h1>
+              <hr />
+              <h2>Text content:</h2>
+              <TextEditor
+                meta={{
+                  objectName: content.objectName,
+                  title: 'N/A',
+                }}
+                onSave={this.props.replaceArticle}
+                index={i}
+              />
+              <hr />
+              <h2>Images:</h2>
+              <button
+                className={css.button}
+                title="Click to add a new image to the gallery below"
+              >
+                New
+              </button>
+              <div className={css.limitThumbs}>
+                {content.images.map((image, i) => (
+                  <div key={i} className={css.limitThumb}>
+                    <div className={css.formGroup}>
+                      <label>{image.src}</label>
+                      <div
+                        className={css.image}
+                        style={{
+                          backgroundImage:
+                            `url('${srcPrefix}/${author}/${image.src}')`,
+                          transform: `rotate(${image.rotate || 0}deg)`
+                        }}
+                      />
+                    </div>
+                    <div className={css.formGroup}>
+                      <label>Rotate (deg):</label>
+                      <input
+                        type="number"
+                        value={image.rotate || 0}
+                        onChange={() => {}}
+                      />
+                    </div>
+                    <div className={css.formGroup}>
+                      <button className={css.button}>Replace</button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            )
-          })}
-        </div>
-      )
-    }
+            </div>
+          )
+        })}
+      </div>
+    )
   }
 
   @autobind
@@ -201,25 +259,8 @@ class EditEntry extends Component {
       const prefix = `/static/issues/${issue}/${section}`
       return (
         <div>
-
-          <div className={css.editable}>
-            <h2>Thumb Image</h2>
-            <img
-              style={{ width: '256px', height: 'auto' }}
-              src={`${prefix}/${entry.image.src}`}
-            />
-          </div>
-
-          <div className={css.editable}>
-            <h2>Text Content:</h2>
-            <TextEditor
-              meta={{
-                objectName: entry.objectName,
-                title: entry.title
-              }}
-              onSave={this.props.replaceArticle}
-            />
-          </div>
+          {this.renderImageReplacer()}
+          {this.renderTextEditor()}
 
           <div className={`${css.editable}`}>
             <h2>Gallery Images:</h2>
@@ -277,9 +318,20 @@ class EditEntry extends Component {
 
   render() {
     const { entry, params } = this.props
+    const { issue, section } = params
+
+    const prefix = `/admin/issue/${issue}`
+    const slug = [
+      { href: '/admin', text: 'admin' },
+      { href: prefix, text: `issue ${issue}` },
+      { href: `${prefix}/section/${section}`, text: section },
+      { href: `${prefix}/section/${section}/${entry.objectName}`,
+        text: entry.objectName }
+    ]
 
     return (
       <div className={css.Admin}>
+        <Slug path={slug} />
         {this[params.section]()}
         <pre>{JSON.stringify(entry, null, 2)}</pre>
       </div>

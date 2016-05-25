@@ -108,6 +108,7 @@
     "lokua.net.node-logger": "^0.11.2",
     "marked": "^0.3.5",
     "mz": "^2.4.0",
+    "pretty-bytes": "^3.0.1",
     "react": "^15.0.1",
     "react-addons-shallow-compare": "^15.0.1",
     "react-dom": "^15.0.1",

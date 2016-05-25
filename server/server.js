@@ -9,7 +9,7 @@ import _Logger from 'lokua.net.node-logger'
 import config from '../config'
 import Logger from './Logger'
 import router from './router'
-import api from './api'
+import { api, admin } from './api'
 import errorHandler from './middleware/errorHandler'
 
 const app = new Koa()
@@ -54,6 +54,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(router.routes())
 app.use(api.routes())
+app.use(admin.routes())
 
 if (!+process.env.TEST) {
   app.listen(port, host, () => logger.info(`Listening at ${host}:${port}`))
