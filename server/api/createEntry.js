@@ -19,7 +19,6 @@ export default async function createEntry(ctx) {
   const objectName = section === 'limiting'
     ? object.week
     : util.titleToObjectName(object.title)
-    // : object.title.toLowerCase().replace(/[^a-z0-9_-]/ig, '')
 
   delete object.week
 

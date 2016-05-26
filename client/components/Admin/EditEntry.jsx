@@ -66,6 +66,22 @@ const mapDispatchToProps = (dispatch, props) => ({
   replaceImage(config) {
     console.log(config)
     return dispatch(actions.adminReplaceImage(config))
+  },
+  addNewLimitingEntry(author) {
+    const { issue, section, entry: week } = props.params
+    return dispatch(actions.adminAddNewLimitingEntry(issue, section, week))
+  },
+  setLimitingWeek(newWeek) {
+    const { issue, entry: oldWeek } = props.params
+    return dispatch(actions.adminSetLimitingWeek(issue, oldWeek, newWeek))
+  },
+  setLimitingTitle(title) {
+    const { issue, entry: week } = props.params
+    return dispatch(actions.adminSetLimitingTitle(issue, week, title))
+  },
+  deleteLimitingEntry(author) {
+    const { issue, entry: week } = props.params
+    return dispatch(actions.adminDeleteLimitingEntry(issue, week, author))
   }
 })
 
@@ -80,7 +96,11 @@ class EditEntry extends Component {
     articles: PropTypes.arrayOf(PropTypes.string),
     replaceArticle: PropTypes.func.isRequired,
     clearArticles: PropTypes.func.isRequired,
-    replaceImage: PropTypes.func.isRequired
+    replaceImage: PropTypes.func.isRequired,
+    addNewLimitingEntry: PropTypes.func.isRequired,
+    setLimitingWeek: PropTypes.func.isRequired,
+    setLimitingTitle: PropTypes.func.isRequired,
+    deleteLimitingEntry: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -186,9 +206,45 @@ class EditEntry extends Component {
 
     return (
       <div>
-        <br />
-        <h1>Week {entry.objectName}</h1>
+
+        <div className={css.formGroup}>
+          <label>Week:</label>
+          <input
+            type="number"
+            defaultValue={entry.objectName}
+            ref="weekInput"
+          />
+          <button
+            className={css.button}
+            onClick={e => this.props.setLimitingWeek(
+              this.refs.weekInput.value
+            )}
+          >
+            Save
+          </button>
+        </div>
+
+        <div className={css.formGroup}>
+          <label>Title:</label>
+          <input type="text" defaultValue={entry.title} ref="titleInput" />
+          <button
+            className={css.button}
+            onClick={e => this.props.setLimitingTitle(
+              this.refs.titleInput.value
+            )}
+          >
+            Save
+          </button>
+        </div>
+
         {this.renderImageReplacer()}
+
+        <button
+          className={css.button}
+          onClick={this.props.addNewLimitingEntry}
+        >
+          Add New Entry
+        </button>
 
         {articles && !!articles.length && articles.map((text, i) => {
           const author = authors[i]
@@ -197,6 +253,16 @@ class EditEntry extends Component {
           return (
             <div key={i} className={css.editable}>
               <h1>{content.objectName}</h1>
+              <div className={css.formGroup}>
+                <button
+                  className={css.button}
+                  onClick={() => {
+                    this.props.deleteLimitingEntry(content.objectName)
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
               <hr />
               <h2>Text content:</h2>
               <TextEditor

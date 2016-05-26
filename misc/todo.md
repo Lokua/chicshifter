@@ -22,3 +22,10 @@
         + research form exploits
       + if is auth, reroute to admin
     + check if auth on admin route
+
++ Limiting
+  + ~~save text~~
+  + change title to inputs
+  + add new images
+  + add delete entry
+    + add delete confirmation
