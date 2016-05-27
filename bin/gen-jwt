@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+const jws = require('jws')
+const moment = require('moment')
+
+const now = moment()
+const secret = randomString(35)
+
+const header = {
+  typ: 'JWT',
+  alg: 'HS256'
+}
+
+// @see https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#rfc.section.4
+const payload = {
+  iss: 'Lokua',
+  sub: 'master',
+  aud: 'admin',
+
+  // basically non-expiring
+  exp: now.add(1, 'M').unix(),
+
+  jti: now.toISOString(),
+  iat: moment().unix(),
+  nbf: now.unix()
+}
+
+const token = jws.sign({ header, payload, secret, encoding: 'utf8' })
+
+console.log(`
+export CHIC_JWT_ALG=${header.alg}
+export CHIC_JWT_SUB=${payload.sub}
+export CHIC_JWT_EXP=${payload.exp}
+export CHIC_JWT_ISS=${payload.iss}
+export CHIC_JWT_AUD=${payload.aud}
+export CHIC_JWT_JTI=${payload.jti}
+export CHIC_JWT_SECRET=${secret}
+export CHIC_JWT_TOKEN=${token}
+`)
+
+function randomString(length) {
+  return Math.round(
+    (Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))
+  ).toString(36).slice(1)
+}

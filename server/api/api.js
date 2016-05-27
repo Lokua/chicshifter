@@ -6,6 +6,7 @@ import marked from 'marked'
 // import rimraf from 'rimraf-promise'
 
 import config from '../../config'
+import { createToken, verifyToken } from '../util'
 import cache from '../cache'
 import Logger from '../Logger'
 
@@ -13,6 +14,7 @@ const logger = new Logger('api')
 
 const api = new Router({ prefix: '/api' })
 
+// TODO: delete me
 const renderer = new marked.Renderer()
 renderer.heading = function(text, level) {
   return `<h${level}>${text}</h${level}>\n`
@@ -20,6 +22,24 @@ renderer.heading = function(text, level) {
 marked.setOptions({ renderer })
 
 // PUBLIC
+
+api.post('/login', async ctx => {
+  const { username, password } = ctx.request.body
+
+  if (username !== process.env.CHIC_USERNAME ||
+      password !== process.env.CHIC_PASSWORD) {
+    return ctx.status = 401
+  }
+
+  const token = createToken()
+
+  if (verifyToken(token)) {
+    return ctx.body = token
+  }
+
+  ctx.status = 500
+  ctx.body = 'Could not create a verifiable token!'
+})
 
 api.get('/issues', async ctx => {
   ctx.body = await getIssues()

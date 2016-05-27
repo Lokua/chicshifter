@@ -1,5 +1,8 @@
 import Router from 'koa-router'
 
+// authenticate is handled in main router file
+import { authorize } from '../middleware/auth'
+
 import replaceImage from './replaceImage'
 import replaceArticle from './replaceArticle'
 import createEntry from './createEntry'
@@ -8,6 +11,9 @@ import * as limiting from './limiting'
 import * as street from './street'
 
 const admin = new Router({ prefix: '/api/admin' })
+
+// require all admin access points to be authenticated
+// admin.use('*', authorize)
 
 // all pages
 admin.post('/replace-image', replaceImage)

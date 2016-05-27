@@ -1,48 +1,60 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { withRouter, Link } from 'react-router'
 
 import { Slug } from '@components/Slug'
 
 import actions from './actions'
 import css from './style.scss'
 
-const mapStateToProps = state => ({
-  issues: state.issues
+const mapStateToProps = (state, props) => ({
+  issues: state.issues,
+  isAuthenticated: state.admin.isAuthenticated,
+  history: props.history
 })
 
 class Admin extends Component {
 
   static propTypes = {
-    issues: PropTypes.array.isRequired
+    issues: PropTypes.array.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    router: PropTypes.object.isRequired
+  }
+
+  constructor(props) {
+    super(props)
+    console.log('arguments:', arguments)
+  }
+
+  componentDidMount() {
+    console.log('this.props.isAuthenticated: %o', this.props.isAuthenticated)
+    if (!this.props.isAuthenticated) {
+      this.props.router.push({ pathname: '/login' })
+    }
   }
 
   render() {
     return (
       <div className={css.Admin}>
-
-        <Slug path={[{ href: '/admin', text: 'admin' }]} />
-
-        <ul>
-          {this.props.issues.map(issue => (
-            <li key={issue.id}>
-              <Link to={`/admin/issue/${issue.id}`}>
-                <button className={css.button}>
-                  {issue.id}: {issue.season} {issue.year}
-                </button>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <hr />
-
-        {/*<pre className={css.jsonBlob}>
-          {JSON.stringify(this.props.issues, null, 2)}
-        </pre>*/}
+        {this.props.isAuthenticated &&
+          <div>
+            <Slug path={[{ href: '/admin', text: 'admin' }]} />
+            <ul>
+              {this.props.issues.map(issue => (
+                <li key={issue.id}>
+                  <Link to={`/admin/issue/${issue.id}`}>
+                    <button className={css.button}>
+                      {issue.id}: {issue.season} {issue.year}
+                    </button>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        }
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps)(Admin)
+export default withRouter(connect(mapStateToProps)(Admin))

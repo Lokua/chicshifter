@@ -16,10 +16,16 @@ const initialState = {
 
     // only use in `street`
     question: ''
-  }
+  },
+  isAuthenticated: false
 }
 
 export default createReducer(initialState, {
+
+  [actions.SET_AUTHENTICATED] (state, { isAuthenticated }) {
+    console.log('reducer >> isAuthenticated:', isAuthenticated)
+    return { ...state, isAuthenticated }
+  },
 
   [actions.ADMIN_SET_EDITABLE_VALUE] (state, { key, value }) {
     const editable = { ...state.editable, [key]: value }

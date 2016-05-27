@@ -1,7 +1,50 @@
 import path from 'path'
 import fs from 'mz/fs'
-
+import jws from 'jws'
+import moment from 'moment'
 import config from '../config'
+
+export function createToken() {
+  const now = moment()
+
+  return jws.sign({
+    header: {
+      typ: 'JWT',
+      alg: process.env.CHIC_JWT_ALG
+    },
+    payload: {
+      iss: 'Lokua',
+      sub: 'master',
+      aud: 'admin',
+      exp: now.add(1, 'M').unix(),
+      jti: now.toISOString(),
+      iat: moment().unix(),
+      nbf: now.unix()
+    },
+    secret: process.env.CHIC_JWT_SECRET,
+    encoding: 'utf8'
+  })
+}
+
+/**
+ * Verify and get payload from JWT
+ *
+ * @param  {Object} JWT payload if token is valid
+ * @return {Boolean} true if token is valid
+ */
+export function verifyToken(token) {
+  const valid = jws.verify(
+    token,
+    process.env.CHIC_JWT_ALG,
+    process.env.CHIC_JWT_SECRET
+  )
+
+  if (valid) {
+    return jws.decode(token)
+  }
+
+  throw new Error('token invalid')
+}
 
 export function normalizeImageSrc(src) {
 

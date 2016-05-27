@@ -2,6 +2,7 @@ import Actions from 'redux-actions-class'
 import map from 'lodash.map'
 import Logger from 'lokua.net.logger'
 import find from 'lodash.find'
+import Cookie from 'js-cookie'
 
 import { inspect } from '@common'
 import { actions as issueActions } from '@components/Issue'
@@ -14,6 +15,31 @@ const logger = new Logger('admin/actions', {
 })
 
 export default new Actions({
+
+  SET_AUTHENTICATED: 'isAuthenticated',
+
+  LOGIN (username, password) {
+    return dispatch => (async () => {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Accept': 'text/plain',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      })
+
+      if (res.status !== 200) {
+        dispatch(this.setAuthenticated(false))
+        return alert(`${res.status}: ${res.statusText}`)
+      }
+
+      const token = await res.text()
+      Cookie.set('token', token, { expires: 30 })
+      console.log('setAuthenticated should be dispatched!!!')
+      dispatch(this.setAuthenticated(true))
+    })()
+  },
 
   ADMIN_SET_EDITABLE_VALUE: ['key', 'value'],
   ADMIN_OPEN_MODAL: 'modalActive',
@@ -28,7 +54,8 @@ export default new Actions({
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: Cookies.get('token')
         },
         body: JSON.stringify({
           issue,
@@ -53,7 +80,8 @@ export default new Actions({
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: Cookies.get('token')
         },
         body: JSON.stringify({
           issue,
@@ -81,7 +109,8 @@ export default new Actions({
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: Cookies.get('token')
         },
         body: JSON.stringify({
           issue,
@@ -284,7 +313,8 @@ async function post(url, data, errorHandler) {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: Cookies.get('token')
     },
     body: JSON.stringify(data)
   })
