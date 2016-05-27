@@ -140,6 +140,18 @@ const mapDispatchToProps = (dispatch, props) => ({
       actions.adminStreetReplaceEntryImage(issue, entry, index, fileName, data)
     )
   },
+  streetNewItem() {
+    const { issue, entry } = props.params
+    return dispatch(
+      actions.adminStreetNewItem(issue, entry)
+    )
+  },
+  streetDeleteItem(index) {
+    const { issue, entry } = props.params
+    return dispatch(
+      actions.adminStreetDeleteItem(issue, entry, index)
+    )
+  },
 })
 
 @injectLogger
@@ -169,7 +181,9 @@ class EditEntry extends Component {
     streetUpdate: PropTypes.func.isRequired,
     streetReplaceImage: PropTypes.func.isRequired,
     streetUpdateEntry: PropTypes.func.isRequired,
-    streetReplaceEntryImage: PropTypes.func.isRequired
+    streetReplaceEntryImage: PropTypes.func.isRequired,
+    streetNewItem: PropTypes.func.isRequired,
+    streetDeleteItem: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -589,7 +603,11 @@ class EditEntry extends Component {
 
         <div className={css.editable}>
           <label>Content:</label><br />
-          <button className={css.button}>New</button>
+          <Button
+            className={css.button}
+            onClick={this.props.streetNewItem}
+            text="New"
+          />
           <hr />
           {entry.content.map((item, i) => (
             <div key={i} className={css.editable}>
@@ -644,26 +662,28 @@ class EditEntry extends Component {
                     }}
                   />
                 }
-                {!entry.image.src && <div>No image</div>}
-                <aside className={css.well}>
-                  <b>Important:</b><br />
-                  Selecting "Replace" will replace the current image
-                  immediately and without confirmation. This action
-                  cannot be undone.
-                </aside>
+                {!item.image && <div>No image</div>}
+                {item.image &&
+                  <aside className={css.well}>
+                    <b>Important:</b><br />
+                    Selecting "Replace" will replace the current image
+                    immediately and without confirmation. This action
+                    cannot be undone.
+                  </aside>
+                }
                 <FileButton
                   className={css.button}
                   handler={(fileName, data) =>
                     this.props.streetReplaceEntryImage(i, fileName, data)
                   }
-                  text="Replace"
+                  text={item.image ? 'Replace' : 'Add Image'}
                 />
               </div>
               <hr />
 
               <Button
                 className='black'
-                onClick={() => {}}
+                onClick={() => this.props.streetDeleteItem(i)}
                 text="Delete"
               />
             </div>

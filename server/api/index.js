@@ -31,6 +31,8 @@ admin.post('/street/update', street.update)
 admin.post('/street/replace-image', street.replaceImage)
 admin.post('/street/entry/update', street.updateEntry)
 admin.post('/street/entry/replace-image', street.replaceEntryImage)
+admin.post('/street/entry/new', street.newItem)
+admin.post('/street/entry/delete', street.deleteItem)
 
 export api from './api'
 export { getIssues, getFpfys } from './api'

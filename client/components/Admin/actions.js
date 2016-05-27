@@ -252,6 +252,18 @@ export default new Actions({
     return genericPost('/api/admin/street/entry/replace-image', {
       issue, entry, index, fileName, data
     })
+  },
+
+  ADMIN_STREET_NEW_ITEM (issue, entry) {
+    return genericPost('/api/admin/street/entry/new', {
+      issue, entry
+    })
+  },
+
+  ADMIN_STREET_DELETE_ITEM (issue, entry, index) {
+    return genericPost('/api/admin/street/entry/delete', {
+      issue, entry, index
+    })
   }
 })
 
