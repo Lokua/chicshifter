@@ -29,9 +29,13 @@ export function getSectionPath(issue, section) {
   return `${getIssuePath(issue)}/${section}`
 }
 
-export async function writeIssue(issue, issueNumber) {
+export async function writeIssue(issue) {
+  if (arguments.length === 2) {
+    console.warn('writeIssue no longer needs a 2nd issueNumber arg')
+  }
+
   return await fs.writeFile(
-    `${config.dataRoot}/issue${issueNumber}.TEST.json`,
+    `${config.dataRoot}/issue${issue.id}.TEST.json`,
     JSON.stringify(issue, null, 2),
     'utf8'
   )

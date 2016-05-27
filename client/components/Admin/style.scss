@@ -50,7 +50,7 @@ input[type=text], input[type=number] {
 
 .button, input[type=file] {
   font-family: $sans;
-  background: $primary-color;
+  background: o-md-color('grey', 900);
   color: o-md-color('grey', 100);
   cursor: pointer;
 }
@@ -90,9 +90,10 @@ img {
 }
 
 .well {
-  border-left: 4px solid $primary-color;
-  background: o-md-color('pink', 50);
-  padding: $unit * 2;
+  border-left: 4px solid o-md-color('deep-purple');
+  background: o-md-color('deep-purple', 50);
+  color: o-md-color('deep-purple', 900);
+  padding: $bump $unit;
   margin: $unit 0;
 }
 
@@ -118,13 +119,17 @@ img {
   .formGroup {
     margin: 0;
   }
-  .image {
-    @include o-size(96px);
-    background-size: cover;
-    margin: 0 auto;
-  }
   input[type=number], button {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.image {
+  @include o-size(96px);
+  background-size: cover;
+  margin: 0 auto;
+  &.street {
+    margin: 0;
   }
 }

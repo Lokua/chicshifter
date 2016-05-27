@@ -4,10 +4,8 @@ import replaceImage from './replaceImage'
 import replaceArticle from './replaceArticle'
 import createEntry from './createEntry'
 import deleteEntry from './deleteEntry'
-import { newEntry, setWeek, setTitle, deleteEntry as delEntry,
-  saveAuthor, newImage, replaceEntryImage, setEntryImageRotation,
-  deleteEntryImage
-} from './limiting'
+import * as limiting from './limiting'
+import * as street from './street'
 
 const admin = new Router({ prefix: '/api/admin' })
 
@@ -18,15 +16,21 @@ admin.post('/create-entry', createEntry)
 admin.post('/delete-entry', deleteEntry)
 
 // limiting
-admin.post('/limiting/set-week', setWeek)
-admin.post('/limiting/set-title', setTitle)
-admin.post('/limiting/entry/new', newEntry)
-admin.post('/limiting/entry/delete', delEntry)
-admin.post('/limiting/entry/save-author', saveAuthor)
-admin.post('/limiting/entry/new-image', newImage)
-admin.post('/limiting/entry/replace-image', replaceEntryImage)
-admin.post('/limiting/entry/rotate', setEntryImageRotation)
-admin.post('/limiting/entry/delete-image', deleteEntryImage)
+admin.post('/limiting/set-week', limiting.setWeek)
+admin.post('/limiting/set-title', limiting.setTitle)
+admin.post('/limiting/entry/new', limiting.newEntry)
+admin.post('/limiting/entry/delete', limiting.deleteEntry)
+admin.post('/limiting/entry/save-author', limiting.saveAuthor)
+admin.post('/limiting/entry/new-image', limiting.newImage)
+admin.post('/limiting/entry/replace-image', limiting.replaceEntryImage)
+admin.post('/limiting/entry/rotate', limiting.setEntryImageRotation)
+admin.post('/limiting/entry/delete-image', limiting.deleteEntryImage)
+
+// street
+admin.post('/street/update', street.update)
+admin.post('/street/replace-image', street.replaceImage)
+admin.post('/street/entry/update', street.updateEntry)
+admin.post('/street/entry/replace-image', street.replaceEntryImage)
 
 export api from './api'
 export { getIssues, getFpfys } from './api'

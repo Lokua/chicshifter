@@ -8,6 +8,7 @@ import { actions as articleActions } from '@components/Article'
 import { actions as limitingActions } from '@components/Limiting'
 import { Slug } from '@components/Slug'
 import { Modal } from '@components/Modal'
+import { Button } from '@components/Button'
 import { FileButton } from '@components/FileButton'
 import actions from './actions'
 import TextEditor from './TextEditor.jsx'
@@ -116,7 +117,29 @@ const mapDispatchToProps = (dispatch, props) => ({
     return dispatch(actions.adminDeleteEntryImage(
       issue, entry, author, index
     ))
-  }
+  },
+  streetUpdate(title, question) {
+    const { issue, entry } = props.params
+    return dispatch(actions.adminStreetUpdate(issue, entry, title, question))
+  },
+  streetReplaceImage(fileName, data) {
+    const { issue, entry } = props.params
+    return dispatch(
+      actions.adminStreetReplaceImage(issue, entry, fileName, data)
+    )
+  },
+  streetUpdateEntry(index, person, age, answer) {
+    const { issue, entry } = props.params
+    return dispatch(
+      actions.adminStreetUpdateEntry(issue, entry, index, person, age, answer)
+    )
+  },
+  streetReplaceEntryImage(index, fileName, data) {
+    const { issue, entry } = props.params
+    return dispatch(
+      actions.adminStreetReplaceEntryImage(issue, entry, index, fileName, data)
+    )
+  },
 })
 
 @injectLogger
@@ -142,7 +165,11 @@ class EditEntry extends Component {
     openModal: PropTypes.func.isRequired,
     replaceLimitingEntryImage: PropTypes.func.isRequired,
     setEntryImageRotation: PropTypes.func.isRequired,
-    deleteEntryImage: PropTypes.func.isRequired
+    deleteEntryImage: PropTypes.func.isRequired,
+    streetUpdate: PropTypes.func.isRequired,
+    streetReplaceImage: PropTypes.func.isRequired,
+    streetUpdateEntry: PropTypes.func.isRequired,
+    streetReplaceEntryImage: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -193,12 +220,12 @@ class EditEntry extends Component {
         <br />
         {/*<label>Replace</label><br />*/}
 
-        <div className={css.well}>
+        <aside className={css.well}>
           <b>Important:</b><br />
           Selecting "Choose File" will replace the current file
           immediately and without confirmation. This action
           cannot be undone.
-        </div>
+        </aside>
 
         <input
           type="file"
@@ -500,8 +527,150 @@ class EditEntry extends Component {
 
   @autobind
   street() {
+    const { entry, params } = this.props
+    const { issue, section } = params
+    const sectionPath = `/static/issues/${issue}/${section}`
+
     return (
-      <div>Hello!</div>
+      <div className={css.editable}>
+        <h1>{entry.objectName}</h1>
+
+        <div className={css.formGroup}>
+          <label>Title:</label>
+          <input
+            type="text"
+            defaultValue={entry.title}
+            ref="titleInput"
+          />
+          <label>Question:</label>
+          <input
+            type="text"
+            defaultValue={entry.question}
+            ref="questionInput"
+          />
+          <Button
+            onClick={() =>
+              this.props.streetUpdate(
+                this.refs.titleInput.value,
+                this.refs.questionInput.value
+              )
+            }
+            text="Save"
+          />
+        </div>
+        <hr />
+
+        <div className={css.formGroup}>
+          <label>Image:</label>
+          <em>{entry.image.title}</em>
+          {entry.image.src &&
+            <div
+              className={`${css.image} ${css.street}`}
+              style={{
+                width: 256, height: 256,
+                backgroundImage: `url('${sectionPath}/${entry.image.src}')`,
+                transform: `rotate(${entry.image.rotate || 0}deg)`
+              }}
+            />
+          }
+          {!entry.image.src && <div>No image</div>}
+          <aside className={css.well}>
+            <b>Important:</b><br />
+            Selecting "Replace" will replace the current file
+            immediately and without confirmation. This action
+            cannot be undone.
+          </aside>
+          <FileButton
+            className={css.button}
+            handler={this.props.streetReplaceImage}
+            text="Replace"
+          />
+        </div>
+
+        <div className={css.editable}>
+          <label>Content:</label><br />
+          <button className={css.button}>New</button>
+          <hr />
+          {entry.content.map((item, i) => (
+            <div key={i} className={css.editable}>
+
+              <div className={css.formGroup}>
+                <label>Person:</label>
+                <input
+                  type="text"
+                  defaultValue={item.person}
+                  ref={`personInput:${i}`}
+                />
+
+                <label>Age:</label>
+                <input
+                  type="text"
+                  defaultValue={item.age}
+                  ref={`ageInput:${i}`}
+                />
+
+                <label>Answer:</label>
+                <input
+                  type="text"
+                  defaultValue={item.answer}
+                  style={{ width: '100%' }}
+                  ref={`answerInput:${i}`}
+                />
+
+                <Button
+                  onClick={() =>
+                    this.props.streetUpdateEntry(
+                      i,
+                      this.refs[`personInput:${i}`].value,
+                      this.refs[`ageInput:${i}`].value,
+                      this.refs[`answerInput:${i}`].value
+                    )
+                  }
+                  text="Save"
+                />
+              </div>
+              <hr />
+
+              <div className={css.formGroup}>
+                <label>Image:</label>
+                <em>{item.image}</em>
+                {item.image &&
+                  <div
+                    className={`${css.image} ${css.street}`}
+                    style={{
+                      backgroundImage:
+                        `url('${sectionPath}/${params.entry}/${item.image}')`,
+                      transform: `rotate(${item.imageRotate || 0}deg)`
+                    }}
+                  />
+                }
+                {!entry.image.src && <div>No image</div>}
+                <aside className={css.well}>
+                  <b>Important:</b><br />
+                  Selecting "Replace" will replace the current image
+                  immediately and without confirmation. This action
+                  cannot be undone.
+                </aside>
+                <FileButton
+                  className={css.button}
+                  handler={(fileName, data) =>
+                    this.props.streetReplaceEntryImage(i, fileName, data)
+                  }
+                  text="Replace"
+                />
+              </div>
+              <hr />
+
+              <Button
+                className='black'
+                onClick={() => {}}
+                text="Delete"
+              />
+            </div>
+          ))}
+        </div>
+
+      </div>
     )
   }
 

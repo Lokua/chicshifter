@@ -1177,7 +1177,7 @@
           "content": [
             {
               "person": "Ashley",
-              "image": "ashley__1024.jpg",
+              "image": "ashley__1024.bak",
               "answer": "This is everything I had...",
               "age": "20s"
             },
@@ -1260,6 +1260,17 @@
               "age": "60s"
             }
           ]
+        },
+        {
+          "objectName": "foo",
+          "title": "FooBar",
+          "image": {
+            "title": "underlyback",
+            "src": "underlyback.jpg"
+          },
+          "content": [],
+          "question": "Que paso?",
+          "src": "underlyback.jpg"
         }
       ]
     },

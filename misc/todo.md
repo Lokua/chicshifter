@@ -7,8 +7,8 @@
 + change admin/section "objectName" in list to just display full url
 + ~~add slug path to section/entry edit components~~
 + show image preview
-+ post image rotation for `limiting`
-+ add image replace for `limiting`
++ don't forget to clear issues from cache in all admin calls!
+
 
 + login
   + server:

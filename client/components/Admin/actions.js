@@ -228,6 +228,30 @@ export default new Actions({
     return genericPost('/api/admin/limiting/entry/delete-image', {
       issue, week, author, index
     })
+  },
+
+  ADMIN_STREET_UPDATE (issue, entry, title, question) {
+    return genericPost('/api/admin/street/update', {
+      issue, entry, title, question
+    })
+  },
+
+  ADMIN_STREET_REPLACE_IMAGE (issue, entry, fileName, data) {
+    return genericPost('/api/admin/street/replace-image', {
+      issue, entry, fileName, data
+    })
+  },
+
+  ADMIN_STREET_UPDATE_ENTRY (issue, entry, index, person, age, answer) {
+    return genericPost('/api/admin/street/entry/update', {
+      issue, entry, index, person, age, answer
+    })
+  },
+
+  ADMIN_STREET_REPLACE_ENTRY_IMAGE (issue, entry, index, fileName, data) {
+    return genericPost('/api/admin/street/entry/replace-image', {
+      issue, entry, index, fileName, data
+    })
   }
 })
 

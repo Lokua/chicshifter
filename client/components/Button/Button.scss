@@ -1,0 +1,9 @@
+@import '@';
+
+.Button {
+  font-family: $sans;
+  //background: $primary-color;
+  background: o-md-color('grey', 900);
+  color: o-md-color('grey', 100);
+  cursor: pointer;
+}

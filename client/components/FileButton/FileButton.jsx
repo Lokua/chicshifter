@@ -18,7 +18,7 @@ const FileButton = ({ className, handler, text }) => (
       input.click()
     }}
   >
-    {text || this.props.children}
+    {text}
   </button>
 )
 
