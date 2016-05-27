@@ -29,8 +29,8 @@ export function capitalize(str) {
  * @param  {Object} nativeEvent [description]
  * @param  {Function} onLoad    function called with load event and file object
  */
-export function loadFile(nativeEvent, onLoad) {
-  const { files } = nativeEvent.target
+export function loadFile(event, onLoad) {
+  const { files } = event.target
 
   if (files && files[0]) {
     const file = files[0]
@@ -40,6 +40,44 @@ export function loadFile(nativeEvent, onLoad) {
     }
     reader.readAsBinaryString(file)
   }
+}
+
+/**
+ * Convert object to JSON and back to object so
+ * we can debug the actual state at the time of logging
+ * instead of the reference.
+ *
+ * IMPORTANT: This function is a noop in production.
+ *
+ * @param  {Any} obj
+ */
+export function inspect(obj) {
+  if (process.env.NODE_ENV === 'development') {
+    const circularJSON = require('circular-json')
+    return circularJSON.parse(circularJSON.stringify(obj, null, 2))
+  }
+}
+
+/**
+ * Immutable splice of one index
+ *
+ * @param  {Array} arr
+ * @param  {Number} index the index to remove
+ * @return {Array}  copy of `arr` with `index` removed
+ */
+export function removeIndex(arr, index) {
+  return arr.slice(0, index).concat(arr.slice(index+1))
+}
+
+/**
+ * Immutable splice
+ *
+ * @param  {Array} arr
+ * @param  {Number} value the value to remove
+ * @return {Array}  copy of `arr` with `value` removed
+ */
+export function removeIndexOf(arr, value) {
+  return removeIndex(arr, arr.indexOf(value))
 }
 
 // export getImageDimensions(src) {

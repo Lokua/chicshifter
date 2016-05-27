@@ -17,3 +17,10 @@ hr {
   border-bottom: $dashed-border;
   margin: $unit;
 }
+
+input[type=number] {
+  display: inline-block;
+  max-width: 64px;
+  padding-left: 2px !important;
+  padding-right: 0;
+}

@@ -26,7 +26,7 @@ module.exports = {
   },
   rules: {
 
-    'import/no-unresolved': 0,
+    // 'import/no-unresolved': 0,
 
     // @connect decorator does not work with stateless functions
     'react/prefer-stateless-function': 0,

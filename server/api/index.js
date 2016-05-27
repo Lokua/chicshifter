@@ -5,7 +5,9 @@ import replaceArticle from './replaceArticle'
 import createEntry from './createEntry'
 import deleteEntry from './deleteEntry'
 import { newEntry, setWeek, setTitle, deleteEntry as delEntry,
-  saveAuthor, newImage } from './limiting'
+  saveAuthor, newImage, replaceEntryImage, setEntryImageRotation,
+  deleteEntryImage
+} from './limiting'
 
 const admin = new Router({ prefix: '/api/admin' })
 
@@ -22,6 +24,9 @@ admin.post('/limiting/entry/new', newEntry)
 admin.post('/limiting/entry/delete', delEntry)
 admin.post('/limiting/entry/save-author', saveAuthor)
 admin.post('/limiting/entry/new-image', newImage)
+admin.post('/limiting/entry/replace-image', replaceEntryImage)
+admin.post('/limiting/entry/rotate', setEntryImageRotation)
+admin.post('/limiting/entry/delete-image', deleteEntryImage)
 
 export api from './api'
 export { getIssues, getFpfys } from './api'

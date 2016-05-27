@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import { autobind } from 'core-decorators'
 import find from 'lodash.find'
 
-import { loadFile } from '@common'
+import { loadFile, injectLogger, removeIndexOf/*, uiActions*/ } from '@common'
 import { actions as articleActions } from '@components/Article'
 import { actions as limitingActions } from '@components/Limiting'
 import { Slug } from '@components/Slug'
+import { Modal } from '@components/Modal'
+import { FileButton } from '@components/FileButton'
 import actions from './actions'
 import TextEditor from './TextEditor.jsx'
 import css from './style.scss'
@@ -20,7 +22,8 @@ const mapStateToProps = (state, props) => ({
     const entry = find(section.content, { objectName: props.params.entry })
 
     return entry
-  })()
+  })(),
+  modalActive: state.admin.modalActive
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
@@ -80,11 +83,43 @@ const mapDispatchToProps = (dispatch, props) => ({
     return dispatch(actions.adminSetLimitingTitle(issue, week, title))
   },
   deleteLimitingEntry(author) {
-    const { issue, entry: week } = props.params
-    return dispatch(actions.adminDeleteLimitingEntry(issue, week, author))
+    const { issue, entry /* aka `week` */ } = props.params
+    return dispatch(actions.adminDeleteLimitingEntry(issue, entry, author))
+  },
+  saveLimitingEntryAuthor(oldAuthor, newAuthor) {
+    const { issue, entry /* aka `week` */ } = props.params
+    return dispatch(
+      actions.adminSaveLimitingEntryAuthor(issue, entry, oldAuthor, newAuthor)
+    )
+  },
+  addLimitingEntryImage(author) {
+    const { issue, entry } = props.params
+    return dispatch(actions.adminAddLimitingEntryImage(issue, entry, author))
+  },
+  openModal(open) {
+    return dispatch(actions.adminOpenModal(open))
+  },
+  replaceLimitingEntryImage(author, index, fileName, data) {
+    const { issue, entry } = props.params
+    return dispatch(actions.adminReplaceLimitingEntryImage(
+      issue, entry, author, index, fileName, data
+    ))
+  },
+  setEntryImageRotation(author, index, value) {
+    const { issue, entry } = props.params
+    return dispatch(actions.adminSetEntryImageRotation(
+      issue, entry, author, index, value
+    ))
+  },
+  deleteEntryImage(author, index) {
+    const { issue, entry } = props.params
+    return dispatch(actions.adminDeleteEntryImage(
+      issue, entry, author, index
+    ))
   }
 })
 
+@injectLogger
 class EditEntry extends Component {
 
   static propTypes = {
@@ -100,7 +135,14 @@ class EditEntry extends Component {
     addNewLimitingEntry: PropTypes.func.isRequired,
     setLimitingWeek: PropTypes.func.isRequired,
     setLimitingTitle: PropTypes.func.isRequired,
-    deleteLimitingEntry: PropTypes.func.isRequired
+    deleteLimitingEntry: PropTypes.func.isRequired,
+    saveLimitingEntryAuthor: PropTypes.func.isRequired,
+    addLimitingEntryImage: PropTypes.func.isRequired,
+    modalActive: PropTypes.bool.isRequired,
+    openModal: PropTypes.func.isRequired,
+    replaceLimitingEntryImage: PropTypes.func.isRequired,
+    setEntryImageRotation: PropTypes.func.isRequired,
+    deleteEntryImage: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -256,14 +298,42 @@ class EditEntry extends Component {
               <div className={css.formGroup}>
                 <button
                   className={css.button}
-                  onClick={() => {
-                    this.props.deleteLimitingEntry(content.objectName)
+                  onClick={async () => {
+                    await this.props.deleteLimitingEntry(content.objectName)
+                    const persons = removeIndexOf(authors, author)
+                    if (persons.length) {
+                      this.props.getArticles(persons.join(','))
+                    }
                   }}
                 >
                   Delete
                 </button>
               </div>
+
               <hr />
+
+              <div className={css.formGroup}>
+                <label>Contributor</label>
+                <input
+                  type="text"
+                  defaultValue={content.objectName}
+                  ref="entryAuthorInput"
+                />
+                <button
+                  className={css.button}
+                  onClick={() => {
+                    this.props.saveLimitingEntryAuthor(
+                      content.objectName,
+                      this.refs.entryAuthorInput.value
+                    )
+                  }}
+                >
+                  Save
+                </button>
+              </div>
+
+              <hr />
+
               <h2>Text content:</h2>
               <TextEditor
                 meta={{
@@ -278,37 +348,95 @@ class EditEntry extends Component {
               <button
                 className={css.button}
                 title="Click to add a new image to the gallery below"
+                onClick={() =>
+                  this.props.addLimitingEntryImage(content.objectName)
+                }
               >
                 New
               </button>
               <div className={css.limitThumbs}>
                 {content.images.map((image, i) => (
                   <div key={i} className={css.limitThumb}>
+
                     <div className={css.formGroup}>
-                      <label>{image.src}</label>
-                      <div
-                        className={css.image}
-                        style={{
-                          backgroundImage:
-                            `url('${srcPrefix}/${author}/${image.src}')`,
-                          transform: `rotate(${image.rotate || 0}deg)`
+                      <label>{image.title}</label>
+                      {image.src &&
+                        <div
+                          className={css.image}
+                          style={{
+                            backgroundImage:
+                              `url('${srcPrefix}/${author}/${image.src}')`,
+                            transform: `rotate(${image.rotate || 0}deg)`
+                          }}
+                        />
+                      }
+                      {!image.src && <div>No image</div>}
+                      <FileButton
+                        className={css.button}
+                        handler={(fileName, data) => {
+                          this.props.replaceLimitingEntryImage(
+                            content.objectName,
+                            i,
+                            fileName,
+                            data
+                          )
                         }}
+                        text="Replace"
                       />
                     </div>
+
+                    <hr />
+
                     <div className={css.formGroup}>
                       <label>Rotate (deg):</label>
                       <input
                         type="number"
-                        value={image.rotate || 0}
-                        onChange={() => {}}
+                        defaultValue={image.rotate || 0}
+                        ref={`rotateInput:${i}`}
                       />
+                      <button
+                        className={css.button}
+                        onClick={e =>
+                          this.props.setEntryImageRotation(
+                            content.objectName,
+                            i,
+                            this.refs[`rotateInput:${i}`].value
+                          )
+                        }
+                      >
+                        Save
+                      </button>
                     </div>
-                    <div className={css.formGroup}>
-                      <button className={css.button}>Replace</button>
-                    </div>
+
+                    <hr />
+
+                    <button
+                      className={css.button}
+                      onClick={() =>
+                        this.props.deleteEntryImage(content.objectName, i)
+                      }
+                    >
+                      Delete
+                    </button>
+
                   </div>
                 ))}
               </div>
+
+              <Modal
+                isOpen={this.props.modalActive}
+                onRequestClose={() => {
+                  this.props.openModal(false)
+                }}
+              >
+                <input
+                  type="file"
+                  onChange={e => {
+                    this.props.openModal(false)
+                    // this.props.replaceLimitingEntryImage()
+                  }}
+                />
+              </Modal>
             </div>
           )
         })}

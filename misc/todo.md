@@ -25,7 +25,7 @@
 
 + Limiting
   + ~~save text~~
-  + change title to inputs
-  + add new images
-  + add delete entry
+  + ~~change title to inputs~~
+  + ~~add delete entry~~
     + add delete confirmation
+  + add new images

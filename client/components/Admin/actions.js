@@ -1,10 +1,26 @@
 import Actions from 'redux-actions-class'
 import map from 'lodash.map'
+import Logger from 'lokua.net.logger'
+import find from 'lodash.find'
 
+import { inspect } from '@common'
 import { actions as issueActions } from '@components/Issue'
 import { actions as limitingActions } from '@components/Limiting'
 
+// eslint-disable-next-line no-unused-vars
+const logger = new Logger('admin/actions', {
+  level: Logger.DEBUG,
+  nameStyle: 'color:darkturquoise'
+})
+
 export default new Actions({
+
+  ADMIN_SET_EDITABLE_VALUE: ['key', 'value'],
+  ADMIN_OPEN_MODAL: 'modalActive',
+  ADMIN_SET_EDITOR_STATE: 'editorState',
+  ADMIN_SELECT_ISSUE: 'id',
+  ADMIN_REPLACE_ARTICLE_SUCCESS: null,
+  ADMIN_REPLACE_ARTICLE_FAILURE: 'err',
 
   ADMIN_DELETE_ENTRY ({ issue, section, entry }) {
     return (dispatch, getState) => (async () => {
@@ -58,13 +74,6 @@ export default new Actions({
     })()
   },
 
-  ADMIN_SET_EDITABLE_VALUE: ['key', 'value'],
-  ADMIN_OPEN_MODAL: 'modalActive',
-  ADMIN_SET_EDITOR_STATE: 'editorState',
-  ADMIN_SELECT_ISSUE: 'id',
-  ADMIN_REPLACE_ARTICLE_SUCCESS: null,
-  ADMIN_REPLACE_ARTICLE_FAILURE: 'err',
-
   ADMIN_REPLACE_ARTICLE (issue, section, entry, article) {
     return dispatch => (async () => {
 
@@ -109,64 +118,68 @@ export default new Actions({
    * @property {String} config.imageData
    */
   ADMIN_REPLACE_IMAGE (config) {
-    return dispatch => (async () => {
-      const res = await fetch('/api/admin/replace-image', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(config)
-      })
-
-      if (res.status !== 200) {
-        alert(`${res.status}: ${res.statusText}`)
-        return
-      }
-
-      const issues = await res.json()
-      dispatch(issueActions.getIssuesSuccess(issues))
-    })()
+    return genericPost('/api/admin/replace-image', config)
+    // return dispatch => (async () => {
+    //   const res = await fetch('/api/admin/replace-image', {
+    //     method: 'POST',
+    //     headers: {
+    //       Accept: 'application/json',
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(config)
+    //   })
+    //
+    //   if (res.status !== 200) {
+    //     alert(`${res.status}: ${res.statusText}`)
+    //     return
+    //   }
+    //
+    //   const issues = await res.json()
+    //   dispatch(issueActions.getIssuesSuccess(issues))
+    // })()
   },
 
   ADMIN_SET_LIMITING_WEEK (issue, oldWeek, newWeek) {
-    return dispatch => (async () => {
-      try {
-        const url = '/api/admin/limiting/set-week'
-        const issues = await post(url, { issue, oldWeek, newWeek })
-        dispatch(issueActions.getIssuesSuccess(issues))
-      } catch (err) {
-        console.error('error:', err)
-      }
-    })()
+    return genericPost('/api/admin/limiting/set-week', {
+      issue, oldWeek, newWeek
+    })
   },
 
   ADMIN_SET_LIMITING_TITLE (issue, week, title) {
-    return dispatch => (async () => {
-      try {
-        const url = '/api/admin/limiting/set-title'
-        const issues = await post(url, { issue, week, title })
-        await dispatch(issueActions.getIssuesSuccess(issues))
-      } catch (err) {
-        console.error('error:', err)
-      }
-    })()
+    return genericPost('/api/admin/limiting/set-title', {
+      issue, week, title
+    })
   },
 
   ADMIN_ADD_NEW_LIMITING_ENTRY (issue, section, week) {
     return (dispatch, getState) => (async () => {
       try {
         const url = '/api/admin/limiting/entry/new'
+        await dispatch(limitingActions.clearLimitingArticles())
         const issues = await post(url, { issue, section, week })
         await dispatch(issueActions.getIssuesSuccess(issues))
         const sectionObject = getState().issues[issue-1].sections.limitingChic
+
+        logger.debug('inspect(sectionObject.content): %o',
+          inspect(sectionObject.content))
+
         const entry = find(sectionObject.content, { objectName: String(week) })
-        const authors = Object.keys(entry.content).join(',')
-        dispatch(limitingActions.fetchLimitingArticles(
-          issue,
-          week,
-          authors
-        ))
+
+        if (entry && entry.content) {
+          const authors = Object.keys(entry.content).join(',')
+          dispatch(limitingActions.fetchLimitingArticles(
+            issue,
+            week,
+            authors
+          ))
+
+        } else {
+          logger.warn(
+            'entry or entry.content is null or undefined >> entry: %o',
+            entry
+          )
+        }
+
       } catch (err) {
         console.error('error:', err)
       }
@@ -177,6 +190,7 @@ export default new Actions({
     return dispatch => (async () => {
       try {
         const url = '/api/admin/limiting/entry/delete'
+        await dispatch(limitingActions.clearLimitingArticles())
         const issues = await post(url, { issue, week, author })
         await dispatch(issueActions.getIssuesSuccess(issues))
       } catch (err) {
@@ -186,29 +200,47 @@ export default new Actions({
   },
 
   ADMIN_SAVE_LIMITING_ENTRY_AUTHOR (issue, week, oldAuthor, newAuthor) {
-    return dispatch => (async () => {
-      try {
-        const url = '/api/admin/limiting/entry/save-author'
-        const issues = await post(url, { issue, week, oldAuthor, newAuthor })
-        await dispatch(issueActions.getIssuesSuccess(issues))
-      } catch (e) {
-        console.error(err)
-      }
-    })()
+    return genericPost('/api/admin/limiting/entry/save-author', {
+      issue, week, oldAuthor, newAuthor
+    })
   },
 
-  ADMIN_ADD_LIMITING_ENTRY_IMAGE (issue, week, image, data) {
-    return dispatch => (async () => {
-      try {
-        const url = '/api/admin/limiting/entry/new-image'
-        const issues = await post(url, { issue, week, image, data })
-        await dispatch(issueActions.getIssuesSuccess(issues))
-      } catch (e) {
-        console.error(err)
-      }
-    })()
+  ADMIN_ADD_LIMITING_ENTRY_IMAGE (issue, week, author) {
+    return genericPost('/api/admin/limiting/entry/new-image', {
+      issue, week, author
+    })
+  },
+
+  ADMIN_REPLACE_LIMITING_ENTRY_IMAGE (
+      issue, week, author, index, fileName, data) {
+    return genericPost('/api/admin/limiting/entry/replace-image', {
+      issue, week, author, index, fileName, data
+    })
+  },
+
+  ADMIN_SET_ENTRY_IMAGE_ROTATION (issue, week, author, index, value) {
+    return genericPost('/api/admin/limiting/entry/rotate', {
+      issue, week, author, index, value
+    })
+  },
+
+  ADMIN_DELETE_ENTRY_IMAGE (issue, week, author, index) {
+    return genericPost('/api/admin/limiting/entry/delete-image', {
+      issue, week, author, index
+    })
   }
 })
+
+function genericPost(url, config) {
+  return dispatch => (async () => {
+    try {
+      const issues = await post(url, config)
+      await dispatch(issueActions.getIssuesSuccess(issues))
+    } catch (e) {
+      console.error(err)
+    }
+  })()
+}
 
 // TODO: move me to util or ajax util in @common
 async function post(url, data, errorHandler) {

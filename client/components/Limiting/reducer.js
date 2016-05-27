@@ -6,6 +6,7 @@ export default createReducer([], {
     return articles
   },
   [actions.CLEAR_LIMITING_ARTICLES] () {
+    console.log('CLEAR_LIMITING_ARTICLES...')
     return []
   }
 })
