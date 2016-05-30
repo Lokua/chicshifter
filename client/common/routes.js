@@ -20,11 +20,25 @@ function auth(nextState, replace) {
     // auth will be checked in render >> match >> renderProps block
     window;
 
-    const token = Cookies.get('token')
-
-    if (!token) {
+    if (!Cookies.get('token')) {
       logger.warn('User is not authenticated. Redirecting to "/login"')
       replace({ pathname: '/login' })
+    }
+
+  } catch (ignore) {
+  }
+}
+
+function loginEnter(nextState, replace) {
+  try {
+
+    // will throw reference error on server, in which case
+    // auth will be checked in render >> match >> renderProps block
+    window;
+
+    if (Cookies.get('token')) {
+      logger.info('User is already authenticated. Redirecting to "/admin"')
+      replace({ pathname: '/admin' })
     }
 
   } catch (ignore) {
@@ -47,7 +61,7 @@ export default {
     { path: '/issue/:issue/:section', component: Section },
     { path: '/issue/:issue/:section/:article', component: Article },
 
-    { path: '/login', component: Login },
+    { path: '/login', component: Login, onEnter: loginEnter },
     {
       path: '/admin',
       component: Admin,

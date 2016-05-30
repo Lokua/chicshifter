@@ -15,4 +15,4 @@
   + ~~change title to inputs~~
   + ~~add delete entry~~
     + add delete confirmation
-  + add new images
+  + ~~add new images~~

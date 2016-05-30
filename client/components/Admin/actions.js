@@ -280,6 +280,12 @@ export default new Actions({
   ADMIN_STREET_REPLACE_ENTRY_IMAGE (issue, entry, index, fileName, data) {
     return genericPost('/api/admin/street/entry/replace-image', {
       issue, entry, index, fileName, data
+    }, err => {
+
+      // "Payload Too Large"
+      if (err.status === 413) {
+        alert(`${err.status}: ${err.statusText}`)
+      }
     })
   },
 
@@ -293,16 +299,47 @@ export default new Actions({
     return genericPost('/api/admin/street/entry/delete', {
       issue, entry, index
     })
+  },
+
+  ADMIN_SET_TITLE (issue, section, entry, title) {
+    return genericPost('/api/admin/set-title', {
+      issue, section, entry, title
+    })
+  },
+
+  ADMIN_ADD_GALLERY_IMAGE (issue, section, entry) {
+    return genericPost('/api/admin/add-gallery-image', {
+      issue, section, entry
+    })
+  },
+  ADMIN_DELETE_GALLERY_IMAGE (issue, section, entry, index) {
+    return genericPost('/api/admin/delete-gallery-image', {
+      issue, section, entry, index
+    })
+  },
+  ADMIN_SET_GALLERY_IMAGE_ROTATION (issue, section, entry, index, rotate) {
+    return genericPost('/api/admin/set-gallery-image-rotation', {
+      issue, section, entry, index, rotate
+    })
+  },
+  ADMIN_REPLACE_GALLERY_IMAGE (issue, section, entry, index, fileName, data) {
+    return genericPost('/api/admin/replace-gallery-image', {
+      issue, section, entry, index, fileName, data
+    })
   }
 })
 
-function genericPost(url, config) {
+function genericPost(url, config, errorHandler) {
   return dispatch => (async () => {
     try {
       const issues = await post(url, config)
       await dispatch(issueActions.getIssuesSuccess(issues))
-    } catch (e) {
-      console.error(err)
+    } catch (err) {
+      if (typeof errorHandler === 'function') {
+        errorHandler(err)
+      } else {
+        console.error('genericPost >> uncaught error: %o', err)
+      }
     }
   })()
 }

@@ -8,7 +8,7 @@ import * as util from '../util'
 import Logger from '../Logger'
 
 // eslint-disable-next-line
-const logger = new Logger('/api/admin/limiting', { nameColor: 'cyan' })
+const logger = new Logger('/api/admin/street', { nameColor: 'cyan' })
 
 export async function update(ctx) {
   const { issue, entry, title, question } = ctx.request.body
@@ -20,7 +20,7 @@ export async function update(ctx) {
   entryObject.title = title || entryObject.title
   entryObject.question = question || entryObject.question
   util.writeIssue(issues[issue-1])
-  ctx.body = issues
+  ctx.body = cache.set('issues', issues)
 }
 
 export async function replaceImage(ctx) {
@@ -40,38 +40,49 @@ export async function replaceImage(ctx) {
   entryObject.image.src = src
   await fs.writeFile(`${sectionPath}/${src}`, data, 'binary')
   util.writeIssue(issues[issue-1])
-  ctx.body = issues
+  ctx.body = cache.set('issues', issues)
 }
 
 export async function updateEntry(ctx) {
+  logger.debug('updateEntry...')
   const { issue, entry, index, person, age, answer } = ctx.request.body
   logger.debug({ issue, entry, index, person, age, answer })
   const issues = cache.get('issues') || await getIssues()
-  ctx.body = issues
+  const issueObject = issues[issue-1]
+  const item = find(issueObject.sections.streetChic.content, {
+    objectName: entry
+  }).content[index]
+  item.person = person
+  item.age = age
+  item.answer = answer
+  util.writeIssue(issueObject)
+  ctx.body = cache.set('issues', issues)
 }
 
 export async function replaceEntryImage(ctx) {
   const { issue, entry, index, fileName, data } = ctx.request.body
   logger.debug({ issue, entry, index, fileName, dataLength: data.length })
   const issues = cache.get('issues') || await getIssues()
+  const issueObject = issues[issue-1]
   const src = util.normalizeImageSrc(fileName)
-  const item = find(issues[issue-1].sections.streetChic.content, {
+  const item = find(issueObject.sections.streetChic.content, {
     objectName: entry
   }).content[index]
   const entryPath = `${util.getSectionPath(issue, 'street')}/${entry}`
-  if (item.image !== src) {
+  if (item.image !== null && item.image !== src) {
     fs.unlink(`${entryPath}/${item.image}`)
   }
   item.image = src
   await fs.writeFile(`${entryPath}/${src}`, data, 'binary')
-  util.writeIssue(issues[issue-1])
-  ctx.body = issues
+  util.writeIssue(issueObject)
+  ctx.body = cache.set('issues', issues)
 }
 
 export async function newItem(ctx) {
   const { issue, entry } = ctx.request.body
   const issues = cache.get('issues') || await getIssues()
-  find(issues[issue-1].sections.streetChic.content, {
+  const issueObject = issues[issue-1]
+  find(issueObject.sections.streetChic.content, {
     objectName: entry
   }).content.push({
     person: null,
@@ -79,8 +90,8 @@ export async function newItem(ctx) {
     answer: null,
     age: null
   })
-  util.writeIssue(issues[issue-1])
-  ctx.body = issues
+  util.writeIssue(issueObject)
+  ctx.body = cache.set('issues', issues)
 }
 
 export async function deleteItem(ctx) {
@@ -94,5 +105,5 @@ export async function deleteItem(ctx) {
   const exists = await fs.exists(imagePath)
   if (exists) await fs.unlink(imagePath)
   util.writeIssue(issues[issue-1])
-  ctx.body = issues
+  ctx.body = cache.set('issues', issues)
 }

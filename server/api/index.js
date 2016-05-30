@@ -1,14 +1,16 @@
 import Router from 'koa-router'
 
 // authenticate is handled in main router file
-import { authorize } from '../middleware/auth'
+// import { authorize } from '../middleware/auth'
 
 import replaceImage from './replaceImage'
 import replaceArticle from './replaceArticle'
 import createEntry from './createEntry'
 import deleteEntry from './deleteEntry'
+import setTitle from './setTitle'
 import * as limiting from './limiting'
 import * as street from './street'
+import * as seeing from './seeing'
 
 const admin = new Router({ prefix: '/api/admin' })
 
@@ -20,6 +22,12 @@ admin.post('/replace-image', replaceImage)
 admin.post('/replace-article', replaceArticle)
 admin.post('/create-entry', createEntry)
 admin.post('/delete-entry', deleteEntry)
+admin.post('/set-title', setTitle)
+
+admin.post('/add-gallery-image', seeing.addGalleryImage)
+admin.post('/delete-gallery-image', seeing.deleteGalleryImage)
+admin.post('/set-gallery-image-rotation', seeing.setGalleryImageRotation)
+admin.post('/replace-gallery-image', seeing.replaceGalleryImage)
 
 // limiting
 admin.post('/limiting/set-week', limiting.setWeek)

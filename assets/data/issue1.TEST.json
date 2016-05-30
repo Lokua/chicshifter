@@ -956,14 +956,21 @@
           }
         },
         {
-          "objectName": "rainy",
-          "title": "Rainy",
+          "objectName": "rainy-days-toledo",
+          "title": "Rainy Days, Arizona",
           "image": {
             "title": "rainy.jpg",
             "src": "rainy.jpg"
           },
           "content": {
-            "images": [],
+            "images": [
+              {
+                "src": "m4.png",
+                "title": "m4",
+                "credits": null,
+                "rotate": "0"
+              }
+            ],
             "textUrl": "text.html"
           }
         }
@@ -1162,6 +1169,18 @@
             "textUrl": "text.html",
             "title": "Looking Into the Uniqloset"
           }
+        },
+        {
+          "objectName": "skokie-handmedowns",
+          "title": "Skokie Handmedowns",
+          "image": {
+            "title": "m4.png",
+            "src": "m4.png"
+          },
+          "content": {
+            "images": [],
+            "textUrl": "text.html"
+          }
         }
       ]
     },
@@ -1193,7 +1212,7 @@
           "content": [
             {
               "person": "Ashley",
-              "image": "ashley__1024.bak",
+              "image": "ashley__1024.jpg",
               "answer": "This is everything I had...",
               "age": "20s"
             },
@@ -1276,17 +1295,6 @@
               "age": "60s"
             }
           ]
-        },
-        {
-          "objectName": "foo",
-          "title": "FooBar",
-          "image": {
-            "title": "underlyback",
-            "src": "underlyback.jpg"
-          },
-          "content": [],
-          "question": "Que paso?",
-          "src": "underlyback.jpg"
         }
       ]
     },
@@ -1520,6 +1528,24 @@
               },
               {
                 "src": "reebokfreestyle__1024.jpg"
+              }
+            ],
+            "textUrl": "text.html"
+          }
+        },
+        {
+          "objectName": "skokie-ill",
+          "title": "Skokie, Ill",
+          "image": {
+            "title": "rainy.jpg",
+            "src": "rainy.jpg"
+          },
+          "content": {
+            "images": [
+              {
+                "src": "m4.png",
+                "title": "m4",
+                "credits": null
               }
             ],
             "textUrl": "text.html"

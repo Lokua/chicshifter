@@ -152,6 +152,38 @@ const mapDispatchToProps = (dispatch, props) => ({
       actions.adminStreetDeleteItem(issue, entry, index)
     )
   },
+  setTitle(title) {
+    const { issue, section, entry } = props.params
+    return dispatch(
+      actions.adminSetTitle(issue, section, entry, title)
+    )
+  },
+  addGalleryImage() {
+    const { issue, section, entry } = props.params
+    return dispatch(actions.adminAddGalleryImage(issue, section, entry))
+  },
+  replaceGalleryImage(index, fileName, data) {
+    const { issue, section, entry } = props.params
+    return dispatch(
+      actions.adminReplaceGalleryImage(
+        issue, section, entry, index, fileName, data
+      )
+    )
+  },
+  setGalleryImageRotation(index, rotate) {
+    const { issue, section, entry } = props.params
+    return dispatch(
+      actions.adminSetGalleryImageRotation(
+        issue, section, entry, index, rotate
+      )
+    )
+  },
+  deleteGalleryImage(index) {
+    const { issue, section, entry } = props.params
+    return dispatch(
+      actions.adminDeleteGalleryImage(issue, section, entry, index)
+    )
+  }
 })
 
 @injectLogger
@@ -183,7 +215,12 @@ class EditEntry extends Component {
     streetUpdateEntry: PropTypes.func.isRequired,
     streetReplaceEntryImage: PropTypes.func.isRequired,
     streetNewItem: PropTypes.func.isRequired,
-    streetDeleteItem: PropTypes.func.isRequired
+    streetDeleteItem: PropTypes.func.isRequired,
+    setTitle: PropTypes.func.isRequired,
+    addGalleryImage: PropTypes.func.isRequired,
+    replaceGalleryImage: PropTypes.func.isRequired,
+    setGalleryImageRotation: PropTypes.func.isRequired,
+    deleteGalleryImage: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -488,45 +525,98 @@ class EditEntry extends Component {
   @autobind
   seeing() {
     const { entry, article, params } = this.props
+    // eslint-disable-next-line no-unused-vars
     const { issue, section } = params
 
     if (article) {
       const prefix = `/static/issues/${issue}/${section}`
       return (
         <div>
+
+          <div className={css.formGroup}>
+            <label>Title:</label>
+            <input type="text" defaultValue={entry.title} ref="titleInput" />
+            <button
+              className={css.button}
+              onClick={e => this.props.setTitle(
+                this.refs.titleInput.value
+              )}
+            >
+              Save
+            </button>
+          </div>
+
           {this.renderImageReplacer()}
           {this.renderTextEditor()}
 
           <div className={`${css.editable}`}>
-            <h2>Gallery Images:</h2>
-            <button className={css.button}>New</button>
-            <div className={css.gallery}>
-              {entry.content.images && !!entry.content.images.length &&
-                entry.content.images.map((image, i) => (
-                  <div key={i} className={`${css.galleryItem} ${css.editable}`}>
-                    <h3>Image:</h3>
-                    <button className={css.button}>Replace</button>
-                    <button className={css.button}>Delete</button>
-                    <br />
-                    <img
-                      style={{ width: '128px', height: 'auto' }}
-                      src={`${prefix}/${params.entry}/${image.src}`}
-                    />
-                    <h3>Credits:</h3>
-                    <button className={css.button}>New</button>
-                    {image.credits && image.credits.length &&
-                      image.credits.map((credit, i) => (
-                        <div key={i} className={css.editable}>
-                          <div>type: {credit.type}</div>
-                          <div>author: {credit.author.name}</div>
-                          <button className={css.button}>Edit</button>
-                          <button className={css.button}>Delete</button>
-                        </div>
-                      ))
-                    }
-                  </div>
-                ))
+            <h2>Images:</h2>
+            <button
+              className={css.button}
+              title="Click to add a new image to the gallery below"
+              onClick={() =>
+                this.props.addGalleryImage()
               }
+            >
+              New
+            </button>
+            <div className={css.limitThumbs}>
+              {entry.content.images.map((image, i) => (
+                <div key={i} className={css.limitThumb}>
+                  <div className={css.formGroup}>
+                    <label>{image.title}</label>
+                    {image.src &&
+                      <div
+                        className={css.image}
+                        style={{
+                          backgroundImage:
+                            `url('${prefix}/${entry.objectName}/${image.src}')`,
+                          transform: `rotate(${image.rotate || 0}deg)`
+                        }}
+                      />
+                    }
+                    {!image.src && <div>No image</div>}
+                    <FileButton
+                      className={css.button}
+                      handler={(fileName, data) => {
+                        this.props.replaceGalleryImage(
+                          i,
+                          fileName,
+                          data
+                        )
+                      }}
+                      text="Replace"
+                    />
+                  </div>
+                  <hr />
+                  <div className={css.formGroup}>
+                    <label>Rotate (deg):</label>
+                    <input
+                      type="number"
+                      defaultValue={image.rotate || 0}
+                      ref={`rotateInput:${i}`}
+                    />
+                    <button
+                      className={css.button}
+                      onClick={e =>
+                        this.props.setGalleryImageRotation(
+                          i,
+                          this.refs[`rotateInput:${i}`].value
+                        )
+                      }
+                    >
+                      Save
+                    </button>
+                    <hr />
+                    <button
+                      className={css.button}
+                      onClick={() => this.props.deleteGalleryImage(i)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
