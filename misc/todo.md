@@ -10,19 +10,6 @@
 + don't forget to clear issues from cache in all admin calls!
 
 
-+ login
-  + server:
-    + jwt create/verify
-    + middleware
-    + IMPORTANT!: disable cors in production (we only need it for dev server)
-  + client
-    + login component
-    + login route
-      + if not auth, show login form
-        + research form exploits
-      + if is auth, reroute to admin
-    + check if auth on admin route
-
 + Limiting
   + ~~save text~~
   + ~~change title to inputs~~

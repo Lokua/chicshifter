@@ -80,9 +80,11 @@ class Limiting extends Component {
                     src: `/${imagePrefix}/${contributor}/${image.src}`
                   }))}
                 />
-                <div className={css.prose}>
-                  <Prose text={articles[i]} />
-                </div>
+                {articles[i] &&
+                  <div className={css.prose}>
+                    <Prose text={articles[i]} />
+                  </div>
+                }
               </div>
             )
           })}

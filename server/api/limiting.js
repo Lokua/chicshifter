@@ -19,7 +19,7 @@ export async function setWeek(ctx) {
   const sectionPath = util.getSectionPath(issue, 'limiting')
   // write json and rename entry folder to match week
   await Promise.all([
-    util.writeIssue(issues[issue-1], issue),
+    util.writeIssue(issues[issue-1]),
     fs.rename(`${sectionPath}/${oldWeek}`, `${sectionPath}/${newWeek}`)
   ])
   ctx.body = issues
@@ -32,7 +32,7 @@ export async function setTitle(ctx) {
   const index = getWeekIndex(issues[issue-1], weekObject)
   issues[issue-1].sections.limitingChic.content[index] =
     Object.assign({}, weekObject, { title })
-  util.writeIssue(issues[issue-1], issue)
+  util.writeIssue(issues[issue-1])
   ctx.body = issues
 }
 
@@ -55,7 +55,7 @@ export async function newEntry(ctx) {
     '<h2><em>Article coming soon...</em></h2>',
     'utf8'
   )
-  await util.writeIssue(issues[issue-1], issue)
+  await util.writeIssue(issues[issue-1])
   ctx.body = issues
 }
 
@@ -68,7 +68,7 @@ export async function deleteEntry(ctx) {
   const index = getWeekIndex(issueObject, weekObject)
   delete issueObject.sections.limitingChic.content[index].content[author]
   await rimraf(`${util.getSectionPath(issue, 'limiting')}/${week}/${author}`)
-  await util.writeIssue(issueObject, issue)
+  await util.writeIssue(issueObject)
   ctx.body = issues
 }
 
@@ -83,7 +83,7 @@ export async function saveAuthor(ctx) {
     { objectName: author }
   )
   delete weekObject.content[oldAuthor]
-  await util.writeIssue(issueObject, issue)
+  await util.writeIssue(issueObject)
   const sectionPath = util.getSectionPath(issue, 'limiting')
   await fs.rename(
     `${sectionPath}/${week}/${oldAuthor}`,
@@ -135,7 +135,7 @@ export async function replaceEntryImage(ctx) {
     await fs.unlink(`${authorPath}/${origImage.src}`)
   }
   await fs.writeFile(`${authorPath}/${src}`, data, 'binary')
-  await util.writeIssue(issues[issue-1], issue)
+  await util.writeIssue(issues[issue-1])
   ctx.body = issues
 }
 
@@ -144,7 +144,7 @@ export async function setEntryImageRotation(ctx) {
   const issues = cache.get('issues') || await getIssues()
   const weekObject = getWeekById(issues[issue-1], week)
   weekObject.content[author].images[index].rotate = value
-  await util.writeIssue(issues[issue-1], issue)
+  await util.writeIssue(issues[issue-1])
   ctx.body = issues
 }
 
@@ -155,7 +155,7 @@ export async function deleteEntryImage(ctx) {
   const removed = weekObject.content[author].images.splice(index, 1)[0]
   const sectionPath = util.getSectionPath(issue, 'limiting')
   await fs.unlink(`${sectionPath}/${week}/${author}/${removed.src}`)
-  await util.writeIssue(issues[issue-1], issue)
+  await util.writeIssue(issues[issue-1])
   ctx.body = issues
 }
 

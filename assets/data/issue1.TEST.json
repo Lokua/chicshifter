@@ -222,7 +222,7 @@
           },
           "content": {
             "ana": {
-              "objectName": "silhouettes",
+              "objectName": "ana",
               "textUrl": "",
               "images": [
                 {
@@ -282,7 +282,7 @@
           },
           "content": {
             "ana": {
-              "objectName": "silhouettes",
+              "objectName": "ana",
               "textUrl": "",
               "images": [
                 {
@@ -342,7 +342,7 @@
           },
           "content": {
             "ana": {
-              "objectName": "silhouettes",
+              "objectName": "ana",
               "textUrl": "",
               "images": [
                 {
@@ -388,7 +388,7 @@
               ]
             },
             "jess": {
-              "objectName": "silhouettes",
+              "objectName": "jess",
               "textUrl": "",
               "images": [
                 {
@@ -452,6 +452,22 @@
                   "src": "rainy.jpg",
                   "author": null,
                   "rotate": "90"
+                }
+              ]
+            },
+            "frank": {
+              "objectName": "frank",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "rainy",
+                  "src": "rainy.jpg",
+                  "author": null
+                },
+                {
+                  "title": "m4",
+                  "src": "m4.png",
+                  "author": null
                 }
               ]
             }
