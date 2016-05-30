@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
+import { injectLogger } from '@common'
 import { actions } from '@components/Admin'
 import { Button } from '@components/Button'
 import css from './Login.scss'
@@ -14,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
   login: (username, password) => dispatch(actions.login(username, password))
 })
 
+@injectLogger
 class Login extends Component {
 
   static propTypes = {

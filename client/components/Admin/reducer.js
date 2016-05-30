@@ -20,6 +20,8 @@ const initialState = {
   isAuthenticated: false
 }
 
+export { initialState }
+
 export default createReducer(initialState, {
 
   [actions.SET_AUTHENTICATED] (state, { isAuthenticated }) {

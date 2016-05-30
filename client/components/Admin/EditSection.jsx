@@ -15,7 +15,6 @@ import css from './style.scss'
 const mapStateToProps = (state, props) => ({
   section: (() => {
     const sections = state.issues[props.params.issue - 1].sections
-
     return find(sections, { objectName: props.params.section })
   })(),
   modalActive: state.admin.modalActive,

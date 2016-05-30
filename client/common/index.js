@@ -4,12 +4,13 @@ export rootReducer from './rootReducer'
 export * as util from './util'
 export * from './util'
 
-export routes from './routes'
-
 export {
   injectLogger,
   shallowUpdate
 } from './decorators'
+
+// export { getRoutes } from './routes'
+export routes from './routes'
 
 export { actions as uiActions } from './ui'
 export config from './config'

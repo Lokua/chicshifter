@@ -21,18 +21,6 @@ class Admin extends Component {
     router: PropTypes.object.isRequired
   }
 
-  constructor(props) {
-    super(props)
-    console.log('arguments:', arguments)
-  }
-
-  componentDidMount() {
-    console.log('this.props.isAuthenticated: %o', this.props.isAuthenticated)
-    if (!this.props.isAuthenticated) {
-      this.props.router.push({ pathname: '/login' })
-    }
-  }
-
   render() {
     return (
       <div className={css.Admin}>

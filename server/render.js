@@ -7,9 +7,11 @@ import pkg from '../package.json'
 import config from '../config'
 import Logger from './Logger'
 import { getIssues, getFpfys } from './api'
-
 import { routes, configureStore } from '@common'
+import { verifyToken } from './util'
+import { initialState as initialAdminState } from '@components/Admin'
 
+// eslint-disable-next-line
 const logger = new Logger('render')
 
 export default async function render(ctx) {
@@ -17,26 +19,31 @@ export default async function render(ctx) {
   const issues = await getIssues()
   const fpfys = await getFpfys()
 
-  match({
+  const matchConfig = {
     routes,
     location: ctx.url,
     history: createMemoryHistory(ctx.url)
-  }, (err, redirectLocation, renderProps) => {
+  }
+
+  match(matchConfig, (err, redirectLocation, renderProps) => {
 
     if (err) {
       ctx.status = 500
 
-    } else if (redirectLocation) {
-      logger.warn('redirectLocation is not yet implemented')
+    // } else if (redirectLocation) {
+    //   logger.warn('redirectLocation: %o', redirectLocation)
 
     } else if (renderProps) {
 
+      const token = ctx.cookies.get('token')
+      let isAuthenticated = !!verifyToken(token)
+      logger.debug('isAuthenticated:', isAuthenticated)
+
       const store = configureStore({
         issues,
-        fpfys
+        fpfys,
+        admin: Object.assign({}, initialAdminState, { isAuthenticated })
       })
-
-      // logger.debug('initialState: %j', store.getState())
 
       const html = renderToString(
         <Provider store={store}>
@@ -51,6 +58,8 @@ export default async function render(ctx) {
           url: ctx.url
         })
       )
+    } else {
+      logger.warn('render else block')
     }
   })
 }

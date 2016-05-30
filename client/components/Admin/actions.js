@@ -2,7 +2,7 @@ import Actions from 'redux-actions-class'
 import map from 'lodash.map'
 import Logger from 'lokua.net.logger'
 import find from 'lodash.find'
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 
 import { inspect } from '@common'
 import { actions as issueActions } from '@components/Issue'
@@ -26,7 +26,8 @@ export default new Actions({
           'Accept': 'text/plain',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password }),
+        credentials: 'same-origin'
       })
 
       if (res.status !== 200) {
@@ -34,10 +35,9 @@ export default new Actions({
         return alert(`${res.status}: ${res.statusText}`)
       }
 
-      const token = await res.text()
-      Cookie.set('token', token, { expires: 30 })
-      console.log('setAuthenticated should be dispatched!!!')
-      dispatch(this.setAuthenticated(true))
+      if (Cookies.get('token')) {
+        dispatch(this.setAuthenticated(true))
+      }
     })()
   },
 

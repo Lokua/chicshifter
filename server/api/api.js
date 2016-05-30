@@ -2,8 +2,6 @@ import fs from 'mz/fs'
 import path from 'path'
 import Router from 'koa-router'
 import marked from 'marked'
-// import find from 'lodash.find'
-// import rimraf from 'rimraf-promise'
 
 import config from '../../config'
 import { createToken, verifyToken } from '../util'
@@ -34,7 +32,13 @@ api.post('/login', async ctx => {
   const token = createToken()
 
   if (verifyToken(token)) {
-    return ctx.body = token
+    logger.debug('setting token cookie...')
+
+    ctx.cookies.set('token', token, {
+      httpOnly: false
+    })
+
+    return ctx.status = 200
   }
 
   ctx.status = 500

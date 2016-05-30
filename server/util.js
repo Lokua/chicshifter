@@ -3,6 +3,9 @@ import fs from 'mz/fs'
 import jws from 'jws'
 import moment from 'moment'
 import config from '../config'
+import Logger from './Logger'
+
+const logger = new Logger('util', { nameColor: 'magenta' })
 
 export function createToken() {
   const now = moment()
@@ -33,17 +36,26 @@ export function createToken() {
  * @return {Boolean} true if token is valid
  */
 export function verifyToken(token) {
-  const valid = jws.verify(
-    token,
-    process.env.CHIC_JWT_ALG,
-    process.env.CHIC_JWT_SECRET
-  )
-
-  if (valid) {
-    return jws.decode(token)
+  if (!token) {
+    logger.error('verifyToken >> token is undefined.')
+    return false
   }
 
-  throw new Error('token invalid')
+  try {
+    const valid = jws.verify(
+      token,
+      process.env.CHIC_JWT_ALG,
+      process.env.CHIC_JWT_SECRET
+    )
+
+    if (valid) {
+      return jws.decode(token)
+    }
+
+  } catch (err) {
+    logger.error('Error caught in verifyToken >> err:', err)
+    return false
+  }
 }
 
 export function normalizeImageSrc(src) {

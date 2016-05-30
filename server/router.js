@@ -1,5 +1,4 @@
 import Router from 'koa-router'
-
 import render from './render'
 
 const router = new Router()
