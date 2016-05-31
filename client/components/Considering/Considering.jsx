@@ -35,10 +35,11 @@ class Considering extends Component {
   getImageUrl() {
     const { params, article } = this.props
     return [
-      '/issues',
+      '/static',
+      'issues',
       params.issue,
       params.section,
-      article.image.url
+      article.image.src
     ].join('/')
   }
 
