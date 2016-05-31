@@ -183,6 +183,24 @@ const mapDispatchToProps = (dispatch, props) => ({
     return dispatch(
       actions.adminDeleteGalleryImage(issue, section, entry, index)
     )
+  },
+  addCredit(index) {
+    const { issue, section, entry } = props.params
+    return dispatch(
+      actions.adminAddCredit(issue, section, entry, index)
+    )
+  },
+  deleteCredit(index, credit) {
+    const { issue, section, entry } = props.params
+    return dispatch(
+      actions.adminDeleteCredit(issue, section, entry, index, credit)
+    )
+  },
+  updateCredit(index, credit, data) {
+    const { issue, section, entry } = props.params
+    return dispatch(
+      actions.adminUpdateCredit(issue, section, entry, index, credit, data)
+    )
   }
 })
 
@@ -220,7 +238,10 @@ class EditEntry extends Component {
     addGalleryImage: PropTypes.func.isRequired,
     replaceGalleryImage: PropTypes.func.isRequired,
     setGalleryImageRotation: PropTypes.func.isRequired,
-    deleteGalleryImage: PropTypes.func.isRequired
+    deleteGalleryImage: PropTypes.func.isRequired,
+    addCredit: PropTypes.func.isRequired,
+    deleteCredit: PropTypes.func.isRequired,
+    updateCredit: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -300,6 +321,51 @@ class EditEntry extends Component {
           }}
           onSave={this.props.replaceArticle}
         />
+      </div>
+    )
+  }
+
+  @autobind
+  renderCredits(imageIndex, credits) {
+    return (
+      <div>
+        <h2>Credits:</h2>
+        <Button onClick={() => this.props.addCredit(imageIndex)} text="New" />
+        {credits.map((credit, i) => (
+          <div key={i} className={css.editable}>
+            <div className={css.formGroup}>
+              <label>Type:</label>
+              <input
+                type="text"
+                defaultValue={credit.type}
+                ref={`creditTypeInput:${i}`}
+              />
+            </div>
+            <div className={css.formGroup}>
+              <label>Name:</label>
+              <input
+                type="text"
+                defaultValue={credit.author.name}
+                ref={`creditNameInput:${i}`}
+              />
+            </div>
+            <div className={css.formGroup}>
+              <Button
+                onClick={() => {
+                  this.props.updateCredit(imageIndex, i, {
+                    type: this.refs[`creditTypeInput:${i}`].value,
+                    name: this.refs[`creditNameInput:${i}`].value
+                  })
+                }}
+                text="Save"
+              />
+              <Button
+                onClick={() => this.props.deleteCredit(imageIndex, i)}
+                text="Delete"
+              />
+            </div>
+          </div>
+        ))}
       </div>
     )
   }
@@ -564,7 +630,7 @@ class EditEntry extends Component {
               {entry.content.images.map((image, i) => (
                 <div key={i} className={css.limitThumb}>
                   <div className={css.formGroup}>
-                    <label>{image.title}</label>
+                    <label className={css.limitImageTitle}>{image.title}</label>
                     {image.src &&
                       <div
                         className={css.image}
@@ -607,7 +673,13 @@ class EditEntry extends Component {
                     >
                       Save
                     </button>
-                    <hr />
+                  </div>
+                  <hr />
+                  <div className={css.formGroup}>
+                    {this.renderCredits(i, image.credits || [])}
+                  </div>
+                  <hr />
+                  <div className={css.formGroup}>
                     <button
                       className={css.button}
                       onClick={() => this.props.deleteGalleryImage(i)}

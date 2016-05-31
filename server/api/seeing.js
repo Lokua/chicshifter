@@ -84,3 +84,48 @@ export async function replaceGalleryImage(ctx) {
   util.writeIssue(issueObject)
   ctx.body = cache.set('issues', issues)
 }
+
+export async function addCredit(ctx) {
+  const { issue, section, entry, index } = ctx.request.body
+  const issues = cache.get('issues') || await getIssues()
+  const issueObject = issues[issue-1]
+  const image = find(issueObject.sections[`${section}Chic`].content, {
+    objectName: entry
+  }).content.images[index]
+  const credit = {
+    type: null,
+    author: { name: null }
+  }
+  if (image.credits) {
+    image.credits.push(credit)
+  } else {
+    image.credits = [credit]
+  }
+  util.writeIssue(issueObject)
+  ctx.body = cache.set('issues', issues)
+}
+
+export async function deleteCredit(ctx) {
+  const { issue, section, entry, index, credit } = ctx.request.body
+  const issues = cache.get('issues') || await getIssues()
+  const issueObject = issues[issue-1]
+  const image = find(issueObject.sections[`${section}Chic`].content, {
+    objectName: entry
+  }).content.images[index]
+  image.credits.splice(credit, 1)
+  util.writeIssue(issueObject)
+  ctx.body = cache.set('issues', issues)
+}
+
+export async function updateCredit(ctx) {
+  const { issue, section, entry, index, credit, data } = ctx.request.body
+  const issues = cache.get('issues') || await getIssues()
+  const issueObject = issues[issue-1]
+  const creditObject = find(issueObject.sections[`${section}Chic`].content, {
+    objectName: entry
+  }).content.images[index].credits[credit]
+  creditObject.type = data.type
+  creditObject.author = { name: data.name }
+  util.writeIssue(issueObject)
+  ctx.body = cache.set('issues', issues)
+}

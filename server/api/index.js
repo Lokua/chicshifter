@@ -37,6 +37,9 @@ admin.post('/add-gallery-image', seeing.addGalleryImage)
 admin.post('/delete-gallery-image', seeing.deleteGalleryImage)
 admin.post('/set-gallery-image-rotation', seeing.setGalleryImageRotation)
 admin.post('/replace-gallery-image', seeing.replaceGalleryImage)
+admin.post('/credits/add', seeing.addCredit)
+admin.post('/credits/delete', seeing.deleteCredit)
+admin.post('/credits/update', seeing.updateCredit)
 
 // limiting
 admin.post('/limiting/set-week', limiting.setWeek)

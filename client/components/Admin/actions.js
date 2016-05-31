@@ -332,6 +332,22 @@ export default new Actions({
     })
   },
 
+  ADMIN_ADD_CREDIT (issue, section, entry, index) {
+    return genericPost('/api/admin/credits/add', {
+      issue, section, entry, index
+    })
+  },
+  ADMIN_DELETE_CREDIT (issue, section, entry, index, credit) {
+    return genericPost('/api/admin/credits/delete', {
+      issue, section, entry, index, credit
+    })
+  },
+  ADMIN_UPDATE_CREDIT (issue, section, entry, index, credit, data) {
+    return genericPost('/api/admin/credits/update', {
+      issue, section, entry, index, credit, data
+    })
+  },
+
   ADMIN_SAVE_LETTER (issue, text) {
     return dispatch => (async () => {
       const res = await fetch('/api/admin/save-letter', {
