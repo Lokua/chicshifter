@@ -8,7 +8,7 @@ import { Section } from '@components/Section'
 import { Article } from '@components/Article'
 import { StyleGuide } from '@components/StyleGuide'
 import { Login } from '@components/Login'
-import { Admin, EditIssue, EditSection, EditEntry, EditFpfys
+import { Admin, EditIssue, EditSection, EditEntry, EditFpfys, EditLetter
 } from '@components/Admin'
 
 import Logger from './Logger'
@@ -66,6 +66,11 @@ export default {
     {
       path: '/admin',
       component: Admin,
+      onEnter: auth
+    },
+    {
+      path: '/admin/issue/:issue/letter',
+      component: EditLetter,
       onEnter: auth
     },
     {

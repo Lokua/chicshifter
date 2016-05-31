@@ -12,12 +12,14 @@ import * as limiting from './limiting'
 import * as street from './street'
 import * as seeing from './seeing'
 import * as fpfys from './fpfys'
+import saveLetter from './saveLetter'
 
 const admin = new Router({ prefix: '/api/admin' })
 
 // require all admin access points to be authenticated
 // admin.use('*', authorize)
 
+admin.post('/save-letter', saveLetter)
 
 admin.post('/fpfys/update', fpfys.update)
 admin.post('/fpfys/add', fpfys.add)

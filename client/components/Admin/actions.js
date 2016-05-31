@@ -7,6 +7,7 @@ import Cookies from 'js-cookie'
 import { inspect } from '@common'
 import { actions as fpfyActions } from '@components/Fpfys'
 import { actions as issueActions } from '@components/Issue'
+import { actions as letterActions } from '@components/Letter'
 import { actions as limitingActions } from '@components/Limiting'
 
 // eslint-disable-next-line no-unused-vars
@@ -162,24 +163,6 @@ export default new Actions({
    */
   ADMIN_REPLACE_IMAGE (config) {
     return genericPost('/api/admin/replace-image', config)
-    // return dispatch => (async () => {
-    //   const res = await fetch('/api/admin/replace-image', {
-    //     method: 'POST',
-    //     headers: {
-    //       Accept: 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(config)
-    //   })
-    //
-    //   if (res.status !== 200) {
-    //     alert(`${res.status}: ${res.statusText}`)
-    //     return
-    //   }
-    //
-    //   const issues = await res.json()
-    //   dispatch(issueActions.getIssuesSuccess(issues))
-    // })()
   },
 
   ADMIN_SET_LIMITING_WEEK (issue, oldWeek, newWeek) {
@@ -340,6 +323,25 @@ export default new Actions({
     return genericPost('/api/admin/replace-gallery-image', {
       issue, section, entry, index, fileName, data
     })
+  },
+
+  ADMIN_SAVE_LETTER (issue, text) {
+    return dispatch => (async () => {
+      const res = await fetch('/api/admin/save-letter', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: Cookies.get('token')
+        },
+        body: JSON.stringify({ issue, text })
+      })
+
+      if (res.status === 200) {
+        const letter = await res.text()
+        dispatch(letterActions.fetchLetterSuccess(letter))
+      }
+    })()
   }
 })
 

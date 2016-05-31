@@ -1,7 +1,6 @@
 import fs from 'mz/fs'
 import path from 'path'
 import Router from 'koa-router'
-import marked from 'marked'
 
 import config from '../../config'
 import { createToken, verifyToken } from '../util'
@@ -11,13 +10,6 @@ import Logger from '../Logger'
 const logger = new Logger('api')
 
 const api = new Router({ prefix: '/api' })
-
-// TODO: delete me
-const renderer = new marked.Renderer()
-renderer.heading = function(text, level) {
-  return `<h${level}>${text}</h${level}>\n`
-}
-marked.setOptions({ renderer })
 
 // PUBLIC
 
@@ -89,10 +81,10 @@ api.get('/letter/:issue', async ctx => {
 
 async function getLetter(issue) {
   const filePath = path.join(config.assetsRoot,
-    'issues', issue, 'letter-from-the-editor.md')
+    'issues', issue, 'letter-from-the-editor.html')
   if (cache.has(filePath)) return cache.get(filePath)
   const body = await fs.readFile(filePath, 'utf8')
-  return marked(body)
+  return body
 }
 
 async function getLimitingArticle(issue, week, person) {

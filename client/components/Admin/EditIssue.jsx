@@ -29,6 +29,11 @@ class EditIssue extends Component {
         <Slug path={slug} />
 
         <ul>
+          <li>
+            <Link to={`/admin/issue/${issue.id}/letter`}>
+              <button className={css.button}>Letter from the Editor</button>
+            </Link>
+          </li>
           {map(this.props.issue.sections, (section, id) => (
             <li key={id}>
               <Link
