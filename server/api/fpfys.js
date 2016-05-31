@@ -82,7 +82,7 @@ function getLastId(fpfys) {
 
 async function writeFpfys(fpfys) {
   return await fs.writeFile(
-    `${config.dataRoot}/fpfys.TEST.json`,
+    `${config.dataRoot}/fpfys.json`,
     JSON.stringify(fpfys, null, 2),
     'utf8'
   )

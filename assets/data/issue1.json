@@ -2,7 +2,7 @@
   "id": "1",
   "season": "Spring/Summer",
   "year": "2016",
-  "letterFromTheEditorUrl": "letter-from-the-editor.md",
+  "letterFromTheEditorUrl": "letter-from-the-editor.html",
   "sections": {
     "consideringChic": {
       "objectName": "considering",
@@ -110,100 +110,100 @@
           "content": {
             "ana": {
               "objectName": "ana",
-              "textUrl": "ana/text.md",
+              "textUrl": "",
               "images": [
                 {
                   "title": "day1.jpg",
-                  "src": "ana/day1__1024.jpg"
+                  "src": "day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "src": "ana/day2__1024.jpg"
+                  "src": "day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "src": "ana/day3__1024.jpg"
+                  "src": "day3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "src": "ana/day4__1024.jpg"
+                  "src": "day4__1024.jpg"
                 },
                 {
                   "title": "day5.jpg",
-                  "src": "ana/day5__1024.jpg"
+                  "src": "day5__1024.jpg"
                 }
               ]
             },
             "autumn": {
               "objectName": "autumn",
-              "textUrl": "autumn/text.md",
+              "textUrl": "",
               "images": [
                 {
-                  "src": "autumn/weekoneshift__1024.jpg",
+                  "src": "weekoneshift__1024.jpg",
                   "rotate": "90"
                 },
                 {
-                  "src": "autumn/weekoneshift2__1024.jpg",
+                  "src": "weekoneshift2__1024.jpg",
                   "rotate": "90"
                 },
                 {
-                  "src": "autumn/weekoneshift3__1024.jpg",
+                  "src": "weekoneshift3__1024.jpg",
                   "rotate": "90"
                 }
               ]
             },
             "constance": {
               "objectName": "constance",
-              "textUrl": "constance/text.md",
+              "textUrl": "",
               "images": [
                 {
                   "title": "day1.jpg",
-                  "src": "constance/day1__1024.jpg"
+                  "src": "day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "src": "constance/day2__1024.jpg"
+                  "src": "day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "src": "constance/day3__1024.jpg",
+                  "src": "day3__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day4.jpg",
-                  "src": "constance/day4__1024.jpg",
+                  "src": "day4__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day5.jpg",
-                  "src": "constance/day5__1024.jpg",
+                  "src": "day5__1024.jpg",
                   "rotate": "90"
                 },
                 {
                   "title": "day5.jpg",
-                  "src": "constance/silhouettes__1024.jpg"
+                  "src": "silhouettes__1024.jpg"
                 }
               ]
             },
             "shari": {
               "objectName": "shari",
-              "textUrl": "shari/text.md",
+              "textUrl": "",
               "images": [
                 {
                   "title": "day1.jpg",
-                  "src": "shari/shariday1__1024.jpg"
+                  "src": "shariday1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "src": "shari/shariday2__1024.jpg"
+                  "src": "shariday2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "src": "shari/shariday3__1024.jpg"
+                  "src": "shariday3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "src": "shari/shariday4__1024.jpg"
+                  "src": "shariday4__1024.jpg"
                 }
               ]
             }
@@ -222,7 +222,7 @@
           },
           "content": {
             "ana": {
-              "objectName": "silhouettes",
+              "objectName": "ana",
               "textUrl": "",
               "images": [
                 {
@@ -282,7 +282,7 @@
           },
           "content": {
             "ana": {
-              "objectName": "silhouettes",
+              "objectName": "ana",
               "textUrl": "",
               "images": [
                 {
@@ -342,7 +342,7 @@
           },
           "content": {
             "ana": {
-              "objectName": "silhouettes",
+              "objectName": "ana",
               "textUrl": "",
               "images": [
                 {
@@ -388,7 +388,7 @@
               ]
             },
             "jess": {
-              "objectName": "silhouettes",
+              "objectName": "jess",
               "textUrl": "",
               "images": [
                 {
@@ -474,52 +474,62 @@
               {
                 "src": "anyaflip__1024.jpg",
                 "title": "anyaflip",
-                "credits": [{
-                  "type": "photo",
-                  "author": {
-                    "name": "Jonathan Crawford"
+                "credits": [
+                  {
+                    "type": "photo",
+                    "author": {
+                      "name": "Jonathan Crawford"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "anyaflip2__1024.jpg",
                 "title": "anyaflip2",
-                "credits": [{
-                  "type": "photo",
-                  "author": {
-                    "name": "Jonathan Crawford"
+                "credits": [
+                  {
+                    "type": "photo",
+                    "author": {
+                      "name": "Jonathan Crawford"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "anyaflip3__1024.jpg",
                 "title": "anyaflip3",
-                "credits": [{
-                  "type": "photo",
-                  "author": {
-                    "name": "Jonathan Crawford"
+                "credits": [
+                  {
+                    "type": "photo",
+                    "author": {
+                      "name": "Jonathan Crawford"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "anyaflip4__1024.jpg",
                 "title": "anyaflip4",
-                "credits": [{
-                  "type": "photo",
-                  "author": {
-                    "name": "Jonathan Crawford"
+                "credits": [
+                  {
+                    "type": "photo",
+                    "author": {
+                      "name": "Jonathan Crawford"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "anyaflip5__1024.jpg",
                 "title": "anyaflip5",
-                "credits": [{
-                  "type": "photo",
-                  "author": {
-                    "name": "Jonathan Crawford"
+                "credits": [
+                  {
+                    "type": "photo",
+                    "author": {
+                      "name": "Jonathan Crawford"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "reyndersfabrichand__1024.jpg",
@@ -724,8 +734,7 @@
                   {
                     "type": "Performance",
                     "author": {
-                      "firstName": "Grace",
-                      "lastName": "Duval"
+                      "name": "Grace Duval"
                     }
                   }
                 ]
@@ -733,90 +742,98 @@
               {
                 "src": "katrin_schnabl_collection_performance_0314__1024.jpg",
                 "title": "katrin_schnabl_collection_performance_0314",
-                "credits": [{
-                  "type": "Performance",
-                  "author": {
-                    "firstName": "Grace",
-                    "lastName": "Duval"
+                "credits": [
+                  {
+                    "type": "Performance",
+                    "author": {
+                      "name": "Grace Duval"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "MU7A0264__1024.jpg",
                 "title": "MU7A0264",
-                "credits": [{
-                  "type": "Collection",
-                  "author": {
-                    "firstName": "Matthew",
-                    "lastName": "Reeves"
+                "credits": [
+                  {
+                    "type": "Collection",
+                    "author": {
+                      "name": "Matthew Reeves"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "MU7A0408__1024.jpg",
                 "title": "MU7A0408",
-                "credits": [{
-                  "type": "Collection",
-                  "author": {
-                    "firstName": "Matthew",
-                    "lastName": "Reeves"
+                "credits": [
+                  {
+                    "type": "Collection",
+                    "author": {
+                      "name": "Matthew Reeves"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "MU7A0496__1024.jpg",
                 "title": "MU7A0496",
-                "credits": [{
-                  "type": "Collection",
-                  "author": {
-                    "firstName": "Matthew",
-                    "lastName": "Reeves"
+                "credits": [
+                  {
+                    "type": "Collection",
+                    "author": {
+                      "name": "Matthew Reeves"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "MU7A2933__1024.jpg",
                 "title": "MU7A2933",
-                "credits": [{
-                  "type": "Collection",
-                  "author": {
-                    "firstName": "Matthew",
-                    "lastName": "Reeves"
+                "credits": [
+                  {
+                    "type": "Collection",
+                    "author": {
+                      "name": "Matthew Reeves"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "MU7A3346__1024.jpg",
                 "title": "MU7A3346",
-                "credits": [{
-                  "type": "Collection",
-                  "author": {
-                    "firstName": "Matthew",
-                    "lastName": "Reeves"
+                "credits": [
+                  {
+                    "type": "Collection",
+                    "author": {
+                      "name": "Matthew Reeves"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "MU7A3541__1024.jpg",
                 "title": "MU7A3541",
-                "credits": [{
-                  "type": "Collection",
-                  "author": {
-                    "firstName": "Matthew",
-                    "lastName": "Reeves"
+                "credits": [
+                  {
+                    "type": "Collection",
+                    "author": {
+                      "name": "Matthew Reeves"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "MU7A3683__1024.jpg",
                 "title": "MU7A3683",
-                "credits": [{
-                  "type": "Collection",
-                  "author": {
-                    "firstName": "Matthew",
-                    "lastName": "Reeves"
+                "credits": [
+                  {
+                    "type": "Collection",
+                    "author": {
+                      "name": "Matthew Reeves"
+                    }
                   }
-                }]
+                ]
               },
               {
                 "src": "schnablartLimb__1024.jpg",
@@ -851,18 +868,42 @@
           },
           "content": {
             "images": [
-              { "src": "IMG_4750__1024.jpg" },
-              { "src": "IMG_4756__1024.jpg" },
-              { "src": "IMG_4761__1024.jpg" },
-              { "src": "IMG_4765__1024.jpg" },
-              { "src": "IMG_4767__1024.jpg" },
-              { "src": "IMG_4779__1024.jpg" },
-              { "src": "IMG_4784__1024.jpg" },
-              { "src": "IMG_4785__1024.jpg" },
-              { "src": "IMG_4802__1024.jpg" },
-              { "src": "IMG_4809__1024.jpg" },
-              { "src": "IMG_4811__1024.jpg" },
-              { "src": "IMG_4815__1024.jpg" }
+              {
+                "src": "IMG_4750__1024.jpg"
+              },
+              {
+                "src": "IMG_4756__1024.jpg"
+              },
+              {
+                "src": "IMG_4761__1024.jpg"
+              },
+              {
+                "src": "IMG_4765__1024.jpg"
+              },
+              {
+                "src": "IMG_4767__1024.jpg"
+              },
+              {
+                "src": "IMG_4779__1024.jpg"
+              },
+              {
+                "src": "IMG_4784__1024.jpg"
+              },
+              {
+                "src": "IMG_4785__1024.jpg"
+              },
+              {
+                "src": "IMG_4802__1024.jpg"
+              },
+              {
+                "src": "IMG_4809__1024.jpg"
+              },
+              {
+                "src": "IMG_4811__1024.jpg"
+              },
+              {
+                "src": "IMG_4815__1024.jpg"
+              }
             ],
             "textUrl": "text.html"
           }
@@ -911,11 +952,11 @@
                 "src": "milkgloves__1024.jpg"
               },
               {
-                "title": "milkmidwestbesttees__1024.jpg" ,
+                "title": "milkmidwestbesttees__1024.jpg",
                 "src": "milkmidwestbesttees__1024.jpg"
               },
               {
-                "title": "milkshilliconfetti__1024.jpg" ,
+                "title": "milkshilliconfetti__1024.jpg",
                 "src": "milkshilliconfetti__1024.jpg"
               },
               {
@@ -1052,11 +1093,11 @@
             "images": [
               {
                 "title": "",
-                "src" : "menslinen__1024.jpg"
+                "src": "menslinen__1024.jpg"
               },
               {
                 "title": "",
-                "src" : "uniqloskirtturtleneck__1024.jpg"
+                "src": "uniqloskirtturtleneck__1024.jpg"
               }
             ],
             "textUrl": "text.html",
@@ -1093,27 +1134,27 @@
           "content": [
             {
               "person": "Ashley",
-              "image": "ashley__1024.jpg" ,
+              "image": "ashley__1024.jpg",
               "answer": "This is everything I had...",
-              "age" : "20s"
+              "age": "20s"
             },
             {
               "person": "Desimir",
-              "image": "desimir__1024.jpg" ,
+              "image": "desimir__1024.jpg",
               "answer": "Comfort.",
-              "age" : "30s"
+              "age": "30s"
             },
             {
               "person": "Valentine",
-              "image": "valentine__1024.jpg" ,
+              "image": "valentine__1024.jpg",
               "answer": "The sense of fab inspires me.",
-              "age" : "30s"
+              "age": "30s"
             },
             {
               "person": "Vani",
-              "image": "vani__1024.jpg" ,
+              "image": "vani__1024.jpg",
               "answer": "My skirt is from India, the navy sweater is J.Crew, I’m a graphic designer who is inspired by Audrey Hepburn’s style.",
-              "age" : "30s"
+              "age": "30s"
             }
           ]
         },
@@ -1153,25 +1194,25 @@
           "content": [
             {
               "person": "Felix",
-              "image": "felix__1024.jpg" ,
+              "image": "felix__1024.jpg",
               "answer": "These are my favorite shoes.",
               "age": "3"
             },
             {
               "person": "Milena",
-              "image": "milena__1024.jpg" ,
+              "image": "milena__1024.jpg",
               "answer": "Here comes the sun.",
               "age": "30s"
             },
             {
               "person": "Shari",
-              "image": "shari__1024.jpg" ,
+              "image": "shari__1024.jpg",
               "answer": "Utility, simplicity, androgyny. I am not utilitarian out of laziness—rather, I think the utilitarian aesthetic reflects my personality as a no-bullshit, face-value kind of person. These are also my favorite shoes.",
               "age": "30s"
             },
             {
               "person": "Stojana",
-              "image": "stojana__1024.jpg" ,
+              "image": "stojana__1024.jpg",
               "answer": "Simplicity and elegance.",
               "age": "60s"
             }
@@ -1206,13 +1247,27 @@
           },
           "content": {
             "images": [
-              { "src": "annasui__1024.jpg" },
-              { "src": "annasui2__1024.jpg" },
-              { "src": "annasuimyfave__1024.jpg" },
-              { "src": "annyee__1024.jpg" },
-              { "src": "bridgetsullivan__1024.jpg" },
-              { "src": "exhibitspan__1024.jpg" },
-              { "src": "johnvarvatos__1024.jpg" }
+              {
+                "src": "annasui__1024.jpg"
+              },
+              {
+                "src": "annasui2__1024.jpg"
+              },
+              {
+                "src": "annasuimyfave__1024.jpg"
+              },
+              {
+                "src": "annyee__1024.jpg"
+              },
+              {
+                "src": "bridgetsullivan__1024.jpg"
+              },
+              {
+                "src": "exhibitspan__1024.jpg"
+              },
+              {
+                "src": "johnvarvatos__1024.jpg"
+              }
             ],
             "textUrl": "text.html"
           }
@@ -1230,17 +1285,39 @@
           },
           "content": {
             "images": [
-              { "src": "blassreddress__1024.jpg" },
-              { "src": "clairemccardelldetail__1024.jpg" },
-              { "src": "commedesgarcons__1024.jpg" },
-              { "src": "deCastelbajac__1024.jpg" },
-              { "src": "decastelbajacorange__1024.jpg" },
-              { "src": "gernreichtotallook__1024.jpg" },
-              { "src": "japaneseplatforms__1024.jpg" },
-              { "src": "kawakubobump__1024.jpg" },
-              { "src": "kawakubohands__1024.jpg" },
-              { "src": "mccardelldior__1024.jpg" },
-              { "src": "westwoodboobtube__1024.jpg" }
+              {
+                "src": "blassreddress__1024.jpg"
+              },
+              {
+                "src": "clairemccardelldetail__1024.jpg"
+              },
+              {
+                "src": "commedesgarcons__1024.jpg"
+              },
+              {
+                "src": "deCastelbajac__1024.jpg"
+              },
+              {
+                "src": "decastelbajacorange__1024.jpg"
+              },
+              {
+                "src": "gernreichtotallook__1024.jpg"
+              },
+              {
+                "src": "japaneseplatforms__1024.jpg"
+              },
+              {
+                "src": "kawakubobump__1024.jpg"
+              },
+              {
+                "src": "kawakubohands__1024.jpg"
+              },
+              {
+                "src": "mccardelldior__1024.jpg"
+              },
+              {
+                "src": "westwoodboobtube__1024.jpg"
+              }
             ],
             "textUrl": "text.html"
           }
@@ -1258,28 +1335,72 @@
           },
           "content": {
             "images": [
-              { "src": "fashiontimeline__1024.jpg" },
-              { "src": "fashiontimeline2__1024.jpg" },
-              { "src": "fashiontimeline3__1024.jpg" },
-              { "src": "flapper10__1024.jpg" },
-              { "src": "flapper2__1024.jpg" },
-              { "src": "flapper3__1024.jpg" },
-              { "src": "flapper4__1024.jpg" },
-              { "src": "flapper5__1024.jpg" },
-              { "src": "flapper6__1024.jpg" },
-              { "src": "flapper7__1024.jpg" },
-              { "src": "flapper8__1024.jpg" },
-              { "src": "flapper9__1024.jpg" },
-              { "src": "flapperstyle__1024.jpg" },
-              { "src": "insideoutchaneldetail__1024.jpg" },
-              { "src": "insideoutchaneljacketinside__1024.jpg" },
-              { "src": "insideoutchanelskirt__1024.jpg" },
-              { "src": "insideoutchanelsuitdisplay__1024.jpg" },
-              { "src": "insideoutchanelwhole__1024.jpg" },
-              { "src": "insideoutmens__1024.jpg" },
-              { "src": "insideoutmensbreeches__1024.jpg" },
-              { "src": "insideoutmensbreechesback__1024.jpg" },
-              { "src": "insideoutmensbreechesfront__1024.jpg" }
+              {
+                "src": "fashiontimeline__1024.jpg"
+              },
+              {
+                "src": "fashiontimeline2__1024.jpg"
+              },
+              {
+                "src": "fashiontimeline3__1024.jpg"
+              },
+              {
+                "src": "flapper10__1024.jpg"
+              },
+              {
+                "src": "flapper2__1024.jpg"
+              },
+              {
+                "src": "flapper3__1024.jpg"
+              },
+              {
+                "src": "flapper4__1024.jpg"
+              },
+              {
+                "src": "flapper5__1024.jpg"
+              },
+              {
+                "src": "flapper6__1024.jpg"
+              },
+              {
+                "src": "flapper7__1024.jpg"
+              },
+              {
+                "src": "flapper8__1024.jpg"
+              },
+              {
+                "src": "flapper9__1024.jpg"
+              },
+              {
+                "src": "flapperstyle__1024.jpg"
+              },
+              {
+                "src": "insideoutchaneldetail__1024.jpg"
+              },
+              {
+                "src": "insideoutchaneljacketinside__1024.jpg"
+              },
+              {
+                "src": "insideoutchanelskirt__1024.jpg"
+              },
+              {
+                "src": "insideoutchanelsuitdisplay__1024.jpg"
+              },
+              {
+                "src": "insideoutchanelwhole__1024.jpg"
+              },
+              {
+                "src": "insideoutmens__1024.jpg"
+              },
+              {
+                "src": "insideoutmensbreeches__1024.jpg"
+              },
+              {
+                "src": "insideoutmensbreechesback__1024.jpg"
+              },
+              {
+                "src": "insideoutmensbreechesfront__1024.jpg"
+              }
             ],
             "textUrl": "kent.md"
           }
@@ -1297,17 +1418,39 @@
           },
           "content": {
             "images": [
-              { "src": "adidasallround__1024.jpg" },
-              { "src": "adidasceyadams__1024.jpg" },
-              { "src": "adidassamba__1024.jpg" },
-              { "src": "anatouringsneaker__1024.jpg" },
-              { "src": "earlysneakers__1024.jpg" },
-              { "src": "jordansection__1024.jpg" },
-              { "src": "nikeclassic__1024.jpg" },
-              { "src": "nikejordan__1024.jpg" },
-              { "src": "puma&chalayan__1024.jpg" },
-              { "src": "pumakehindewiley__1024.jpg" },
-              { "src": "reebokfreestyle__1024.jpg" }
+              {
+                "src": "adidasallround__1024.jpg"
+              },
+              {
+                "src": "adidasceyadams__1024.jpg"
+              },
+              {
+                "src": "adidassamba__1024.jpg"
+              },
+              {
+                "src": "anatouringsneaker__1024.jpg"
+              },
+              {
+                "src": "earlysneakers__1024.jpg"
+              },
+              {
+                "src": "jordansection__1024.jpg"
+              },
+              {
+                "src": "nikeclassic__1024.jpg"
+              },
+              {
+                "src": "nikejordan__1024.jpg"
+              },
+              {
+                "src": "puma&chalayan__1024.jpg"
+              },
+              {
+                "src": "pumakehindewiley__1024.jpg"
+              },
+              {
+                "src": "reebokfreestyle__1024.jpg"
+              }
             ],
             "textUrl": "text.html"
           }

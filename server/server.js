@@ -1,9 +1,9 @@
 import path from 'path'
 import Koa from 'koa'
-import serve from 'koa-static'
 import convert from 'koa-convert'
-import cors from 'koa-cors'
 import bodyParser from 'koa-bodyparser'
+import compress from 'koa-compress'
+import helmet from 'koa-helmet'
 import _Logger from 'lokua.net.node-logger'
 
 import config from '../config'
@@ -20,7 +20,7 @@ const { host, port } = config.server
 
 // allow both legacy and modern middleware
 // https://www.npmjs.com/package/koa-convert
-const use = app.use;
+const use = app.use
 app.use = x => use.call(app, convert(x))
 
 app.use(_Logger.koaLogger('request', {
@@ -31,8 +31,6 @@ app.use(_Logger.koaLogger('request', {
       : Logger.INFO,
   format: ['name']
 }))
-
-app.use(cors())
 
 app.use(bodyParser({
   onerror(err, ctx) {
@@ -45,12 +43,21 @@ app.use(bodyParser({
   }
 }))
 
+app.use(compress())
+app.use(helmet())
 app.use(errorHandler)
 
 if (process.env.NODE_ENV === 'development') {
+  const cors = require('koa-cors')
   const mount = require('koa-mount')
+  const serve = require('koa-static')
+
+  // for webpack-dev-server
+  app.use(cors())
+
+  // otherwise statics are served via nginx
   app.use(mount('/static', serve(path.join(projectRoot, 'assets'))))
-} // otherwise statics are served via nginx
+}
 
 app.use(router.routes())
 app.use(api.routes())

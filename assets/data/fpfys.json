@@ -4,7 +4,7 @@
     "name": "All black",
     "text": "Is all black all wack?",
     "image": {
-      "url": "ALLBLACK_JacquelineAlcantara__256.jpg",
+      "src": "ALLBLACK_JacquelineAlcantara__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "response": {
@@ -17,7 +17,7 @@
     "name": "Hat",
     "text": "Are stickers on hat cool?",
     "image": {
-      "url": "HAT_JacquelineAlcantara__256.jpg",
+      "src": "HAT_JacquelineAlcantara__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "response": {
@@ -30,7 +30,7 @@
     "name": "Skirt Boots",
     "text": "The new trend",
     "image": {
-      "url": "SkirtBoots_JacquelineAlcantara__256.jpg",
+      "src": "SkirtBoots_JacquelineAlcantara__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "disabled": true,
@@ -44,7 +44,7 @@
     "name": "White in Winter",
     "text": "foo bar baz",
     "image": {
-      "url": "WHITEinWINTER_JacquelineAlcantara__256.jpg",
+      "src": "WHITEinWINTER_JacquelineAlcantara__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "response": {
@@ -57,7 +57,7 @@
     "name": "X-Tack",
     "text": "foo bar baz",
     "image": {
-      "url": "X-TACK_JACQUELINE_ALCANTARA__256.jpg",
+      "src": "X-TACK_JACQUELINE_ALCANTARA__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "response": {

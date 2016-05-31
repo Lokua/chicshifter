@@ -96,7 +96,7 @@ export async function writeIssue(issue) {
   }
 
   return await fs.writeFile(
-    `${config.dataRoot}/issue${issue.id}.TEST.json`,
+    `${config.dataRoot}/issue${issue.id}.json`,
     JSON.stringify(issue, null, 2),
     'utf8'
   )
