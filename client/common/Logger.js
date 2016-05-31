@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'development') {
 
 } else {
   const loggerMethods = ['log', 'trace', 'debug', 'info', 'warn', 'error']
-  loggerMethods.forEach(m => Logger.prototype[m] = () => {})
+  loggerMethods.forEach(m => _Logger.prototype[m] = () => {})
 }
 
 export default _Logger
