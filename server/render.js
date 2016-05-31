@@ -78,7 +78,7 @@ function renderPage(html, initialState, meta) {
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name=viewport content="width=device-width, initial-scale=1">
   <title>${meta.name}</title>
   <link rel="stylesheet" href="/static/fonts/chicshifter-icons/style.css">
   <link rel="stylesheet" href="${style}">
@@ -89,7 +89,7 @@ function renderPage(html, initialState, meta) {
   <script id="initialState">
     window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
   </script>
-  <script src="${config.server.bundle}"></script>
+  <script async src="${config.server.bundle}"></script>
 </body>
 </html>`
 }
