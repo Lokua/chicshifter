@@ -8,7 +8,8 @@ import { Section } from '@components/Section'
 import { Article } from '@components/Article'
 import { StyleGuide } from '@components/StyleGuide'
 import { Login } from '@components/Login'
-import { Admin, EditIssue, EditSection, EditEntry } from '@components/Admin'
+import { Admin, EditIssue, EditSection, EditEntry, EditFpfys
+} from '@components/Admin'
 
 import Logger from './Logger'
 const logger = new Logger('routes', 'color:blue')
@@ -70,6 +71,11 @@ export default {
     {
       path: '/admin/issue/:issue',
       component: EditIssue,
+      onEnter: auth
+    },
+    {
+      path: '/admin/fpfys',
+      component: EditFpfys,
       onEnter: auth
     },
     {

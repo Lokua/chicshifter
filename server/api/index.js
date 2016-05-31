@@ -11,11 +11,18 @@ import setTitle from './setTitle'
 import * as limiting from './limiting'
 import * as street from './street'
 import * as seeing from './seeing'
+import * as fpfys from './fpfys'
 
 const admin = new Router({ prefix: '/api/admin' })
 
 // require all admin access points to be authenticated
 // admin.use('*', authorize)
+
+
+admin.post('/fpfys/update', fpfys.update)
+admin.post('/fpfys/add', fpfys.add)
+admin.post('/fpfys/delete', fpfys.del)
+admin.post('/fpfys/replace-image', fpfys.replaceImage)
 
 // all pages
 admin.post('/replace-image', replaceImage)

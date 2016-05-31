@@ -37,6 +37,11 @@ class Admin extends Component {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to={`/admin/fpfys`}>
+                  <button className={css.button}>Faux Pas / Faux Yeah</button>
+                </Link>
+              </li>
             </ul>
           </div>
         }

@@ -5,6 +5,7 @@ import find from 'lodash.find'
 import Cookies from 'js-cookie'
 
 import { inspect } from '@common'
+import { actions as fpfyActions } from '@components/Fpfys'
 import { actions as issueActions } from '@components/Issue'
 import { actions as limitingActions } from '@components/Limiting'
 
@@ -15,6 +16,19 @@ const logger = new Logger('admin/actions', {
 })
 
 export default new Actions({
+
+  updateFpfy(data) {
+    return genericFpfyPost('/api/admin/fpfys/update', { data })
+  },
+  deleteFpfy(data) {
+    return genericFpfyPost('/api/admin/fpfys/delete', { data })
+  },
+  addFpfy() {
+    return genericFpfyPost('/api/admin/fpfys/add')
+  },
+  replaceImageFpfy(data) {
+    return genericFpfyPost('/api/admin/fpfys/replace-image', { data })
+  },
 
   SET_AUTHENTICATED: 'isAuthenticated',
 
@@ -328,6 +342,21 @@ export default new Actions({
     })
   }
 })
+
+function genericFpfyPost(url, config, errorHandler) {
+  return dispatch => (async () => {
+    try {
+      const fpfys = await post(url, config)
+      await dispatch(fpfyActions.getFpfysSuccess(fpfys))
+    } catch (err) {
+      if (typeof errorHandler === 'function') {
+        errorHandler(err)
+      } else {
+        console.error('genericFpfyPost >> uncaught error: %o', err)
+      }
+    }
+  })()
+}
 
 function genericPost(url, config, errorHandler) {
   return dispatch => (async () => {

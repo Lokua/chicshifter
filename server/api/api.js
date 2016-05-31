@@ -123,7 +123,9 @@ async function getArticle(issue, section, article) {
 async function getIssues(noCache = false) {
   if (cache.has('issues')) return cache.get('issues')
   const files = await fs.readdir(config.dataRoot)
-  const issueCalls = await files.filter(file => file.includes('TEST'))
+  const issueCalls = await files.filter(file => {
+    return file.includes('TEST') && file.includes('issue')
+  })
     .map(async file => {
       const filePath = path.resolve(config.dataRoot, file)
       const issue = await fs.readFile(filePath, 'utf8')
@@ -135,7 +137,7 @@ async function getIssues(noCache = false) {
 
 async function getFpfys() {
   if (cache.has('fpfys')) return cache.get('fpfys')
-  const fpfys = await fs.readFile(`${config.dataRoot}/fpfys.json`, 'utf8')
+  const fpfys = await fs.readFile(`${config.dataRoot}/fpfys.TEST.json`, 'utf8')
   return cache.set('fpfys', JSON.parse(fpfys))
 }
 

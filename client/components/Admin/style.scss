@@ -31,19 +31,19 @@
 
 .formGroup {
   margin-bottom: $unit;
-  input, button, label {
+  input, button, label, select {
     display: block;
   }
 }
 
-.input, .button, input, button {
+.input, .button, input, button, select {
   padding: $bump/2 $unit;
   border-radius: 2px;
   margin: 2px;
   margin-left: 0;
 }
 
-input[type=text], input[type=number] {
+input[type=text], input[type=number], select {
   color: $text-color;
   border: 1px solid $text-color;
 }

@@ -82,7 +82,7 @@ class Fpfys extends Component {
 
         <div className={css.fpfysInner}>
           <header>
-            <h2 className={css.title}>Faux Pas or Faux Yea?</h2>
+            <h2 className={css.title}>Faux Pas or Faux Yeah?</h2>
           </header>
 
           <main>

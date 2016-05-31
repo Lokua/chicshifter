@@ -34,7 +34,7 @@ export default class Fpfy extends Component {
             onLoad={() => {
               setTimeout(() => this.props.toggleFpfyImageLoading(false))
             }}
-            src={`/static/images/fpfys/${this.props.image.url}`}
+            src={`/static/images/fpfys/${this.props.image.src}`}
             title={this.props.image.name || 'Faux Pas or Paux Yeah?'}
             alt={this.props.image.name || 'Faux Pas or Paux Yeah?'}
           />
