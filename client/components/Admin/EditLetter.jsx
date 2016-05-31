@@ -51,7 +51,7 @@ class EditLetter extends Component {
     this.props.saveLetter(
       this.props.issue,
       this.state.editorState.getCurrentContent().getPlainText()
-    )
+    ).then(() => alert('Save was successful!'))
   }
 
   render() {

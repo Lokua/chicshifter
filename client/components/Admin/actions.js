@@ -56,6 +56,13 @@ export default new Actions({
     })()
   },
 
+  LOGOUT () {
+    return dispatch => (async () => {
+      Cookies.remove('token')
+      dispatch(this.setAuthenticated(false))
+    })()
+  },
+
   ADMIN_SET_EDITABLE_VALUE: ['key', 'value'],
   ADMIN_OPEN_MODAL: 'modalActive',
   ADMIN_SET_EDITOR_STATE: 'editorState',

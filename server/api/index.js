@@ -1,7 +1,7 @@
 import Router from 'koa-router'
 
 // authenticate is handled in main router file
-// import { authorize } from '../middleware/auth'
+import { authorize } from '../middleware/auth'
 
 import replaceImage from './replaceImage'
 import replaceArticle from './replaceArticle'
@@ -17,7 +17,7 @@ import saveLetter from './saveLetter'
 const admin = new Router({ prefix: '/api/admin' })
 
 // require all admin access points to be authenticated
-// admin.use('*', authorize)
+admin.use('*', authorize)
 
 admin.post('/save-letter', saveLetter)
 

@@ -32,3 +32,13 @@
 .main {
   padding: $unit/2 $unit;
 }
+
+.logout {
+  display: block;
+  margin: 12px auto;
+  background: white;
+  border: 2px solid o-md-color('red');
+  font-family: $mono;
+  color: o-md-color('red');
+  cursor: pointer;
+}
