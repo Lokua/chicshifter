@@ -6,14 +6,13 @@ $brand-font: 'lastaregular_italic';
 $heading-font: 'lastaregular_italic';
 $text-font: Georgia, 'Libre Baskerville', serif;
 
-$sans: 'Droid Sans';
+$sans: 'Droid Sans', Helvetica, Arial, sans-serif;
 $mono: 'Droid Sans Mono', Monaco, Consolas, Menlo;
 $serif: $heading-font;
 
 $font-size: 1em;
 $font-size-small: 0.7em;
 $line-height: 1.6;
-//$unit: $font-size;
 $unit: 1rem;
 $bump: o-golden-ratio($unit, -2);
 $leading: $font-size * $line-height;
