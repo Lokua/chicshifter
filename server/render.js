@@ -75,13 +75,19 @@ function renderPage(html, initialState, meta) {
   ${meta.license} licensed
 -->
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="application-name" content="Chic Shifter">
+  <meta name="description" content="a digital fashion journal">
+  <meta name="subject" content="Fashion">
+  <meta name="rating" content="General">
   <title>${meta.name}</title>
-  <link rel="stylesheet" href="/static/fonts/chicshifter-icons/style.css">
-  <link rel="stylesheet" href="${style}">
+  <link href="/static/images/favicon.ico" rel="icon" sizes="16x16" type="image/x-icon">
+  <link href="/static/fonts/chicshifter-icons/style.css" rel="stylesheet">
+  <link href="${style}" rel="stylesheet">
   <style>body { display: none; }</style>
 </head>
 <body>
