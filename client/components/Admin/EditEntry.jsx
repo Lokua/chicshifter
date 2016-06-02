@@ -878,7 +878,7 @@ class EditEntry extends Component {
       <div className={css.Admin}>
         <Slug path={slug} />
         {this[params.section]()}
-        <pre>{JSON.stringify(entry, null, 2)}</pre>
+        {/*<pre>{JSON.stringify(entry, null, 2)}</pre>*/}
       </div>
     )
   }
