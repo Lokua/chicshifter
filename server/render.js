@@ -6,9 +6,11 @@ import { RouterContext, match, createMemoryHistory  } from 'react-router'
 import pkg from '../package.json'
 import config from '../config'
 import Logger from './Logger'
+import { renderOpenGraphTags } from './openGraph'
 import { getIssues, getFpfys } from './api'
-import { routes, configureStore } from '@common'
 import { verifyToken } from './util'
+
+import { routes, configureStore } from '@common'
 import { initialState as initialAdminState } from '@components/Admin'
 
 // eslint-disable-next-line
@@ -51,11 +53,16 @@ export default async function render(ctx) {
         </Provider>
       )
 
+      const state = store.getState()
+
       ctx.body = renderPage(
         html,
-        store.getState(),
+        state,
+
+        // meta
         Object.assign(pkg, {
-          url: ctx.url
+          url: ctx.url,
+          ogTags: renderOpenGraphTags(ctx, state, renderProps)
         })
       )
     } else {
@@ -84,6 +91,7 @@ function renderPage(html, initialState, meta) {
   <meta name="description" content="a digital fashion journal">
   <meta name="subject" content="Fashion">
   <meta name="rating" content="General">
+  ${meta.ogTags}
   <title>${meta.name}</title>
   <link href="/static/images/favicon.ico" rel="icon" sizes="16x16" type="image/x-icon">
   <link href="/static/fonts/chicshifter-icons/style.css" rel="stylesheet">
