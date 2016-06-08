@@ -44,15 +44,15 @@ const About = () => (
               </a>
             </aside>
           </li>
-          <li>
+          {/*<li>
             <h3>Milena Basic: Lakeview</h3>
-          </li>
+          </li>*/}
         </ul>
       </div>
       <hr />
       <div className={css.contrib}>
         <h2 className={css.contribHeading}>Joshua Kleckner</h2>
-        <aside>Web design, development, and deployment</aside>
+        <aside>Web design/development</aside>
         <aside>
           <a
             className="link"
