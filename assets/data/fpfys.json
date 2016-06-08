@@ -2,7 +2,7 @@
   {
     "id": "1",
     "name": "All black",
-    "text": "Is all black all wack?",
+    "text": "All black",
     "image": {
       "src": "ALLBLACK_JacquelineAlcantara__256.jpg",
       "author": "Jacqueline Alcantara"
@@ -14,15 +14,15 @@
   },
   {
     "id": "2",
-    "name": "Hat",
-    "text": "Are stickers on hat cool?",
+    "name": "Stickers on Sports Cap",
+    "text": "Stickers on Sports Cap",
     "image": {
       "src": "HAT_JacquelineAlcantara__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "response": {
       "type": "Faux Pas",
-      "text": "Newness doesn't equal style"
+      "text": "Newness doesn't equal style. "
     }
   },
   {
@@ -42,27 +42,27 @@
   {
     "id": "4",
     "name": "White in Winter",
-    "text": "foo bar baz",
+    "text": "White in Winter",
     "image": {
       "src": "WHITEinWINTER_JacquelineAlcantara__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "response": {
       "type": "Faux Yeah",
-      "text": "White is a color for all seasons"
+      "text": "White is a color for all seasons."
     }
   },
   {
     "id": "5",
-    "name": "X-Tack",
-    "text": "foo bar baz",
+    "name": "X-Tack left in place",
+    "text": "X-Tack left in place",
     "image": {
       "src": "X-TACK_JACQUELINE_ALCANTARA__256.jpg",
       "author": "Jacqueline Alcantara"
     },
     "response": {
       "type": "Faux Yeah",
-      "text": "An x-tack stitch on a blazer, or jacket vent is meant to temporarily hold the fabric in shape, when worn it must be removed to allow for ease of movement."
+      "text": "An x-tack stitch on a blazer, or jacket vent is meant to temporarily hold the fabric in shape, when worn it should be removed to allow for ease of movement."
     }
   }
 ]

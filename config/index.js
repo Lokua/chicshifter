@@ -10,6 +10,7 @@ module.exports = {
   clientRoot,
   assetsRoot,
   dataRoot,
+  dataExtension: '.json', // or '.TEST.json'
   server: {
     host: '0.0.0.0',
     port: 3000,

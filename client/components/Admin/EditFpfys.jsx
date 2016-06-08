@@ -108,7 +108,7 @@ class EditFpfys extends Component {
                     ref={`nameInput:${i}`}
                   />
                 </div>
-                <div className={css.formGroup}>
+                {/*<div className={css.formGroup}>
                   <label>Text:</label>
                   <input
                     type="text"
@@ -116,7 +116,7 @@ class EditFpfys extends Component {
                     defaultValue={fpfy.name}
                     ref={`textInput:${i}`}
                   />
-                </div>
+                </div>*/}
                 <div className={css.formGroup}>
                   <label>Response Type:</label>
                   <select
@@ -142,7 +142,6 @@ class EditFpfys extends Component {
                     this.props.update({
                       id: fpfy.id,
                       name: this.refs[`nameInput:${i}`].value,
-                      text: this.refs[`textInput:${i}`].value,
                       response: {
                         type: this.refs[`responseTypeSelect:${i}`].value,
                         text: this.refs[`responseTextInput:${i}`].value

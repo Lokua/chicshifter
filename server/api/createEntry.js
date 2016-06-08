@@ -96,7 +96,7 @@ export default async function createEntry(ctx) {
     cache.delete('issues')
 
     await fs.writeFile(
-      `${config.dataRoot}/issue${issue}.TEST.json`,
+      `${config.dataRoot}/issue${issue}.json`,
       JSON.stringify(issues[issue-1], null, 2),
       'utf8'
     )

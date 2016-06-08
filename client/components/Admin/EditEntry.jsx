@@ -436,6 +436,11 @@ class EditEntry extends Component {
           const author = authors[i]
           const content = entry.content[author]
 
+          if (!content) {
+            this.error('NULL >> articles: %o, i: %o', articles, i)
+            return null
+          }
+
           return (
             <div key={i} className={css.editable}>
               <h1>{content.objectName}</h1>
@@ -499,9 +504,8 @@ class EditEntry extends Component {
                 New
               </button>
               <div className={css.limitThumbs}>
-                {content.images.map((image, i) => (
+                {content.images && content.images.map((image, i) => (
                   <div key={i} className={css.limitThumb}>
-
                     <div className={css.formGroup}>
                       <label>{image.title}</label>
                       {image.src &&
@@ -566,24 +570,23 @@ class EditEntry extends Component {
                   </div>
                 ))}
               </div>
-
-              <Modal
-                isOpen={this.props.modalActive}
-                onRequestClose={() => {
-                  this.props.openModal(false)
-                }}
-              >
-                <input
-                  type="file"
-                  onChange={e => {
-                    this.props.openModal(false)
-                    // this.props.replaceLimitingEntryImage()
-                  }}
-                />
-              </Modal>
             </div>
           )
         })}
+        <Modal
+          isOpen={this.props.modalActive}
+          onRequestClose={() => {
+            this.props.openModal(false)
+          }}
+          >
+          <input
+          type="file"
+          onChange={e => {
+            this.props.openModal(false)
+            // this.props.replaceLimitingEntryImage()
+          }}
+        />
+        </Modal>
       </div>
     )
   }

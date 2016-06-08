@@ -11,13 +11,14 @@ const logger = new Logger('admin/fpfys', { nameColor: 'cyan' })
 
 export async function update(ctx) {
   const { data } = ctx.request.body
-  logger.debug(data)
+  logger.debug('update data:', data)
   const fpfys = cache.get('fpfys') || await getFpfys()
   let fpfy = find(fpfys, { id: data.id })
   const index = fpfys.indexOf(fpfy)
   fpfy = Object.assign({}, fpfy, data)
   fpfys[index] = fpfy
   await writeFpfys(fpfys)
+  logger.debug('new fpfys:', fpfys)
   ctx.body = cache.set('fpfys', fpfys)
 }
 

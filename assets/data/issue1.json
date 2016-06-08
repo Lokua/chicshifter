@@ -227,45 +227,59 @@
               "images": [
                 {
                   "title": "day1.jpg",
-                  "src": "day1__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "src": "day1__1024.jpg"
                 },
                 {
                   "title": "day2.jpg",
-                  "src": "day2__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "src": "day2__1024.jpg"
                 },
                 {
                   "title": "day3.jpg",
-                  "src": "day3__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "src": "day3__1024.jpg"
                 },
                 {
                   "title": "day4.jpg",
-                  "src": "day4__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "src": "day4__1024.jpg"
                 },
                 {
                   "title": "day5.jpg",
-                  "src": "day5__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "src": "day5__1024.jpg"
                 }
               ]
+            },
+            "jelena": {
+              "objectName": "jelena",
+              "textUrl": "",
+              "images": []
+            },
+            "shari": {
+              "objectName": "shari",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "sharineutral2",
+                  "src": "sharineutral2.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "sharineutral3",
+                  "src": "sharineutral3.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "sharineutral4",
+                  "src": "sharineutral4.jpg",
+                  "author": null,
+                  "rotate": "0"
+                }
+              ]
+            },
+            "autumn": {
+              "objectName": "autumn",
+              "textUrl": "",
+              "images": []
             }
           }
         },
@@ -326,12 +340,107 @@
                   }
                 }
               ]
+            },
+            "ela": {
+              "objectName": "ela",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "eladay1",
+                  "src": "eladay1.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "eladay2",
+                  "src": "eladay2.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "eladay3",
+                  "src": "eladay3.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "eladay4",
+                  "src": "eladay4.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "eladay5",
+                  "src": "eladay5.jpg",
+                  "author": null,
+                  "rotate": "0"
+                }
+              ]
+            },
+            "shari": {
+              "objectName": "shari",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "sharicolors1",
+                  "src": "sharicolors1.JPG",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "shariday2",
+                  "src": "shariday2.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "shariday3",
+                  "src": "shariday3.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "sharicday4",
+                  "src": "sharicday4.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "shariday5",
+                  "src": "shariday5.jpg",
+                  "author": null,
+                  "rotate": "0"
+                }
+              ]
+            },
+            "autumn": {
+              "objectName": "autumn",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "autumnday1",
+                  "src": "autumnday1.jpg",
+                  "author": null
+                },
+                {
+                  "title": "autumnday2",
+                  "src": "autumnday2.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "autumnday3",
+                  "src": "autumnday3.jpg",
+                  "author": null,
+                  "rotate": "0"
+                }
+              ]
             }
           }
         },
         {
           "objectName": "4",
-          "title": "Naturals",
+          "title": "Natural Fabrics",
           "image": {
             "title": "week4.jpg",
             "src": "week4.jpg",
@@ -341,49 +450,39 @@
             }
           },
           "content": {
-            "ana": {
-              "objectName": "ana",
+            "ela": {
+              "objectName": "ela",
               "textUrl": "",
               "images": [
                 {
-                  "title": "day1.jpg",
-                  "src": "day1__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "title": "eladay1",
+                  "src": "eladay1.jpg",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "day2.jpg",
-                  "src": "day2__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "title": "eladay2",
+                  "src": "eladay2.jpg",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "day3.jpg",
-                  "src": "day3__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "title": "eladay3",
+                  "src": "eladay3.jpg",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "day4.jpg",
-                  "src": "day4__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "title": "eladay4",
+                  "src": "eladay4.jpg",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "day5.jpg",
-                  "src": "day5__1024.jpg",
-                  "author": {
-                    "firstName": "Ana",
-                    "lastName": "Sekler"
-                  }
+                  "title": "eladay5",
+                  "src": "eladay5.jpg",
+                  "author": null,
+                  "rotate": "0"
                 }
               ]
             },
@@ -392,46 +491,93 @@
               "textUrl": "",
               "images": [
                 {
-                  "title": "jessday1.jpg",
-                  "src": "jessday1__1024.jpg",
-                  "author": {
-                    "firstName": "Jess",
-                    "lastName": "(?)"
-                  }
+                  "title": "jessday1",
+                  "src": "jessday1.JPG",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "jessday2.jpg",
-                  "src": "jessday2__1024.jpg",
-                  "author": {
-                    "firstName": "Jess",
-                    "lastName": "(?)"
-                  }
+                  "title": "jessday2",
+                  "src": "jessday2.JPG",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "jessday3.jpg",
-                  "src": "jessday3__1024.jpg",
-                  "author": {
-                    "firstName": "Jess",
-                    "lastName": "(?)"
-                  }
+                  "title": "jessday3",
+                  "src": "jessday3.JPG",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "jessday4.jpg",
-                  "src": "jessday4__1024.jpg",
-                  "author": {
-                    "firstName": "Jess",
-                    "lastName": "(?)"
-                  }
+                  "title": "jessday4",
+                  "src": "jessday4.JPG",
+                  "author": null,
+                  "rotate": "0"
                 },
                 {
-                  "title": "jessday5.jpg",
-                  "src": "jessday5__1024.jpg",
-                  "author": {
-                    "firstName": "Jess",
-                    "lastName": ""
-                  }
+                  "title": "jessday5",
+                  "src": "jessday5.JPG",
+                  "author": null,
+                  "rotate": "0"
                 }
               ]
+            },
+            "autumn": {
+              "objectName": "autumn",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "day1",
+                  "src": "day1.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "day2",
+                  "src": "day2.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "day3",
+                  "src": "day3.jpg",
+                  "author": null,
+                  "rotate": "0"
+                }
+              ]
+            },
+            "jelena": {
+              "objectName": "jelena",
+              "textUrl": "",
+              "images": [
+                {
+                  "title": "sharinatural1",
+                  "src": "sharinatural1.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "sharinatural2",
+                  "src": "sharinatural2.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "sharinatural3",
+                  "src": "sharinatural3.jpg",
+                  "author": null,
+                  "rotate": "0"
+                },
+                {
+                  "title": "sharinatural41",
+                  "src": "sharinatural41.jpg",
+                  "author": null,
+                  "rotate": "0"
+                }
+              ]
+            },
+            "shari": {
+              "objectName": "shari"
             }
           }
         }
@@ -1139,9 +1285,9 @@
               "age": "20s"
             },
             {
-              "person": "Desimir",
-              "image": "desimir__1024.jpg",
-              "answer": "Comfort.",
+              "person": "Mateusz",
+              "image": "mateusz.jpg",
+              "answer": "Be myself.",
               "age": "30s"
             },
             {
@@ -1163,18 +1309,36 @@
           "title": "Pilsen",
           "question": "What informs your style?",
           "image": {
-            "title": "",
+            "title": "jackie2",
             "author": {
               "firstName": "",
               "lastName": ""
             },
-            "src": "tara__1024.jpg"
+            "src": "jackie2.jpg"
           },
           "content": [
             {
               "person": "Tara",
               "image": "tara__1024.jpg",
               "answer": "I was thinking when I chose my outfit for the day I wanted something that would transition from work to social and also something that was comfortable for the entire day. I gave my black dress a little pop with the scarf.",
+              "age": "30s"
+            },
+            {
+              "person": "Carlos",
+              "image": "carlos3.jpg",
+              "answer": "Mexican culture, 80s, abstract patterns (geometry). Effortless style, punk, and a modern aesthetic.",
+              "age": "20s"
+            },
+            {
+              "person": "Mallory",
+              "image": "mallory2.jpg",
+              "answer": "I  like being comfortable since I'm always on the go, I look for pieces that are classic and allow me to maintain my personality.",
+              "age": "30s"
+            },
+            {
+              "person": "Jackie",
+              "image": "jackie2.jpg",
+              "answer": "Initially I'm drawn to colors and patterns, however what's most important to my style is maintaining glamour intensified by comfort.",
               "age": "30s"
             }
           ]
@@ -1184,30 +1348,30 @@
           "title": "Ravenswood",
           "question": "What informs your style?",
           "image": {
-            "title": "",
+            "title": "rafael",
             "author": {
               "firstName": "",
               "lastName": ""
             },
-            "src": "shari__1024.jpg"
+            "src": "rafael.jpg"
           },
           "content": [
             {
-              "person": "Felix",
-              "image": "felix__1024.jpg",
-              "answer": "These are my favorite shoes.",
-              "age": "3"
-            },
-            {
-              "person": "Milena",
-              "image": "milena__1024.jpg",
-              "answer": "Here comes the sun.",
+              "person": "Rafael",
+              "image": "rafael.jpg",
+              "answer": "Black, a bit of 80s/90s, try to keep it a bit elegant",
               "age": "30s"
             },
             {
-              "person": "Shari",
-              "image": "shari__1024.jpg",
-              "answer": "Utility, simplicity, androgyny. I am not utilitarian out of laziness—rather, I think the utilitarian aesthetic reflects my personality as a no-bullshit, face-value kind of person. These are also my favorite shoes.",
+              "person": "Reyes",
+              "image": "reyes.jpg",
+              "answer": "No constraints for me but those which fashion dictates.",
+              "age": "40s"
+            },
+            {
+              "person": "Rebecca",
+              "image": "rebecca.jpg",
+              "answer": "Big band music, late 1930/early 1940s",
               "age": "30s"
             },
             {
@@ -1217,6 +1381,41 @@
               "age": "60s"
             }
           ]
+        },
+        {
+          "objectName": "lincoln-square",
+          "title": "Lincoln Square",
+          "image": {
+            "title": "kayla.jpg",
+            "src": "kayla.jpg"
+          },
+          "content": [
+            {
+              "person": "Kayla",
+              "image": "kayla.jpg",
+              "answer": "The desire to be outside in the sun and feel joyful.",
+              "age": "20s"
+            },
+            {
+              "person": "Felix",
+              "image": "felix.jpg",
+              "answer": "These are my favorite shoes.",
+              "age": "3"
+            },
+            {
+              "person": "Shari",
+              "image": "shari.jpg",
+              "answer": "Utility, simplicity, androgyny. I am not utilitarian out of laziness—rather, I think the utilitarian aesthetic reflects my personality as a no-bullshit, face-value kind of person.",
+              "age": "30s"
+            },
+            {
+              "person": "Milena",
+              "image": "milena.jpg",
+              "answer": "Here comes the sun.",
+              "age": "30s"
+            }
+          ],
+          "question": "What informs your style?"
         }
       ]
     },
@@ -1236,7 +1435,7 @@
       "content": [
         {
           "objectName": "detroit",
-          "title": "Detroit, Michigan",
+          "title": "Detroit Historical Society",
           "image": {
             "title": "",
             "author": {

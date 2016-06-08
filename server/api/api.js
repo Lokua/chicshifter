@@ -115,7 +115,8 @@ async function getArticle(issue, section, article) {
 async function getIssues(noCache = false) {
   if (cache.has('issues')) return cache.get('issues')
   const files = await fs.readdir(config.dataRoot)
-  const issueCalls = await files.filter(file => file.includes('issue'))
+  const issueCalls = await files.filter(file =>
+      file.includes('issue') && !file.includes('TEST'))
     .map(async file => {
       const filePath = path.resolve(config.dataRoot, file)
       const issue = await fs.readFile(filePath, 'utf8')

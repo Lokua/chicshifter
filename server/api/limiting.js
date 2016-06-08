@@ -52,7 +52,7 @@ export async function newEntry(ctx) {
   await fs.mkdir(entryPath)
   await fs.writeFile(
     `${entryPath}/text.html`,
-    '<h2><em>Article coming soon...</em></h2>',
+    '<p>Article coming soon...<p>',
     'utf8'
   )
   await util.writeIssue(issues[issue-1])
@@ -132,7 +132,17 @@ export async function replaceEntryImage(ctx) {
   const sectionPath = util.getSectionPath(issue, 'limiting')
   const authorPath = `${sectionPath}/${week}/${author}`
   if (origImage.src) {
-    await fs.unlink(`${authorPath}/${origImage.src}`)
+    try {
+      await fs.unlink(`${authorPath}/${origImage.src}`)
+    } catch (err) {
+
+      // most likely a 404 - image path was written but
+      // somehow the persistence of image failed (too large?)
+      if (err.code === 'ENOENT') {
+        logger.error('replaceEntryImage >> err: %o, request.body: %o',
+          err, { issue, week, author, index, fileName })
+      }
+    }
   }
   await fs.writeFile(`${authorPath}/${src}`, data, 'binary')
   await util.writeIssue(issues[issue-1])
@@ -154,7 +164,13 @@ export async function deleteEntryImage(ctx) {
   const weekObject = getWeekById(issues[issue-1], week)
   const removed = weekObject.content[author].images.splice(index, 1)[0]
   const sectionPath = util.getSectionPath(issue, 'limiting')
-  await fs.unlink(`${sectionPath}/${week}/${author}/${removed.src}`)
+  try {
+    await fs.unlink(`${sectionPath}/${week}/${author}/${removed.src}`)
+  } catch (err) {
+    if (err.status === 'ENOENT') {
+      logger.error('deleteEntryImage >> err: %o', err)
+    }
+  }
   await util.writeIssue(issues[issue-1])
   ctx.body = issues
 }

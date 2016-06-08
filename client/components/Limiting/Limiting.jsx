@@ -75,10 +75,14 @@ class Limiting extends Component {
                 </h2>
                 <ImageSlider
                   id={`${prefix}/${contributor}`}
-                  images={contrib.images.map((image, i) => ({
-                    ...image,
-                    src: `/${imagePrefix}/${contributor}/${image.src}`
-                  }))}
+                  images={
+                    contrib.images && contrib.images.length
+                      ? contrib.images.map((image, i) => ({
+                          ...image,
+                          src: `/${imagePrefix}/${contributor}/${image.src}`
+                        }))
+                      : []
+                  }
                 />
                 {articles[i] &&
                   <div className={css.prose}>
