@@ -28,5 +28,11 @@ module.exports = {
       path.join(clientRoot, 'styles')
     ],
     functions: process.env.NODE_ENV === 'development' ? require('o-') : null
+  },
+  airtable: {
+    base: {
+      limiting: 'appw9CnfNfbL8qTtS',
+      considering: 'appxVeCnLgghKNtoI'
+    }
   }
 }

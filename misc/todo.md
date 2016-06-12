@@ -16,3 +16,7 @@
   + ~~add delete entry~~
     + add delete confirmation
   + ~~add new images~~
+
+
+
+The url segment for this article. Can only contain lower case letters, numbers, and dashes (-). Absolutely no other punctuation or blank spaces is allowed.
