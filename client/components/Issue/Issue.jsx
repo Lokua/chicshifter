@@ -10,7 +10,9 @@ import { getLatestIssue } from './selectors'
 import css from './Issue.scss'
 
 const mapStateToProps = state => ({
-  issue: getLatestIssue(state)
+  issue: getLatestIssue(state),
+  v2: state.issues[0].v2.issues[0],
+  sections: state.issues[0].v2.sections
 })
 
 @shallowUpdate
@@ -18,34 +20,36 @@ class Issue extends Component {
 
   static propTypes = {
     issue: PropTypes.object,
+    v2: PropTypes.object,
+    sections: PropTypes.array.isRequired
   }
 
   render() {
-    const { issue } = this.props
+    const { /*issue, */v2, sections } = this.props
 
     return (
       <div className="Issue">
         <div className={css.issueInner}>
           <ul className={css.thumbs}>
-            {Object.keys(issue.sections).map(key => {
+            {sections.map((section, i) => {
+              const { fields } = section
 
               const front = (
                 <div className={css.sectionLabelContainer}>
                   <div className={css.sectionLabelOverlay} />
                   <div className={css.sectionLabel}>
-                    <h2>{issue.sections[key].name}</h2>
+                    <h2>{fields.Name}</h2>
                   </div>
                 </div>
               )
 
-              const back = <h3>{issue.sections[key].caption}</h3>
+              const back = <h3>{fields.Caption}</h3>
 
-              const link = `issue/${issue.id}/${issue.sections[key].objectName}`
-              const backgroundImage =
-                `/static/images/${issue.sections[key].image.src}`
+              const link = `issue/${v2.fields.Number}/${fields.Slug}`
+              const backgroundImage = fields.Image[0].thumbnails.large.url
 
               return (
-                <li key={key}>
+                <li key={i}>
                   <Link to={link}>
                     <FlippyThumb
                       front={front}

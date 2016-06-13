@@ -3,8 +3,9 @@ import { Link } from 'react-router'
 import css from './Thumb.scss'
 
 function Thumb({ link, image, caption, imageType }) {
-  const src = image.src.charAt(0) === '/' ? image.src : `/${image.src}`
   let imageEl
+  const src = image.src.charAt(0) === '/' || image.src.indexOf('http') === 0
+    ? image.src : `/${image.src}`
 
   if (imageType === 'image') {
     imageEl = (

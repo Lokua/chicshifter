@@ -8,6 +8,7 @@ import config from '../config'
 import Logger from './Logger'
 import { renderOpenGraphTags } from './openGraph'
 import { getIssues, getFpfys } from './api'
+import populateIssues from './db'
 import { verifyToken } from './util'
 
 import { routes, configureStore } from '@common'
@@ -19,6 +20,7 @@ const logger = new Logger('render')
 export default async function render(ctx) {
 
   const issues = await getIssues()
+  issues[0].v2 = await populateIssues()
   const fpfys = await getFpfys()
 
   const matchConfig = {

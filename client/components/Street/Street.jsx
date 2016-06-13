@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { selectors, shallowUpdate, injectLogger } from '@common'
+import { shallowUpdate, injectLogger } from '@common'
 import { ImageSlider } from '@components/ImageSlider'
 import css from './Street.scss'
 
@@ -18,7 +18,24 @@ const mapStateToProps = (state, props) => {
   return {
     id,
     index,
-    info: selectors.article(state, props)
+    meta: (() => {
+      const meta = state.issues[0].v2.street.meta
+      let found
+      meta.some(x => {
+        if (x.fields.Slug === props.params.article) {
+          return (found = x.fields)
+        }
+      })
+
+      return found
+    })(),
+    data: state.issues[0].v2.street.data
+      .filter(x => {
+        return props.params.article === 'lincoln-square'
+          ? x.fields.Neighborhood === 'Lincoln Square'
+          : x.fields.Neighborhood.toLowerCase() === props.params.article
+      })
+      .map(x => x.fields)
   }
 }
 
@@ -30,37 +47,40 @@ class Street extends Component {
     id: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
     params: PropTypes.object.isRequired,
-    info: PropTypes.object.isRequired
+    meta: PropTypes.object.isRequired,
+    data: PropTypes.array.isRequired
   }
 
   render() {
-    const { id, index, info } = this.props
+    const { id, index, meta, data } = this.props
 
-    const images = info.content.map(entry => ({
-      src: `/static/issues/${id}/${entry.image}`
+    this.debug('meta: %o, data: %O', meta, data)
+
+    const images = data.map(entry => ({
+      title: entry.Image[0].filename,
+      src: entry.Image[0].url
     }))
 
-    const content = info.content[index]
-    this.debug('content:', content)
+    const current = data[index]
 
     return (
       <div className={css.Street}>
         <article>
           <header>
-            <h1 className={css.title}>{info.title}</h1>
-            <h5>{info.question}</h5>
+            <h1 className={css.title}>{meta.Neighborhood}</h1>
+            <h5>{meta.Question}</h5>
           </header>
           <ImageSlider
             id={id}
             images={images}
           />
-          {content &&
+          {current &&
             <main className={css.main}>
               <h4>
-                {content.person},&nbsp;
-                <small style={{ fontSize: '0.7em' }}>{content.age}</small>
+                {current.Person},&nbsp;
+                <small style={{ fontSize: '0.7em' }}>{current.Age}</small>
               </h4>
-              <h5>"{content.answer}"</h5>
+              <h5>"{current.Answer}"</h5>
             </main>
           }
         </article>

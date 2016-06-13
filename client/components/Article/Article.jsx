@@ -6,7 +6,6 @@ import { Slug } from '@components/Slug'
 
 // seeing, shopping, touring
 import { StandardArticle } from '@components/StandardArticle'
-
 import { Limiting } from '@components/Limiting'
 import { Considering } from '@components/Considering'
 import { Street } from '@components/Street'

@@ -30,9 +30,10 @@ module.exports = {
     functions: process.env.NODE_ENV === 'development' ? require('o-') : null
   },
   airtable: {
-    base: {
-      limiting: 'appw9CnfNfbL8qTtS',
-      considering: 'appxVeCnLgghKNtoI'
-    }
+    base: 'appuNmcx1af9dtsTA'
+    // base: {
+    //   limiting: 'appw9CnfNfbL8qTtS',
+    //   considering: 'appxVeCnLgghKNtoI'
+    // }
   }
 }

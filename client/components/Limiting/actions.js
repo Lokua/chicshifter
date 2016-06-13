@@ -19,5 +19,22 @@ export default new Actions({
         console.error('error caught in FETCH_LIMITING_ARTICLES >> err:', err)
       }
     })()
+  },
+  FETCH_LIMITING_ARTICLES_V2 (issue, week, persons) {
+    const weekNumber = parseInt(week, 10)
+    return async (dispatch, getState) => {
+      const requests = getState().issues[0].v2.limiting.data.map(entry => {
+        if (entry.fields.WeekNumber === weekNumber) {
+          return fetch(entry.fields.HTML[0].url, {
+            headers: {
+              'Content-Type': 'text/html',
+              mode: 'cors'
+            }
+          }).then(res => res.text())
+        }
+      })
+      const articles = await Promise.all(requests)
+      dispatch(this.fetchLimitingArticlesSuccess(articles))
+    }
   }
 })

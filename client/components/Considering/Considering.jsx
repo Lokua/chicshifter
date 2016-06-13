@@ -1,59 +1,42 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { autobind } from 'core-decorators'
-import { selectors, shallowUpdate } from '@common'
-import actions from '@components/Article/actions'
+import { shallowUpdate } from '@common'
 import css from '@components/Article/Article.scss'
 
 const mapStateToProps = (state, props) => ({
-  article: selectors.article(state, props),
-  content: state.article
-})
+  data: (() => {
+    const data = state.issues[0].v2.considering.data
+    let found
+    data.some(x => {
+      if (x.fields.Slug === props.params.article) {
+        return (found = x.fields)
+      }
+    })
 
-const mapDispatchToProps = (dispatch, props) => ({
-  getArticle() {
-    const { issue, section, article } = props.params
-    dispatch(actions.fetchArticle(issue, section, article))
-  }
+    return found
+  })()
 })
 
 @shallowUpdate
 class Considering extends Component {
 
   static propTypes = {
-    article: PropTypes.object.isRequired,
-    params: PropTypes.object.isRequired,
-    content: PropTypes.string.isRequired,
-    getArticle: PropTypes.func.isRequired
-  }
-
-  componentDidMount() {
-    this.props.getArticle()
-  }
-
-  @autobind
-  getImageUrl() {
-    const { params, article } = this.props
-    return [
-      '/static',
-      'issues',
-      params.issue,
-      params.section,
-      article.image.src
-    ].join('/')
+    data: PropTypes.object.isRequired
   }
 
   render() {
+    const { data } = this.props
+
     return (
       <div className={css.wrapper}>
         <div
           className={css.backgroundImage}
-          style={{ backgroundImage: `url(${this.getImageUrl()})` }}
+          style={{ backgroundImage: `url("${data.Image[0].url}")` }}
         />
         <div className={css.article}>
           <main
             className="markdown"
-            dangerouslySetInnerHTML={{ __html: this.props.content }}
+            dangerouslySetInnerHTML={{ __html: data.HTML }}
           />
         </div>
       </div>
@@ -61,4 +44,4 @@ class Considering extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Considering)
+export default connect(mapStateToProps)(Considering)

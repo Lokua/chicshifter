@@ -6,13 +6,6 @@ import compress from 'koa-compress'
 import helmet from 'koa-helmet'
 import _Logger from 'lokua.net.node-logger'
 
-import populateIssue from './db'
-
-(async() => {
-  const issue = await populateIssue()
-  console.log('issue:', issue)
-})()
-
 import config from '../config'
 import Logger from './Logger'
 import router from './router'
