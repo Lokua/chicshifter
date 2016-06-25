@@ -26,7 +26,8 @@ class Article extends Component {
   }
 
   render() {
-    const section = capitalize(this.props.params.section.split('-')[0])
+    const section = capitalize(this.props.params.section)
+    
     const ArticleComponent = /(see|shopp|tour)ing/i.test(section)
       ? StandardArticle
       : components[`${section}`]

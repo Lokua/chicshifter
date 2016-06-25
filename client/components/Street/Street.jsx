@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import find from 'lodash.find'
+
 import { shallowUpdate, injectLogger } from '@common'
 import { ImageSlider } from '@components/ImageSlider'
 import css from './Street.scss'
@@ -18,18 +20,10 @@ const mapStateToProps = (state, props) => {
   return {
     id,
     index,
-    meta: (() => {
-      const meta = state.issues[0].v2.street.meta
-      let found
-      meta.some(x => {
-        if (x.fields.Slug === props.params.article) {
-          return (found = x.fields)
-        }
-      })
-
-      return found
-    })(),
-    data: state.issues[0].v2.street.data
+    meta: find(state.v2.street.meta, x => (
+      x.fields.Slug === props.params.article
+    )),
+    data: state.v2.street.data
       .filter(x => {
         return props.params.article === 'lincoln-square'
           ? x.fields.Neighborhood === 'Lincoln Square'
@@ -53,8 +47,6 @@ class Street extends Component {
 
   render() {
     const { id, index, meta, data } = this.props
-
-    this.debug('meta: %o, data: %O', meta, data)
 
     const images = data.map(entry => ({
       title: entry.Image[0].filename,

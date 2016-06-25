@@ -8,11 +8,7 @@ const paths = [
   '/home',
   '/about',
   '/issue',
-  '/issue/*',
-  '/style-guide',
-  '/admin',
-  '/admin/*',
-  '/login'
+  '/issue/*'
 ]
 
 paths.map(path => router.get(path, render))

@@ -6,12 +6,11 @@ import { injectLogger, shallowUpdate, uiActions } from '@common'
 import { IconButton } from '@components/IconButton'
 import { Modal } from '@components/Modal'
 
-import actions from './actions'
 import Fpfy from './Fpfy.jsx'
 import css from './Fpfys.scss'
 
 const mapStateToProps = state => ({
-  fpfys: state.issues[0].v2.fpfys.filter(x => x.fields.Enabled),
+  fpfys: state.v2.fpfys.filter(x => x.fields.Enabled),
   currentFpfy: state.ui.currentFpfy,
   fpfyImageLoading: state.ui.fpfyImageLoading,
   fpfyModalActive: state.ui.fpfyModalActive
@@ -23,7 +22,6 @@ const mapDispatchToProps = (dispatch, props) => ({
   ),
   prev: () => dispatch(uiActions.getPreviousFpfy()),
   next: count => dispatch(uiActions.getNextFpfy(count)),
-  postFpfyVote: (fpfyId, vote) => dispatch(actions.postFpfyVote(fpfyId, vote)),
   openFpfyModal: open => dispatch(uiActions.openFpfyModal(open))
 })
 
@@ -38,7 +36,6 @@ class Fpfys extends Component {
     toggleFpfyImageLoading: PropTypes.func.isRequired,
     prev: PropTypes.func.isRequired,
     next: PropTypes.func.isRequired,
-    postFpfyVote: PropTypes.func.isRequired,
     fpfyModalActive: PropTypes.bool.isRequired,
     openFpfyModal: PropTypes.func.isRequired
   }
@@ -51,7 +48,6 @@ class Fpfys extends Component {
       currentFpfy,
       fpfyImageLoading,
       toggleFpfyImageLoading,
-      // postFpfyVote,
       fpfyModalActive,
       openFpfyModal
     } = this.props
@@ -92,7 +88,6 @@ class Fpfys extends Component {
               <div className={css.paw}>
                 <img
                   onClick={() => {
-                    // postFpfyVote(fpfys[currentFpfy].id, false)
                     openFpfyModal(true)
                   }}
                   src={`/static/images/FauxPas_JacquelineAlcantara__512.jpg`}
@@ -103,7 +98,6 @@ class Fpfys extends Component {
               <div className={css.paw}>
                 <img
                   onClick={() => {
-                    // postFpfyVote(fpfys[currentFpfy].id, true)
                     openFpfyModal(true)
                   }}
                   src={`/static/images/FauxYea_JacquelineAlcantara__512.jpg`}

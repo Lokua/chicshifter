@@ -55,11 +55,11 @@ function getArticleSlug(state, props) {
 
 function getSectionSlug(state, props) {
   const p = props.params
-  const issue = find(state.issues, { id: p.issue })
-  const sectionName = find(issue.sections, { objectName: p.section }).name
   const slug = [{
     href: `/issue/${p.issue}/${p.section}`,
-    text: sectionName
+    text: find(state.v2.sections, section => (
+      section.fields.Slug === p.section
+    )).fields.Name
   }]
 
   return slug

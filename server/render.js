@@ -7,7 +7,6 @@ import pkg from '../package.json'
 import config from '../config'
 import Logger from './Logger'
 import { renderOpenGraphTags } from './openGraph'
-import { getIssues, getFpfys } from './api'
 import populateIssues from './db'
 
 import { routes, configureStore } from '@common'
@@ -17,9 +16,7 @@ const logger = new Logger('render')
 
 export default async function render(ctx) {
 
-  const issues = await getIssues()
-  issues[0].v2 = await populateIssues()
-  const fpfys = await getFpfys()
+  const v2 = await populateIssues()
 
   const matchConfig = {
     routes,
@@ -35,9 +32,7 @@ export default async function render(ctx) {
     } else if (renderProps) {
 
       const store = configureStore({
-        issues,
-        v2: issues[0].v2,
-        fpfys: issues[0].v2.fpfys
+        v2: v2
       })
 
       const html = renderToString(

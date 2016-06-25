@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import find from 'lodash.find'
 
 import { shallowUpdate, injectLogger } from '@common'
 import { Prose } from '@components/Prose'
@@ -8,22 +9,13 @@ import { ImageSlider } from '@components/ImageSlider'
 import css from './StandardArticle.scss'
 
 const mapStateToProps = (state, props) => {
-  const { params } = props
+  const { params: p } = props
 
   return {
-    id: `${params.issue}/${params.section}/${params.article}`,
-    data: (() => {
-      const data = state.issues[0].v2[props.params.section].data
-      const slug = props.params.article
-      let found
-      data.some(x => {
-        if (x.fields.Slug === slug) {
-          return (found = x.fields)
-        }
-      })
-
-      return found
-    })()
+    id: `${p.issue}/${p.section}/${p.article}`,
+    data: find(state.v2[p.section].data, x => (
+      x.fields.Slug === p.article
+    )).fields
   }
 }
 

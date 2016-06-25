@@ -8,7 +8,7 @@ import { Prose } from '@components/Prose'
 import css from './Section.scss'
 
 const mapStateToProps = (state, props) => ({
-  sectionV2: find(state.v2.sections,  section => (
+  section: find(state.v2.sections,  section => (
     section.fields.Slug === props.params.section
   )),
   content: state.v2[props.params.section]
@@ -19,13 +19,13 @@ class Section extends Component {
 
   static propTypes = {
     params: PropTypes.object.isRequired,
-    sectionV2: PropTypes.object.isRequired,
+    section: PropTypes.object.isRequired,
     content: PropTypes.object.isRequired
   }
 
   render() {
-    const { params, sectionV2, content } = this.props
-    const fields = sectionV2.fields
+    const { params, section, content } = this.props
+    const fields = section.fields
 
     let data = content.meta ? content.meta : content.data
     if (params.section === 'limiting') {
