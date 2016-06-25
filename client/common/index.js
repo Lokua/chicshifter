@@ -9,7 +9,6 @@ export {
   shallowUpdate
 } from './decorators'
 
-// export { getRoutes } from './routes'
 export routes from './routes'
 
 export { actions as uiActions } from './ui'

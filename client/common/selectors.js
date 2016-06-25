@@ -57,18 +57,7 @@ function getSectionSlug(state, props) {
   const p = props.params
   const issue = find(state.issues, { id: p.issue })
   const sectionName = find(issue.sections, { objectName: p.section }).name
-
-  // const slug = [{
-  //   href: `/issue/${p.issue}`,
-  //   text: `${issue.season} ${issue.year}`
-  // }, {
-  //   href: `/issue/${p.issue}/${p.section}`,
-  //   text: sectionName
-  // }]
-  const slug = [/*{
-    href: `/issue/${p.issue}`,
-    text: `${issue.season} ${issue.year}`
-  }, */{
+  const slug = [{
     href: `/issue/${p.issue}/${p.section}`,
     text: sectionName
   }]

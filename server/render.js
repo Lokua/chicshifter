@@ -9,10 +9,8 @@ import Logger from './Logger'
 import { renderOpenGraphTags } from './openGraph'
 import { getIssues, getFpfys } from './api'
 import populateIssues from './db'
-import { verifyToken } from './util'
 
 import { routes, configureStore } from '@common'
-import { initialState as initialAdminState } from '@components/Admin'
 
 // eslint-disable-next-line
 const logger = new Logger('render')
@@ -34,19 +32,12 @@ export default async function render(ctx) {
     if (err) {
       ctx.status = 500
 
-    // } else if (redirectLocation) {
-    //   logger.warn('redirectLocation: %o', redirectLocation)
-
     } else if (renderProps) {
-
-      const token = ctx.cookies.get('token')
-      let isAuthenticated = !!verifyToken(token)
-      logger.debug('isAuthenticated:', isAuthenticated)
 
       const store = configureStore({
         issues,
-        fpfys,
-        admin: Object.assign({}, initialAdminState, { isAuthenticated })
+        v2: issues[0].v2,
+        fpfys: issues[0].v2.fpfys
       })
 
       const html = renderToString(
