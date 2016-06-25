@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
 
-import { shallowUpdate, uiActions } from '@common'
+import { injectLogger, shallowUpdate, uiActions } from '@common'
 import { IconButton } from '@components/IconButton'
 import { Modal } from '@components/Modal'
 
@@ -11,7 +11,7 @@ import Fpfy from './Fpfy.jsx'
 import css from './Fpfys.scss'
 
 const mapStateToProps = state => ({
-  fpfys: state.fpfys.filter(fpfy => !fpfy.disabled),
+  fpfys: state.issues[0].v2.fpfys.filter(x => x.fields.Enabled),
   currentFpfy: state.ui.currentFpfy,
   fpfyImageLoading: state.ui.fpfyImageLoading,
   fpfyModalActive: state.ui.fpfyModalActive
@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   openFpfyModal: open => dispatch(uiActions.openFpfyModal(open))
 })
 
+@injectLogger
 @shallowUpdate
 class Fpfys extends Component {
 
@@ -54,6 +55,8 @@ class Fpfys extends Component {
       openFpfyModal
     } = this.props
 
+    this.debug('fpfys:', fpfys)
+
     const prevDisabled = currentFpfy === 0
     const nextDisabled = currentFpfy === fpfys.length-1
 
@@ -66,17 +69,17 @@ class Fpfys extends Component {
           onRequestClose={() => openFpfyModal(false)}
         >
           <div className={css.modalContent}>
-            <h1>{fpfys[currentFpfy].response.type}!</h1>
+            <h1>{fpfys[currentFpfy].fields.Response[0]}!</h1>
             <div className={css.imageContainer}>
               <img
                 src={
-                  fpfys[currentFpfy].response.type === 'Faux Yeah'
+                  fpfys[currentFpfy].fields.Response[0] === 'Faux Yeah'
                     ? `/static/images/FauxYea_JacquelineAlcantara__512.jpg`
                     : `/static/images/FauxPas_JacquelineAlcantara__512.jpg`
                 }
               />
             </div>
-            <h2>{fpfys[currentFpfy].response.text}</h2>
+            <h2>{fpfys[currentFpfy].fields.ResponseText}</h2>
           </div>
         </Modal>
 
@@ -114,7 +117,7 @@ class Fpfys extends Component {
             <section className={css.fpfys}>
               {fpfys &&
                 <Fpfy
-                  {...fpfys[currentFpfy]}
+                  fpfy={fpfys[currentFpfy]}
                   fpfyImageLoading={fpfyImageLoading}
                   toggleFpfyImageLoading={toggleFpfyImageLoading}
                 />

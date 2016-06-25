@@ -7,9 +7,7 @@ let cherry = true
 export default class Fpfy extends Component {
 
   static propTypes = {
-    name: PropTypes.string,
-    image: PropTypes.object,
-    text: PropTypes.string,
+    fpfy: PropTypes.object.isRequired,
     fpfyImageLoading: PropTypes.bool.isRequired,
     toggleFpfyImageLoading: PropTypes.func.isRequired
   }
@@ -22,9 +20,12 @@ export default class Fpfy extends Component {
   }
 
   render() {
+    const { fields } = this.props.fpfy
+    const image = fields.Image[0]
+
     return (
       <figure className={css.Fpfy}>
-        <h3 className={css.title}>{this.props.name}</h3>
+        <h3 className={css.title}>{fields.Name}</h3>
         <div
           className={css.imageContainer}
           style={{ paddingBottom: '8px' }}
@@ -34,12 +35,11 @@ export default class Fpfy extends Component {
             onLoad={() => {
               setTimeout(() => this.props.toggleFpfyImageLoading(false))
             }}
-            src={`/static/images/fpfys/${this.props.image.src}`}
-            title={this.props.image.name || 'Faux Pas or Paux Yeah?'}
-            alt={this.props.image.name || 'Faux Pas or Paux Yeah?'}
+            src={image.url}
+            title={image.filename || 'Faux Pas or Paux Yeah?'}
+            alt={image.filename || 'Faux Pas or Paux Yeah?'}
           />
         </div>
-        {/*<figcaption>{this.props.text}</figcaption>*/}
       </figure>
     )
   }

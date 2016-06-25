@@ -11,6 +11,7 @@ export default async function populateIssues() {
     return cache.get('issuesV2')
   }
 
+  const fpfys = await selectTable('FPFY')
   const issues = await selectTable('Issues')
   const sections = await selectTable('Sections')
   const considering = await selectTable('ConsideringData')
@@ -22,8 +23,8 @@ export default async function populateIssues() {
   const street = await selectTable('StreetData')
   const touring = await selectTable('TouringData')
 
-
   return cache.set('issuesV2', {
+    fpfys,
     issues,
     sections,
     considering: { data: considering },
