@@ -18,8 +18,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  toggleFpfyImageLoading: bool =>
-    dispatch(uiActions.toggleFpfyImageLoading(bool)),
+  toggleFpfyImageLoading: bool => (
+    dispatch(uiActions.toggleFpfyImageLoading(bool))
+  ),
   prev: () => dispatch(uiActions.getPreviousFpfy()),
   next: count => dispatch(uiActions.getNextFpfy(count)),
   postFpfyVote: (fpfyId, vote) => dispatch(actions.postFpfyVote(fpfyId, vote)),
@@ -54,8 +55,6 @@ class Fpfys extends Component {
       fpfyModalActive,
       openFpfyModal
     } = this.props
-
-    this.debug('fpfys:', fpfys)
 
     const prevDisabled = currentFpfy === 0
     const nextDisabled = currentFpfy === fpfys.length-1

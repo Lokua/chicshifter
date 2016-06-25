@@ -1,16 +1,48 @@
 import { createClient } from './client'
 import cache from '../cache'
 import config from '../../config'
+import later from 'later'
+import Logger from '../Logger'
+
+const logger = new Logger('db')
 
 const db = createClient(config.airtable.base)
+let sheduled = false
 
 export default async function populateIssues() {
 
   if (cache.has('issuesV2')) {
-    console.log('returning v2 issues from cache...')
+    logger.debug('returning v2 issues from cache...')
+
     return cache.get('issuesV2')
   }
 
+  cache.set('issuesV2', await populate())
+
+  if (!sheduled) {
+    sheduled = true
+    const schedule = later.parse.recur().every(5).minute()
+    later.setInterval(async () => {
+      logger.debug('schedule >> Resetting v2 cache')
+      cache.set('issuesV2', await populate())
+    }, schedule)
+  }
+
+  return cache.get('issuesV2')
+}
+
+async function selectTable(table) {
+  return await db.select(table)
+    .then(db.mapRecords)
+    .then(records => {
+      logger.debug(`Done mapping ${table}`)
+
+      return records
+    })
+}
+
+async function populate() {
+  const start = new Date()
   const fpfys = await selectTable('FPFY')
   const issues = await selectTable('Issues')
   const sections = await selectTable('Sections')
@@ -22,8 +54,9 @@ export default async function populateIssues() {
   const streetMeta = await selectTable('StreetMeta')
   const street = await selectTable('StreetData')
   const touring = await selectTable('TouringData')
+  logger.info(`airtable query finished in ${new Date() - start}ms`)
 
-  return cache.set('issuesV2', {
+  return {
     fpfys,
     issues,
     sections,
@@ -39,10 +72,5 @@ export default async function populateIssues() {
       data: street
     },
     touring: { data: touring }
-  })
-}
-
-async function selectTable(table) {
-  return await db.select(table)
-    .then(db.mapRecords)
+  }
 }

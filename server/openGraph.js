@@ -12,8 +12,8 @@ const base = 'https://chicshifter.com'
 
 export function renderOpenGraphTags(ctx, state, renderProps) {
   const url = path.parse(ctx.url)
-  logger.debug('state:', state)
-  logger.debug('url:', url)
+  // logger.debug('state:', state)
+  // logger.debug('url:', url)
 
   const tags = [
     meta('site_name', 'Chic Shifter'),
@@ -47,7 +47,7 @@ export function renderOpenGraphTags(ctx, state, renderProps) {
     tags.push(meta('image', `${base}/static/images/FlamingoPattern-01.png`))
   }
 
-  logger.debug('tags:', tags)
+  // logger.debug('tags:', tags)
   return tags.join('\n  ')
 }
 
