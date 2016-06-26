@@ -21,9 +21,9 @@ export default async function populateIssues() {
 
   if (!sheduled) {
     sheduled = true
-    const schedule = later.parse.recur().every(5).minute()
+    const schedule = later.parse.recur().every(2).minute()
     later.setInterval(async () => {
-      logger.debug('schedule >> Resetting v2 cache')
+      logger.info('schedule >> Resetting v2 cache')
       cache.set('issuesV2', await populate())
     }, schedule)
   }
@@ -35,7 +35,7 @@ async function selectTable(table) {
   return await db.select(table)
     .then(db.mapRecords)
     .then(records => {
-      logger.debug(`Done mapping ${table}`)
+      logger.info(`Done mapping ${table}`)
 
       return records
     })
