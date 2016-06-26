@@ -76,11 +76,9 @@ class ImageSlider extends Component {
     if (image && image.credits && image.credits.length) {
       return (
         <ul className={css.credits}>
-          {image.credits.map((credit, i) => {
-            const name = credit.author.name ||
-              `${credit.author.firstName} ${credit.author.lastName}`
-            return (<li key={i}>{credit.type}: {name}</li>)
-          })}
+          {image.credits.map((credit, i) => (
+            <li key={i}>{credit.type}: {credit.person}</li>
+          ))}
         </ul>
       )
     }

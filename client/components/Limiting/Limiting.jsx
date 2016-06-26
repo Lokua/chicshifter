@@ -12,7 +12,7 @@ const mapStateToProps = (state, props) => ({
     const meta = state.v2.limiting.meta
     const weekNumber = parseInt(props.params.article)
 
-    return find(state.v2.limiting.meta, x (
+    return find(state.v2.limiting.meta, x => (
       x.fields.WeekNumber === weekNumber
     ))
   })(),
@@ -44,7 +44,7 @@ class Limiting extends Component {
       <div className={css.Limiting}>
         <header>
           <h1 className={css.title}>
-            Week {meta.WeekNumber}: {meta.Title}
+            Week {params.article}: {meta.Title}
           </h1>
         </header>
         <hr />
@@ -60,7 +60,8 @@ class Limiting extends Component {
                     x.Images && x.Images.length
                       ? x.Images.map((image, i) => ({
                           title: image.filename,
-                          src: image.url
+                          src: image.url,
+                          ...image
                         }))
                       : []
                   }

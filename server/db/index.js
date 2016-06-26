@@ -43,7 +43,9 @@ async function selectTable(table) {
 
 async function populate() {
   const start = new Date()
+
   const fpfys = await selectTable('FPFY')
+  const about = await selectTable('AboutCredits')
   const issues = await selectTable('Issues')
   const sections = await selectTable('Sections')
   const considering = await selectTable('ConsideringData')
@@ -54,11 +56,13 @@ async function populate() {
   const streetMeta = await selectTable('StreetMeta')
   const street = await selectTable('StreetData')
   const touring = await selectTable('TouringData')
+
   logger.info(`airtable query finished in ${new Date() - start}ms`)
 
   return {
     fpfys,
     issues,
+    about,
     sections,
     considering: { data: considering },
     limiting: {

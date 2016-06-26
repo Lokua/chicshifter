@@ -50,7 +50,8 @@ class Street extends Component {
 
     const images = data.map(entry => ({
       title: entry.Image[0].filename,
-      src: entry.Image[0].url
+      src: entry.Image[0].url,
+      ...entry.Image[0]
     }))
 
     const current = data[index]

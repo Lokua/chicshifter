@@ -32,9 +32,12 @@ class StandardArticle extends Component {
   render() {
     const { id, data } = this.props
 
+    this.debug('data:', data)
+
     const images = data.Images.map(image => ({
       title: image.filename,
-      src: image.url
+      src: image.url,
+      ...image
     }))
 
     return (
