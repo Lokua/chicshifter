@@ -1,4 +1,8 @@
 import Airtable from 'airtable'
+import Logger from '../Logger'
+
+// eslint-disable-next-line
+const logger = new Logger('db/client')
 
 Airtable.configure({
   endpointUrl: 'https://api.airtable.com',
@@ -26,7 +30,7 @@ export function createClient(baseKey) {
       return records.map(record => {
         const r = record._rawJson
 
-        if (r.fields && r.fields.Credits) {
+        if (r.fields.Credits) {
           try {
             const credits = parseCsv(r.fields.Credits)
             r.fields.Images.forEach(image => {

@@ -10,7 +10,7 @@ module.exports = {
   clientRoot,
   assetsRoot,
   dataRoot,
-  dataExtension: '.json', // or '.TEST.json'
+  dataExtension: '.json',
   server: {
     host: '0.0.0.0',
     port: 3000,
@@ -31,9 +31,5 @@ module.exports = {
   },
   airtable: {
     base: 'appuNmcx1af9dtsTA'
-    // base: {
-    //   limiting: 'appw9CnfNfbL8qTtS',
-    //   considering: 'appxVeCnLgghKNtoI'
-    // }
   }
 }

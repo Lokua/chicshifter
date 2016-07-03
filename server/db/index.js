@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+import fs from 'mz/fs'
+
 import { createClient } from './client'
 import cache from '../cache'
 import config from '../../config'
@@ -7,7 +10,7 @@ import Logger from '../Logger'
 const logger = new Logger('db')
 
 const db = createClient(config.airtable.base)
-let sheduled = false
+let scheduled = false
 
 export default async function populateIssues() {
 
@@ -19,8 +22,8 @@ export default async function populateIssues() {
 
   cache.set('issuesV2', await populate())
 
-  if (!sheduled) {
-    sheduled = true
+  if (!scheduled) {
+    scheduled = true
     const schedule = later.parse.recur().every(2).minute()
     later.setInterval(async () => {
       logger.info('schedule >> Resetting v2 cache')
@@ -59,7 +62,7 @@ async function populate() {
 
   logger.info(`airtable query finished in ${new Date() - start}ms`)
 
-  return {
+  const data = {
     fpfys,
     issues,
     about,
@@ -77,4 +80,12 @@ async function populate() {
     },
     touring: { data: touring }
   }
+
+  // fs.writeFile(
+  //   `${config.dataRoot}/DEBUG.json`,
+  //   JSON.stringify(data, null, 2),
+  //   'utf8'
+  // )
+
+  return data
 }
