@@ -2,16 +2,17 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import find from 'lodash.find'
 
-import { shallowUpdate } from '@common'
+import { shallowUpdate, injectLogger } from '@common'
 import css from '@components/Article/Article.scss'
 
 const mapStateToProps = (state, props) => ({
   data: find(state.v2.considering.data, x => (
     x.fields.Slug === props.params.article
-  ))
+  )).fields
 })
 
 @shallowUpdate
+@injectLogger
 class Considering extends Component {
 
   static propTypes = {
