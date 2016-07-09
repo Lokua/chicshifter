@@ -8,7 +8,8 @@ const initialState = {
   fpfyModalActive: false,
   imageModalActive: false,
   imageClass: 'wide', // or `tall`
-  dialogActive: false
+  dialogActive: false,
+  imageModalImage: null
 }
 
 export default createReducer(initialState, {
@@ -91,5 +92,9 @@ export default createReducer(initialState, {
 
   [actions.SHOW_DIALOG] (state, { show }) {
     return { ...state, dialogActive: show }
+  },
+
+  [actions.SET_IMAGE_MODAL_IMAGE] (state, { image }) {
+    return { ...state, imageModalImage: image }
   }
 })

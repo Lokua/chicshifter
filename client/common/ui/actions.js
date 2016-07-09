@@ -11,5 +11,6 @@ export default new Actions({
   OPEN_FPFY_MODAL: 'open',
   OPEN_IMAGE_MODAL: 'open',
   SET_IMAGE_CLASS: 'imageClass',
-  SHOW_DIALOG: 'show'
+  SHOW_DIALOG: 'show',
+  SET_IMAGE_MODAL_IMAGE: 'image'
 })

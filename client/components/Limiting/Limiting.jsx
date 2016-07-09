@@ -9,7 +9,6 @@ import css from './Limiting.scss'
 
 const mapStateToProps = (state, props) => ({
   meta:  (() => {
-    const meta = state.v2.limiting.meta
     const weekNumber = parseInt(props.params.article)
 
     return find(state.v2.limiting.meta, x => (
@@ -34,6 +33,18 @@ class Limiting extends Component {
     meta: PropTypes.object.isRequired
   }
 
+  formatImages(x) {
+    if (x.Images && x.Images.length) {
+      return x.Images.map(image => ({
+        title: image.filename,
+        src: image.url,
+        ...image
+      }))
+    }
+
+    return []
+  }
+
   render() {
     const { params, data, meta } = this.props
     const prefix = `${params.issue}/${params.section}/${params.article}`
@@ -56,15 +67,7 @@ class Limiting extends Component {
                 <h2 style={{ textAlign: 'center' }}>{x.Name}</h2>
                 <ImageSlider
                   id={`${prefix}/${x.Name}`}
-                  images={
-                    x.Images && x.Images.length
-                      ? x.Images.map((image, i) => ({
-                          title: image.filename,
-                          src: image.url,
-                          ...image
-                        }))
-                      : []
-                  }
+                  images={::this.formatImages(x)}
                 />
                 {x.HTML &&
                   <div className={css.prose}>

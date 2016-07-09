@@ -24,7 +24,8 @@ const mapDispatchToProps = (dispatch, props) => {
     decImageIndex: () => dispatch(uiActions.decImageIndex(id)),
     setImageIndex: index => dispatch(uiActions.setImageIndex(id, index)),
     openImageModal: open => dispatch(uiActions.openImageModal(open)),
-    setImageClass: imageClass => dispatch(uiActions.setImageClass(imageClass))
+    setImageClass: imageClass => dispatch(uiActions.setImageClass(imageClass)),
+    setImageModalImage: image => dispatch(uiActions.setImageModalImage(image))
   }
 }
 
@@ -47,7 +48,8 @@ class ImageSlider extends Component {
     imageModalActive: PropTypes.bool.isRequired,
     openImageModal: PropTypes.func.isRequired,
     imageClass: PropTypes.string.isRequired,
-    setImageClass: PropTypes.func.isRequired
+    setImageClass: PropTypes.func.isRequired,
+    setImageModalImage: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -93,10 +95,7 @@ class ImageSlider extends Component {
       <div className={css.ImageSlider}>
 
         {this.activeImageNode && this.props.imageModalActive &&
-          <ImageModal
-            image={this.getCurrentImage()}
-            imageRef={this.activeImageNode}
-          />
+          <ImageModal imageRef={this.activeImageNode} />
         }
 
         <section className={css.main}>
@@ -125,14 +124,13 @@ class ImageSlider extends Component {
               return (
                 <img
                   key={i}
-                  ref={node => {
-                    if (isActive) this.activeImageNode = node
-                  }}
-                  className={cx(css.image, {
-                    [css.active]: isActive
-                  })}
+                  ref={node => { if (isActive) this.activeImageNode = node }}
+                  className={cx(css.image, { [css.active]: isActive })}
                   style={style}
-                  onClick={() => this.props.openImageModal(true)}
+                  onClick={() => {
+                    this.props.setImageModalImage(image)
+                    this.props.openImageModal(true)
+                  }}
                   {...image}
                 />
               )

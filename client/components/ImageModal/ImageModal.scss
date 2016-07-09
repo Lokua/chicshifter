@@ -1,26 +1,13 @@
 @import '@';
 
 .imageContainer {
-  @include o-size(90%, 100%);
-  padding: 1rem;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 5%;
+  @include o-size(100%);
+  display: flex;
 }
 
 .image {
-  display: block;
-  margin: 0 auto;
-  width: auto;
-  height: 100%;
-  box-shadow: $box-shadow;
-}
-
-.wide {
-  @include o-size(100%, auto);
-}
-
-.tall {
-  @include o-size(auto, 100%);
+  @include o-size(100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
