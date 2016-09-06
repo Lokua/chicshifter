@@ -3,4 +3,4 @@
 /home/web/certbot-auto renew \
   --quiet \
   --no-self-upgrade \
-  --post-hook "service nginx restart"
+  --post-hook "service nginx restart" > /home/web/certbot-renew.log
