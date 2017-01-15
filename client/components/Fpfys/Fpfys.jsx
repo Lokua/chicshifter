@@ -10,7 +10,10 @@ import Fpfy from './Fpfy.jsx'
 import css from './Fpfys.scss'
 
 const mapStateToProps = state => ({
-  fpfys: state.v2.fpfys.filter(x => x.fields.Enabled),
+  activeIssueNumber: state.ctx.activeIssueNumber,
+  fpfys: state.v2.fpfys.filter(x => {
+    return x.fields.Enabled && x.fields.Issue === state.ctx.activeIssueNumber
+  }),
   currentFpfy: state.ui.currentFpfy,
   fpfyImageLoading: state.ui.fpfyImageLoading,
   fpfyModalActive: state.ui.fpfyModalActive
@@ -28,7 +31,6 @@ const mapDispatchToProps = (dispatch, props) => ({
 @injectLogger
 @shallowUpdate
 class Fpfys extends Component {
-
   static propTypes = {
     fpfys: PropTypes.array.isRequired,
     currentFpfy: PropTypes.number.isRequired,

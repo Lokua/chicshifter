@@ -22,7 +22,6 @@ export default class Issue extends Component {
 
   render() {
     const { issue, sections } = this.props
-    this.debug(issue, sections)
 
     return (
       <div className="Issue">

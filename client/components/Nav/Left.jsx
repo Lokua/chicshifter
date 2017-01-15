@@ -7,20 +7,23 @@ import NavLink from './NavLink.jsx'
 import css from './Nav.scss'
 
 @connect(state => ({
+  activeIssueNumber: selectors.activeIssueNumber(state),
   activeIssue: selectors.activeIssue(state),
   pathname: selectors.pathname(state)
 }))
 @injectLogger
 export default class Left extends Component {
   static propTypes = {
+    activeIssueNumber: PropTypes.number.isRequired,
     activeIssue: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired
   }
 
   render() {
-    const { activeIssue, pathname } = this.props
+    const { activeIssue, activeIssueNumber, pathname } = this.props
     const { createdTime, fields } = activeIssue
     const name = getSeasonAbbreviation(fields.Season)
+    // this.debug(`activeIssue:`, activeIssue)
 
     return (
       <nav className={css.Nav}>
@@ -30,7 +33,7 @@ export default class Left extends Component {
           </li>
           <li>
             <NavLink
-              to={`/issue/${fields.Number}/letter-from-the-editor`}
+              to={`/issue/${activeIssueNumber}/letter-from-the-editor`}
               text={`${name} ${createdTime.slice(0, 4)}`}
             />
           </li>

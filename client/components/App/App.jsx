@@ -45,7 +45,7 @@ export default class App extends Component {
     this.context.router.listen(({ pathname }) => {
       const p = pathname.startsWith(`/`) ? pathname : `/${pathname}`
 
-      if (/^\/(about|home)?/.test(pathname) &&
+      if ((p === `/` || /(about|home)/.test(p)) &&
           latestIssue.fields.Number !== activeIssueNumber) {
         setActiveIssueNumber(latestIssue.fields.Number)
 

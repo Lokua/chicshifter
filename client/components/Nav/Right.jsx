@@ -14,6 +14,10 @@ export default class Right extends Component {
     issues: PropTypes.array.isRequired
   }
 
+  onClick(e) {
+    e.preventDefault()
+  }
+
   render() {
     return (
       <nav className={`${css.Nav} ${css.Right}`}>
@@ -30,6 +34,7 @@ export default class Right extends Component {
                 <NavLink
                   to={`/issue/${fields.Number}`}
                   text={`${text} ${year}`}
+                  onClick={this.onClick}
                 />
               </li>
             )
