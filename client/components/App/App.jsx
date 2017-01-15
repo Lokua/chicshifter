@@ -45,7 +45,8 @@ export default class App extends Component {
     this.context.router.listen(({ pathname }) => {
       const p = pathname.startsWith(`/`) ? pathname : `/${pathname}`
 
-      if (p === `/` && latestIssue.fields.Number !== activeIssueNumber) {
+      if (/^\/(about|home)?/.test(pathname) &&
+          latestIssue.fields.Number !== activeIssueNumber) {
         setActiveIssueNumber(latestIssue.fields.Number)
 
       } else if (p.startsWith(`/issue`)) {
@@ -65,7 +66,7 @@ export default class App extends Component {
       return (
         <div style={{ marginTop: `64px` }}>
           <Loading loading size={[`100%`, `auto`]} />
-        </div>  
+        </div>
       )
     }
 
