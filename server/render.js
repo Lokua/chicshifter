@@ -15,7 +15,6 @@ import { routes, configureStore } from '@common'
 const logger = new Logger('render')
 
 export default async function render(ctx) {
-
   const v2 = await populateIssues()
 
   const matchConfig = {
@@ -23,6 +22,8 @@ export default async function render(ctx) {
     location: ctx.url,
     history: createMemoryHistory(ctx.url)
   }
+
+  logger.debug(`ctx.pathname:`, ctx.pathname)
 
   match(matchConfig, (err, redirectLocation, renderProps) => {
 

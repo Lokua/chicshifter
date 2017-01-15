@@ -1,8 +1,8 @@
 import { createSelector }  from 'reselect'
 import find from 'lodash.find'
+import { ident } from './util'
 
 function getSection(state, props) {
-
   const issue = state.issues.filter(issue => {
     return issue.id === props.params.issue
   })[0]
@@ -65,9 +65,42 @@ function getSectionSlug(state, props) {
   return slug
 }
 
+function getIssues(state) {
+  return state.v2.issues
+}
+
+function getLatestIssue(issues) {
+  let latest = issues[0]
+
+  issues.slice(1).forEach(issue => {
+    if (issue.fields.Number > latest.fields.Number) {
+      latest = issue
+    }
+  })
+
+  return latest
+}
+
+function getActiveIssueNumber(state) {
+  return state.ctx.activeIssueNumber
+}
+
+function getActiveIssue(issues, activeIssueNumber) {
+  return issues.find(issue => issue.fields.Number === activeIssueNumber)
+}
+
+function getPathname(state) {
+  return state.ctx.pathname
+}
+
 export default {
-  sectionSlug: createSelector(getSectionSlug, slug => slug),
-  articleSlug: createSelector(getArticleSlug, slug => slug),
-  section: createSelector(getSection, section => section),
+  pathname: createSelector(getPathname, ident),
+  activeIssue: createSelector(getIssues, getActiveIssueNumber, getActiveIssue),
+  activeIssueNumber: createSelector(getActiveIssueNumber, ident),
+  issues: createSelector(getIssues, ident),
+  latestIssue: createSelector(getIssues, getLatestIssue),
+  sectionSlug: createSelector(getSectionSlug, ident),
+  articleSlug: createSelector(getArticleSlug, ident),
+  section: createSelector(getSection, ident),
   article: createSelector([getSection, getArticleParam], getArticle)
 }

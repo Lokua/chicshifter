@@ -7,15 +7,15 @@ import { FlippyThumb } from '@components/FlippyThumb'
 
 import css from './Issue.scss'
 
-const mapStateToProps = (state, props) => ({
-  issue: state.v2.issues[state.v2.issues.length-1],
+@connect((state, props) => ({
+  get issue() {
+    return state.v2.issues[state.v2.issues.length-1]
+  },
   sections: state.v2.sections
-})
-
+}))
 @injectLogger
 @shallowUpdate
-class Issue extends Component {
-
+export default class Issue extends Component {
   static propTypes = {
     issue: PropTypes.object.isRequired,
     sections: PropTypes.array.isRequired
@@ -64,4 +64,4 @@ class Issue extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Issue)
+// export default connect(mapStateToProps)(Issue)

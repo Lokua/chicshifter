@@ -1,19 +1,17 @@
 import Airtable from 'airtable'
 import Logger from '../Logger'
 
-// eslint-disable-next-line
-const logger = new Logger('db/client')
+const logger = new Logger(`db/client`)
 
 Airtable.configure({
-  endpointUrl: 'https://api.airtable.com',
+  endpointUrl: `https://api.airtable.com`,
   apiKey: process.env.AIRTABLE_API_KEY
 })
 
-export function createClient(baseKey) {
+export default function createClient(baseKey) {
   const base = Airtable.base(baseKey)
 
   return {
-
     select(baseName) {
       return new Promise((resolve, reject) => {
         base(baseName).select({}).firstPage((err, records) => {
@@ -33,13 +31,16 @@ export function createClient(baseKey) {
         if (r.fields.Credits) {
           try {
             const credits = parseCsv(r.fields.Credits)
-            r.fields.Images.forEach(image => {
-              image.credits = credits.filter(credit => (
-                credit.filename === image.filename
-              ))
-            })
+
+            if (Array.isArray(r.fields.Images)) {
+              r.fields.Images.forEach(image => {
+                image.credits = credits.filter(credit => (
+                  credit.filename === image.filename
+                ))
+              })
+            }
           } catch (err) {
-            console.error('error parsing csv >> r.id:', r.id)
+            debugCsvParseError(err, r)
             delete r.fields.Credits
           }
         }
@@ -51,14 +52,26 @@ export function createClient(baseKey) {
 }
 
 function parseCsv(csv) {
-  const split = csv.trim().split('\n')
-  const keys = split.shift().split(',').map(str => str.trim())
+  const split = csv.trim().split(`\n`)
+  const keys = split.shift().split(`,`).map(str => str.trim())
   const parsed = split.map(str => {
     const record = {}
-    str.split(',').forEach((value, i) => record[keys[i]] = value.trim())
+    str.split(`,`).forEach((value, i) => record[keys[i]] = value.trim())
 
     return record
   })
 
   return parsed
+}
+
+function debugCsvParseError(error, record) {
+  const r = Object.keys(record.fields).reduce((obj, field) => {
+    if (field !== `HTML`) {
+      obj[field] = record.fields[field]
+    }
+
+    return obj
+  }, {})
+  logger.error(`Error parsing CSV >> record.fields (w/out HTML):`, r)
+  logger.error(`Error parsing CSV >> (original error):`, error)
 }

@@ -14,4 +14,5 @@ export routes from './routes'
 export { actions as uiActions } from './ui'
 export config from './config'
 
-export selectors from './selectors'
+import selectors from './selectors'
+export { selectors }

@@ -1,16 +1,23 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+import selectors from '@common/selectors'
 import { Prose } from '@components/Prose'
 import css from './Letter.scss'
 
-const mapStateToProps = (state, props) => ({
-  letter: state.v2.issues[props.params.issue-1].fields.EditorLetterHTML
-})
+@connect((state, props) => {
+  const issueNumber = parseInt(props.routeParams.issue)
 
-class Letter extends Component {
+  return {
+    letter: selectors.issues(state).find(issue => (
+      issue.fields.Number === issueNumber
+    )).fields.EditorLetterHTML
+  }
+})
+export default class Letter extends Component {
   static propTypes = {
-    letter: PropTypes.string.isRequired
+    letter: PropTypes.string.isRequired,
+    routeParams: PropTypes.object.isRequired
   }
 
   render() {
@@ -21,5 +28,3 @@ class Letter extends Component {
     )
   }
 }
-
-export default connect(mapStateToProps)(Letter)
