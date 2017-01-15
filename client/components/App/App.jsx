@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { injectLogger } from '@common'
 import selectors from '@common/selectors'
 import { actions } from '@common/ctx'
+import { Loading } from '@components/Loading'
 import { Header } from '@components/Header'
 import { Footer } from '@components/Footer'
 import css from './App.scss'
@@ -60,6 +61,14 @@ export default class App extends Component {
   }
 
   render() {
+    if (this.props.activeIssueNumber === -1) {
+      return (
+        <div style={{ marginTop: `64px` }}>
+          <Loading loading size={[`100%`, `auto`]} />
+        </div>  
+      )
+    }
+
     return (
       <div className={css.App}>
         <div className={css.backgroundImage} />

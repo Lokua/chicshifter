@@ -7,7 +7,7 @@ export const actions = new Actions({
 })
 
 const initialState = {
-  activeIssueNumber: 1,
+  activeIssueNumber: -1,
   pathname: `/`
 }
 

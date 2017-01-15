@@ -3,15 +3,14 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import { shallowUpdate, injectLogger } from '@common'
+import selectors from '@common/selectors'
 import { FlippyThumb } from '@components/FlippyThumb'
 
 import css from './Issue.scss'
 
-@connect((state, props) => ({
-  get issue() {
-    return state.v2.issues[state.v2.issues.length-1]
-  },
-  sections: state.v2.sections
+@connect(state => ({
+  issue: selectors.activeIssue(state),
+  sections: selectors.sections(state)
 }))
 @injectLogger
 @shallowUpdate
@@ -23,6 +22,7 @@ export default class Issue extends Component {
 
   render() {
     const { issue, sections } = this.props
+    this.debug(issue, sections)
 
     return (
       <div className="Issue">
@@ -42,7 +42,7 @@ export default class Issue extends Component {
 
               const back = <h3>{fields.Caption}</h3>
 
-              const link = `issue/${issue.fields.Number}/${fields.Slug}`
+              const link = `/issue/${issue.fields.Number}/${fields.Slug}`
               const backgroundImage = fields.Image[0].thumbnails.large.url
 
               return (
@@ -63,5 +63,3 @@ export default class Issue extends Component {
     )
   }
 }
-
-// export default connect(mapStateToProps)(Issue)

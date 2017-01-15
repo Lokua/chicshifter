@@ -80,10 +80,10 @@ async function populate() {
     touring: { data: touring }
   }
 
-  // fs.writeFile(
+  // await fs.writeFile(
   //   `${config.dataRoot}/DEBUG.json`,
   //   JSON.stringify(data, null, 2),
-  //   'utf8'
+  //   `utf8`
   // )
 
   return data

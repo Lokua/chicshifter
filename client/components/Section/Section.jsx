@@ -1,42 +1,43 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import find from 'lodash.find'
 
 import { injectLogger } from '@common'
+import selectors from '@common/selectors'
 import { Thumb } from '@components/Thumb'
 import { Prose } from '@components/Prose'
 import css from './Section.scss'
 
-const mapStateToProps = (state, props) => ({
-  section: find(state.v2.sections,  section => (
+@connect((state, props) => ({
+  section: state.v2.sections.find(section => (
     section.fields.Slug === props.params.section
   )),
-  content: state.v2[props.params.section]
-})
-
+  meta: selectors.sectionMeta(state, props),
+  activeIssueNumber: state.ctx.activeIssueNumber
+}))
 @injectLogger
-class Section extends Component {
-
+export default class Section extends Component {
   static propTypes = {
     params: PropTypes.object.isRequired,
     section: PropTypes.object.isRequired,
-    content: PropTypes.object.isRequired
+    meta: PropTypes.array.isRequired,
+    activeIssueNumber: PropTypes.number.isRequired
   }
 
   render() {
-    const { params, section, content } = this.props
+    this.debug(`this.props.activeIssueNumber:`, this.props.activeIssueNumber)
+    const { params, section, meta } = this.props
     const fields = section.fields
+    let data = meta
 
-    let data = content.meta ? content.meta : content.data
-    if (params.section === 'limiting') {
-      data = data.sort((a, b) => {
-        return a.fields.WeekNumber - b.fields.WeekNumber
-      })
+    this.debug(`data:`, data, section)
+
+    if (params.section === `limiting`) {
+      data = data.sort((a, b) => a.fields.WeekNumber - b.fields.WeekNumber)
     }
 
     return (
       <div className={css.Section}>
-        {fields.hasOwnProperty('Description') && fields.Description &&
+        {fields.hasOwnProperty(`Description`) && fields.Description &&
           <section className={css.description}>
             <Prose text={fields.Description} />
           </section>
@@ -48,13 +49,13 @@ class Section extends Component {
             let link = `/issue/${params.issue}/${params.section}/`
             let caption
 
-            if (params.section === 'limiting') {
+            if (params.section === `limiting`) {
               link += fields.WeekNumber
               caption = `Week ${fields.WeekNumber}: ${fields.Title}`
 
             } else {
               link += fields.Slug
-              if (params.section === 'street') {
+              if (params.section === `street`) {
                 caption = fields.Neighborhood
               } else {
                 caption = fields.Name
@@ -62,7 +63,7 @@ class Section extends Component {
             }
 
             return (
-              <li key={i} className={css[className] || ''}>
+              <li key={c.id} className={css[className] || ``}>
                 <Thumb
                   link={link}
                   image={{
@@ -73,12 +74,17 @@ class Section extends Component {
                 />
               </li>
             )
-
           })}
+          {!data || !data.length &&
+            <h3 style={{
+              fontStyle: `italic`,
+              marginTop: `32px`
+            }}>
+              Articles Coming Soon...
+            </h3>
+          }
         </ul>
       </div>
     )
   }
 }
-
-export default connect(mapStateToProps)(Section)

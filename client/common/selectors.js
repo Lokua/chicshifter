@@ -2,20 +2,27 @@ import { createSelector }  from 'reselect'
 import find from 'lodash.find'
 import { ident } from './util'
 
+function getSections(state) {
+  return state.v2.sections
+}
+
 function getSection(state, props) {
-  const issue = state.issues.filter(issue => {
-    return issue.id === props.params.issue
-  })[0]
+  return state.v2[props.params.section].data.map(
+    _createIssueAndEnabledFilter(state)
+  )
+}
 
-  let section
+function getSectionMeta(state, props) {
+  const section = state.v2[props.params.section]
+  const metaKey = section.meta ? `meta` : `data`
 
-  Object.keys(issue.sections).some(key => {
-    if (issue.sections[key].objectName === props.params.section) {
-      return section = issue.sections[key]
-    }
-  })
+  const meta = section[metaKey].filter(_createIssueAndEnabledFilter(state))
+  return meta
+}
 
-  return section
+function _createIssueAndEnabledFilter(state) {
+  console.info(state.ctx.activeIssueNumber)
+  return x => x.fields.Issue === state.ctx.activeIssueNumber && x.fields.Enabled
 }
 
 function getArticleParam(_, props) {
@@ -66,14 +73,14 @@ function getSectionSlug(state, props) {
 }
 
 function getIssues(state) {
-  return state.v2.issues
+  return state.v2.issues.filter(issue => issue.fields.Enabled)
 }
 
 function getLatestIssue(issues) {
-  let latest = issues[0]
+  let latest = issues.find(issue => issue.fields.Number === 1)
 
-  issues.slice(1).forEach(issue => {
-    if (issue.fields.Number > latest.fields.Number) {
+  issues.forEach(issue => {
+    if (issue.fields.Enabled && issue.fields.Number > latest.fields.Number) {
       latest = issue
     }
   })
@@ -101,6 +108,8 @@ export default {
   latestIssue: createSelector(getIssues, getLatestIssue),
   sectionSlug: createSelector(getSectionSlug, ident),
   articleSlug: createSelector(getArticleSlug, ident),
+  sections: createSelector(getSections, ident),
   section: createSelector(getSection, ident),
+  sectionMeta: createSelector(getSectionMeta, ident),
   article: createSelector([getSection, getArticleParam], getArticle)
 }
