@@ -29,7 +29,7 @@ p {
   margin-top: $unit;
 }
 
-a, :global(.a) {
+a {
   color: $text-color;
   text-decoration: none;
   &:hover, &:link, &:active, &:visited {

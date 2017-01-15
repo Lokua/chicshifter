@@ -23,10 +23,7 @@ export default async function render(ctx) {
     history: createMemoryHistory(ctx.url)
   }
 
-  logger.debug(`ctx.pathname:`, ctx.pathname)
-
   match(matchConfig, (err, redirectLocation, renderProps) => {
-
     if (err) {
       ctx.status = 500
 
