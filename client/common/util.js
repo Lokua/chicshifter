@@ -65,7 +65,3 @@ export const ident = identity
 export function pluck(prop) {
   return obj => obj[prop]
 }
-
-export function dashToTitle(slug) {
-  return slug.split(`-`).map(capitalize).join(` `)
-}

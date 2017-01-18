@@ -1,14 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { shallowUpdate, injectLogger, dashToTitle, pluck } from '@common'
+import { shallowUpdate, injectLogger, pluck } from '@common'
 import { ImageSlider } from '@components/ImageSlider'
 import css from './Street.scss'
 
 const mapStateToProps = (state, props) => {
   const { params } = props
   const id = `${params.issue}/${params.section}/${params.article}`
-  const articleTitle = dashToTitle(params.article)
 
   let index
   try {
@@ -17,14 +16,15 @@ const mapStateToProps = (state, props) => {
     index = 0
   }
 
-  const { meta, data } = state.v2.street
+  const { meta: allMeta, data } = state.v2.street
+  const meta = allMeta.find(x => x.fields.Slug === props.params.article)
 
   return {
     id,
     index,
-    meta: meta.find(x => x.fields.Slug === props.params.article),
+    meta,
     data: data
-      .filter(x => x.fields.Neighborhood === articleTitle)
+      .filter(x => x.fields.Neighborhood === meta.fields.Neighborhood)
       .map(pluck(`fields`))
   }
 }
