@@ -29,8 +29,6 @@ export default class Section extends Component {
     const fields = section.fields
     let data = meta
 
-    this.debug(`data:`, data, section)
-
     if (params.section === `limiting`) {
       data = data.sort((a, b) => a.fields.WeekNumber - b.fields.WeekNumber)
     }

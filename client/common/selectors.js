@@ -20,8 +20,12 @@ function getSectionMeta(state, props) {
   return meta
 }
 
+function getSectionData(state, props) {
+  const section = state.v2[props.params.section]
+  return section.data.filter(_createIssueAndEnabledFilter(state))
+}
+
 function _createIssueAndEnabledFilter(state) {
-  console.info(state.ctx.activeIssueNumber)
   return x => x.fields.Issue === state.ctx.activeIssueNumber && x.fields.Enabled
 }
 
@@ -111,5 +115,6 @@ export default {
   sections: createSelector(getSections, ident),
   section: createSelector(getSection, ident),
   sectionMeta: createSelector(getSectionMeta, ident),
+  data: createSelector(getSectionData, ident),
   article: createSelector([getSection, getArticleParam], getArticle)
 }

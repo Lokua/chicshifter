@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import find from 'lodash.find'
 
-import { shallowUpdate, injectLogger } from '@common'
+import { shallowUpdate, injectLogger, dashToTitle, pluck } from '@common'
 import { ImageSlider } from '@components/ImageSlider'
 import css from './Street.scss'
 
 const mapStateToProps = (state, props) => {
   const { params } = props
   const id = `${params.issue}/${params.section}/${params.article}`
+  const articleTitle = dashToTitle(params.article)
 
   let index
   try {
@@ -17,26 +17,21 @@ const mapStateToProps = (state, props) => {
     index = 0
   }
 
+  const { meta, data } = state.v2.street
+
   return {
     id,
     index,
-    meta: find(state.v2.street.meta, x => (
-      x.fields.Slug === props.params.article
-    )),
-    data: state.v2.street.data
-      .filter(x => {
-        return props.params.article === 'lincoln-square'
-          ? x.fields.Neighborhood === 'Lincoln Square'
-          : x.fields.Neighborhood.toLowerCase() === props.params.article
-      })
-      .map(x => x.fields)
+    meta: meta.find(x => x.fields.Slug === props.params.article),
+    data: data
+      .filter(x => x.fields.Neighborhood === articleTitle)
+      .map(pluck(`fields`))
   }
 }
 
 @injectLogger
 @shallowUpdate
 class Street extends Component {
-
   static propTypes = {
     id: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
@@ -71,7 +66,7 @@ class Street extends Component {
             <main className={css.main}>
               <h4>
                 {current.Person},&nbsp;
-                <small style={{ fontSize: '0.7em' }}>{current.Age}</small>
+                <small style={{ fontSize: `0.7em` }}>{current.Age}</small>
               </h4>
               <h5>"{current.Answer}"</h5>
             </main>

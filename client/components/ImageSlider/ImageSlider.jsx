@@ -32,7 +32,6 @@ const mapDispatchToProps = (dispatch, props) => {
 @injectLogger
 @shallowUpdate
 class ImageSlider extends Component {
-
   static defaultProps = {
     index: 0
   }
@@ -86,14 +85,45 @@ class ImageSlider extends Component {
     }
   }
 
+  getThumb(image) {
+    if (image.thumbnails && image.thumbnails.large) {
+      return image.thumbnails.large.url
+    }
+
+    return image.src
+  }
+
+  renderActiveImage() {
+    const { images, index } = this.props
+    const image = images.find((_, i) => i === index)
+
+    const style = {}
+    if (image.rotate) {
+      style.transform = `rotate(${image.rotate}deg)`
+    }
+
+    return (
+      <img
+        ref={node => this.activeImageNode = node}
+        className={cx(css.image, css.active)}
+        style={style}
+        onClick={() => {
+          this.props.setImageModalImage(image)
+          this.props.openImageModal(true)
+        }}
+        {...image}
+      />
+    )
+  }
+
   render() {
-    const { images, index,
-      incImageIndex, decImageIndex, setImageIndex } = this.props
+    const { images, index, incImageIndex, decImageIndex, setImageIndex
+    } = this.props
     const tailIndex = images.length - 1
+    const image = images.find((_, i) => i === index)
 
     return (
       <div className={css.ImageSlider}>
-
         {this.activeImageNode && this.props.imageModalActive &&
           <ImageModal imageRef={this.activeImageNode} />
         }
@@ -110,31 +140,9 @@ class ImageSlider extends Component {
           </div>
 
           <div className={css.imageContainer} ref="imageContainer">
-
             <div className={css.overlay}>Click to enlarge</div>
 
-            {images.map((image, i) => {
-              const isActive = i === index
-              const style = {}
-
-              if (image.rotate) {
-                style.transform = `rotate(${image.rotate}deg)`
-              }
-
-              return (
-                <img
-                  key={i}
-                  ref={node => { if (isActive) this.activeImageNode = node }}
-                  className={cx(css.image, { [css.active]: isActive })}
-                  style={style}
-                  onClick={() => {
-                    this.props.setImageModalImage(image)
-                    this.props.openImageModal(true)
-                  }}
-                  {...image}
-                />
-              )
-            })}
+            {this.renderActiveImage(image)}
           </div>
 
           <div className={css.navButtonContainer}>
@@ -158,9 +166,8 @@ class ImageSlider extends Component {
 
         <section className={css.thumbs}>
           {images.map((image, i) => {
-
             const style = {
-              backgroundImage: `url('${image.src}')`
+              backgroundImage: `url('${this.getThumb(image)}')`
             }
 
             if (image.rotate) {
@@ -170,9 +177,7 @@ class ImageSlider extends Component {
             return (
               <div
                 key={i}
-                className={cx(css.thumb, {
-                  [css.active]: i === index
-                })}
+                className={cx(css.thumb, { [css.active]: i === index })}
                 style={style}
                 onClick={() => setImageIndex(i)}
               />
