@@ -9,4 +9,25 @@
     font-weight: bold;
     margin: 1rem 0;
   }
+
+  blockquote {
+    padding-right: $unit * 2;
+    padding-left: $unit * 2;
+  }
+
+  sub,
+  sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
 }
