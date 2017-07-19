@@ -57,6 +57,8 @@ class Fpfys extends Component {
     const prevDisabled = currentFpfy === 0
     const nextDisabled = currentFpfy === fpfys.length-1
 
+    if (!fpfys[currentFpfy]) return null
+
     return (
       <div className={css.Fpfys}>
         <div className={css.overlay} />
