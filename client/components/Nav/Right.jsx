@@ -27,13 +27,12 @@ export default class Right extends Component {
           </li>
           {this.props.issues.map(({ id, createdTime, fields }) => {
             const text = getSeasonAbbreviation(fields.Season)
-            const year = createdTime.slice(0, 4)
 
             return (
               <li key={id}>
                 <NavLink
                   to={`/issue/${fields.Number}`}
-                  text={`${text} ${year}`}
+                  text={`${text} ${fields.Year}`}
                   onClick={this.onClick}
                 />
               </li>

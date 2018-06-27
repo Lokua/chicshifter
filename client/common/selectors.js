@@ -77,7 +77,22 @@ function getSectionSlug(state, props) {
 }
 
 function getIssues(state) {
-  return state.v2.issues.filter(issue => issue.fields.Enabled)
+  return state.v2.issues
+    .filter(issue => issue.fields.Enabled)
+    .sort((a, b) => {
+      const x = +a.fields.Year
+      const y = +b.fields.Year
+
+      if (x > y) {
+        return -1
+      }
+
+      if (x < y) {
+        return 1
+      }
+
+      return a.fields.Season === 'Spring/Summer' ? 1 : -1
+    })
 }
 
 function getLatestIssue(issues) {

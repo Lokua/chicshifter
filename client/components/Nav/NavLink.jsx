@@ -4,10 +4,6 @@ import { Link } from 'react-router'
 const NavLink = ({ to, text, onClick }) => (
   <h4 className="brand">
     <Link to={to}>{text}</Link>
-    {/* {onClick ?
-      <Link to={to}>{text}</Link> :
-      <a href={to} onClick={onClick}>{text}</a>
-    } */}
   </h4>
 )
 

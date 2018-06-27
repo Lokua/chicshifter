@@ -21,9 +21,8 @@ export default class Left extends Component {
 
   render() {
     const { activeIssue, activeIssueNumber, pathname } = this.props
-    const { createdTime, fields } = activeIssue
+    const { fields } = activeIssue
     const name = getSeasonAbbreviation(fields.Season)
-    // this.debug(`activeIssue:`, activeIssue)
 
     return (
       <nav className={css.Nav}>
@@ -34,7 +33,7 @@ export default class Left extends Component {
           <li>
             <NavLink
               to={`/issue/${activeIssueNumber}/letter-from-the-editor`}
-              text={`${name} ${createdTime.slice(0, 4)}`}
+              text={`${name} ${fields.Year}`}
             />
           </li>
         </ul>
